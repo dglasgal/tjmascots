@@ -103,16 +103,12 @@ export async function getMascots(): Promise<Mascot[]> {
     .map((m) => enrichWithEmoji(m, matchStore(m, stores)));
 }
 
-/** Build a public URL for a mascot photo given its filename. */
+/** Build a public URL for a mascot photo given its filename.
+ *  Photos are bundled with the site under /public/photos/ and served from
+ *  the static CDN. (The Supabase `mascot-photos` bucket is reserved for
+ *  future user-submitted photos once a moderator approves them.) */
 export function photoUrl(photoFilename: string | null): string | null {
   if (!photoFilename) return null;
-  const sb = getSupabase();
-  if (sb && SUPABASE_CONFIGURED) {
-    // Once the migration has moved photos into the Supabase `mascot-photos` bucket,
-    // this returns the public CDN URL. For now we still serve from /public/photos/.
-    const hosted = sb.storage.from('mascot-photos').getPublicUrl(photoFilename);
-    if (hosted?.data?.publicUrl) return hosted.data.publicUrl;
-  }
   return `/photos/${photoFilename}`;
 }
 
