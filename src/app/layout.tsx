@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: "TJ Mascots — the unofficial map of every Trader Joe's plush",
+  title: "TJ Mascots — the unofficial map of every Trader Joe's store mascot",
   description:
-    "An unofficial fan map of every Trader Joe's hidden plush mascot across the U.S. Click any pin to meet the mascot — or submit the one at your local store.",
+    "An unofficial fan map of every Trader Joe's hidden store mascot across the U.S. Click any pin to meet the mascot — or submit the one at your local store.",
   openGraph: {
     title: "TJ Mascots",
-    description: "The unofficial map of every Trader Joe's plush mascot.",
+    description: "The unofficial map of every Trader Joe's store mascot.",
     siteName: 'TJ Mascots',
     type: 'website',
   },

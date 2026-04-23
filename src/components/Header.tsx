@@ -91,7 +91,7 @@ export default function Header({
         <div>
           <h1 className="font-display text-2xl font-black leading-none tracking-tight">TJ Mascots</h1>
           <p className="mt-0.5 text-xs font-semibold opacity-80 max-[700px]:hidden">
-            an unofficial map of every Trader Joe&apos;s plush
+            an unofficial map of every Trader Joe&apos;s store mascot
           </p>
         </div>
       </div>

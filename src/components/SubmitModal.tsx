@@ -77,7 +77,7 @@ export default function SubmitModal({ open, presetStore, onClose }: SubmitModalP
               Submit a new mascot
             </h2>
             <p className="mb-5 mt-1 text-sm text-[var(--ink-soft)]">
-              Spotted a plush at your local Trader Joe&apos;s? Tell us about it. We&apos;ll verify
+              Spotted a store mascot at your local Trader Joe&apos;s? Tell us about it. We&apos;ll verify
               before adding to the map.
             </p>
 
