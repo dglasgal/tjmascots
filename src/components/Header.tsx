@@ -169,7 +169,7 @@ export default function Header({
 
       <div className="flex flex-shrink-0 items-center gap-2.5">
         <div className="rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold max-[900px]:hidden">
-          {totalMascots} known · {totalUnknown} need yours
+          {totalMascots} known · {totalUnknown} unknown
         </div>
         <button
           onClick={onSubmitClick}
