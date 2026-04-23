@@ -1,0 +1,64 @@
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #FDF6EC;
+  --cream-dark: #F5E9D7;
+  --tj-red: #C8102E;
+  --tj-red-dark: #A00D24;
+  --ink: #3A2E1F;
+  --ink-soft: #6B5B45;
+  --accent: #E8A87C;
+}
+
+html, body { height: 100%; overflow: hidden; }
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* Custom pin styles inside Leaflet markers (can't be Tailwind due to L.divIcon injection) */
+.mascot-pin {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--cream);
+  border: 3px solid var(--tj-red);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.mascot-pin:hover { transform: scale(1.2); z-index: 10; }
+.mascot-pin.no-photo { border-style: dashed; border-color: var(--accent); }
+
+.unknown-pin {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--cream-dark);
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.unknown-pin:hover {
+  transform: scale(1.8);
+  z-index: 10;
+  background: var(--cream);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(58,46,31,0.12);
+}
+.leaflet-popup-content {
+  margin: 12px 16px;
+  font-family: inherit;
+}
+
+/* Hide default Leaflet marker icons (we use custom divIcons only) */
+.leaflet-marker-icon.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}

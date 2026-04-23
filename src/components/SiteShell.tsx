@@ -1,0 +1,122 @@
+'use client';
+
+import { useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
+import Header from './Header';
+import MascotCard from './MascotCard';
+import SubmitModal from './SubmitModal';
+import type { Mascot, Store } from '@/lib/types';
+import type { SearchResult } from '@/lib/search';
+
+// Leaflet relies on window, so the map component must be client-only.
+const MapView = dynamic(() => import('./MapView'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-full w-full items-center justify-center bg-[var(--cream-dark)] text-sm font-semibold text-[var(--ink-soft)]">
+      Loading map…
+    </div>
+  ),
+});
+
+interface SiteShellProps {
+  mascots: Mascot[];
+  stores: Store[];
+}
+
+type Selection =
+  | { kind: 'mascot'; data: Mascot }
+  | { kind: 'store'; data: Store }
+  | null;
+
+export default function SiteShell({ mascots, stores }: SiteShellProps) {
+  const [selection, setSelection] = useState<Selection>(null);
+  const [flyTo, setFlyTo] = useState<{ lat: number; lng: number; zoom?: number } | null>(null);
+  const [submitOpen, setSubmitOpen] = useState(false);
+  const [submitPreset, setSubmitPreset] = useState<string | undefined>(undefined);
+
+  const mascotStoreNumbers = useMemo(
+    () => new Set(mascots.map((m) => m.store_number).filter(Boolean)),
+    [mascots],
+  );
+  const unknownCount = stores.filter((s) => !mascotStoreNumbers.has(s.store_number)).length;
+
+  function handleSearchSelect(r: SearchResult) {
+    setFlyTo({ lat: r.data.lat, lng: r.data.lng, zoom: 13 });
+    setTimeout(() => setSelection(r), 450);
+  }
+
+  function handleSubmitForStore(city: string, state: string) {
+    setSubmitPreset(`${city}, ${state}`);
+    setSubmitOpen(true);
+  }
+
+  function openSubmit() {
+    setSubmitPreset(undefined);
+    setSubmitOpen(true);
+  }
+
+  return (
+    <div className="flex h-full flex-col">
+      <Header
+        mascots={mascots}
+        stores={stores}
+        onSelect={handleSearchSelect}
+        onSubmitClick={openSubmit}
+        totalMascots={mascots.length}
+        totalUnknown={unknownCount}
+      />
+      <div className="bg-[var(--cream-dark)] px-6 py-1.5 text-center text-[11px] font-bold text-[var(--ink-soft)]">
+        Fan project. Not affiliated with Trader Joe&apos;s Company. &ldquo;Trader Joe&apos;s&rdquo; is a trademark of Trader Joe&apos;s Company.
+      </div>
+
+      <main className="relative flex min-h-0 flex-1">
+        <div className="relative flex-1">
+          <MapView
+            mascots={mascots}
+            stores={stores}
+            onMascotClick={(m) => setSelection({ kind: 'mascot', data: m })}
+            onStoreClick={(s) => setSelection({ kind: 'store', data: s })}
+            flyTo={flyTo}
+          />
+          <Legend />
+        </div>
+        <MascotCard
+          selection={selection}
+          onClose={() => setSelection(null)}
+          onSubmitForStore={handleSubmitForStore}
+        />
+      </main>
+
+      <SubmitModal
+        open={submitOpen}
+        presetStore={submitPreset}
+        onClose={() => setSubmitOpen(false)}
+      />
+    </div>
+  );
+}
+
+function Legend() {
+  return (
+    <div className="absolute bottom-5 left-5 z-[400] flex flex-col gap-1.5 rounded-xl bg-[rgba(253,246,236,0.96)] px-3.5 py-2.5 text-xs font-bold text-[var(--ink-soft)] shadow-card backdrop-blur max-sm:hidden">
+      <LegendRow dotClass="border-[3px] border-[var(--tj-red)] bg-[var(--cream)]">
+        Mascot known, photo
+      </LegendRow>
+      <LegendRow dotClass="border-[3px] border-dashed border-[var(--accent)] bg-[var(--cream)]">
+        Mascot known, no photo yet
+      </LegendRow>
+      <LegendRow dotClass="!h-2.5 !w-2.5 border-2 border-[var(--accent)] bg-[var(--cream-dark)]">
+        Store — mascot unknown
+      </LegendRow>
+    </div>
+  );
+}
+
+function LegendRow({ dotClass, children }: { dotClass: string; children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className={`h-4 w-4 rounded-full ${dotClass}`} />
+      {children}
+    </div>
+  );
+}
