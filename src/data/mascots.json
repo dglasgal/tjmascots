@@ -569,8 +569,8 @@
       "animal": "Avocado",
       "name": "Arnold",
       "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "photo": "045.webp",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "750"
@@ -595,8 +595,8 @@
       "animal": "Seahawk",
       "name": "Sammy",
       "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "photo": "047.webp",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "747"
@@ -2904,6 +2904,19 @@
       "retired": true,
       "source_url": "User-submitted",
       "store_number": "744"
+    },
+    {
+      "id": 229,
+      "store": "Charlotte (E Arbors Dr / University Area)",
+      "state": "NC",
+      "animal": "Bear",
+      "name": "TJ",
+      "notes": "Store 743. Teddy bear plush in a TRADER JOE'S TJ CREW MEMBER shirt, perched on a mushroom under a butterfly.",
+      "photo": "229.webp",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted",
+      "store_number": "743"
     }
   ],
   "stats": {
