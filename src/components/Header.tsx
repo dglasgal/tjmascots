@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { buildSearchIndex, runSearch, type SearchResult } from '@/lib/search';
 import type { Mascot, Store } from '@/lib/types';
@@ -85,9 +86,14 @@ export default function Header({
   return (
     <header className="relative z-[1000] flex items-center justify-between gap-5 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card">
       <div className="flex flex-shrink-0 items-center gap-3.5">
-        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--cream)] text-2xl shadow-[inset_0_0_0_3px_var(--tj-red-dark)]">
+        <Link
+          href="/about"
+          aria-label="About TJ Mascots"
+          title="About this project"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--cream)] text-2xl shadow-[inset_0_0_0_3px_var(--tj-red-dark)] transition hover:scale-105"
+        >
           🛒
-        </div>
+        </Link>
         <div>
           <h1 className="font-display text-2xl font-black leading-none tracking-tight">TJ Mascots</h1>
           <p className="mt-0.5 text-xs font-semibold opacity-80 max-[700px]:hidden">
