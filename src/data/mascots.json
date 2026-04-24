@@ -1050,9 +1050,9 @@
       "state": "CA",
       "animal": "Parrot",
       "name": "Phil",
-      "notes": "Store 114.",
-      "photo": "088.png",
-      "has_photo": true,
+      "notes": "Store 114. Photo needed — previous image was misattributed.",
+      "photo": null,
+      "has_photo": false,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
     },
