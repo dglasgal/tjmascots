@@ -106,9 +106,18 @@ function PreviousMascots({ items }: { items: Mascot[] }) {
               key={m.id}
               className="flex items-center gap-3 rounded-xl bg-[var(--cream)] px-3 py-2.5 shadow-[0_1px_0_var(--cream-dark)]"
             >
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-dashed border-[var(--ink-soft)] bg-[var(--cream-dark)] text-xl opacity-80">
-                {m.emoji}
-              </div>
+              {m.has_photo && m.photo ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={photoUrl(m.photo) || ''}
+                  alt={`${m.name || 'Unnamed'} the ${m.animal || 'mascot'}`}
+                  className="h-12 w-12 flex-shrink-0 rounded-full border-2 border-dashed border-[var(--ink-soft)] object-cover opacity-80 grayscale"
+                />
+              ) : (
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-dashed border-[var(--ink-soft)] bg-[var(--cream-dark)] text-xl opacity-80">
+                  {m.emoji}
+                </div>
+              )}
               <div className="min-w-0 flex-1">
                 <div className="truncate text-sm font-extrabold text-[var(--ink)]">
                   {(m.name || 'Unnamed') + ' the ' + (m.animal || 'mascot')}
