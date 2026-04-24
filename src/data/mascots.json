@@ -418,15 +418,16 @@
     },
     {
       "id": 33,
-      "store": "DMV (DC / MD / VA)",
+      "store": "Foggy Bottom (DC)",
       "state": "",
       "animal": "Gopher",
       "name": "Meatball",
-      "notes": "Exact store within DMV area not specified.",
+      "notes": "Meatball the Gopher is associated with the DC metro area — if you know which DMV-area store he lives at, submit! Currently pinned to Foggy Bottom as a best guess.",
       "photo": "033.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "648"
     },
     {
       "id": 34,
@@ -638,15 +639,16 @@
     },
     {
       "id": 50,
-      "store": "Valencia",
+      "store": "Santa Clarita (Bouquet Canyon)",
       "state": "CA",
       "animal": "Toucan",
       "name": "Joanna",
-      "notes": "",
+      "notes": "Store 13. Joanna the Toucan is the mascot at the Santa Clarita (formerly often called \"Valencia\") Trader Joe's on Bouquet Canyon Rd.",
       "photo": "050.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "13"
     },
     {
       "id": 51,
@@ -1495,7 +1497,7 @@
     },
     {
       "id": 116,
-      "store": "Columbia",
+      "store": "Columbia (Forest Drive)",
       "state": "SC",
       "animal": "Yeti",
       "name": "Spaghetti",
@@ -1503,7 +1505,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "753"
     },
     {
       "id": 117,
@@ -2755,7 +2758,7 @@
     },
     {
       "id": 213,
-      "store": "Rancho Palos Verdes",
+      "store": "Rancho Palos Verdes (Hawthorne Blvd)",
       "state": "CA",
       "animal": "Whale",
       "name": "Wally",
@@ -2763,7 +2766,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "233"
     },
     {
       "id": 214,
