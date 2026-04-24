@@ -3344,10 +3344,10 @@
       "state": "NV",
       "animal": "Sloth",
       "name": "Flash",
-      "notes": "Store 284. Flash the Sloth presides over the Summerlin Trader Joe's — spot him hanging out somewhere in the store and the checkout crew will hand you a lollipop.",
+      "notes": "Store 284. Flash the Sloth was the Downtown Summerlin mascot through summer 2024 — spotted in his blue Hawaiian shirt before retiring and handing the store over to Sanjay the Seahorse.",
       "photo": null,
       "has_photo": false,
-      "retired": false,
+      "retired": true,
       "source_url": "https://www.instagram.com/p/C9yYErdv6Up/",
       "store_number": "284"
     },
@@ -3363,6 +3363,19 @@
       "retired": true,
       "source_url": "https://www.instagram.com/p/CKKuXiChgNy/",
       "store_number": "713"
+    },
+    {
+      "id": 264,
+      "store": "Summerlin (Las Vegas — Summa Dr)",
+      "state": "NV",
+      "animal": "Seahorse",
+      "name": "Sanjay",
+      "notes": "Store 284. Sanjay the Seahorse took over Downtown Summerlin from Flash the Sloth in late 2024 — a swirly teal-and-purple felt seahorse with a turquoise fin-mohawk, usually found keeping watch over the reusable produce bags in the organic section.",
+      "photo": "264.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/r/traderjoes",
+      "store_number": "284"
     }
   ]
 }
