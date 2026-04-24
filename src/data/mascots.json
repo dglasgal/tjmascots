@@ -3228,8 +3228,8 @@
       "animal": "Bear",
       "name": "Rob",
       "notes": "Store 235. Rob is one of the three Greenbrae mascots, rounding out the trio with Flick the Lark and Robin the Robin.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "253.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "235"
@@ -3241,8 +3241,8 @@
       "animal": "Robin",
       "name": "Robin",
       "notes": "Store 235. Robin the Robin rounds out the Greenbrae trio with Flick the Lark and Rob.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "254.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "235"
