@@ -22,6 +22,7 @@ const MapView = dynamic(() => import('./MapView'), {
 interface SiteShellProps {
   mascots: Mascot[];
   stores: Store[];
+  previousMascots?: Mascot[];
 }
 
 type Selection =
@@ -29,7 +30,19 @@ type Selection =
   | { kind: 'store'; data: Store }
   | null;
 
-export default function SiteShell({ mascots, stores }: SiteShellProps) {
+export default function SiteShell({ mascots, stores, previousMascots = [] }: SiteShellProps) {
+  // Index retired/historical mascots by store_number so each card can show
+  // "Previous mascots at this store" without re-scanning.
+  const previousByStore = useMemo(() => {
+    const map = new Map<string, Mascot[]>();
+    for (const m of previousMascots) {
+      const key = m.store_number;
+      if (!key) continue;
+      if (!map.has(key)) map.set(key, []);
+      map.get(key)!.push(m);
+    }
+    return map;
+  }, [previousMascots]);
   const [selection, setSelection] = useState<Selection>(null);
   const [flyTo, setFlyTo] = useState<{ lat: number; lng: number; zoom?: number } | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
@@ -94,6 +107,7 @@ export default function SiteShell({ mascots, stores }: SiteShellProps) {
           selection={selection}
           onClose={() => setSelection(null)}
           onSubmitForStore={handleSubmitForStore}
+          previousByStore={previousByStore}
         />
       </main>
 
