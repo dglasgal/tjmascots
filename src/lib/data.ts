@@ -171,9 +171,10 @@ export async function submitCorrection(
 }
 
 /** Run a Supabase insert with exponential backoff. Throws the last error
- *  if all attempts fail. */
+ *  if all attempts fail. The `op` closure returns a thenable — we let TypeScript
+ *  infer anything with an .error property so the Supabase builder type fits. */
 async function retryInsert(
-  op: () => Promise<{ error: unknown }>,
+  op: () => PromiseLike<{ error: unknown }>,
   attempts = 3,
 ): Promise<void> {
   const delays = [0, 1000, 3000, 7000]; // 1st try = 0 delay, then 1s, 3s, 7s
