@@ -657,8 +657,8 @@
       "animal": "Dolphin",
       "name": "Dixie",
       "notes": "Store 241.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "052.webp",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "241"
@@ -670,10 +670,11 @@
       "animal": "Octopus",
       "name": "Octavia",
       "notes": "",
-      "photo": "053.png",
+      "photo": "053.webp",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "157"
     },
     {
       "id": 54,
