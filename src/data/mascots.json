@@ -23,7 +23,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.tastingtable.com/1256862/trader-joes-official-mascot/"
+      "source_url": "https://www.tastingtable.com/1256862/trader-joes-official-mascot/",
+      "store_number": "673"
     },
     {
       "id": 3,
@@ -57,7 +58,7 @@
       "state": "NJ",
       "animal": "Turtle",
       "name": "Frank",
-      "notes": "Named for Frank Sinatra (Hoboken's favorite son). Paired with Steve the duck.",
+      "notes": "Store 611. Frank the Turtle is named after Frank Sinatra — fitting for Sinatra's hometown at the Hoboken Trader Joe's. Paired with Steve the Duck.",
       "photo": "005.jpeg",
       "has_photo": true,
       "retired": false,
@@ -70,7 +71,7 @@
       "state": "NJ",
       "animal": "Duck",
       "name": "Steve",
-      "notes": "Named for Stevens Institute of Tech. Paired with Frank the turtle.",
+      "notes": "Store 611. Steve the Mallard Duck is named for Stevens Institute of Technology — the other half of Hoboken's Sinatra-and-Stevens mascot pair with Frank the Turtle.",
       "photo": "006.jpeg",
       "has_photo": true,
       "retired": false,
@@ -139,7 +140,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "38"
     },
     {
       "id": 12,
@@ -177,7 +179,8 @@
       "photo": "014.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "284"
     },
     {
       "id": 15,
@@ -246,15 +249,16 @@
     },
     {
       "id": 20,
-      "store": "North Beach (San Francisco)",
+      "store": "North Beach (San Francisco — Bay Street)",
       "state": "CA",
       "animal": "Unknown",
       "name": "Trixie",
-      "notes": "Gets stolen often; repeatedly replaced.",
+      "notes": "Store 19. Trixie the Bird took over the North Beach Trader Joe's from Patrick the Shark — maybe a pigeon, maybe something more exotic. Either way, San Francisco's Bay Street store has a new feathered mate.",
       "photo": "020.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "19"
     },
     {
       "id": 21,
@@ -305,7 +309,8 @@
       "photo": "024.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m59y828/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m59y828/",
+      "store_number": "540"
     },
     {
       "id": 25,
@@ -317,7 +322,8 @@
       "photo": "025.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m86t1hj/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m86t1hj/",
+      "store_number": "576"
     },
     {
       "id": 26,
@@ -325,7 +331,7 @@
       "state": "ID",
       "animal": "Moose",
       "name": "Huckleberry",
-      "notes": "New store; sometimes hangs on the bell.",
+      "notes": "Store 362. Huckleberry the Moose hangs his hat at the Coeur d'Alene Trader Joe's — named for the wild huckleberries of North Idaho.",
       "photo": "026.jpeg",
       "has_photo": true,
       "retired": false,
@@ -364,9 +370,9 @@
       "state": "MN",
       "animal": "Red fox",
       "name": "Garbanzo",
-      "notes": "Named because the store is on Red Fox Rd.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 727. Garbanzo the Fox slinks through the Shoreview Minnesota Trader Joe's — named for the chickpea, naturally.",
+      "photo": "29.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
       "store_number": "727"
@@ -381,7 +387,8 @@
       "photo": "030.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "272"
     },
     {
       "id": 31,
@@ -389,9 +396,9 @@
       "state": "CA",
       "animal": "Bull / Longhorn",
       "name": "Angel",
-      "notes": "Honors a real bull named Angel who survived the 2017 Tubbs Fire in CA's deadliest wildfire at the time. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Angel the Bull was the mascot at a Santa Rosa Trader Joe's — named for a real bull who survived the 2017 Tubbs Fire. The real Angel has since passed away, and his mascot has too.",
+      "photo": "31.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
       "store_number": "178"
@@ -427,7 +434,7 @@
       "state": "FL",
       "animal": "Flamingo",
       "name": "Mingo",
-      "notes": "",
+      "notes": "Store 771. Mingo the Flamingo lounges at the Delray Beach Trader Joe's — a little pink flamingo perfectly at home in South Florida.",
       "photo": "034.png",
       "has_photo": true,
       "retired": false,
@@ -440,7 +447,7 @@
       "state": "CA",
       "animal": "Raccoon",
       "name": "Ringo",
-      "notes": "Seen in Halloween costume in October.",
+      "notes": "Store 214. Ringo the Raccoon keeps an eye on the Claremont Trader Joe's — and dresses up for every holiday.",
       "photo": "035.jpeg",
       "has_photo": true,
       "retired": false,
@@ -453,9 +460,9 @@
       "state": "FL",
       "animal": "Horse / Mare",
       "name": "Mocha",
-      "notes": "Wears an orange tutu for Halloween/fall. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 774. Mocha the Mare watches over the Wellington Trader Joe's — often spotted in seasonal getups, like her signature orange Halloween tutu.",
+      "photo": "36.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
       "store_number": "774"
@@ -492,7 +499,7 @@
       "state": "CA",
       "animal": "Tiger",
       "name": "Jo-Jo",
-      "notes": "Store 76.",
+      "notes": "Store 76. Jo-Jo the Tiger is Stockton's mascot at Trader Joe's.",
       "photo": "039.jpeg",
       "has_photo": true,
       "retired": false,
@@ -522,7 +529,8 @@
       "photo": "041.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "350"
     },
     {
       "id": 42,
@@ -530,7 +538,7 @@
       "state": "NC",
       "animal": "Goose",
       "name": "Gooseberry",
-      "notes": "Canada goose in a Hawaiian shirt.",
+      "notes": "Store 791. Gooseberry the Goose rules the Morrisville Trader Joe's.",
       "photo": "042.png",
       "has_photo": true,
       "retired": false,
@@ -617,15 +625,16 @@
     },
     {
       "id": 49,
-      "store": "Carmel Mountain Ranch",
+      "store": "Carmel Mountain Ranch (San Diego)",
       "state": "CA",
       "animal": "Monkey",
       "name": "Billy",
-      "notes": "",
+      "notes": "Store 23. Billy the Monkey swings above the Carmel Mountain Ranch Trader Joe's.",
       "photo": "049.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "23"
     },
     {
       "id": 50,
@@ -658,7 +667,7 @@
       "state": "CA",
       "animal": "Dolphin",
       "name": "Dixie",
-      "notes": "Store 241.",
+      "notes": "Store 241. Dixie the Dolphin dives around the Huntington Beach Trader Joe's on Brookhurst Street.",
       "photo": "052.webp",
       "has_photo": true,
       "retired": false,
@@ -701,7 +710,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "33"
     },
     {
       "id": 56,
@@ -778,7 +788,8 @@
       "photo": "061.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/k2omrz8/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/k2omrz8/",
+      "store_number": "26"
     },
     {
       "id": 62,
@@ -786,7 +797,7 @@
       "state": "TN",
       "animal": "Raccoon",
       "name": "Ruby",
-      "notes": "",
+      "notes": "Store 787. Ruby the Raccoon forages through the Chattanooga Tennessee Trader Joe's.",
       "photo": "062.png",
       "has_photo": true,
       "retired": false,
@@ -812,7 +823,7 @@
       "state": "CA",
       "animal": "Owl",
       "name": "Sky",
-      "notes": "",
+      "notes": "Store 172. Sky the Owl keeps watch over the Folsom California Trader Joe's from her perch above the aisles.",
       "photo": "064.png",
       "has_photo": true,
       "retired": false,
@@ -825,11 +836,12 @@
       "state": "KY",
       "animal": "Horse",
       "name": "Fiona",
-      "notes": "Dressed as vampire for Halloween.",
+      "notes": "Store 628. Fiona the Horse charms the Louisville Trader Joe's — always dressed up, from vampire at Halloween to seasonal finery year-round.",
       "photo": "065.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/k1m7wui/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/k1m7wui/",
+      "store_number": "628"
     },
     {
       "id": 66,
@@ -850,7 +862,7 @@
       "state": "MN",
       "animal": "Timberwolf",
       "name": "Timber Joe",
-      "notes": "Store 710.",
+      "notes": "Store 710. Timber Joe watches over the St. Louis Park Trader Joe's — a little lumberjack, right at home in Minnesota.",
       "photo": "067.png",
       "has_photo": true,
       "retired": false,
@@ -876,7 +888,7 @@
       "state": "KS",
       "animal": "Hippo",
       "name": "Howie",
-      "notes": "Store 723.",
+      "notes": "Store 723. Howie the Hippo wallows through the Leawood Kansas Trader Joe's in a Hawaiian shirt.",
       "photo": "069.png",
       "has_photo": true,
       "retired": false,
@@ -889,7 +901,7 @@
       "state": "MO",
       "animal": "Walrus",
       "name": "Waldo",
-      "notes": "Also seen with the name Wally.",
+      "notes": "Store 720. Waldo the Walrus hangs around the baked goods at Kansas City's Trader Joe's.",
       "photo": "070.jpeg",
       "has_photo": true,
       "retired": false,
@@ -915,7 +927,7 @@
       "state": "RI",
       "animal": "Quahog",
       "name": "Coco",
-      "notes": "",
+      "notes": "Store 518. Coco the Quahog — Rhode Island's beloved bivalve — represents Warwick at Trader Joe's.",
       "photo": "072.png",
       "has_photo": true,
       "retired": false,
@@ -928,7 +940,7 @@
       "state": "TX",
       "animal": "Dragon",
       "name": "Snappy",
-      "notes": "Store 406.",
+      "notes": "Store 406. Snappy the Dragon breathes quietly over the Southlake TX Trader Joe's.",
       "photo": "073.jpeg",
       "has_photo": true,
       "retired": false,
@@ -945,7 +957,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "706"
     },
     {
       "id": 75,
@@ -966,7 +979,7 @@
       "state": "NJ",
       "animal": "Cougar",
       "name": "Clementine",
-      "notes": "Store 601. Paired with Leopold the lobster.",
+      "notes": "Store 601. Clementine the Cougar prowls the Westfield NJ Trader Joe's — paired with Leopold the Lobster, making Westfield a rare two-mascot store.",
       "photo": "076.png",
       "has_photo": true,
       "retired": false,
@@ -979,7 +992,7 @@
       "state": "NJ",
       "animal": "Lobster",
       "name": "Leopold",
-      "notes": "Store 601. Paired with Clementine.",
+      "notes": "Store 601. Leopold the Lobster is Clementine the Cougar's surf-and-turf companion at the Westfield NJ Trader Joe's.",
       "photo": "077.png",
       "has_photo": true,
       "retired": false,
@@ -1005,7 +1018,7 @@
       "state": "CA",
       "animal": "Race horse",
       "name": "Pepperjack",
-      "notes": "Next to Los Alamitos Race Course.",
+      "notes": "Store 242. Pepperjack the Racehorse gallops above the dairy case at the Cypress Trader Joe's — next door to Los Alamitos Race Course, perfectly on-brand.",
       "photo": "079.png",
       "has_photo": true,
       "retired": false,
@@ -1018,9 +1031,9 @@
       "state": "VA",
       "animal": "Polar bear",
       "name": "Ice",
-      "notes": "Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 661. Ice is the mascot of the Charlottesville Virginia Trader Joe's.",
+      "photo": "80.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "661"
@@ -1044,7 +1057,7 @@
       "state": "WI",
       "animal": "Flamingo",
       "name": "Flo",
-      "notes": "Store 712.",
+      "notes": "Store 712. Flo the Flamingo adds a splash of pink to the Madison Wisconsin Trader Joe's.",
       "photo": "082.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1100,7 +1113,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "192"
     },
     {
       "id": 87,
@@ -1112,7 +1126,8 @@
       "photo": "087.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "205"
     },
     {
       "id": 88,
@@ -1133,7 +1148,7 @@
       "state": "AZ",
       "animal": "Javelina",
       "name": "Barnabus",
-      "notes": "",
+      "notes": "Store 92. Barnabus the Javelina rules the Surprise Arizona Trader Joe's — one of the AZ javelina family (alongside Javi at Gilbert and Glendale, and Javier at Paradise Valley).",
       "photo": "089.png",
       "has_photo": true,
       "retired": false,
@@ -1146,7 +1161,7 @@
       "state": "NY",
       "animal": "Space dog",
       "name": "Cosmo",
-      "notes": "Photo relinked from audit April 2026.",
+      "notes": "Store 574. Cosmo the Space Dog keeps watch over the Halfmoon New York Trader Joe's — galaxies above the produce section.",
       "photo": "090.png",
       "has_photo": true,
       "retired": false,
@@ -1185,7 +1200,7 @@
       "state": "CA",
       "animal": "Bear",
       "name": "Banjo",
-      "notes": "",
+      "notes": "Store 126. Banjo the Bear lumbers around the Mission Viejo Trader Joe's.",
       "photo": "093.jpg",
       "has_photo": true,
       "retired": false,
@@ -1198,11 +1213,12 @@
       "state": "GA",
       "animal": "Turtle",
       "name": "Joey",
-      "notes": "",
+      "notes": "Store 731. Joey the Turtle paddles through the Sandy Springs Georgia Trader Joe's.",
       "photo": "094.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "731"
     },
     {
       "id": 95,
@@ -1214,7 +1230,8 @@
       "photo": "095.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jfsaf00/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jfsaf00/",
+      "store_number": "305"
     },
     {
       "id": 96,
@@ -1222,7 +1239,7 @@
       "state": "MN",
       "animal": "Eagle",
       "name": "Edgar",
-      "notes": "",
+      "notes": "Store 724. Edgar the Eagle soars over the Bloomington Minnesota Trader Joe's.",
       "photo": "096.png",
       "has_photo": true,
       "retired": false,
@@ -1235,7 +1252,7 @@
       "state": "PA",
       "animal": "Raccoon",
       "name": "Jawny",
-      "notes": "",
+      "notes": "Store 618. Jawny presides over a Philadelphia Trader Joe's — the name alone is classic Philly.",
       "photo": "097.png",
       "has_photo": true,
       "retired": false,
@@ -1248,7 +1265,7 @@
       "state": "NH",
       "animal": "Duck",
       "name": "Filbert",
-      "notes": "",
+      "notes": "Store 507. Filbert the Duck has been sitting proud at the Nashua New Hampshire Trader Joe's since 2016.",
       "photo": "098.png",
       "has_photo": true,
       "retired": false,
@@ -1265,7 +1282,8 @@
       "photo": "099.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs"
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "247"
     },
     {
       "id": 100,
@@ -1273,7 +1291,7 @@
       "state": "MN",
       "animal": "Porcupine",
       "name": "Paisley",
-      "notes": "Store 725.",
+      "notes": "Store 725. Paisley the Porcupine pokes around the Minneapolis Trader Joe's — spiky but friendly.",
       "photo": "100.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1299,7 +1317,7 @@
       "state": "CA",
       "animal": "Hornet",
       "name": "Herky",
-      "notes": "Sac State mascot.",
+      "notes": "Store 175. Herky the Hornet buzzes through the Folsom Blvd Sacramento Trader Joe's — a nod to Sacramento State's fighting hornet mascot.",
       "photo": "102.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1312,7 +1330,7 @@
       "state": "NY",
       "animal": "Shark",
       "name": "Schmooli",
-      "notes": "Store 556.",
+      "notes": "Store 556. Schmooli the Shark rules the Lake Grove Long Island Trader Joe's.",
       "photo": "103.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1338,7 +1356,7 @@
       "state": "CT",
       "animal": "Turtle",
       "name": "Tiramisu",
-      "notes": "Store 529.",
+      "notes": "Store 529. Tiramisu the Turtle takes her sweet time around the Stamford Connecticut Trader Joe's.",
       "photo": "105.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1442,7 +1460,7 @@
       "state": "VA",
       "animal": "Dolphin",
       "name": "Danny",
-      "notes": "Store 619.",
+      "notes": "Store 619. Danny the Dolphin leaps through the Ashburn Virginia Trader Joe's.",
       "photo": "113.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1455,7 +1473,7 @@
       "state": "MI",
       "animal": "Wolverine",
       "name": "Maizy",
-      "notes": "Photo needed — previous image was misattributed (audit April 2026).",
+      "notes": "Store 678. Maizy the Wolverine honors the University of Michigan's fierce little mascot — a Maize-and-Blue nod at the Ann Arbor Trader Joe's.",
       "photo": null,
       "has_photo": false,
       "retired": false,
@@ -1493,9 +1511,9 @@
       "state": "OR",
       "animal": "Cat / Tiger",
       "name": "Raja",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 152. Raja the Cat rules the Clackamas Oregon Trader Joe's with feline authority.",
+      "photo": "117.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "152"
@@ -1506,11 +1524,12 @@
       "state": "KY",
       "animal": "Horse",
       "name": "Lex",
-      "notes": "",
+      "notes": "Store 626. Lex the Horse is Lexington's obvious choice — the heart of Kentucky's horse country at Trader Joe's.",
       "photo": "118.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j26ykfk/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j26ykfk/",
+      "store_number": "626"
     },
     {
       "id": 119,
@@ -1535,7 +1554,8 @@
       "photo": "120.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs"
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "215"
     },
     {
       "id": 121,
@@ -1547,7 +1567,8 @@
       "photo": "121.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs"
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "308"
     },
     {
       "id": 122,
@@ -1555,7 +1576,7 @@
       "state": "CO",
       "animal": "Buffalo",
       "name": "Ralphie",
-      "notes": "Store 301. CU Boulder mascot nod.",
+      "notes": "Store 301. Ralphie the Buffalo charges around the Boulder Trader Joe's — a tribute to the University of Colorado's iconic live buffalo mascot.",
       "photo": "122.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1594,7 +1615,7 @@
       "state": "TN",
       "animal": "Turtle",
       "name": "Myrtle",
-      "notes": "Store 739.",
+      "notes": "Store 739. Myrtle the Turtle paddles around the White Bridge Nashville Trader Joe's.",
       "photo": "125.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1633,7 +1654,7 @@
       "state": "AL",
       "animal": "Black bear",
       "name": "Billy",
-      "notes": "Store 737.",
+      "notes": "Store 737. Billy the Black Bear watches over the Birmingham Alabama Trader Joe's.",
       "photo": "128.png",
       "has_photo": true,
       "retired": false,
@@ -1650,7 +1671,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "82"
     },
     {
       "id": 130,
@@ -1662,7 +1684,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "90"
     },
     {
       "id": 131,
@@ -1683,9 +1706,9 @@
       "state": "DE",
       "animal": "Horseshoe crab",
       "name": "Herman",
-      "notes": "Paired with Henrietta the hermit crab. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 759. Herman the Horseshoe Crab scuttles through the Newark Delaware Trader Joe's — a fitting little fossil from Delaware Bay.",
+      "photo": "132.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "759"
@@ -1713,7 +1736,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "274"
     },
     {
       "id": 135,
@@ -1721,7 +1745,7 @@
       "state": "CA",
       "animal": "Coyote",
       "name": "Cat",
-      "notes": "Store 118. Replaced Felix the Frog.",
+      "notes": "Store 118. Cat the Coyote is the current Cathedral City mascot — a playful name swap from the retired Felix the Frog who wore a blue floral face mask during the pandemic.",
       "photo": "135.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1747,9 +1771,9 @@
       "state": "CA",
       "animal": "Yeti / Monkey",
       "name": "Hidee",
-      "notes": "Store 217. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 217. Hidee the Yeti is the shy resident of the Rancho Cucamonga Trader Joe's on Haven Ave — hidden (hence the name) but friendly when spotted.",
+      "photo": "137.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "217"
@@ -1764,7 +1788,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "236"
     },
     {
       "id": 139,
@@ -1776,7 +1801,8 @@
       "photo": "139.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "162"
     },
     {
       "id": 140,
@@ -1784,7 +1810,7 @@
       "state": "MN",
       "animal": "Pearl onion",
       "name": "Pearl",
-      "notes": "Store 717.",
+      "notes": "Store 717. Pearl the Pearl Onion greets shoppers at the Eagan Minnesota Trader Joe's — a pun so sweet it made it onto her nametag.",
       "photo": "140.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1801,7 +1827,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "141"
     },
     {
       "id": 142,
@@ -1809,7 +1836,7 @@
       "state": "MA",
       "animal": "Fox",
       "name": "Alex",
-      "notes": "Store 511.",
+      "notes": "Store 511. Alex the Fox trots through the Acton Massachusetts Trader Joe's.",
       "photo": "142.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1831,15 +1858,16 @@
     },
     {
       "id": 144,
-      "store": "Williamsburg (Brooklyn)",
+      "store": "Williamsburg (Brooklyn — Kent Ave)",
       "state": "NY",
       "animal": "Capybara",
       "name": "CaraCara",
-      "notes": "",
+      "notes": "Store 548. CaraCara the Capybara presides over the Williamsburg Brooklyn Trader Joe's on Kent Avenue — named for the capybara's scientific genus.",
       "photo": "144.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "548"
     },
     {
       "id": 145,
@@ -1851,7 +1879,8 @@
       "photo": "145.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "540"
     },
     {
       "id": 146,
@@ -1950,7 +1979,7 @@
       "state": "MN",
       "animal": "Goose",
       "name": "Nene",
-      "notes": "Store 718.",
+      "notes": "Store 718. Nene the Goose honks through the Rochester Minnesota Trader Joe's.",
       "photo": "153.jpeg",
       "has_photo": true,
       "retired": false,
@@ -1993,7 +2022,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "504"
     },
     {
       "id": 157,
@@ -2018,7 +2048,8 @@
       "photo": "158.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j4btoza/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j4btoza/",
+      "store_number": "146"
     },
     {
       "id": 159,
@@ -2069,7 +2100,8 @@
       "photo": "162.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j3tferu/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j3tferu/",
+      "store_number": "147"
     },
     {
       "id": 163,
@@ -2090,7 +2122,7 @@
       "state": "PA",
       "animal": "Lion",
       "name": "Lionel",
-      "notes": "",
+      "notes": "Store 569. Lionel the Lion rules the Camp Hill Trader Joe's with a quiet confidence.",
       "photo": "164.png",
       "has_photo": true,
       "retired": false,
@@ -2103,7 +2135,7 @@
       "state": "AZ",
       "animal": "Scorpion",
       "name": "Sara",
-      "notes": "Store 94.",
+      "notes": "Store 94. Sara the Scorpion lives high up in the Scottsdale Trader Joe's — blending into the desert aisles with her little armored tail.",
       "photo": "165.png",
       "has_photo": true,
       "retired": false,
@@ -2120,7 +2152,8 @@
       "photo": "166.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "188"
     },
     {
       "id": 167,
@@ -2184,7 +2217,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "223"
     },
     {
       "id": 172,
@@ -2196,7 +2230,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "20"
     },
     {
       "id": 173,
@@ -2230,11 +2265,12 @@
       "state": "CA",
       "animal": "Eagle",
       "name": "Freddie",
-      "notes": "",
+      "notes": "Store 55. Freddie the Eagle soars over the Eagle Rock Los Angeles Trader Joe's — a bird in his namesake neighborhood.",
       "photo": "175.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j275m4t/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j275m4t/",
+      "store_number": "55"
     },
     {
       "id": 176,
@@ -2246,7 +2282,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "169"
     },
     {
       "id": 177,
@@ -2254,7 +2291,7 @@
       "state": "CT",
       "animal": "Monkey",
       "name": "Banjoe",
-      "notes": "Store 523.",
+      "notes": "Store 523. Banjoe the Monkey swings around the Fairfield Connecticut Trader Joe's.",
       "photo": "177.jpeg",
       "has_photo": true,
       "retired": false,
@@ -2323,7 +2360,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "34"
     },
     {
       "id": 183,
@@ -2348,7 +2386,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "733"
     },
     {
       "id": 185,
@@ -2425,7 +2464,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "91"
     },
     {
       "id": 191,
@@ -2442,13 +2482,13 @@
     },
     {
       "id": 192,
-      "store": "Schaumburg (Woodfield Mall)",
+      "store": "Schaumburg (near Woodfield Mall)",
       "state": "IL",
       "animal": "Cow",
       "name": "Midnight",
-      "notes": "Gives stickers to adults too.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 705. Midnight the Cow rules the Schaumburg IL Trader Joe's by Woodfield Mall — they even give stickers to adults who find her.",
+      "photo": "192.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "705"
@@ -2472,9 +2512,9 @@
       "state": "CA",
       "animal": "Seal",
       "name": "Seymour",
-      "notes": "Previously Pierre the pirate.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 20. Seymour the Seal basks at the La Jolla Trader Joe's — La Jolla being famous for its sea lions and seals. (Predecessor: a little pirate guy named Pierre.)",
+      "photo": "194.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "20"
@@ -2489,7 +2529,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "145"
     },
     {
       "id": 196,
@@ -2562,7 +2603,7 @@
       "state": "IL",
       "animal": "Gorilla",
       "name": "Gorilla Joe",
-      "notes": "Store 698.",
+      "notes": "Store 698. Gorilla Joe — Park Ridge Illinois's beloved silverback — has his own cardboard cutout and nametag at the store.",
       "photo": "201.jpeg",
       "has_photo": true,
       "retired": false,
@@ -2579,7 +2620,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "653"
     },
     {
       "id": 203,
@@ -2604,7 +2646,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "672"
     },
     {
       "id": 205,
@@ -2616,7 +2659,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "671"
     },
     {
       "id": 206,
@@ -2624,9 +2668,9 @@
       "state": "CA",
       "animal": "Parrot",
       "name": "Pearl",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 53. Pearl the Parrot struts through the Glendale California Trader Joe's.",
+      "photo": "206.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "53"
@@ -2637,11 +2681,12 @@
       "state": "TX",
       "animal": "Bat",
       "name": "Banjo",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Banjo the Bat rules an Austin Trader Joe's — fitting for the city that loves its Congress Avenue Bridge bat colony.",
+      "photo": "207.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "452"
     },
     {
       "id": 208,
@@ -2679,7 +2724,8 @@
       "photo": "210.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "115"
     },
     {
       "id": 211,
@@ -2691,7 +2737,8 @@
       "photo": "211.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j1p64cl/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j1p64cl/",
+      "store_number": "177"
     },
     {
       "id": 212,
@@ -2845,7 +2892,8 @@
       "photo": "223.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/23/2026)"
+      "source_url": "User-submitted: David (04/23/2026)",
+      "store_number": "49"
     },
     {
       "id": 224,
@@ -2857,7 +2905,8 @@
       "photo": "224.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/23/2026)"
+      "source_url": "User-submitted: David (04/23/2026)",
+      "store_number": "267"
     },
     {
       "id": 225,
@@ -2869,7 +2918,8 @@
       "photo": "225.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/23/2026)"
+      "source_url": "User-submitted: David (04/23/2026)",
+      "store_number": "37"
     },
     {
       "id": 226,
@@ -2955,7 +3005,7 @@
       "state": "FL",
       "animal": "Gecko",
       "name": "Gus",
-      "notes": "Store 775.",
+      "notes": "Store 775. Gus the Gecko scampers around the Pembroke Pines Florida Trader Joe's.",
       "photo": "232.jpeg",
       "has_photo": true,
       "retired": false,
@@ -3418,19 +3468,6 @@
       "store_number": "571"
     },
     {
-      "id": 268,
-      "store": "Ann Arbor",
-      "state": "MI",
-      "animal": "Wolverine",
-      "name": "Maizy",
-      "notes": "Store 678. Maizy the Wolverine honors the University of Michigan's fierce little mascot — a Maize-and-Blue nod at the Ann Arbor Trader Joe's.",
-      "photo": null,
-      "has_photo": false,
-      "retired": false,
-      "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
-      "store_number": "678"
-    },
-    {
       "id": 269,
       "store": "Thousand Oaks",
       "state": "CA",
@@ -3441,7 +3478,7 @@
       "has_photo": false,
       "retired": false,
       "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
-      "store_number": null
+      "store_number": "196"
     },
     {
       "id": 270,
@@ -3454,7 +3491,7 @@
       "has_photo": false,
       "retired": false,
       "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
-      "store_number": null
+      "store_number": "274"
     },
     {
       "id": 271,
@@ -3496,19 +3533,6 @@
       "store_number": "748"
     },
     {
-      "id": 274,
-      "store": "Coeur d'Alene",
-      "state": "ID",
-      "animal": "Moose",
-      "name": "Huckleberry",
-      "notes": "Store 362. Huckleberry the Moose hangs his hat at the Coeur d'Alene Trader Joe's — named for the wild huckleberries of North Idaho.",
-      "photo": "274.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "362"
-    },
-    {
       "id": 275,
       "store": "Foxborough (Patriot Place)",
       "state": "MA",
@@ -3533,97 +3557,6 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "272"
-    },
-    {
-      "id": 277,
-      "store": "Delray Beach",
-      "state": "FL",
-      "animal": "Flamingo",
-      "name": "Mingo",
-      "notes": "Store 771. Mingo the Flamingo lounges at the Delray Beach Trader Joe's — a little pink flamingo perfectly at home in South Florida.",
-      "photo": "277.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "771"
-    },
-    {
-      "id": 278,
-      "store": "Claremont",
-      "state": "CA",
-      "animal": "Raccoon",
-      "name": "Ringo",
-      "notes": "Store 214. Ringo the Raccoon keeps an eye on the Claremont Trader Joe's — and dresses up for every holiday.",
-      "photo": "278.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "214"
-    },
-    {
-      "id": 279,
-      "store": "Wellington",
-      "state": "FL",
-      "animal": "Horse",
-      "name": "Mocha",
-      "notes": "Store 774. Mocha the Mare watches over the Wellington Trader Joe's — often spotted in seasonal getups, like her signature orange Halloween tutu.",
-      "photo": "279.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "774"
-    },
-    {
-      "id": 280,
-      "store": "Stockton",
-      "state": "CA",
-      "animal": "Tiger",
-      "name": "Jo-Jo",
-      "notes": "Store 76. Jo-Jo the Tiger is Stockton's mascot at Trader Joe's.",
-      "photo": "280.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "76"
-    },
-    {
-      "id": 281,
-      "store": "Morrisville",
-      "state": "NC",
-      "animal": "Goose",
-      "name": "Gooseberry",
-      "notes": "Store 791. Gooseberry the Goose rules the Morrisville Trader Joe's.",
-      "photo": "281.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "791"
-    },
-    {
-      "id": 282,
-      "store": "Camp Hill",
-      "state": "PA",
-      "animal": "Lion",
-      "name": "Lionel",
-      "notes": "Store 569. Lionel the Lion rules the Camp Hill Trader Joe's with a quiet confidence.",
-      "photo": "282.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "569"
-    },
-    {
-      "id": 283,
-      "store": "Carmel Mountain Ranch (San Diego)",
-      "state": "CA",
-      "animal": "Monkey",
-      "name": "Billy",
-      "notes": "Store 23. Billy the Monkey swings above the Carmel Mountain Ranch Trader Joe's.",
-      "photo": "283.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "23"
     },
     {
       "id": 284,
@@ -3652,149 +3585,6 @@
       "store_number": "552"
     },
     {
-      "id": 286,
-      "store": "Huntington Beach (Brookhurst)",
-      "state": "CA",
-      "animal": "Dolphin",
-      "name": "Dixie",
-      "notes": "Store 241. Dixie the Dolphin dives around the Huntington Beach Trader Joe's on Brookhurst Street.",
-      "photo": "286.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "241"
-    },
-    {
-      "id": 287,
-      "store": "North Beach (San Francisco — Bay Street)",
-      "state": "CA",
-      "animal": "Bird",
-      "name": "Trixie",
-      "notes": "Store 19. Trixie the Bird took over the North Beach Trader Joe's from Patrick the Shark — maybe a pigeon, maybe something more exotic. Either way, San Francisco's Bay Street store has a new feathered mate.",
-      "photo": "287.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "19"
-    },
-    {
-      "id": 288,
-      "store": "Scottsdale",
-      "state": "AZ",
-      "animal": "Scorpion",
-      "name": "Sara",
-      "notes": "Store 94. Sara the Scorpion lives high up in the Scottsdale Trader Joe's — blending into the desert aisles with her little armored tail.",
-      "photo": "288.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "94"
-    },
-    {
-      "id": 289,
-      "store": "Westfield",
-      "state": "NJ",
-      "animal": "Cougar",
-      "name": "Clementine",
-      "notes": "Store 601. Clementine the Cougar prowls the Westfield NJ Trader Joe's — paired with Leopold the Lobster, making Westfield a rare two-mascot store.",
-      "photo": "289.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "601"
-    },
-    {
-      "id": 290,
-      "store": "Westfield",
-      "state": "NJ",
-      "animal": "Lobster",
-      "name": "Leopold",
-      "notes": "Store 601. Leopold the Lobster is Clementine the Cougar's surf-and-turf companion at the Westfield NJ Trader Joe's.",
-      "photo": "290.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "601"
-    },
-    {
-      "id": 291,
-      "store": "Leawood",
-      "state": "KS",
-      "animal": "Hippo",
-      "name": "Howie",
-      "notes": "Store 723. Howie the Hippo wallows through the Leawood Kansas Trader Joe's in a Hawaiian shirt.",
-      "photo": "291.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "723"
-    },
-    {
-      "id": 292,
-      "store": "Kansas City",
-      "state": "MO",
-      "animal": "Walrus",
-      "name": "Waldo",
-      "notes": "Store 720. Waldo the Walrus hangs around the baked goods at Kansas City's Trader Joe's.",
-      "photo": "292.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "720"
-    },
-    {
-      "id": 293,
-      "store": "Warwick",
-      "state": "RI",
-      "animal": "Quahog",
-      "name": "Coco",
-      "notes": "Store 518. Coco the Quahog — Rhode Island's beloved bivalve — represents Warwick at Trader Joe's.",
-      "photo": "293.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "518"
-    },
-    {
-      "id": 294,
-      "store": "Southlake",
-      "state": "TX",
-      "animal": "Dragon",
-      "name": "Snappy",
-      "notes": "Store 406. Snappy the Dragon breathes quietly over the Southlake TX Trader Joe's.",
-      "photo": "294.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "406"
-    },
-    {
-      "id": 295,
-      "store": "Bloomington",
-      "state": "MN",
-      "animal": "Eagle",
-      "name": "Edgar",
-      "notes": "Store 724. Edgar the Eagle soars over the Bloomington Minnesota Trader Joe's.",
-      "photo": "295.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "724"
-    },
-    {
-      "id": 296,
-      "store": "Madison",
-      "state": "WI",
-      "animal": "Flamingo",
-      "name": "Flo",
-      "notes": "Store 712. Flo the Flamingo adds a splash of pink to the Madison Wisconsin Trader Joe's.",
-      "photo": "296.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "712"
-    },
-    {
       "id": 297,
       "store": "Kirkland (Totem Lake)",
       "state": "WA",
@@ -3808,19 +3598,6 @@
       "store_number": "132"
     },
     {
-      "id": 298,
-      "store": "Pembroke Pines",
-      "state": "FL",
-      "animal": "Gecko",
-      "name": "Gus",
-      "notes": "Store 775. Gus the Gecko scampers around the Pembroke Pines Florida Trader Joe's.",
-      "photo": "298.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "775"
-    },
-    {
       "id": 299,
       "store": "Phoenix (Paradise Valley)",
       "state": "AZ",
@@ -3832,97 +3609,6 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "282"
-    },
-    {
-      "id": 300,
-      "store": "Cypress",
-      "state": "CA",
-      "animal": "Racehorse",
-      "name": "Pepperjack",
-      "notes": "Store 242. Pepperjack the Racehorse gallops above the dairy case at the Cypress Trader Joe's — next door to Los Alamitos Race Course, perfectly on-brand.",
-      "photo": "300.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "242"
-    },
-    {
-      "id": 301,
-      "store": "Stamford",
-      "state": "CT",
-      "animal": "Turtle",
-      "name": "Tiramisu",
-      "notes": "Store 529. Tiramisu the Turtle takes her sweet time around the Stamford Connecticut Trader Joe's.",
-      "photo": "301.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "529"
-    },
-    {
-      "id": 302,
-      "store": "Boulder",
-      "state": "CO",
-      "animal": "Buffalo",
-      "name": "Ralphie",
-      "notes": "Store 301. Ralphie the Buffalo charges around the Boulder Trader Joe's — a tribute to the University of Colorado's iconic live buffalo mascot.",
-      "photo": "302.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "301"
-    },
-    {
-      "id": 303,
-      "store": "Sacramento (Folsom Blvd)",
-      "state": "CA",
-      "animal": "Hornet",
-      "name": "Herky",
-      "notes": "Store 175. Herky the Hornet buzzes through the Folsom Blvd Sacramento Trader Joe's — a nod to Sacramento State's fighting hornet mascot.",
-      "photo": "303.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "175"
-    },
-    {
-      "id": 304,
-      "store": "St. Louis Park",
-      "state": "MN",
-      "animal": "Lumberjack",
-      "name": "Timber Joe",
-      "notes": "Store 710. Timber Joe watches over the St. Louis Park Trader Joe's — a little lumberjack, right at home in Minnesota.",
-      "photo": "304.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "710"
-    },
-    {
-      "id": 305,
-      "store": "Minneapolis",
-      "state": "MN",
-      "animal": "Porcupine",
-      "name": "Paisley",
-      "notes": "Store 725. Paisley the Porcupine pokes around the Minneapolis Trader Joe's — spiky but friendly.",
-      "photo": "305.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "725"
-    },
-    {
-      "id": 306,
-      "store": "Lexington",
-      "state": "KY",
-      "animal": "Horse",
-      "name": "Lex",
-      "notes": "Store 626. Lex the Horse is Lexington's obvious choice — the heart of Kentucky's horse country at Trader Joe's.",
-      "photo": "306.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "626"
     },
     {
       "id": 307,
@@ -3951,32 +3637,6 @@
       "store_number": "82"
     },
     {
-      "id": 309,
-      "store": "Schaumburg (near Woodfield Mall)",
-      "state": "IL",
-      "animal": "Cow",
-      "name": "Midnight",
-      "notes": "Store 705. Midnight the Cow rules the Schaumburg IL Trader Joe's by Woodfield Mall — they even give stickers to adults who find her.",
-      "photo": "309.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "705"
-    },
-    {
-      "id": 310,
-      "store": "Louisville",
-      "state": "KY",
-      "animal": "Horse",
-      "name": "Fiona",
-      "notes": "Store 628. Fiona the Horse charms the Louisville Trader Joe's — always dressed up, from vampire at Halloween to seasonal finery year-round.",
-      "photo": "310.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "628"
-    },
-    {
       "id": 311,
       "store": "South Bend",
       "state": "IN",
@@ -4001,45 +3661,6 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "600"
-    },
-    {
-      "id": 313,
-      "store": "Austin",
-      "state": "TX",
-      "animal": "Bat",
-      "name": "Banjo",
-      "notes": "Banjo the Bat rules an Austin Trader Joe's — fitting for the city that loves its Congress Avenue Bridge bat colony.",
-      "photo": "313.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "452"
-    },
-    {
-      "id": 314,
-      "store": "Halfmoon",
-      "state": "NY",
-      "animal": "Space Dog",
-      "name": "Cosmo",
-      "notes": "Store 574. Cosmo the Space Dog keeps watch over the Halfmoon New York Trader Joe's — galaxies above the produce section.",
-      "photo": "314.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "574"
-    },
-    {
-      "id": 315,
-      "store": "Nashville (White Bridge)",
-      "state": "TN",
-      "animal": "Turtle",
-      "name": "Myrtle",
-      "notes": "Store 739. Myrtle the Turtle paddles around the White Bridge Nashville Trader Joe's.",
-      "photo": "315.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "739"
     },
     {
       "id": 316,
@@ -4081,58 +3702,6 @@
       "store_number": "527"
     },
     {
-      "id": 319,
-      "store": "Newark",
-      "state": "DE",
-      "animal": "Horseshoe Crab",
-      "name": "Herman",
-      "notes": "Store 759. Herman the Horseshoe Crab scuttles through the Newark Delaware Trader Joe's — a fitting little fossil from Delaware Bay.",
-      "photo": "319.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "759"
-    },
-    {
-      "id": 320,
-      "store": "La Jolla",
-      "state": "CA",
-      "animal": "Seal",
-      "name": "Seymour",
-      "notes": "Store 20. Seymour the Seal basks at the La Jolla Trader Joe's — La Jolla being famous for its sea lions and seals. (Predecessor: a little pirate guy named Pierre.)",
-      "photo": "320.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "20"
-    },
-    {
-      "id": 321,
-      "store": "Mission Viejo",
-      "state": "CA",
-      "animal": "Bear",
-      "name": "Banjo",
-      "notes": "Store 126. Banjo the Bear lumbers around the Mission Viejo Trader Joe's.",
-      "photo": "321.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "126"
-    },
-    {
-      "id": 322,
-      "store": "Surprise",
-      "state": "AZ",
-      "animal": "Javelina",
-      "name": "Barnabus",
-      "notes": "Store 92. Barnabus the Javelina rules the Surprise Arizona Trader Joe's — one of the AZ javelina family (alongside Javi at Gilbert and Glendale, and Javier at Paradise Valley).",
-      "photo": "322.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "92"
-    },
-    {
       "id": 323,
       "store": "San Jose (Old Almaden)",
       "state": "CA",
@@ -4144,32 +3713,6 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "63"
-    },
-    {
-      "id": 324,
-      "store": "Clackamas",
-      "state": "OR",
-      "animal": "Cat",
-      "name": "Raja",
-      "notes": "Store 152. Raja the Cat rules the Clackamas Oregon Trader Joe's with feline authority.",
-      "photo": "324.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "152"
-    },
-    {
-      "id": 325,
-      "store": "Rochester",
-      "state": "MN",
-      "animal": "Goose",
-      "name": "Nene",
-      "notes": "Store 718. Nene the Goose honks through the Rochester Minnesota Trader Joe's.",
-      "photo": "325.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "718"
     },
     {
       "id": 326,
@@ -4185,45 +3728,6 @@
       "store_number": "147"
     },
     {
-      "id": 327,
-      "store": "Sandy Springs",
-      "state": "GA",
-      "animal": "Turtle",
-      "name": "Joey",
-      "notes": "Store 731. Joey the Turtle paddles through the Sandy Springs Georgia Trader Joe's.",
-      "photo": "327.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "731"
-    },
-    {
-      "id": 328,
-      "store": "Acton",
-      "state": "MA",
-      "animal": "Fox",
-      "name": "Alex",
-      "notes": "Store 511. Alex the Fox trots through the Acton Massachusetts Trader Joe's.",
-      "photo": "328.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "511"
-    },
-    {
-      "id": 329,
-      "store": "Charlottesville",
-      "state": "VA",
-      "animal": "Dog",
-      "name": "Ice",
-      "notes": "Store 661. Ice is the mascot of the Charlottesville Virginia Trader Joe's.",
-      "photo": "329.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "661"
-    },
-    {
       "id": 330,
       "store": "Chicago (South Loop)",
       "state": "IL",
@@ -4235,45 +3739,6 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "706"
-    },
-    {
-      "id": 331,
-      "store": "Birmingham",
-      "state": "AL",
-      "animal": "Black Bear",
-      "name": "Billy",
-      "notes": "Store 737. Billy the Black Bear watches over the Birmingham Alabama Trader Joe's.",
-      "photo": "331.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "737"
-    },
-    {
-      "id": 332,
-      "store": "Hoboken",
-      "state": "NJ",
-      "animal": "Turtle",
-      "name": "Frank",
-      "notes": "Store 611. Frank the Turtle is named after Frank Sinatra — fitting for Sinatra's hometown at the Hoboken Trader Joe's. Paired with Steve the Duck.",
-      "photo": "332.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "611"
-    },
-    {
-      "id": 333,
-      "store": "Hoboken",
-      "state": "NJ",
-      "animal": "Duck",
-      "name": "Steve",
-      "notes": "Store 611. Steve the Mallard Duck is named for Stevens Institute of Technology — the other half of Hoboken's Sinatra-and-Stevens mascot pair with Frank the Turtle.",
-      "photo": "333.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "611"
     },
     {
       "id": 334,
@@ -4289,19 +3754,6 @@
       "store_number": "146"
     },
     {
-      "id": 335,
-      "store": "Eagan",
-      "state": "MN",
-      "animal": "Pearl Onion",
-      "name": "Pearl",
-      "notes": "Store 717. Pearl the Pearl Onion greets shoppers at the Eagan Minnesota Trader Joe's — a pun so sweet it made it onto her nametag.",
-      "photo": "335.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "717"
-    },
-    {
       "id": 336,
       "store": "Oak Park",
       "state": "IL",
@@ -4315,71 +3767,6 @@
       "store_number": "697"
     },
     {
-      "id": 337,
-      "store": "Chattanooga",
-      "state": "TN",
-      "animal": "Raccoon",
-      "name": "Ruby",
-      "notes": "Store 787. Ruby the Raccoon forages through the Chattanooga Tennessee Trader Joe's.",
-      "photo": "337.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "787"
-    },
-    {
-      "id": 338,
-      "store": "Folsom",
-      "state": "CA",
-      "animal": "Owl",
-      "name": "Sky",
-      "notes": "Store 172. Sky the Owl keeps watch over the Folsom California Trader Joe's from her perch above the aisles.",
-      "photo": "338.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "172"
-    },
-    {
-      "id": 339,
-      "store": "Shoreview",
-      "state": "MN",
-      "animal": "Fox",
-      "name": "Garbanzo",
-      "notes": "Store 727. Garbanzo the Fox slinks through the Shoreview Minnesota Trader Joe's — named for the chickpea, naturally.",
-      "photo": "339.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "727"
-    },
-    {
-      "id": 340,
-      "store": "Philadelphia",
-      "state": "PA",
-      "animal": "Bird",
-      "name": "Jawny",
-      "notes": "Store 618. Jawny presides over a Philadelphia Trader Joe's — the name alone is classic Philly.",
-      "photo": "340.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "618"
-    },
-    {
-      "id": 341,
-      "store": "Nashua",
-      "state": "NH",
-      "animal": "Duck",
-      "name": "Filbert",
-      "notes": "Store 507. Filbert the Duck has been sitting proud at the Nashua New Hampshire Trader Joe's since 2016.",
-      "photo": "341.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "507"
-    },
-    {
       "id": 342,
       "store": "Bedford",
       "state": "NH",
@@ -4391,58 +3778,6 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "562"
-    },
-    {
-      "id": 343,
-      "store": "Commack",
-      "state": "NY",
-      "animal": "Cougar",
-      "name": "Coco",
-      "notes": "Store 551. Coco the Cougar patrols the Commack Long Island Trader Joe's.",
-      "photo": "343.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "551"
-    },
-    {
-      "id": 344,
-      "store": "Newport News",
-      "state": "VA",
-      "animal": "Octopus",
-      "name": "Olly",
-      "notes": "Store 656. Olly the Octopus wraps around the Newport News Virginia Trader Joe's.",
-      "photo": "344.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "656"
-    },
-    {
-      "id": 345,
-      "store": "Fairfield",
-      "state": "CT",
-      "animal": "Monkey",
-      "name": "Banjoe",
-      "notes": "Store 523. Banjoe the Monkey swings around the Fairfield Connecticut Trader Joe's.",
-      "photo": "345.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "523"
-    },
-    {
-      "id": 346,
-      "store": "Eagle Rock (Los Angeles)",
-      "state": "CA",
-      "animal": "Eagle",
-      "name": "Freddie",
-      "notes": "Store 55. Freddie the Eagle soars over the Eagle Rock Los Angeles Trader Joe's — a bird in his namesake neighborhood.",
-      "photo": "346.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "55"
     },
     {
       "id": 347,
@@ -4471,32 +3806,6 @@
       "store_number": "149"
     },
     {
-      "id": 349,
-      "store": "Rancho Cucamonga (Haven)",
-      "state": "CA",
-      "animal": "Yeti",
-      "name": "Hidee",
-      "notes": "Store 217. Hidee the Yeti is the shy resident of the Rancho Cucamonga Trader Joe's on Haven Ave — hidden (hence the name) but friendly when spotted.",
-      "photo": "349.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "217"
-    },
-    {
-      "id": 350,
-      "store": "Ashburn",
-      "state": "VA",
-      "animal": "Dolphin",
-      "name": "Danny",
-      "notes": "Store 619. Danny the Dolphin leaps through the Ashburn Virginia Trader Joe's.",
-      "photo": "350.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "619"
-    },
-    {
       "id": 351,
       "store": "Woodbury",
       "state": "MN",
@@ -4523,32 +3832,6 @@
       "store_number": "715"
     },
     {
-      "id": 353,
-      "store": "Cathedral City",
-      "state": "CA",
-      "animal": "Coyote",
-      "name": "Cat",
-      "notes": "Store 118. Cat the Coyote is the current Cathedral City mascot — a playful name swap from the retired Felix the Frog who wore a blue floral face mask during the pandemic.",
-      "photo": "353.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "118"
-    },
-    {
-      "id": 354,
-      "store": "Santa Rosa",
-      "state": "CA",
-      "animal": "Bull",
-      "name": "Angel",
-      "notes": "Angel the Bull was the mascot at a Santa Rosa Trader Joe's — named for a real bull who survived the 2017 Tubbs Fire. The real Angel has since passed away, and his mascot has too.",
-      "photo": "354.jpg",
-      "has_photo": true,
-      "retired": true,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "75"
-    },
-    {
       "id": 355,
       "store": "Harlem (125th St)",
       "state": "NY",
@@ -4560,32 +3843,6 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "576"
-    },
-    {
-      "id": 356,
-      "store": "Lake Grove",
-      "state": "NY",
-      "animal": "Shark",
-      "name": "Schmooli",
-      "notes": "Store 556. Schmooli the Shark rules the Lake Grove Long Island Trader Joe's.",
-      "photo": "356.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "556"
-    },
-    {
-      "id": 357,
-      "store": "Park Ridge",
-      "state": "IL",
-      "animal": "Gorilla",
-      "name": "Gorilla Joe",
-      "notes": "Store 698. Gorilla Joe — Park Ridge Illinois's beloved silverback — has his own cardboard cutout and nametag at the store.",
-      "photo": "357.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "698"
     },
     {
       "id": 358,
@@ -4664,32 +3921,6 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "120"
-    },
-    {
-      "id": 364,
-      "store": "Glendale",
-      "state": "CA",
-      "animal": "Parrot",
-      "name": "Pearl",
-      "notes": "Store 53. Pearl the Parrot struts through the Glendale California Trader Joe's.",
-      "photo": "364.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "53"
-    },
-    {
-      "id": 365,
-      "store": "Williamsburg (Brooklyn — Kent Ave)",
-      "state": "NY",
-      "animal": "Capybara",
-      "name": "CaraCara",
-      "notes": "Store 548. CaraCara the Capybara presides over the Williamsburg Brooklyn Trader Joe's on Kent Avenue — named for the capybara's scientific genus.",
-      "photo": "365.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "548"
     }
   ]
 }
