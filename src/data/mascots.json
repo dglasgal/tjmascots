@@ -3455,6 +3455,32 @@
       "retired": false,
       "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
       "store_number": null
+    },
+    {
+      "id": 271,
+      "store": "Long Beach (Bixby Knolls)",
+      "state": "CA",
+      "animal": "Panda",
+      "name": "Percy",
+      "notes": "Store 116. Percy the Panda keeps watch over the Bixby Knolls Trader Joe's — he even has his own Instagram at @percythepanda43. (Distinct from Percy the Parrot at Brooklyn #547.)",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/CKKuXiChgNy/",
+      "store_number": "116"
+    },
+    {
+      "id": 272,
+      "store": "Vancouver (Chkalov)",
+      "state": "WA",
+      "animal": "Monkey",
+      "name": "Socks",
+      "notes": "Store 136. Socks the Monkey swings around the Vancouver, WA Trader Joe's — named for the sock-like markings on his paws.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
+      "store_number": "136"
     }
   ]
 }
