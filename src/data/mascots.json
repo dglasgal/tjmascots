@@ -2931,6 +2931,19 @@
       "retired": false,
       "source_url": "User-submitted",
       "store_number": "692"
+    },
+    {
+      "id": 231,
+      "store": "Fort Myers (S Cleveland Ave)",
+      "state": "FL",
+      "animal": "Sandpiper",
+      "name": "Piper",
+      "notes": "Store 784.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted",
+      "store_number": "784"
     }
   ],
   "stats": {
