@@ -4,13 +4,27 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { submitMascot } from '@/lib/data';
 
+export interface SubmitModalPreset {
+  store?: string;
+  animal?: string;
+  name?: string;
+  notes?: string;
+  /** Short banner text shown at the top of the modal, e.g.
+   *  "Adding a photo for Grant the Swan at Tucson…" */
+  headline?: string;
+}
+
 interface SubmitModalProps {
   open: boolean;
+  /** Legacy: just the store string. Kept for backwards compatibility. */
   presetStore?: string;
+  /** Richer preset used when the user clicks "Submit this mascot" from an
+   *  existing card that's missing a photo. */
+  preset?: SubmitModalPreset;
   onClose: () => void;
 }
 
-export default function SubmitModal({ open, presetStore, onClose }: SubmitModalProps) {
+export default function SubmitModal({ open, presetStore, preset, onClose }: SubmitModalProps) {
   const [store, setStore] = useState('');
   const [animal, setAnimal] = useState('');
   const [name, setName] = useState('');
@@ -22,15 +36,15 @@ export default function SubmitModal({ open, presetStore, onClose }: SubmitModalP
 
   useEffect(() => {
     if (open) {
-      setStore(presetStore || '');
-      setAnimal('');
-      setName('');
+      setStore(preset?.store ?? presetStore ?? '');
+      setAnimal(preset?.animal ?? '');
+      setName(preset?.name ?? '');
       setEmail('');
-      setNotes('');
+      setNotes(preset?.notes ?? '');
       setPhotoFile(undefined);
       setMessage(null);
     }
-  }, [open, presetStore]);
+  }, [open, presetStore, preset]);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -74,11 +88,11 @@ export default function SubmitModal({ open, presetStore, onClose }: SubmitModalP
             className="max-h-[90vh] w-full max-w-[500px] overflow-y-auto rounded-2xl bg-[var(--cream)] p-7 shadow-card"
           >
             <h2 className="font-display text-2xl font-extrabold text-[var(--tj-red)]">
-              Submit a new mascot
+              {preset?.headline ? 'Add a photo / update info' : 'Submit a new mascot'}
             </h2>
             <p className="mb-5 mt-1 text-sm text-[var(--ink-soft)]">
-              Spotted a store mascot at your local Trader Joe&apos;s? Tell us about it. We&apos;ll verify
-              before adding to the map.
+              {preset?.headline ??
+                "Spotted a store mascot at your local Trader Joe's? Tell us about it. We'll verify before adding to the map."}
             </p>
 
             <Field label="Store location (city + state)">
