@@ -44,11 +44,11 @@
       "state": "CO",
       "animal": "Ram",
       "name": "Ramsay",
-      "notes": "CSU Rams nod. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "CSU Rams nod.",
+      "photo": "004.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j6bi9rj/",
       "store_number": "304"
     },
     {
@@ -57,11 +57,11 @@
       "state": "NJ",
       "animal": "Turtle",
       "name": "Frank",
-      "notes": "Named for Frank Sinatra (Hoboken's favorite son). Paired with Steve the duck. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Named for Frank Sinatra (Hoboken's favorite son). Paired with Steve the duck.",
+      "photo": "005.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jol15fq/",
       "store_number": "611"
     },
     {
@@ -70,11 +70,11 @@
       "state": "NJ",
       "animal": "Duck",
       "name": "Steve",
-      "notes": "Named for Stevens Institute of Tech. Paired with Frank the turtle. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Named for Stevens Institute of Tech. Paired with Frank the turtle.",
+      "photo": "006.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jol15fq/",
       "store_number": "611"
     },
     {
@@ -262,11 +262,11 @@
       "state": "NY",
       "animal": "Polar bear",
       "name": "Beary",
-      "notes": "436 East 14th St. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "436 East 14th St.",
+      "photo": "021.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m59y828/",
       "store_number": "546"
     },
     {
@@ -276,10 +276,10 @@
       "animal": "Pigeon",
       "name": "Petra",
       "notes": "233 Spring Street.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "022.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m59y828/"
     },
     {
       "id": 23,
@@ -288,10 +288,10 @@
       "animal": "Octopus",
       "name": "Octavia",
       "notes": "670 Columbus Ave.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "023.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m59y828/",
       "store_number": "554"
     },
     {
@@ -300,11 +300,11 @@
       "state": "NY",
       "animal": "Pigeon",
       "name": "Carl",
-      "notes": "142 E 14th St. No photo yet.",
+      "notes": "Store on Broadway at Union Square. Carl the Pigeon has not yet sat for an official portrait — photo coming soon.",
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m59y828/"
     },
     {
       "id": 25,
@@ -312,11 +312,11 @@
       "state": "NY",
       "animal": "Turtle",
       "name": "Tux",
-      "notes": "Seen in festive winter wear; kept in manager's station. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Seen in festive winter wear; kept in manager's station.",
+      "photo": "025.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m86t1hj/"
     },
     {
       "id": 26,
@@ -324,11 +324,11 @@
       "state": "ID",
       "animal": "Moose",
       "name": "Huckleberry",
-      "notes": "New store; sometimes hangs on the bell. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "New store; sometimes hangs on the bell.",
+      "photo": "026.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m53vjm4/",
       "store_number": "362"
     },
     {
@@ -350,11 +350,11 @@
       "state": "MA",
       "animal": "Fox",
       "name": "Boro",
-      "notes": "Replaced a Tom Brady character after Brady left the Patriots. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Replaced a Tom Brady character after Brady left the Patriots.",
+      "photo": "028.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jphx676/",
       "store_number": "528"
     },
     {
@@ -439,11 +439,11 @@
       "state": "CA",
       "animal": "Raccoon",
       "name": "Ringo",
-      "notes": "Seen in Halloween costume in October. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Seen in Halloween costume in October.",
+      "photo": "035.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/lxpfwy2/",
       "store_number": "214"
     },
     {
@@ -491,11 +491,11 @@
       "state": "CA",
       "animal": "Tiger",
       "name": "Jo-Jo",
-      "notes": "Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 76.",
+      "photo": "039.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/ltqmi2u/",
       "store_number": "76"
     },
     {
@@ -720,11 +720,11 @@
       "state": "MN",
       "animal": "Chicken",
       "name": "Lucky",
-      "notes": "Store 713. Paired with Maple the maple-leaf mascot. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 713. Paired with Maple the maple-leaf mascot.",
+      "photo": "057.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jvddrcx/",
       "store_number": "713"
     },
     {
@@ -773,10 +773,10 @@
       "animal": "Panda",
       "name": "Pickles",
       "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "photo": "061.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/k2omrz8/"
     },
     {
       "id": 62,
@@ -823,11 +823,11 @@
       "state": "KY",
       "animal": "Horse",
       "name": "Fiona",
-      "notes": "Dressed as vampire for Halloween. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Dressed as vampire for Halloween.",
+      "photo": "065.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/k1m7wui/"
     },
     {
       "id": 66,
@@ -887,11 +887,11 @@
       "state": "MO",
       "animal": "Walrus",
       "name": "Waldo",
-      "notes": "Also seen with the name Wally. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Also seen with the name Wally.",
+      "photo": "070.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jwoeihz/",
       "store_number": "720"
     },
     {
@@ -926,11 +926,11 @@
       "state": "TX",
       "animal": "Dragon",
       "name": "Snappy",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 406.",
+      "photo": "073.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jvxryte/",
       "store_number": "406"
     },
     {
@@ -990,11 +990,11 @@
       "state": "AZ",
       "animal": "Javelina",
       "name": "Javier",
-      "notes": "Store 282. Replaced Penelope Peacock. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 282. Replaced Penelope Peacock.",
+      "photo": "078.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jsho9ex/",
       "store_number": "282"
     },
     {
@@ -1042,11 +1042,11 @@
       "state": "WI",
       "animal": "Flamingo",
       "name": "Flo",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 712.",
+      "photo": "082.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/js3u85p/",
       "store_number": "712"
     },
     {
@@ -1055,11 +1055,11 @@
       "state": "LA",
       "animal": "Tiger",
       "name": "Mike",
-      "notes": "LSU mascot. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "LSU mascot.",
+      "photo": "083.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jfsfm6h/",
       "store_number": "754"
     },
     {
@@ -1170,11 +1170,11 @@
       "state": "CA",
       "animal": "Otter",
       "name": "Ozzy",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 24.",
+      "photo": "092.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jlm67z2/",
       "store_number": "24"
     },
     {
@@ -1208,11 +1208,11 @@
       "state": "CO",
       "animal": "Giraffe",
       "name": "Grace",
-      "notes": "Named for Cheyenne Mountain Zoo giraffe herd. Has a sister giraffe on the sign. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Named for Cheyenne Mountain Zoo giraffe herd. Has a sister giraffe on the sign.",
+      "photo": "095.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jfsaf00/"
     },
     {
       "id": 96,
@@ -1271,11 +1271,11 @@
       "state": "MN",
       "animal": "Porcupine",
       "name": "Paisley",
-      "notes": "Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 725.",
+      "photo": "100.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jirnlpz/",
       "store_number": "725"
     },
     {
@@ -1297,11 +1297,11 @@
       "state": "CA",
       "animal": "Hornet",
       "name": "Herky",
-      "notes": "Sac State mascot. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Sac State mascot.",
+      "photo": "102.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jipth92/",
       "store_number": "175"
     },
     {
@@ -1310,11 +1310,11 @@
       "state": "NY",
       "animal": "Shark",
       "name": "Schmooli",
-      "notes": "Store 556. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 556.",
+      "photo": "103.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jimub35/",
       "store_number": "556"
     },
     {
@@ -1324,10 +1324,10 @@
       "animal": "Octopus",
       "name": "Ozzy",
       "notes": "Purple octopus.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "104.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jhut69g/",
       "store_number": "702"
     },
     {
@@ -1336,11 +1336,11 @@
       "state": "CT",
       "animal": "Turtle",
       "name": "Tiramisu",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 529.",
+      "photo": "105.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jhjq1ub/",
       "store_number": "529"
     },
     {
@@ -1350,10 +1350,10 @@
       "animal": "Koala",
       "name": "Kody",
       "notes": "Store 63.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "106.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jgz9qtz/",
       "store_number": "63"
     },
     {
@@ -1441,10 +1441,10 @@
       "animal": "Dolphin",
       "name": "Danny",
       "notes": "Store 619.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "113.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jfn0229/",
       "store_number": "619"
     },
     {
@@ -1504,11 +1504,11 @@
       "state": "KY",
       "animal": "Horse",
       "name": "Lex",
-      "notes": "Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "",
+      "photo": "118.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j26ykfk/"
     },
     {
       "id": 119,
@@ -1554,10 +1554,10 @@
       "animal": "Buffalo",
       "name": "Ralphie",
       "notes": "Store 301. CU Boulder mascot nod.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "122.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j243ajt/",
       "store_number": "301"
     },
     {
@@ -1578,11 +1578,11 @@
       "state": "CA",
       "animal": "Octopus",
       "name": "Hank",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 66.",
+      "photo": "124.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j57t1rs/",
       "store_number": "66"
     },
     {
@@ -1591,11 +1591,11 @@
       "state": "TN",
       "animal": "Turtle",
       "name": "Myrtle",
-      "notes": "Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 739.",
+      "photo": "125.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j40dunr/",
       "store_number": "739"
     },
     {
@@ -1719,10 +1719,10 @@
       "animal": "Coyote",
       "name": "Cat",
       "notes": "Store 118. Replaced Felix the Frog.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "135.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/ja9ztcl/",
       "store_number": "118"
     },
     {
@@ -1781,11 +1781,11 @@
       "state": "MN",
       "animal": "Pearl onion",
       "name": "Pearl",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 717.",
+      "photo": "140.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j8knhz7/",
       "store_number": "717"
     },
     {
@@ -1807,10 +1807,10 @@
       "animal": "Fox",
       "name": "Alex",
       "notes": "Store 511.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "142.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j7eagxm/",
       "store_number": "511"
     },
     {
@@ -1883,10 +1883,10 @@
       "animal": "Swan",
       "name": "Grant",
       "notes": "Named for Grant Rd. | Photo needed — previous image did not match.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "148.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j6c88ck/",
       "store_number": "88"
     },
     {
@@ -1895,11 +1895,11 @@
       "state": "OR",
       "animal": "Chipmunk",
       "name": "Chip",
-      "notes": "Store 141. Has friends Rexy the dog and Clarice the sheep. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 141. Has friends Rexy the dog and Clarice the sheep.",
+      "photo": "149.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j6alqru/",
       "store_number": "141"
     },
     {
@@ -1908,11 +1908,11 @@
       "state": "OR",
       "animal": "Monkey",
       "name": "Moto",
-      "notes": "Store 149. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 149.",
+      "photo": "150.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j6105f2/",
       "store_number": "149"
     },
     {
@@ -1921,11 +1921,11 @@
       "state": "MA",
       "animal": "Pig",
       "name": "Bella",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 561.",
+      "photo": "151.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j5vqe8i/",
       "store_number": "561"
     },
     {
@@ -1948,10 +1948,10 @@
       "animal": "Goose",
       "name": "Nene",
       "notes": "Store 718.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "153.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j51os4n/",
       "store_number": "718"
     },
     {
@@ -1973,11 +1973,11 @@
       "state": "TX",
       "animal": "Frog",
       "name": "JoeJoe",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 404.",
+      "photo": "155.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j4ta54s/",
       "store_number": "404"
     },
     {
@@ -2011,11 +2011,11 @@
       "state": "OR",
       "animal": "Squirrel",
       "name": "Pearl",
-      "notes": "Store 146. Wears a pearl necklace and TJ's microtote. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 146. Wears a pearl necklace and TJ's microtote.",
+      "photo": "158.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j4btoza/"
     },
     {
       "id": 159,
@@ -2023,11 +2023,11 @@
       "state": "FL",
       "animal": "Manatee",
       "name": "Snooty",
-      "notes": "Named after Snooty the manatee from the Manatee County aquarium. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Named after Snooty the manatee from the Manatee County aquarium.",
+      "photo": "159.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j4bczzm/",
       "store_number": "761"
     },
     {
@@ -2036,11 +2036,11 @@
       "state": "AZ",
       "animal": "Javelina",
       "name": "Javi",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 85.",
+      "photo": "160.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j4dazbs/",
       "store_number": "85"
     },
     {
@@ -2050,10 +2050,10 @@
       "animal": "Octopus",
       "name": "Ollie",
       "notes": "Store 22.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "161.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/khri5fe/",
       "store_number": "22"
     },
     {
@@ -2063,10 +2063,10 @@
       "animal": "Viking",
       "name": "Eldingar",
       "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "photo": "162.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j3tferu/"
     },
     {
       "id": 163,
@@ -2074,11 +2074,11 @@
       "state": "AR",
       "animal": "Rock",
       "name": "Lil' Rocky",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 756.",
+      "photo": "163.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j40d4i7/",
       "store_number": "756"
     },
     {
@@ -2125,11 +2125,11 @@
       "state": "CA",
       "animal": "Lizard",
       "name": "Larry",
-      "notes": "Store 210. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 210.",
+      "photo": "167.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j2vhmw7/",
       "store_number": "210"
     },
     {
@@ -2138,11 +2138,11 @@
       "state": "WA",
       "animal": "Yeti",
       "name": "Confetti Yeti",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 158.",
+      "photo": "168.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j2v4ly6/",
       "store_number": "158"
     },
     {
@@ -2151,11 +2151,11 @@
       "state": "AZ",
       "animal": "Sun Devil",
       "name": "Sparky",
-      "notes": "ASU mascot. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "ASU mascot.",
+      "photo": "169.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j2l8eir/",
       "store_number": "91"
     },
     {
@@ -2228,10 +2228,10 @@
       "animal": "Eagle",
       "name": "Freddie",
       "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "photo": "175.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j275m4t/"
     },
     {
       "id": 176,
@@ -2251,11 +2251,11 @@
       "state": "CT",
       "animal": "Monkey",
       "name": "Banjoe",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 523.",
+      "photo": "177.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/izkxq8s/",
       "store_number": "523"
     },
     {
@@ -2264,11 +2264,11 @@
       "state": "VA",
       "animal": "Koala",
       "name": "Bonnie",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 786.",
+      "photo": "178.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/izfx868/",
       "store_number": "786"
     },
     {
@@ -2560,10 +2560,10 @@
       "animal": "Gorilla",
       "name": "Gorilla Joe",
       "notes": "Store 698.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "201.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/ji5bfw0/",
       "store_number": "698"
     },
     {
@@ -2646,11 +2646,11 @@
       "state": "VA",
       "animal": "Monkey",
       "name": "Mike",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 646.",
+      "photo": "208.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j16wtri/",
       "store_number": "646"
     },
     {
@@ -2685,10 +2685,10 @@
       "animal": "Ringtail",
       "name": "Ringo",
       "notes": "Store 177.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "211.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j1p64cl/"
     },
     {
       "id": 212,
@@ -2696,11 +2696,11 @@
       "state": "AZ",
       "animal": "Iguana",
       "name": "Iggy",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 89.",
+      "photo": "212.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j0ndvbm/",
       "store_number": "89"
     },
     {
@@ -2992,10 +2992,10 @@
       "animal": "Cougar",
       "name": "Coco",
       "notes": "Store 551. Identified via an in-store \"WANTED Coco the Cougar\" sign posted to Reddit; no photo confirmed yet.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "235.jpeg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jjah87d/",
       "store_number": "551"
     },
     {
