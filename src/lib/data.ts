@@ -113,6 +113,44 @@ export interface SubmissionInput {
   photoFile?: File;
 }
 
+export interface CorrectionInput {
+  mascot_id: number;
+  mascot_name?: string;
+  store?: string;
+  issues: string[];
+  details?: string;
+  reporter_email?: string;
+}
+
+/** Submits a correction report for an existing mascot to the Supabase
+ *  `corrections` table. Anyone can INSERT (open RLS), but only David can
+ *  read via the dashboard — no email is sent. */
+export async function submitCorrection(
+  input: CorrectionInput,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const sb = getSupabase();
+  if (!sb) {
+    console.info('[prototype] correction received (Supabase not configured):', input);
+    return { ok: true };
+  }
+  try {
+    const { error } = await sb.from('corrections').insert({
+      mascot_id: input.mascot_id,
+      mascot_name: input.mascot_name || null,
+      store: input.store || null,
+      issues: input.issues,
+      details: input.details || null,
+      reporter_email: input.reporter_email || null,
+    });
+    if (error) throw error;
+    return { ok: true };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : 'unknown';
+    console.error('[data] submitCorrection failed:', msg);
+    return { ok: false, error: msg };
+  }
+}
+
 export async function submitMascot(
   submission: SubmissionInput,
 ): Promise<{ ok: true } | { ok: false; error: string }> {

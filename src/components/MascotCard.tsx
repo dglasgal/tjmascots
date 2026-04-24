@@ -1,8 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Mascot, Store } from '@/lib/types';
 import { photoUrl } from '@/lib/data';
+import ReportModal from './ReportModal';
 
 type Selection =
   | { kind: 'mascot'; data: Mascot }
@@ -51,6 +53,7 @@ export default function MascotCard({ selection, onClose, onSubmitForStore }: Mas
 
 function MascotBody({ m }: { m: Mascot }) {
   const photoSrc = m.has_photo && m.photo ? photoUrl(m.photo) : null;
+  const [reportOpen, setReportOpen] = useState(false);
   return (
     <>
       {photoSrc ? (
@@ -105,13 +108,14 @@ function MascotBody({ m }: { m: Mascot }) {
         )}
 
         <div className="mt-3 text-[11px] text-[var(--ink-soft)]">
-          <a
-            href={buildCorrectionMailto(m)}
+          <button
+            type="button"
+            onClick={() => setReportOpen(true)}
             className="inline-flex items-center gap-1 rounded-full border border-[var(--cream-dark)] px-2.5 py-1 font-bold uppercase tracking-wide transition hover:border-[var(--tj-red)] hover:text-[var(--tj-red)]"
-            title="Email the project owner about a correction"
+            title="Report a correction (goes to a private review queue)"
           >
             ⚠︎ Report incorrect info
-          </a>
+          </button>
         </div>
       </div>
 
@@ -120,42 +124,12 @@ function MascotBody({ m }: { m: Mascot }) {
           📷 No photo yet — help us fill this in!
         </div>
       )}
+
+      <ReportModal open={reportOpen} mascot={m} onClose={() => setReportOpen(false)} />
     </>
   );
 }
 
-/** Build a mailto: link with pre-filled subject & body describing the mascot.
- *  Recipient is NEXT_PUBLIC_SITE_EMAIL at build time, falling back to the
- *  project owner's email so the button always works. */
-function buildCorrectionMailto(m: Mascot): string {
-  const to = process.env.NEXT_PUBLIC_SITE_EMAIL || 'david@7ate9.com';
-  const label = `${m.name || 'Unnamed'} the ${m.animal || 'mascot'}`;
-  const subject = `TJ Mascots correction: ${label} at ${m.store || 'unknown store'}`;
-  const body = [
-    `I think this mascot record has an error.`,
-    ``,
-    `Mascot: ${label}`,
-    `Store: ${m.store}${m.state ? `, ${m.state}` : ''}`,
-    m.street ? `Address: ${m.street}${m.zip ? `, ${m.zip}` : ''}` : '',
-    m.store_number ? `Store #: ${m.store_number}` : '',
-    ``,
-    `What should be corrected?`,
-    `[  ] Name`,
-    `[  ] Animal type`,
-    `[  ] Store location`,
-    `[  ] Photo is wrong`,
-    `[  ] Mascot has been retired`,
-    `[  ] Other:`,
-    ``,
-    `Correct info / details:`,
-    ``,
-    ``,
-    `Thanks!`,
-  ]
-    .filter(Boolean)
-    .join('\n');
-  return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 
 function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
   return (
