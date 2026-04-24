@@ -729,14 +729,14 @@
     },
     {
       "id": 58,
-      "store": "Maple Grove",
+      "store": "Maple Grove — RETIRED",
       "state": "MN",
       "animal": "Maple leaf",
       "name": "Maple",
-      "notes": "Store 713.",
+      "notes": "Previously listed as the Maple Grove mascot; confirmed April 2026 that the actual mascot is Lucky the Chicken. Kept as historical record.",
       "photo": "058.png",
       "has_photo": true,
-      "retired": false,
+      "retired": true,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "713"
     },
