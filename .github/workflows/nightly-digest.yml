@@ -1,0 +1,26 @@
+name: Nightly digest
+
+on:
+  schedule:
+    # 14:00 UTC ≈ 7am PT / 10am ET. GitHub's cron is UTC-only.
+    - cron: '0 14 * * *'
+  # Allow kicking it off manually from the Actions tab for testing.
+  workflow_dispatch:
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Send nightly digest
+        env:
+          SUPABASE_URL: https://xxdandghgljvjbirlhfz.supabase.co
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          DIGEST_TO: david@7ate9.com
+        run: node .github/scripts/nightly-digest.mjs
