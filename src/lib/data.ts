@@ -145,10 +145,31 @@ export async function submitCorrection(
     if (error) throw error;
     return { ok: true };
   } catch (e) {
-    const msg = e instanceof Error ? e.message : 'unknown';
-    console.error('[data] submitCorrection failed:', msg);
+    // Supabase errors aren't Error instances — extract everything useful.
+    const msg = extractErrorMessage(e);
+    console.error('[data] submitCorrection failed. Raw:', e);
     return { ok: false, error: msg };
   }
+}
+
+/** Pull a useful human-readable message out of any error-shaped value.
+ *  Handles Supabase PostgrestError (plain object with .message/.details/.hint). */
+function extractErrorMessage(e: unknown): string {
+  if (!e) return 'unknown';
+  if (typeof e === 'string') return e;
+  if (e instanceof Error) return e.message;
+  if (typeof e === 'object') {
+    const obj = e as Record<string, unknown>;
+    const parts = [obj.message, obj.details, obj.hint, obj.code]
+      .filter((v): v is string => typeof v === 'string' && v.length > 0);
+    if (parts.length) return parts.join(' — ');
+    try {
+      return JSON.stringify(e);
+    } catch {
+      return 'unknown';
+    }
+  }
+  return String(e);
 }
 
 export async function submitMascot(
