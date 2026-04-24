@@ -1185,10 +1185,10 @@
       "animal": "Bear",
       "name": "Banjo",
       "notes": "",
-      "photo": "093.png",
+      "photo": "093.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "126"
     },
     {
@@ -1260,11 +1260,11 @@
       "state": "CA",
       "animal": "Monkey",
       "name": "Mandy",
-      "notes": "Dressed as Santa.",
-      "photo": "099.png",
+      "notes": "Store 247. Mandy the Monkey swings through the Costa Mesa store, keeping an eye on the snack aisle.",
+      "photo": "099.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs"
     },
     {
       "id": 100,
@@ -1530,11 +1530,11 @@
       "state": "CA",
       "animal": "Walrus",
       "name": "Wally",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 215. Wally the Walrus watches over the Santa Barbara Trader Joe's — often spotted napping on top of the shelves.",
+      "photo": "120.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs"
     },
     {
       "id": 121,
@@ -1542,11 +1542,11 @@
       "state": "CO",
       "animal": "Fox",
       "name": "Felix",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 308. Felix the Fox tends to the Denver Trader Joe's, slipping between the produce and the fresh flowers.",
+      "photo": "121.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs"
     },
     {
       "id": 122,
@@ -1563,15 +1563,16 @@
     },
     {
       "id": 123,
-      "store": "Larkspur",
+      "store": "Greenbrae (Marin — Redwood Hwy)",
       "state": "CA",
       "animal": "Lark",
       "name": "Flick",
-      "notes": "New store in 2022.",
+      "notes": "Store 235. Flick the Lark lives at the Greenbrae store in Marin County, alongside companions Rob and Robin.",
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "235"
     },
     {
       "id": 124,
@@ -1732,11 +1733,11 @@
       "state": "CA",
       "animal": "Chicken",
       "name": "Henrietta",
-      "notes": "Nod to Petaluma as former egg capital of the world.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 191. Henrietta the Chicken struts through the Petaluma store, where the Sonoma County crew swear she keeps the morning schedule.",
+      "photo": "136.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "107"
     },
     {
@@ -2509,10 +2510,10 @@
       "animal": "Pony",
       "name": "JoJo",
       "notes": "San Rafael may also have a JoJo.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "197.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "198"
     },
     {
@@ -3122,9 +3123,9 @@
       "state": "CA",
       "animal": "Donkey",
       "name": "Ronnie",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 61. Ronnie the Donkey was the beloved original mascot of the San Rafael store before retiring to make way for Rosie the Otter.",
+      "photo": "245.jpg",
+      "has_photo": true,
       "retired": true,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "61"
@@ -3135,9 +3136,9 @@
       "state": "CA",
       "animal": "Monkey",
       "name": "Carlo",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 75. Carlo the Monkey greets every customer at the Santa Rosa store.",
+      "photo": "246.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "75"
@@ -3148,9 +3149,9 @@
       "state": "CA",
       "animal": "Alligator",
       "name": "Trader Gator",
-      "notes": "Store 236. Trader Gator the Alligator hides at the Stonestown Galleria store, near SFSU.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 236. Trader Gator the Alligator keeps a wary eye on shoppers at the Stonestown Galleria store, near SFSU.",
+      "photo": "247.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "236"
@@ -3161,9 +3162,9 @@
       "state": "CA",
       "animal": "Bear",
       "name": "Katherine Rae",
-      "notes": "Store 200. Katherine Rae watches over the Nob Hill TJ on Hyde Street.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 200. Katherine Rae the Bear presides over the Nob Hill Trader Joe's on Hyde Street.",
+      "photo": "248.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "200"
@@ -3174,9 +3175,9 @@
       "state": "CA",
       "animal": "Unknown",
       "name": "Marko",
-      "notes": "Store 225. Marko keeps SoMa company at 10 4th Street.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 225. Marko keeps SoMa company at the 10 4th Street store downtown.",
+      "photo": "249.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "225"
@@ -3187,9 +3188,9 @@
       "state": "CA",
       "animal": "Sun",
       "name": "Sun",
-      "notes": "Store 74. The Sun beams down over the Daly City store — a handmade sun mascot.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 74. The Sun beams down over the Daly City store — a handmade felt sun with its own name tag.",
+      "photo": "250.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "74"
@@ -3200,12 +3201,51 @@
       "state": "CA",
       "animal": "Shark",
       "name": "Patrick",
-      "notes": "Store 19. Patrick the Shark cruises the North Beach store at 401 Bay St.",
+      "notes": "Store 19. Patrick the Shark cruises the North Beach Trader Joe's at 401 Bay Street.",
+      "photo": "251.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "19"
+    },
+    {
+      "id": 252,
+      "store": "San Rafael",
+      "state": "CA",
+      "animal": "Otter",
+      "name": "Rosie",
+      "notes": "Store 61. Rosie the Otter is the current San Rafael mascot — she took over from Ronnie the Donkey, who retired.",
+      "photo": "252.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "61"
+    },
+    {
+      "id": 253,
+      "store": "Greenbrae (Marin — Redwood Hwy)",
+      "state": "CA",
+      "animal": "Bear",
+      "name": "Rob",
+      "notes": "Store 235. Rob is one of the three Greenbrae mascots, rounding out the trio with Flick the Lark and Robin the Robin.",
       "photo": null,
       "has_photo": false,
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
-      "store_number": "19"
+      "store_number": "235"
+    },
+    {
+      "id": 254,
+      "store": "Greenbrae (Marin — Redwood Hwy)",
+      "state": "CA",
+      "animal": "Robin",
+      "name": "Robin",
+      "notes": "Store 235. Robin the Robin rounds out the Greenbrae trio with Flick the Lark and Rob.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "235"
     }
   ]
 }
