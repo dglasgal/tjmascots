@@ -81,9 +81,9 @@ export default function AboutPage() {
                 <p>
                   Brian loved the quiet wonder of walking into a Trader Joe&apos;s. Not just for the
                   snacks — for the <em>menagerie</em>. Every store, it turned out, had its own
-                  secret resident: a plush duck perched above the registers, a tiny moose tucked
+                  secret resident: a duck perched above the registers, a little moose tucked
                   behind the flowers, a crab squinting out from the produce cooler. A whole diverse
-                  cast of little animals with their own names, their own nametags, their own
+                  cast of little animals with their own names, their own nametags, and their own
                   stores.
                 </p>
                 <p>
