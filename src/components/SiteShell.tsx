@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Header from './Header';
 import MascotCard from './MascotCard';
+import MascotParade from './MascotParade';
 import SubmitModal, { type SubmitModalPreset } from './SubmitModal';
 import type { Mascot, Store } from '@/lib/types';
 import type { SearchResult } from '@/lib/search';
@@ -47,12 +48,15 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
   const [flyTo, setFlyTo] = useState<{ lat: number; lng: number; zoom?: number } | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [submitPreset, setSubmitPreset] = useState<SubmitModalPreset | undefined>(undefined);
+  const [paradeOpen, setParadeOpen] = useState(false);
 
   const mascotStoreNumbers = useMemo(
     () => new Set(mascots.map((m) => m.store_number).filter(Boolean)),
     [mascots],
   );
   const unknownCount = stores.filter((s) => !mascotStoreNumbers.has(s.store_number)).length;
+  const mappedCount = stores.length - unknownCount;
+  const percentMapped = stores.length > 0 ? (mappedCount / stores.length) * 100 : 0;
 
   // On first mount, retry any corrections that previously failed to submit
   // because the database was briefly unreachable. Runs silently in the
@@ -102,8 +106,10 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
         stores={stores}
         onSelect={handleSearchSelect}
         onSubmitClick={openSubmit}
+        onProgressClick={() => setParadeOpen(true)}
         totalMascots={mascots.length}
         totalUnknown={unknownCount}
+        percentMapped={percentMapped}
       />
       <div className="bg-[var(--cream-dark)] px-6 py-1.5 text-center text-[11px] font-bold text-[var(--ink-soft)]">
         Fan project. Not affiliated with Trader Joe&apos;s Company. &ldquo;Trader Joe&apos;s&rdquo; is a trademark of Trader Joe&apos;s Company.
@@ -133,6 +139,13 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
         open={submitOpen}
         preset={submitPreset}
         onClose={() => setSubmitOpen(false)}
+      />
+
+      <MascotParade
+        open={paradeOpen}
+        onClose={() => setParadeOpen(false)}
+        mascots={mascots}
+        totalStores={stores.length}
       />
     </div>
   );

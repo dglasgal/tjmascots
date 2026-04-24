@@ -62,3 +62,15 @@ body {
   background: transparent;
   border: none;
 }
+
+/* Pulsing "↗" on the parade pill — gentle hint that this is clickable.
+   Plays every 3s so it catches the eye without being distracting. */
+.parade-arrow {
+  display: inline-block;
+  animation: parade-arrow-pulse 3s ease-in-out infinite;
+}
+@keyframes parade-arrow-pulse {
+  0%, 70%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+  80% { transform: translate(2px, -2px) scale(1.25); opacity: 1; }
+  90% { transform: translate(0, 0) scale(1); opacity: 1; }
+}
