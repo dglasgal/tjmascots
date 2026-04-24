@@ -683,7 +683,7 @@
       "animal": "Tiger",
       "name": "Weasley",
       "notes": "RETIRED per David's April 2026 visit. Replaced by Ruby the Swan. Original nod was to Toluca Lake Elementary Tigers. Store 54.",
-      "photo": "054.png",
+      "photo": "054.webp",
       "has_photo": true,
       "retired": true,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
@@ -2918,6 +2918,19 @@
       "retired": false,
       "source_url": "User-submitted",
       "store_number": "743"
+    },
+    {
+      "id": 230,
+      "store": "Brentwood (Brentwood Promenade)",
+      "state": "MO",
+      "animal": "Elephant",
+      "name": "",
+      "notes": "Store 692. Gray elephant plush — name not yet confirmed.",
+      "photo": "230.webp",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted",
+      "store_number": "692"
     }
   ],
   "stats": {
