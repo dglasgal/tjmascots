@@ -3246,6 +3246,97 @@
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "store_number": "235"
+    },
+    {
+      "id": 255,
+      "store": "Roseville (Roseville Square)",
+      "state": "CA",
+      "animal": "Train",
+      "name": "Cirby",
+      "notes": "Store 80. Cirby the little green train engine keeps watch from above the registers — named after Cirby Way, the road that runs past the store.",
+      "photo": "255.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/",
+      "store_number": "80"
+    },
+    {
+      "id": 256,
+      "store": "Paramus",
+      "state": "NJ",
+      "animal": "Monkey",
+      "name": "Plantain",
+      "notes": "Store 605. Plantain the Monkey holds court at Paramus in his favorite banana-leaf Hawaiian shirt and safari khakis.",
+      "photo": "256.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/",
+      "store_number": "605"
+    },
+    {
+      "id": 257,
+      "store": "Modesto",
+      "state": "CA",
+      "animal": "Chicken",
+      "name": "Mandy",
+      "notes": "Store 9. Mandy the Chicken presides over Modesto with a proud red bandana — a nod to Trader Joe's legendary Mandarin Orange Chicken. (Not to be confused with Mandy the Monkey down at Costa Mesa.)",
+      "photo": "257.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/",
+      "store_number": "9"
+    },
+    {
+      "id": 258,
+      "store": "Germantown",
+      "state": "TN",
+      "animal": "Horse",
+      "name": "Melvin",
+      "notes": "Store 738. Melvin the Horse trots around Germantown with his signature red bandana — photographed keeping an eye on the butternut squash harvest.",
+      "photo": "258.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/r/traderjoes",
+      "store_number": "738"
+    },
+    {
+      "id": 259,
+      "store": "Hollywood (1600 N Vine St)",
+      "state": "CA",
+      "animal": "Goat",
+      "name": "Kobe",
+      "notes": "Store 206. Kobe the Goat lives at the Hollywood Vine Street store, showing up in his favorite blue floral Hawaiian shirt. His name is a wink to the greatest Laker of them all — a fitting tribute from right down the road from Staples Center.",
+      "photo": "259.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.tiktok.com/discover/kobe-the-goat-trader-joes-hollywood",
+      "store_number": "206"
+    },
+    {
+      "id": 260,
+      "store": "Royal Oak",
+      "state": "MI",
+      "animal": "Lion",
+      "name": "",
+      "notes": "Store 674. A die-hard Detroit Lions fan, this little critter is fully suited up in a Lions helmet and a #00 jersey — perched right under the 'Welcome to Trader Joe's Royal Oak' sign. Name still a mystery — if you shop here, please submit it!",
+      "photo": "260.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "",
+      "store_number": "674"
+    },
+    {
+      "id": 261,
+      "store": "Torrance (Rolling Hills Plaza)",
+      "state": "CA",
+      "animal": "Monkey",
+      "name": "",
+      "notes": "Store 29. A brown monkey keeps watch over the aisles from atop a refrigerator at Rolling Hills Plaza, with the big painted sea-dragon mural as a backdrop. Name not known yet — if this is your store, help us name them!",
+      "photo": "261.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "",
+      "store_number": "29"
     }
   ]
 }
