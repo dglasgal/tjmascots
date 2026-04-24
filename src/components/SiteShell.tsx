@@ -1,12 +1,13 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Header from './Header';
 import MascotCard from './MascotCard';
 import SubmitModal from './SubmitModal';
 import type { Mascot, Store } from '@/lib/types';
 import type { SearchResult } from '@/lib/search';
+import { flushQueuedCorrections } from '@/lib/data';
 
 // Leaflet relies on window, so the map component must be client-only.
 const MapView = dynamic(() => import('./MapView'), {
@@ -39,6 +40,15 @@ export default function SiteShell({ mascots, stores }: SiteShellProps) {
     [mascots],
   );
   const unknownCount = stores.filter((s) => !mascotStoreNumbers.has(s.store_number)).length;
+
+  // On first mount, retry any corrections that previously failed to submit
+  // because the database was briefly unreachable. Runs silently in the
+  // background; no-op if there's nothing queued.
+  useEffect(() => {
+    flushQueuedCorrections().catch((e) =>
+      console.warn('[SiteShell] queue flush failed:', e),
+    );
+  }, []);
 
   function handleSearchSelect(r: SearchResult) {
     setFlyTo({ lat: r.data.lat, lng: r.data.lng, zoom: 13 });

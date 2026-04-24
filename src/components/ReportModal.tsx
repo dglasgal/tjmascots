@@ -62,8 +62,15 @@ export default function ReportModal({ open, mascot, onClose }: ReportModalProps)
     });
     setBusy(false);
     if (result.ok) {
-      setMessage("Thanks! We'll review your report and update the record.");
-      setTimeout(() => onClose(), 1800);
+      if ('queued' in result && result.queued) {
+        setMessage(
+          "Saved! We couldn't reach the server right now, so your report is held on this device and will submit automatically next time the site is up.",
+        );
+        setTimeout(() => onClose(), 3200);
+      } else {
+        setMessage("Thanks! We'll review your report and update the record.");
+        setTimeout(() => onClose(), 1800);
+      }
     } else {
       setMessage(`Something went wrong: ${result.error}`);
     }

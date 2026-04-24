@@ -124,31 +124,125 @@ export interface CorrectionInput {
 
 /** Submits a correction report for an existing mascot to the Supabase
  *  `corrections` table. Anyone can INSERT (open RLS), but only David can
- *  read via the dashboard — no email is sent. */
+ *  read via the dashboard — no email is sent.
+ *
+ *  Resilience:
+ *   - Retries up to 3 times with exponential backoff against Supabase blips.
+ *   - On total failure, the report is queued in localStorage and retried
+ *     next time the user loads the page. No report is lost to a transient
+ *     database outage. */
 export async function submitCorrection(
   input: CorrectionInput,
-): Promise<{ ok: true } | { ok: false; error: string }> {
+): Promise<{ ok: true; queued?: boolean } | { ok: false; error: string }> {
   const sb = getSupabase();
   if (!sb) {
     console.info('[prototype] correction received (Supabase not configured):', input);
     return { ok: true };
   }
   try {
-    const { error } = await sb.from('corrections').insert({
-      mascot_id: input.mascot_id,
-      mascot_name: input.mascot_name || null,
-      store: input.store || null,
-      issues: input.issues,
-      details: input.details || null,
-      reporter_email: input.reporter_email || null,
-    });
-    if (error) throw error;
+    await retryInsert(() =>
+      sb.from('corrections').insert({
+        mascot_id: input.mascot_id,
+        mascot_name: input.mascot_name || null,
+        store: input.store || null,
+        issues: input.issues,
+        details: input.details || null,
+        reporter_email: input.reporter_email || null,
+      }),
+    );
     return { ok: true };
   } catch (e) {
-    // Supabase errors aren't Error instances — extract everything useful.
-    const msg = extractErrorMessage(e);
-    console.error('[data] submitCorrection failed. Raw:', e);
-    return { ok: false, error: msg };
+    console.error('[data] submitCorrection failed after retries. Raw:', e);
+    // Last-ditch: queue it in localStorage so nothing is lost.
+    const queued = queueCorrectionForLater(input);
+    if (queued) return { ok: true, queued: true };
+    return { ok: false, error: extractErrorMessage(e) };
+  }
+}
+
+/** Run a Supabase insert with exponential backoff. Throws the last error
+ *  if all attempts fail. */
+async function retryInsert(
+  op: () => Promise<{ error: unknown }>,
+  attempts = 3,
+): Promise<void> {
+  const delays = [0, 1000, 3000, 7000]; // 1st try = 0 delay, then 1s, 3s, 7s
+  let lastErr: unknown = null;
+  for (let i = 0; i < attempts; i++) {
+    if (delays[i]) await new Promise((r) => setTimeout(r, delays[i]));
+    try {
+      const { error } = await op();
+      if (!error) return;
+      lastErr = error;
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+  throw lastErr;
+}
+
+const QUEUE_KEY = 'tjmascots:pending-corrections';
+
+interface QueuedCorrection extends CorrectionInput {
+  __queued_at: number;
+}
+
+/** Save a failed correction to localStorage so we can retry later.
+ *  Returns true if queued. */
+function queueCorrectionForLater(input: CorrectionInput): boolean {
+  if (typeof window === 'undefined' || !window.localStorage) return false;
+  try {
+    const raw = window.localStorage.getItem(QUEUE_KEY);
+    const queue: QueuedCorrection[] = raw ? JSON.parse(raw) : [];
+    queue.push({ ...input, __queued_at: Date.now() });
+    window.localStorage.setItem(QUEUE_KEY, JSON.stringify(queue));
+    return true;
+  } catch (e) {
+    console.warn('[data] failed to queue correction:', e);
+    return false;
+  }
+}
+
+/** Drains the offline queue in the background. Safe to call on every
+ *  page load — if there's nothing queued, it's a no-op. */
+export async function flushQueuedCorrections(): Promise<void> {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+  const sb = getSupabase();
+  if (!sb) return;
+  let queue: QueuedCorrection[];
+  try {
+    const raw = window.localStorage.getItem(QUEUE_KEY);
+    if (!raw) return;
+    queue = JSON.parse(raw);
+  } catch {
+    return;
+  }
+  if (!queue.length) return;
+  console.info(`[data] retrying ${queue.length} queued correction(s)…`);
+  const remaining: QueuedCorrection[] = [];
+  for (const item of queue) {
+    try {
+      const { error } = await sb.from('corrections').insert({
+        mascot_id: item.mascot_id,
+        mascot_name: item.mascot_name || null,
+        store: item.store || null,
+        issues: item.issues,
+        details: item.details || null,
+        reporter_email: item.reporter_email || null,
+      });
+      if (error) {
+        remaining.push(item);
+      }
+    } catch {
+      remaining.push(item);
+    }
+  }
+  if (remaining.length) {
+    window.localStorage.setItem(QUEUE_KEY, JSON.stringify(remaining));
+    console.info(`[data] ${remaining.length} correction(s) still queued.`);
+  } else {
+    window.localStorage.removeItem(QUEUE_KEY);
+    console.info('[data] queue drained.');
   }
 }
 
