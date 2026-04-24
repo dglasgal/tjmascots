@@ -164,10 +164,17 @@ function MascotBody({ m, onSubmit }: { m: Mascot; onSubmit: () => void }) {
         <h2 className="my-1.5 font-display text-4xl font-extrabold leading-tight text-[var(--tj-red)]">
           {m.name || 'Unnamed mascot'}
         </h2>
-        <div className="mb-1 text-base font-bold">
-          {m.store}
-          {m.state && (
-            <span className="font-semibold text-[var(--ink-soft)]">, {m.state}</span>
+        <div className="mb-1 flex items-baseline gap-2 text-base font-bold">
+          <span>
+            {m.store}
+            {m.state && (
+              <span className="font-semibold text-[var(--ink-soft)]">, {m.state}</span>
+            )}
+          </span>
+          {m.store_number && (
+            <span className="rounded-full bg-[var(--tj-red)] px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
+              Store #{m.store_number}
+            </span>
           )}
         </div>
         {m.street && (
