@@ -8,7 +8,7 @@
  */
 import type { Mascot, Store } from './types';
 import { emojiForAnimal } from './emoji';
-import { getSupabase, SUPABASE_CONFIGURED } from './supabase';
+import { getSupabase } from './supabase';
 import localMascotsRaw from '@/data/mascots.json';
 import localStores from '@/data/tj-stores.json';
 
@@ -77,27 +77,11 @@ export async function getStores(): Promise<Store[]> {
 }
 
 export async function getMascots(): Promise<Mascot[]> {
+  // Source of truth: the local JSON file that David edits directly.
+  // (Supabase is kept around for user submissions / form writes, but reads
+  // at build time come from the repo so updates land with a commit + push.)
   const stores = await getStores();
-  let raw: LocalMascot[];
-
-  const sb = getSupabase();
-  if (sb && SUPABASE_CONFIGURED) {
-    try {
-      const { data, error } = await sb
-        .from('mascots')
-        .select('*')
-        .eq('retired', false)
-        .order('id');
-      if (error) throw error;
-      raw = data as LocalMascot[];
-    } catch (err) {
-      console.warn('[data] Supabase mascots query failed, falling back to local JSON:', err);
-      raw = (localMascotsRaw as { mascots: LocalMascot[] }).mascots || [];
-    }
-  } else {
-    raw = (localMascotsRaw as { mascots: LocalMascot[] }).mascots || [];
-  }
-
+  const raw = (localMascotsRaw as { mascots: LocalMascot[] }).mascots || [];
   return raw
     .filter((m) => !m.retired)
     .map((m) => enrichWithEmoji(m, matchStore(m, stores)));
