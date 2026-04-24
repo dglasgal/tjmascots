@@ -3115,12 +3115,97 @@
       "retired": false,
       "source_url": "https://www.instagram.com/p/COMGIRXp9np/",
       "store_number": "34"
+    },
+    {
+      "id": 245,
+      "store": "San Rafael",
+      "state": "CA",
+      "animal": "Donkey",
+      "name": "Ronnie",
+      "notes": "",
+      "photo": null,
+      "has_photo": false,
+      "retired": true,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "61"
+    },
+    {
+      "id": 246,
+      "store": "Santa Rosa",
+      "state": "CA",
+      "animal": "Monkey",
+      "name": "Carlo",
+      "notes": "",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "75"
+    },
+    {
+      "id": 247,
+      "store": "Stonestown (San Francisco — Winston Dr)",
+      "state": "CA",
+      "animal": "Alligator",
+      "name": "Trader Gator",
+      "notes": "Store 236. Trader Gator the Alligator hides at the Stonestown Galleria store, near SFSU.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "236"
+    },
+    {
+      "id": 248,
+      "store": "Nob Hill (San Francisco — Hyde St)",
+      "state": "CA",
+      "animal": "Bear",
+      "name": "Katherine Rae",
+      "notes": "Store 200. Katherine Rae watches over the Nob Hill TJ on Hyde Street.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "200"
+    },
+    {
+      "id": 249,
+      "store": "Downtown San Francisco (4th Street)",
+      "state": "CA",
+      "animal": "Unknown",
+      "name": "Marko",
+      "notes": "Store 225. Marko keeps SoMa company at 10 4th Street.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "225"
+    },
+    {
+      "id": 250,
+      "store": "Daly City",
+      "state": "CA",
+      "animal": "Sun",
+      "name": "Sun",
+      "notes": "Store 74. The Sun beams down over the Daly City store — a handmade sun mascot.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "74"
+    },
+    {
+      "id": 251,
+      "store": "North Beach (San Francisco — Bay Street)",
+      "state": "CA",
+      "animal": "Shark",
+      "name": "Patrick",
+      "notes": "Store 19. Patrick the Shark cruises the North Beach store at 401 Bay St.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "store_number": "19"
     }
-  ],
-  "stats": {
-    "total": 225,
-    "active": 223,
-    "retired": 2,
-    "with_photo": 115
-  }
+  ]
 }
