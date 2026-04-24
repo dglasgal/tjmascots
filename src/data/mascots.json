@@ -2944,6 +2944,32 @@
       "retired": false,
       "source_url": "User-submitted",
       "store_number": "784"
+    },
+    {
+      "id": 232,
+      "store": "Pembroke Pines",
+      "state": "FL",
+      "animal": "Gecko",
+      "name": "Gus",
+      "notes": "Store 775.",
+      "photo": "232.jpeg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jqph2rd/",
+      "store_number": "775"
+    },
+    {
+      "id": 233,
+      "store": "Cincinnati",
+      "state": "OH",
+      "animal": "Frog",
+      "name": "Wart",
+      "notes": "Store 669. Seen dressed in a Bengals jersey to cheer for the playoffs.",
+      "photo": "233.jpeg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/j5cl1cb/",
+      "store_number": "669"
     }
   ],
   "stats": {
