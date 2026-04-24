@@ -1476,8 +1476,8 @@
       "animal": "Wolverine",
       "name": "Maizy",
       "notes": "Store 678. Maizy the Wolverine honors the University of Michigan's fierce little mascot — a Maize-and-Blue nod at the Ann Arbor Trader Joe's.",
-      "photo": null,
-      "has_photo": false,
+      "photo": "114.webp",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "678"
