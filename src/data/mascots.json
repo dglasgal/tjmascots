@@ -3337,6 +3337,32 @@
       "retired": false,
       "source_url": "",
       "store_number": "29"
+    },
+    {
+      "id": 262,
+      "store": "Summerlin (Las Vegas — Summa Dr)",
+      "state": "NV",
+      "animal": "Sloth",
+      "name": "Flash",
+      "notes": "Store 284. Flash the Sloth presides over the Summerlin Trader Joe's — spot him hanging out somewhere in the store and the checkout crew will hand you a lollipop.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/C9yYErdv6Up/",
+      "store_number": "284"
+    },
+    {
+      "id": 263,
+      "store": "Maple Grove",
+      "state": "MN",
+      "animal": "Rooster",
+      "name": "Doodle Doo",
+      "notes": "Store 713. Doodle Doo the Rooster ran the roost at Maple Grove for years in his signature palm-tree Hawaiian shirt — before handing the coop over to Lucky the Chicken, the store's current mascot.",
+      "photo": "263.jpg",
+      "has_photo": true,
+      "retired": true,
+      "source_url": "https://www.instagram.com/p/CKKuXiChgNy/",
+      "store_number": "713"
     }
   ]
 }
