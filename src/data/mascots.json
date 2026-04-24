@@ -10,7 +10,8 @@
       "photo": "001.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1n1pwsi/mcquackers_the_duck_at_oakland_calakeshore_trader/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1n1pwsi/mcquackers_the_duck_at_oakland_calakeshore_trader/",
+      "store_number": "203"
     },
     {
       "id": 2,
@@ -898,7 +899,8 @@
       "photo": "075.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "231"
     },
     {
       "id": 76,
