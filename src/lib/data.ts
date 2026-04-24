@@ -95,6 +95,16 @@ export async function getMascots(): Promise<Mascot[]> {
     .map((m) => enrichWithEmoji(m, matchStore(m, stores)));
 }
 
+/** Retired / historical mascots — not shown as pins on the map, but surfaced
+ *  in the "Previous mascots at this store" section of each store card. */
+export async function getPreviousMascots(): Promise<Mascot[]> {
+  const stores = await getStores();
+  const raw = (localMascotsRaw as { mascots: LocalMascot[] }).mascots || [];
+  return raw
+    .filter((m) => m.retired === true)
+    .map((m) => enrichWithEmoji(m, matchStore(m, stores)));
+}
+
 /** Build a public URL for a mascot photo given its filename.
  *  Photos are bundled with the site under /public/photos/ and served from
  *  the static CDN. (The Supabase `mascot-photos` bucket is reserved for
