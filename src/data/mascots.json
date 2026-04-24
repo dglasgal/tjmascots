@@ -1880,9 +1880,9 @@
       "state": "AZ",
       "animal": "Swan",
       "name": "Grant",
-      "notes": "Named for Grant Rd.",
-      "photo": "148.png",
-      "has_photo": true,
+      "notes": "Named for Grant Rd. | Photo needed — previous image did not match.",
+      "photo": null,
+      "has_photo": false,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "88"

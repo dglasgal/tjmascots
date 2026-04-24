@@ -15,6 +15,9 @@ interface MascotCardProps {
   selection: Selection;
   onClose: () => void;
   onSubmitForStore: (city: string, state: string) => void;
+  /** Called when the user clicks "Submit this mascot" on a known mascot
+   *  card that's missing a photo — opens the submit modal pre-filled. */
+  onSubmitForMascot: (m: Mascot) => void;
   /** Retired/historical mascots, indexed by store_number, used to render the
    *  "Previous mascots" section at the bottom of each store or mascot card. */
   previousByStore?: Map<string, Mascot[]>;
@@ -24,6 +27,7 @@ export default function MascotCard({
   selection,
   onClose,
   onSubmitForStore,
+  onSubmitForMascot,
   previousByStore,
 }: MascotCardProps) {
   const storeNumber =
@@ -55,7 +59,10 @@ export default function MascotCard({
           </button>
 
           {selection.kind === 'mascot' ? (
-            <MascotBody m={selection.data} />
+            <MascotBody
+              m={selection.data}
+              onSubmit={() => onSubmitForMascot(selection.data)}
+            />
           ) : (
             <StoreBody
               s={selection.data}
@@ -123,7 +130,7 @@ function PreviousMascots({ items }: { items: Mascot[] }) {
   );
 }
 
-function MascotBody({ m }: { m: Mascot }) {
+function MascotBody({ m, onSubmit }: { m: Mascot; onSubmit: () => void }) {
   const photoSrc = m.has_photo && m.photo ? photoUrl(m.photo) : null;
   const [reportOpen, setReportOpen] = useState(false);
   return (
@@ -192,8 +199,16 @@ function MascotBody({ m }: { m: Mascot }) {
       </div>
 
       {!m.has_photo && (
-        <div className="mx-6 mb-4 rounded-xl bg-[var(--cream-dark)] px-3.5 py-2.5 text-center text-[13px] font-semibold text-[var(--ink-soft)]">
-          📷 No photo yet — help us fill this in!
+        <div className="mx-6 mb-4">
+          <div className="rounded-xl bg-[var(--cream-dark)] px-3.5 py-2.5 text-center text-[13px] font-semibold text-[var(--ink-soft)]">
+            📷 No photo yet — help us fill this in!
+          </div>
+          <button
+            onClick={onSubmit}
+            className="mt-2 block w-full rounded-full bg-[var(--tj-red)] py-3 text-sm font-extrabold text-[var(--cream)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)]"
+          >
+            + Submit the mascot
+          </button>
         </div>
       )}
 

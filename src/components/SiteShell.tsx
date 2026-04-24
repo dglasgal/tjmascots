@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Header from './Header';
 import MascotCard from './MascotCard';
-import SubmitModal from './SubmitModal';
+import SubmitModal, { type SubmitModalPreset } from './SubmitModal';
 import type { Mascot, Store } from '@/lib/types';
 import type { SearchResult } from '@/lib/search';
 import { flushQueuedCorrections } from '@/lib/data';
@@ -46,7 +46,7 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
   const [selection, setSelection] = useState<Selection>(null);
   const [flyTo, setFlyTo] = useState<{ lat: number; lng: number; zoom?: number } | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
-  const [submitPreset, setSubmitPreset] = useState<string | undefined>(undefined);
+  const [submitPreset, setSubmitPreset] = useState<SubmitModalPreset | undefined>(undefined);
 
   const mascotStoreNumbers = useMemo(
     () => new Set(mascots.map((m) => m.store_number).filter(Boolean)),
@@ -69,7 +69,24 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
   }
 
   function handleSubmitForStore(city: string, state: string) {
-    setSubmitPreset(`${city}, ${state}`);
+    setSubmitPreset({ store: `${city}, ${state}` });
+    setSubmitOpen(true);
+  }
+
+  function handleSubmitForMascot(m: Mascot) {
+    const storeLabel =
+      m.street && m.zip
+        ? `${m.store}${m.state ? `, ${m.state}` : ''} (${m.street}, ${m.zip})`
+        : `${m.store}${m.state ? `, ${m.state}` : ''}`;
+    setSubmitPreset({
+      store: storeLabel,
+      animal: m.animal || '',
+      name: m.name || '',
+      notes: m.notes || '',
+      headline: `Adding a photo or details for ${m.name || 'this mascot'}${
+        m.animal ? ` the ${m.animal}` : ''
+      } at ${m.store}. We'll review before updating the map.`,
+    });
     setSubmitOpen(true);
   }
 
@@ -107,13 +124,14 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
           selection={selection}
           onClose={() => setSelection(null)}
           onSubmitForStore={handleSubmitForStore}
+          onSubmitForMascot={handleSubmitForMascot}
           previousByStore={previousByStore}
         />
       </main>
 
       <SubmitModal
         open={submitOpen}
-        presetStore={submitPreset}
+        preset={submitPreset}
         onClose={() => setSubmitOpen(false)}
       />
     </div>
