@@ -35,7 +35,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://theaggie.org/2019/08/22/davis-trader-joes-adopts-new-store-mascot-agnes-the-cow/"
+      "source_url": "https://theaggie.org/2019/08/22/davis-trader-joes-adopts-new-store-mascot-agnes-the-cow/",
+      "store_number": "182"
     },
     {
       "id": 4,
@@ -47,7 +48,8 @@
       "photo": "004.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "304"
     },
     {
       "id": 5,
@@ -59,7 +61,8 @@
       "photo": "005.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "611"
     },
     {
       "id": 6,
@@ -71,7 +74,8 @@
       "photo": "006.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "611"
     },
     {
       "id": 7,
@@ -83,7 +87,8 @@
       "photo": "007.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "204"
     },
     {
       "id": 8,
@@ -95,7 +100,8 @@
       "photo": "008.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "748"
     },
     {
       "id": 9,
@@ -107,7 +113,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "352"
     },
     {
       "id": 10,
@@ -119,7 +126,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "740"
     },
     {
       "id": 11,
@@ -143,7 +151,8 @@
       "photo": "012.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "427"
     },
     {
       "id": 13,
@@ -155,7 +164,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "303"
     },
     {
       "id": 14,
@@ -179,7 +189,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "108"
     },
     {
       "id": 16,
@@ -191,7 +202,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "108"
     },
     {
       "id": 17,
@@ -203,7 +215,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "503"
     },
     {
       "id": 18,
@@ -215,7 +228,8 @@
       "photo": "018.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "248"
     },
     {
       "id": 19,
@@ -227,7 +241,8 @@
       "photo": "019.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "798"
     },
     {
       "id": 20,
@@ -251,7 +266,8 @@
       "photo": "021.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "546"
     },
     {
       "id": 22,
@@ -275,7 +291,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "554"
     },
     {
       "id": 24,
@@ -311,7 +328,8 @@
       "photo": "026.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "362"
     },
     {
       "id": 27,
@@ -323,7 +341,8 @@
       "photo": "027.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "609"
     },
     {
       "id": 28,
@@ -335,7 +354,8 @@
       "photo": "028.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "528"
     },
     {
       "id": 29,
@@ -347,7 +367,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "727"
     },
     {
       "id": 30,
@@ -371,7 +392,8 @@
       "photo": "031.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "178"
     },
     {
       "id": 32,
@@ -383,7 +405,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "456"
     },
     {
       "id": 33,
@@ -407,7 +430,8 @@
       "photo": "034.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "771"
     },
     {
       "id": 35,
@@ -419,7 +443,8 @@
       "photo": "035.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "214"
     },
     {
       "id": 36,
@@ -431,7 +456,8 @@
       "photo": "036.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "774"
     },
     {
       "id": 37,
@@ -443,7 +469,8 @@
       "photo": "037.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "674"
     },
     {
       "id": 38,
@@ -455,7 +482,8 @@
       "photo": "038.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "635"
     },
     {
       "id": 39,
@@ -467,7 +495,8 @@
       "photo": "039.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "store_number": "76"
     },
     {
       "id": 40,
@@ -479,7 +508,8 @@
       "photo": "040.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "657"
     },
     {
       "id": 41,
@@ -503,7 +533,8 @@
       "photo": "042.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "791"
     },
     {
       "id": 43,
@@ -515,7 +546,8 @@
       "photo": "043.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "741"
     },
     {
       "id": 44,
@@ -527,7 +559,8 @@
       "photo": "044.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "745"
     },
     {
       "id": 45,
@@ -539,7 +572,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "750"
     },
     {
       "id": 46,
@@ -551,7 +585,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "749"
     },
     {
       "id": 47,
@@ -563,7 +598,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "747"
     },
     {
       "id": 48,
@@ -611,7 +647,8 @@
       "photo": "051.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "552"
     },
     {
       "id": 52,
@@ -623,7 +660,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "241"
     },
     {
       "id": 53,
@@ -647,7 +685,8 @@
       "photo": "054.png",
       "has_photo": true,
       "retired": true,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "54"
     },
     {
       "id": 55,
@@ -671,7 +710,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "784"
     },
     {
       "id": 57,
@@ -683,7 +723,8 @@
       "photo": "057.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "713"
     },
     {
       "id": 58,
@@ -695,7 +736,8 @@
       "photo": "058.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "713"
     },
     {
       "id": 59,
@@ -707,7 +749,8 @@
       "photo": "059.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "722"
     },
     {
       "id": 60,
@@ -719,7 +762,8 @@
       "photo": "060.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "655"
     },
     {
       "id": 61,
@@ -743,7 +787,8 @@
       "photo": "062.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "787"
     },
     {
       "id": 63,
@@ -755,7 +800,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "673"
     },
     {
       "id": 64,
@@ -767,7 +813,8 @@
       "photo": "064.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "172"
     },
     {
       "id": 65,
@@ -791,7 +838,8 @@
       "photo": "066.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "547"
     },
     {
       "id": 67,
@@ -803,7 +851,8 @@
       "photo": "067.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "710"
     },
     {
       "id": 68,
@@ -815,7 +864,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "763"
     },
     {
       "id": 69,
@@ -827,7 +877,8 @@
       "photo": "069.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "723"
     },
     {
       "id": 70,
@@ -839,7 +890,8 @@
       "photo": "070.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "720"
     },
     {
       "id": 71,
@@ -851,7 +903,8 @@
       "photo": "071.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "169"
     },
     {
       "id": 72,
@@ -863,7 +916,8 @@
       "photo": "072.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "518"
     },
     {
       "id": 73,
@@ -875,7 +929,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "406"
     },
     {
       "id": 74,
@@ -912,7 +967,8 @@
       "photo": "076.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "601"
     },
     {
       "id": 77,
@@ -924,7 +980,8 @@
       "photo": "077.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "601"
     },
     {
       "id": 78,
@@ -948,7 +1005,8 @@
       "photo": "079.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "242"
     },
     {
       "id": 80,
@@ -960,7 +1018,8 @@
       "photo": "080.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "661"
     },
     {
       "id": 81,
@@ -972,7 +1031,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "633"
     },
     {
       "id": 82,
@@ -984,7 +1044,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "712"
     },
     {
       "id": 83,
@@ -996,7 +1057,8 @@
       "photo": "083.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "754"
     },
     {
       "id": 84,
@@ -1008,7 +1070,8 @@
       "photo": "084.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "669"
     },
     {
       "id": 85,
@@ -1020,7 +1083,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "617"
     },
     {
       "id": 86,
@@ -1056,7 +1120,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "114"
     },
     {
       "id": 89,
@@ -1068,7 +1133,8 @@
       "photo": "089.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "92"
     },
     {
       "id": 90,
@@ -1080,7 +1146,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "574"
     },
     {
       "id": 91,
@@ -1092,7 +1159,8 @@
       "photo": "091.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "123"
     },
     {
       "id": 92,
@@ -1104,7 +1172,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "24"
     },
     {
       "id": 93,
@@ -1116,7 +1185,8 @@
       "photo": "093.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "126"
     },
     {
       "id": 94,
@@ -1152,7 +1222,8 @@
       "photo": "096.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "724"
     },
     {
       "id": 97,
@@ -1164,7 +1235,8 @@
       "photo": "097.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "634"
     },
     {
       "id": 98,
@@ -1176,7 +1248,8 @@
       "photo": "098.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "507"
     },
     {
       "id": 99,
@@ -1200,7 +1273,8 @@
       "photo": "100.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "725"
     },
     {
       "id": 101,
@@ -1212,7 +1286,8 @@
       "photo": "101.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "656"
     },
     {
       "id": 102,
@@ -1224,7 +1299,8 @@
       "photo": "102.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "175"
     },
     {
       "id": 103,
@@ -1236,7 +1312,8 @@
       "photo": "103.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "556"
     },
     {
       "id": 104,
@@ -1248,7 +1325,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "702"
     },
     {
       "id": 105,
@@ -1260,7 +1338,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "529"
     },
     {
       "id": 106,
@@ -1272,7 +1351,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "63"
     },
     {
       "id": 107,
@@ -1284,7 +1364,8 @@
       "photo": "107.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "732"
     },
     {
       "id": 108,
@@ -1296,7 +1377,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "734"
     },
     {
       "id": 109,
@@ -1308,7 +1390,8 @@
       "photo": "109.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "733"
     },
     {
       "id": 110,
@@ -1320,7 +1403,8 @@
       "photo": "110.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "192"
     },
     {
       "id": 111,
@@ -1332,7 +1416,8 @@
       "photo": "111.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "79"
     },
     {
       "id": 112,
@@ -1344,7 +1429,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "532"
     },
     {
       "id": 113,
@@ -1356,7 +1442,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "619"
     },
     {
       "id": 114,
@@ -1368,7 +1455,8 @@
       "photo": "114.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "678"
     },
     {
       "id": 115,
@@ -1380,7 +1468,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "715"
     },
     {
       "id": 116,
@@ -1404,7 +1493,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "152"
     },
     {
       "id": 118,
@@ -1428,7 +1518,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "193"
     },
     {
       "id": 120,
@@ -1464,7 +1555,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "301"
     },
     {
       "id": 123,
@@ -1488,7 +1580,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "66"
     },
     {
       "id": 125,
@@ -1500,7 +1593,8 @@
       "photo": "125.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "739"
     },
     {
       "id": 126,
@@ -1512,7 +1606,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "135"
     },
     {
       "id": 127,
@@ -1524,7 +1619,8 @@
       "photo": "127.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "785"
     },
     {
       "id": 128,
@@ -1536,7 +1632,8 @@
       "photo": "128.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "737"
     },
     {
       "id": 129,
@@ -1572,7 +1669,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "36"
     },
     {
       "id": 132,
@@ -1584,7 +1682,8 @@
       "photo": "132.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "759"
     },
     {
       "id": 133,
@@ -1596,7 +1695,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "759"
     },
     {
       "id": 134,
@@ -1620,7 +1720,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "118"
     },
     {
       "id": 136,
@@ -1632,7 +1733,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "107"
     },
     {
       "id": 137,
@@ -1644,7 +1746,8 @@
       "photo": "137.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "217"
     },
     {
       "id": 138,
@@ -1680,7 +1783,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "717"
     },
     {
       "id": 141,
@@ -1704,7 +1808,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "511"
     },
     {
       "id": 143,
@@ -1716,7 +1821,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "51"
     },
     {
       "id": 144,
@@ -1752,7 +1858,8 @@
       "photo": "146.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "129"
     },
     {
       "id": 147,
@@ -1764,7 +1871,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "600"
     },
     {
       "id": 148,
@@ -1776,7 +1884,8 @@
       "photo": "148.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "88"
     },
     {
       "id": 149,
@@ -1788,7 +1897,8 @@
       "photo": "149.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "141"
     },
     {
       "id": 150,
@@ -1800,7 +1910,8 @@
       "photo": "150.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "149"
     },
     {
       "id": 151,
@@ -1812,7 +1923,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "561"
     },
     {
       "id": 152,
@@ -1824,7 +1936,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "120"
     },
     {
       "id": 153,
@@ -1836,7 +1949,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "718"
     },
     {
       "id": 154,
@@ -1848,7 +1962,8 @@
       "photo": "154.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "514"
     },
     {
       "id": 155,
@@ -1860,7 +1975,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "404"
     },
     {
       "id": 156,
@@ -1884,7 +2000,8 @@
       "photo": "157.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "285"
     },
     {
       "id": 158,
@@ -1908,7 +2025,8 @@
       "photo": "159.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "761"
     },
     {
       "id": 160,
@@ -1920,7 +2038,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "85"
     },
     {
       "id": 161,
@@ -1932,7 +2051,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "22"
     },
     {
       "id": 162,
@@ -1956,7 +2076,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "756"
     },
     {
       "id": 164,
@@ -1968,7 +2089,8 @@
       "photo": "164.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "569"
     },
     {
       "id": 165,
@@ -1980,7 +2102,8 @@
       "photo": "165.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "94"
     },
     {
       "id": 166,
@@ -2004,7 +2127,8 @@
       "photo": "167.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "210"
     },
     {
       "id": 168,
@@ -2016,7 +2140,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "158"
     },
     {
       "id": 169,
@@ -2028,7 +2153,8 @@
       "photo": "169.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "91"
     },
     {
       "id": 170,
@@ -2040,7 +2166,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "25"
     },
     {
       "id": 171,
@@ -2076,7 +2203,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "205"
     },
     {
       "id": 174,
@@ -2088,7 +2216,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "41"
     },
     {
       "id": 175,
@@ -2124,7 +2253,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "523"
     },
     {
       "id": 178,
@@ -2136,7 +2266,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "786"
     },
     {
       "id": 179,
@@ -2148,7 +2279,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "36"
     },
     {
       "id": 180,
@@ -2160,7 +2292,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "121"
     },
     {
       "id": 181,
@@ -2172,7 +2305,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "253"
     },
     {
       "id": 182,
@@ -2196,7 +2330,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "679"
     },
     {
       "id": 184,
@@ -2220,7 +2355,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "765"
     },
     {
       "id": 186,
@@ -2232,7 +2368,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "190"
     },
     {
       "id": 187,
@@ -2244,7 +2381,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "212"
     },
     {
       "id": 188,
@@ -2256,7 +2394,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "640"
     },
     {
       "id": 189,
@@ -2268,7 +2407,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "534"
     },
     {
       "id": 190,
@@ -2292,7 +2432,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "163"
     },
     {
       "id": 192,
@@ -2304,7 +2445,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "705"
     },
     {
       "id": 193,
@@ -2316,7 +2458,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "451"
     },
     {
       "id": 194,
@@ -2328,7 +2471,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "20"
     },
     {
       "id": 195,
@@ -2352,7 +2496,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "527"
     },
     {
       "id": 197,
@@ -2364,7 +2509,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "198"
     },
     {
       "id": 198,
@@ -2376,7 +2522,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "658"
     },
     {
       "id": 199,
@@ -2388,7 +2535,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "649"
     },
     {
       "id": 200,
@@ -2400,7 +2548,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "757"
     },
     {
       "id": 201,
@@ -2412,7 +2561,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "698"
     },
     {
       "id": 202,
@@ -2436,7 +2586,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "535"
     },
     {
       "id": 204,
@@ -2472,7 +2623,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "53"
     },
     {
       "id": 207,
@@ -2496,7 +2648,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "646"
     },
     {
       "id": 209,
@@ -2508,7 +2661,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "560"
     },
     {
       "id": 210,
@@ -2544,7 +2698,8 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "store_number": "89"
     },
     {
       "id": 213,
@@ -2568,7 +2723,8 @@
       "photo": null,
       "has_photo": false,
       "retired": true,
-      "source_url": "https://theaggie.org/2019/08/22/davis-trader-joes-adopts-new-store-mascot-agnes-the-cow/"
+      "source_url": "https://theaggie.org/2019/08/22/davis-trader-joes-adopts-new-store-mascot-agnes-the-cow/",
+      "store_number": "182"
     },
     {
       "id": 215,
@@ -2580,7 +2736,8 @@
       "photo": "215.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/22/2026)"
+      "source_url": "User-submitted: David (04/22/2026)",
+      "store_number": "54"
     },
     {
       "id": 216,
@@ -2592,7 +2749,8 @@
       "photo": "216.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/22/2026)"
+      "source_url": "User-submitted: David (04/22/2026)",
+      "store_number": "60"
     },
     {
       "id": 217,
@@ -2604,7 +2762,8 @@
       "photo": "217.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/22/2026)"
+      "source_url": "User-submitted: David (04/22/2026)",
+      "store_number": "69"
     },
     {
       "id": 218,
@@ -2616,7 +2775,8 @@
       "photo": "218.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/22/2026)"
+      "source_url": "User-submitted: David (04/22/2026)",
+      "store_number": "122"
     },
     {
       "id": 219,
@@ -2628,7 +2788,8 @@
       "photo": "219.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/22/2026)"
+      "source_url": "User-submitted: David (04/22/2026)",
+      "store_number": "259"
     },
     {
       "id": 220,
@@ -2640,7 +2801,8 @@
       "photo": "220.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/23/2026)"
+      "source_url": "User-submitted: David (04/23/2026)",
+      "store_number": "242"
     },
     {
       "id": 221,
@@ -2652,7 +2814,8 @@
       "photo": "221.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/23/2026)"
+      "source_url": "User-submitted: David (04/23/2026)",
+      "store_number": "31"
     },
     {
       "id": 222,
@@ -2664,7 +2827,8 @@
       "photo": "222.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted: David (04/23/2026)"
+      "source_url": "User-submitted: David (04/23/2026)",
+      "store_number": "31"
     },
     {
       "id": 223,
