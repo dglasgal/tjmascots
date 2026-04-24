@@ -275,11 +275,12 @@
       "state": "NY",
       "animal": "Pigeon",
       "name": "Petra",
-      "notes": "233 Spring Street.",
-      "photo": "022.jpeg",
+      "notes": "Store 539. Petra is the SoHo store’s senior pigeon — lives at 233 Spring St alongside Pedro.",
+      "photo": "022.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m59y828/"
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m59y828/",
+      "store_number": "539"
     },
     {
       "id": 23,
@@ -3017,9 +3018,9 @@
       "state": "CA",
       "animal": "Coyote",
       "name": "Chewy",
-      "notes": "Store 17. Chewy keeps watch over the Silver Lake store on Hyperion Ave. He changes outfits for the seasons — the crew have photographed him in a pumpkin costume for Halloween and a Dracula cape.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 17. Chewy keeps watch over the Silver Lake store on Hyperion Ave. Silver Lake crew dress him in holiday costumes — Halloween brings out his pumpkin outfit (or his Dracula cape).",
+      "photo": "237.png",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.instagram.com/p/CVt1OAEpVLL/",
       "store_number": "17"
@@ -3030,9 +3031,9 @@
       "state": "CA",
       "animal": "Monkey",
       "name": "Rosie",
-      "notes": "Store 179. Rosie loves hanging around the Lake Avenue store in Pasadena. Spotted running the Valentine's Day photo booth and generally keeping the crew entertained.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 179. Rosie loves hanging around the Lake Avenue store in Pasadena. Often spotted helping with Valentine’s Day photo ops. Fun fact: Pasadena is home to the very first Trader Joe’s (#51), opened in 1967.",
+      "photo": "238.png",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.instagram.com/p/CLTLILdJAFk/",
       "store_number": "179"
@@ -3101,6 +3102,19 @@
       "retired": true,
       "source_url": "https://www.instagram.com/p/CObiHMDJFsv/",
       "store_number": "60"
+    },
+    {
+      "id": 244,
+      "store": "Manhattan Beach (Manhattan Beach Blvd)",
+      "state": "CA",
+      "animal": "Dolphin",
+      "name": "Danny",
+      "notes": "Store 34. Danny the Dolphin and his baby live together at the Manhattan Beach Blvd store — a father-and-child duo. (Not to be confused with the other Danny the Dolphin at the Ashburn VA store.)",
+      "photo": "244.png",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/COMGIRXp9np/",
+      "store_number": "34"
     }
   ],
   "stats": {
