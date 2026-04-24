@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Mascot, Store } from '@/lib/types';
 import { photoUrl } from '@/lib/data';
 import ReportModal from './ReportModal';
+import PhotoLightbox from './PhotoLightbox';
 
 type Selection =
   | { kind: 'mascot'; data: Mascot }
@@ -142,20 +143,42 @@ function PreviousMascots({ items }: { items: Mascot[] }) {
 function MascotBody({ m, onSubmit }: { m: Mascot; onSubmit: () => void }) {
   const photoSrc = m.has_photo && m.photo ? photoUrl(m.photo) : null;
   const [reportOpen, setReportOpen] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const caption = `${m.name || 'Unnamed'} the ${m.animal || 'mascot'} · ${m.store}${
+    m.state ? ', ' + m.state : ''
+  }${m.store_number ? ' · Store #' + m.store_number : ''}`;
   return (
     <>
       {photoSrc ? (
-        /* eslint-disable-next-line @next/next/no-img-element */
-        <img
-          src={photoSrc}
-          alt={m.name || m.animal}
-          className="block aspect-square w-full bg-[var(--cream-dark)] object-cover"
-        />
+        <button
+          type="button"
+          onClick={() => setLightboxOpen(true)}
+          title="Click to view full photo"
+          className="group relative block aspect-square w-full overflow-hidden bg-[var(--cream-dark)]"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={photoSrc}
+            alt={m.name || m.animal}
+            className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+          />
+          <span className="pointer-events-none absolute bottom-2.5 right-2.5 rounded-full bg-[var(--ink)]/75 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[var(--cream)] opacity-0 transition-opacity group-hover:opacity-100">
+            🔍 Click to expand
+          </span>
+        </button>
       ) : (
         <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[120px]">
           {m.emoji}
         </div>
       )}
+
+      <PhotoLightbox
+        open={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        src={photoSrc}
+        alt={m.name || m.animal || 'mascot'}
+        caption={caption}
+      />
 
       <div className="px-6 pb-8 pt-5">
         <div className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--ink-soft)]">

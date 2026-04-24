@@ -1866,7 +1866,7 @@
       "animal": "Capybara",
       "name": "CaraCara",
       "notes": "Store 548. CaraCara the Capybara presides over the Williamsburg Brooklyn Trader Joe's on Kent Avenue — named for the capybara's scientific genus.",
-      "photo": "144.png",
+      "photo": "144.webp",
       "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
@@ -1995,9 +1995,9 @@
       "state": "MA",
       "animal": "Sea otter / sea lion",
       "name": "Sammy",
-      "notes": "Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Store 514. Sammy the sea lion watches over the Hyannis Trader Joe's on Cape Cod — dressed up with a little scarf.",
+      "photo": "154.webp",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "514"
@@ -2099,7 +2099,7 @@
       "state": "WA",
       "animal": "Viking",
       "name": "Eldingar",
-      "notes": "",
+      "notes": "Store 147. Eldingar the Viking reigns over the Ballard Seattle Trader Joe's — a tribute to Ballard's proud Scandinavian heritage.",
       "photo": "162.jpeg",
       "has_photo": true,
       "retired": false,
@@ -2658,12 +2658,12 @@
       "state": "PA",
       "animal": "Porcupine",
       "name": "Quilliam",
-      "notes": "",
+      "notes": "Store 624 (McCandless / North Hills area). Quilliam the Porcupine watches over the Pittsburgh North Hills Trader Joe's.",
       "photo": null,
       "has_photo": false,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
-      "store_number": "671"
+      "store_number": "624"
     },
     {
       "id": 206,
@@ -3719,19 +3719,6 @@
       "store_number": "63"
     },
     {
-      "id": 326,
-      "store": "Seattle (Ballard)",
-      "state": "WA",
-      "animal": "Viking",
-      "name": "Eldingar",
-      "notes": "Store 147. Eldingar the Viking reigns over the Ballard Seattle Trader Joe's — a tribute to Ballard's proud Scandinavian heritage.",
-      "photo": "326.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/",
-      "store_number": "147"
-    },
-    {
       "id": 330,
       "store": "Chicago (South Loop)",
       "state": "IL",
@@ -3951,6 +3938,19 @@
       "retired": false,
       "source_url": "https://www.pdxmonthly.com/eat-and-drink/2021/11/portland-trader-joes-ranked",
       "store_number": "168"
+    },
+    {
+      "id": 366,
+      "store": "Castleton (Indianapolis)",
+      "state": "IN",
+      "animal": "Monkey",
+      "name": "Max",
+      "notes": "Store 671. Max the green monkey perches on a shelf at the Indianapolis Castleton Trader Joe's with his Crew Member nametag.",
+      "photo": "366.webp",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted photo (Trader Joe's Indianapolis Castleton #671)",
+      "store_number": "671"
     }
   ]
 }
