@@ -604,6 +604,7 @@
     },
     {
       "id": 48,
+      "store_number": "194",
       "store": "Long Beach (Bellflower)",
       "state": "CA",
       "animal": "Octopus",
@@ -3376,6 +3377,84 @@
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes",
       "store_number": "284"
+    },
+    {
+      "id": 265,
+      "store": "Calabasas",
+      "state": "CA",
+      "animal": "Coyote",
+      "name": "Kyle",
+      "notes": "Store 254. Kyle the Coyote prowls the Calabasas Trader Joe's — spot him hiding somewhere in the aisles, tell a crew member, and you'll get a lollipop at checkout.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
+      "store_number": "254"
+    },
+    {
+      "id": 266,
+      "store": "Paramus",
+      "state": "NJ",
+      "animal": "Monkey",
+      "name": "Mr Bananas",
+      "notes": "Store 605. Mr Bananas is the other Paramus monkey — Plantain's companion. Two monkeys in one store: more scavenger-hunting for the kids.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/CKKuXiChgNy/",
+      "store_number": "605"
+    },
+    {
+      "id": 267,
+      "store": "Bridgemarket (Manhattan — 59th Street)",
+      "state": "NY",
+      "animal": "Troll",
+      "name": "Bridget",
+      "notes": "Store 571. Bridget the Troll presides over the 59th Street Bridgemarket Trader Joe's, tucked beneath the Queensboro Bridge — a pun so good it hurts.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
+      "store_number": "571"
+    },
+    {
+      "id": 268,
+      "store": "Ann Arbor",
+      "state": "MI",
+      "animal": "Wolverine",
+      "name": "",
+      "notes": "Store 678. A fierce little wolverine mascot hides out at the Ann Arbor Trader Joe's — a tribute to the University of Michigan's mascot. Name is still a mystery — if you shop here, submit it!",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
+      "store_number": "678"
+    },
+    {
+      "id": 269,
+      "store": "Thousand Oaks",
+      "state": "CA",
+      "animal": "Shark",
+      "name": "",
+      "notes": "A Shark mascot guards the Thousand Oaks Trader Joe's. Exact store and name TBD — two TJ's in Thousand Oaks (stores 196 & 243). If you know which one, submit!",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
+      "store_number": null
+    },
+    {
+      "id": 270,
+      "store": "Bellingham",
+      "state": "WA",
+      "animal": "Yeti",
+      "name": "",
+      "notes": "A Yeti mascot hides somewhere in the Bellingham Trader Joe's — on-theme for Pacific Northwest mountain country. Exact store and name TBD — two TJ's in Bellingham (stores 274 & 151). If you know, submit!",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
+      "store_number": null
     }
   ]
 }
