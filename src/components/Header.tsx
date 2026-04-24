@@ -11,8 +11,10 @@ interface HeaderProps {
   stores: Store[];
   onSelect: (r: SearchResult) => void;
   onSubmitClick: () => void;
+  onProgressClick: () => void;
   totalMascots: number;
   totalUnknown: number;
+  percentMapped: number;
 }
 
 export default function Header({
@@ -20,8 +22,10 @@ export default function Header({
   stores,
   onSelect,
   onSubmitClick,
+  onProgressClick,
   totalMascots,
   totalUnknown,
+  percentMapped,
 }: HeaderProps) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -174,9 +178,19 @@ export default function Header({
       </div>
 
       <div className="flex flex-shrink-0 items-center gap-2.5">
-        <div className="rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold max-[900px]:hidden">
-          {totalMascots} known · {totalUnknown} unknown
-        </div>
+        <button
+          onClick={onProgressClick}
+          title="See the Mascot Parade — how much of the chain we've mapped"
+          className="group relative flex items-center gap-2 rounded-full bg-[var(--cream)] px-3.5 py-1.5 text-xs font-bold text-[var(--ink)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] max-[900px]:hidden"
+        >
+          <span className="text-[var(--ink-soft)]">
+            {totalMascots} known · {totalUnknown} unknown ·{' '}
+          </span>
+          <span className="font-extrabold text-[var(--tj-red)]">
+            {percentMapped.toFixed(1)}% mapped
+          </span>
+          <span className="parade-arrow text-[var(--tj-red)]">↗</span>
+        </button>
         <button
           onClick={onSubmitClick}
           className="rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)]"
