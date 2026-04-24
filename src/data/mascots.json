@@ -555,9 +555,9 @@
       "state": "NC",
       "animal": "Ram",
       "name": "Ramses",
-      "notes": "UNC mascot.",
-      "photo": "044.png",
-      "has_photo": true,
+      "notes": "UNC mascot. Photo needed — previous image was not correct.",
+      "photo": null,
+      "has_photo": false,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "745"
@@ -2865,6 +2865,45 @@
       "has_photo": true,
       "retired": false,
       "source_url": "User-submitted: David (04/23/2026)"
+    },
+    {
+      "id": 226,
+      "store": "Raleigh (Wake Forest Rd)",
+      "state": "NC",
+      "animal": "Squirrel",
+      "name": "TJ",
+      "notes": "Gray squirrel plush in a colorful vest with the TRADER JOE'S TJ CREW MEMBER nametag.",
+      "photo": "226.webp",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted",
+      "store_number": "746"
+    },
+    {
+      "id": 227,
+      "store": "Charlotte (Metropolitan Ave)",
+      "state": "NC",
+      "animal": "Sloth",
+      "name": "Woody",
+      "notes": "Store 744.",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted",
+      "store_number": "744"
+    },
+    {
+      "id": 228,
+      "store": "Charlotte (Metropolitan Ave) — RETIRED",
+      "state": "NC",
+      "animal": "Lemur",
+      "name": "Cherry",
+      "notes": "Store 744. Previous mascot; replaced by Woody the Sloth.",
+      "photo": null,
+      "has_photo": false,
+      "retired": true,
+      "source_url": "User-submitted",
+      "store_number": "744"
     }
   ],
   "stats": {
