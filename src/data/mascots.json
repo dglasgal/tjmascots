@@ -3501,13 +3501,13 @@
       "id": 271,
       "store": "Long Beach (Bixby Knolls)",
       "state": "CA",
-      "animal": "Panda",
-      "name": "Percy",
-      "notes": "Store 116. Percy the Panda keeps watch over the Bixby Knolls Trader Joe's — he even has his own Instagram at @percythepanda43. (Distinct from Percy the Parrot at Brooklyn #547.)",
+      "animal": "Dog",
+      "name": "Bixby",
+      "notes": "Store 116. Bixby the Dog watches over the Bixby Knolls Trader Joe's — fittingly named for the neighborhood.",
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.instagram.com/p/CKKuXiChgNy/",
+      "source_url": "User-correction (Trader Joe's Long Beach Bixby Knolls #116)",
       "store_number": "116"
     },
     {
@@ -3958,11 +3958,11 @@
       "state": "CA",
       "animal": "Panda",
       "name": "Percy",
-      "notes": "Store 43. Percy the Panda perches at the Long Beach Pacific Coast Hwy Trader Joe's.",
+      "notes": "Store 43. Percy the Panda perches at the Long Beach Pacific Coast Hwy Trader Joe's. Photo submitted by Jason D.",
       "photo": "367.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted photo (Trader Joe's Long Beach PCH #43)",
+      "source_url": "User-submitted photo by Jason D. (Trader Joe's Long Beach PCH #43)",
       "store_number": "43"
     }
   ]
