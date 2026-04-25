@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Analytics from '@/components/Analytics';
 
 export const metadata: Metadata = {
   title: "TJ Mascots — the unofficial map of every Trader Joe's store mascot",
@@ -24,7 +25,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
