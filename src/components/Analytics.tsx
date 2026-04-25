@@ -1,31 +1,31 @@
 /**
  * Analytics
  *
- * Privacy-friendly page-view tracking via GoatCounter (free for personal /
- * non-commercial use, no cookies, no PII, no GDPR consent banner needed).
+ * Privacy-friendly page-view tracking via Umami Cloud (free up to 100K events
+ * per month, clean dashboard, shows country + region + city, no cookies, no
+ * GDPR consent banner needed).
  *
  * To enable:
- *   1. Sign up at https://www.goatcounter.com/signup, choose a subdomain
- *      (e.g. "tjmascots" → tjmascots.goatcounter.com).
- *   2. Set the env var NEXT_PUBLIC_GOATCOUNTER on DigitalOcean App Platform
- *      to your GoatCounter URL, e.g. https://tjmascots.goatcounter.com
- *   3. Force-rebuild the app on DO so the new env var is baked into the build.
+ *   1. Sign up at https://cloud.umami.is/signup, add a website (use
+ *      "tjmascots.com" as the domain), and copy the website ID it gives
+ *      you (a UUID).
+ *   2. Set the env var NEXT_PUBLIC_UMAMI_WEBSITE_ID on DigitalOcean App
+ *      Platform to that UUID.
+ *   3. (Optional) If you self-host Umami, also set NEXT_PUBLIC_UMAMI_SCRIPT_URL
+ *      to your script URL. Otherwise it defaults to Umami Cloud's script.
+ *   4. Force-rebuild the app on DO so the new env var is baked into the build.
  *
  * Until step 2 is done, this component renders nothing — the site ships
- * untrackable. There's no risk of broken analytics or stray script tags.
+ * untrackable. There's zero risk of broken analytics or stray script tags,
+ * and even if Umami is down the site is unaffected (the script fires-and-
+ * forgets, failures don't break the page).
  */
 
-const GOATCOUNTER_URL = process.env.NEXT_PUBLIC_GOATCOUNTER;
+const WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+const SCRIPT_URL =
+  process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL || 'https://cloud.umami.is/script.js';
 
 export default function Analytics() {
-  if (!GOATCOUNTER_URL) return null;
-  // Strip trailing slash if present
-  const base = GOATCOUNTER_URL.replace(/\/$/, '');
-  return (
-    <script
-      data-goatcounter={`${base}/count`}
-      async
-      src="//gc.zgo.at/count.js"
-    />
-  );
+  if (!WEBSITE_ID) return null;
+  return <script defer src={SCRIPT_URL} data-website-id={WEBSITE_ID} />;
 }
