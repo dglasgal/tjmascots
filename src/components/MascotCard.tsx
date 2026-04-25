@@ -57,7 +57,7 @@ export default function MascotCard({
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute right-3 top-2.5 z-[2] flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(253,246,236,0.9)] text-xl font-bold text-[var(--ink)] backdrop-blur"
+            className="absolute right-3 top-2.5 z-[2] flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(253,246,236,0.9)] text-xl font-bold text-[var(--ink)] backdrop-blur max-sm:h-11 max-sm:w-11"
           >
             ×
           </button>
@@ -86,7 +86,7 @@ export default function MascotCard({
  *  Renders even when empty so there's always a placeholder for future data. */
 function PreviousMascots({ items }: { items: Mascot[] }) {
   return (
-    <section className="mt-1 border-t-4 border-[var(--cream-dark)] bg-[var(--cream-dark)]/40 px-6 py-5">
+    <section className="mt-1 border-t-4 border-[var(--cream-dark)] bg-[var(--cream-dark)]/40 px-6 py-5 max-sm:px-4">
       <div className="mb-2 flex items-baseline justify-between">
         <h3 className="font-display text-sm font-extrabold uppercase tracking-[0.15em] text-[var(--ink-soft)]">
           Previous mascots
@@ -184,11 +184,11 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
         caption={caption}
       />
 
-      <div className="px-6 pb-8 pt-5">
+      <div className="px-6 pb-8 pt-5 max-sm:px-4">
         <div className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--ink-soft)]">
           {m.animal}
         </div>
-        <h2 className="my-1.5 font-display text-4xl font-extrabold leading-tight text-[var(--tj-red)]">
+        <h2 className="my-1.5 font-display text-4xl font-extrabold leading-tight text-[var(--tj-red)] max-sm:text-3xl">
           {m.name || 'Unnamed mascot'}
         </h2>
         <div className="mb-1 flex items-baseline gap-2 text-base font-bold">
@@ -205,7 +205,7 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
           )}
         </div>
         {m.street && (
-          <div className="mb-4 text-[13px] text-[var(--ink-soft)]">
+          <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
             {m.street}
             {m.zip ? ` · ${m.zip}` : ''}
           </div>
@@ -242,7 +242,7 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
       </div>
 
       {!m.has_photo && (
-        <div className="mx-6 mb-4">
+        <div className="mx-6 mb-4 max-sm:mx-4">
           <div className="rounded-xl bg-[var(--cream-dark)] px-3.5 py-2.5 text-center text-[13px] font-semibold text-[var(--ink-soft)]">
             📷 No photo yet — help us fill this in!
           </div>
@@ -267,15 +267,15 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
       <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[120px]">
         ❓
       </div>
-      <div className="px-6 pb-2 pt-5">
+      <div className="px-6 pb-2 pt-5 max-sm:px-4">
         <div className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--ink-soft)]">
           Mascot unknown
         </div>
-        <h2 className="my-1.5 font-display text-4xl font-extrabold leading-tight text-[var(--tj-red)]">
+        <h2 className="my-1.5 font-display text-4xl font-extrabold leading-tight text-[var(--tj-red)] max-sm:text-3xl">
           TJ&apos;s {s.city}
         </h2>
         <div className="mb-1 text-base font-bold">Store #{s.store_number}</div>
-        <div className="mb-4 text-[13px] text-[var(--ink-soft)]">
+        <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
           {s.street} · {s.city}, {s.state} {s.zip}
         </div>
         <div className="border-t-2 border-dashed border-[var(--cream-dark)] py-3.5 text-[15px] leading-[1.55] text-[var(--ink-soft)]">
@@ -284,7 +284,7 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
       </div>
       <button
         onClick={onSubmit}
-        className="mx-6 mb-6 mt-3.5 block w-[calc(100%-3rem)] rounded-full bg-[var(--tj-red)] py-3 text-sm font-extrabold text-[var(--cream)] shadow-[0_2px_0_var(--tj-red-dark)]"
+        className="mx-6 mb-6 mt-3.5 block w-[calc(100%-3rem)] rounded-full bg-[var(--tj-red)] py-3 text-sm font-extrabold text-[var(--cream)] shadow-[0_2px_0_var(--tj-red-dark)] max-sm:mx-4 max-sm:w-[calc(100%-2rem)]"
       >
         Submit {s.city}&apos;s mascot
       </button>
