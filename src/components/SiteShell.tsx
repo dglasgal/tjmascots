@@ -67,6 +67,30 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
     );
   }, []);
 
+  // Deep-link support: if the URL has ?mascot=ID (e.g. from the /recent page),
+  // fly the map to that mascot and open its card automatically. Also supports
+  // ?store=NUMBER to highlight a specific store.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const mascotId = params.get('mascot');
+    const storeNum = params.get('store');
+    if (mascotId) {
+      const m = mascots.find((x) => String(x.id) === mascotId);
+      if (m) {
+        setFlyTo({ lat: m.lat, lng: m.lng, zoom: 13 });
+        setTimeout(() => setSelection({ kind: 'mascot', data: m }), 450);
+      }
+    } else if (storeNum) {
+      const s = stores.find((x) => x.store_number === storeNum);
+      if (s) {
+        setFlyTo({ lat: s.lat, lng: s.lng, zoom: 13 });
+        setTimeout(() => setSelection({ kind: 'store', data: s }), 450);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   function handleSearchSelect(r: SearchResult) {
     setFlyTo({ lat: r.data.lat, lng: r.data.lng, zoom: 13 });
     setTimeout(() => setSelection(r), 450);
