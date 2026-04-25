@@ -28,6 +28,8 @@ interface LocalMascot {
   /** Optional exact store number pin. When set, wins over fuzzy matching —
    *  useful when multiple stores share a city (e.g. Oakland has Lakeshore & Rockridge). */
   store_number?: string;
+  created_at?: string;
+  submitted_by?: string | null;
 }
 
 function enrichWithEmoji(m: LocalMascot, storeMatch?: Store): Mascot {
@@ -47,6 +49,8 @@ function enrichWithEmoji(m: LocalMascot, storeMatch?: Store): Mascot {
     zip: storeMatch?.zip,
     store_number: storeMatch?.store_number ?? null,
     emoji: emojiForAnimal(m.animal),
+    created_at: m.created_at,
+    submitted_by: m.submitted_by ?? null,
   };
 }
 

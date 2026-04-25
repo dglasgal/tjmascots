@@ -14,6 +14,11 @@ export interface Mascot {
   zip?: string;
   store_number?: string | null;
   emoji: string;
+  /** ISO date when the mascot was added to the map. Used by /recent. */
+  created_at?: string;
+  /** Display name to credit on the leaderboard, e.g. "Jason D." Empty for
+   *  mascots from our seed scrape (no specific human contributor). */
+  submitted_by?: string | null;
 }
 
 export interface Store {
