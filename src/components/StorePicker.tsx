@@ -145,7 +145,7 @@ export default function StorePicker({
             type="button"
             onClick={clear}
             aria-label="Clear"
-            className="absolute right-2.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--cream-dark)] text-[12px] font-bold text-[var(--ink-soft)]"
+            className="absolute right-2.5 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--cream-dark)] text-[12px] font-bold text-[var(--ink-soft)] max-sm:h-8 max-sm:w-8"
           >
             ×
           </button>

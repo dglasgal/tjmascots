@@ -68,8 +68,8 @@ const totalSubmitted = [...contributorCounts.values()].reduce((sum, v) => sum + 
 export default function RecentPage() {
   return (
     <div className="flex h-full flex-col">
-      <header className="relative z-[1000] flex items-center justify-between gap-5 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card">
-        <div className="flex flex-shrink-0 items-center gap-3.5">
+      <header className="relative z-[1000] flex items-center justify-between gap-3 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card max-sm:gap-2 max-sm:px-3">
+        <div className="flex flex-shrink-0 items-center gap-3.5 max-sm:gap-2">
           <Link
             href="/"
             aria-label="Back to the map"
@@ -87,9 +87,11 @@ export default function RecentPage() {
         </div>
         <Link
           href="/"
-          className="rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)]"
+          aria-label="Back to the map"
+          className="flex-shrink-0 rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] max-sm:px-3 max-sm:text-xs"
         >
-          ← Back to the map
+          <span className="max-sm:hidden">← Back to the map</span>
+          <span className="hidden max-sm:inline">← Map</span>
         </Link>
       </header>
 
@@ -99,13 +101,13 @@ export default function RecentPage() {
       </div>
 
       <main className="flex-1 overflow-y-auto bg-[var(--cream)]">
-        <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl px-6 py-12 max-sm:px-4 sm:py-16">
           {/* Hero */}
           <div className="mb-12 text-center">
             <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.4em] text-[var(--accent)]">
               Fresh from the aisles
             </p>
-            <h2 className="font-display text-6xl font-black leading-[0.9] tracking-tight text-[var(--tj-red)] sm:text-7xl md:text-8xl">
+            <h2 className="font-display text-5xl font-black leading-[0.9] tracking-tight text-[var(--tj-red)] sm:text-7xl md:text-8xl">
               RECENTLY
               <br />
               SPOTTED
@@ -130,7 +132,7 @@ export default function RecentPage() {
                   {totalSubmitted} {totalSubmitted === 1 ? 'mascot' : 'mascots'} contributed
                 </span>
               </div>
-              <ol className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+              <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                 {topContributors.map((c, i) => (
                   <li
                     key={c.name}

@@ -105,14 +105,14 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
           onClick={(e) => {
             if (e.target === e.currentTarget) onClose();
           }}
-          className="fixed inset-0 z-[2000] flex items-center justify-center bg-[rgba(58,46,31,0.5)] p-5"
+          className="fixed inset-0 z-[2000] flex items-center justify-center bg-[rgba(58,46,31,0.5)] p-5 max-sm:p-3"
         >
           <motion.div
             initial={{ scale: 0.95, y: 10 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.95, y: 10 }}
             transition={{ type: 'spring', damping: 26, stiffness: 320 }}
-            className="max-h-[90vh] w-full max-w-[480px] overflow-y-auto rounded-2xl bg-[var(--cream)] p-7 shadow-card"
+            className="max-h-[90vh] w-full max-w-[480px] overflow-y-auto rounded-2xl bg-[var(--cream)] p-7 shadow-card max-sm:p-5"
           >
             <h2 className="font-display text-2xl font-extrabold text-[var(--tj-red)]">
               Report a correction

@@ -414,7 +414,7 @@ function PercentageRace({
         initial={{ scale: 0.7 }}
         animate={{ scale: [0.7, 1.05, 1] }}
         transition={{ duration: 0.5 }}
-        className="mt-2 font-display text-[120px] font-black leading-none text-[var(--tj-red)] drop-shadow-[0_4px_0_var(--tj-red-dark)] max-sm:text-[72px]"
+        className="mt-2 font-display text-[120px] font-black leading-none text-[var(--tj-red)] drop-shadow-[0_4px_0_var(--tj-red-dark)] max-sm:text-[64px]"
       >
         {display.toFixed(1)}%
       </motion.div>
@@ -574,7 +574,7 @@ function FinalReveal({
         initial={{ scale: 0.6, rotate: -4 }}
         animate={{ scale: [0.6, 1.15, 1], rotate: [-4, 2, 0] }}
         transition={{ duration: 0.7, ease: 'backOut' }}
-        className="mt-2 font-display text-[160px] font-black leading-none text-[var(--tj-red)] drop-shadow-[0_6px_0_var(--tj-red-dark)] max-sm:text-[90px]"
+        className="mt-2 font-display text-[160px] font-black leading-none text-[var(--tj-red)] drop-shadow-[0_6px_0_var(--tj-red-dark)] max-sm:text-[80px]"
       >
         {percent.toFixed(1)}%
       </motion.div>

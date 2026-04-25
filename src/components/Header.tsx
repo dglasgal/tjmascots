@@ -88,8 +88,8 @@ export default function Header({
   }
 
   return (
-    <header className="relative z-[1000] flex items-center justify-between gap-5 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card">
-      <div className="flex flex-shrink-0 items-center gap-3.5">
+    <header className="relative z-[1000] flex items-center justify-between gap-3 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card max-sm:gap-2 max-sm:px-3">
+      <div className="flex flex-shrink-0 items-center gap-3.5 max-sm:gap-2">
         <Link
           href="/about"
           aria-label="About TJ Mascots"
@@ -106,7 +106,7 @@ export default function Header({
         </div>
       </div>
 
-      <div ref={wrapRef} className="relative flex-1 max-w-[560px] max-md:max-w-none">
+      <div ref={wrapRef} className="relative flex-1 min-w-0 max-w-[560px] max-md:max-w-none">
         <svg
           className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 opacity-55"
           viewBox="0 0 24 24"
@@ -138,7 +138,7 @@ export default function Header({
               inputRef.current?.focus();
             }}
             aria-label="Clear"
-            className="absolute right-2.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--cream-dark)] text-sm font-bold text-[var(--ink-soft)]"
+            className="absolute right-2.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--cream-dark)] text-sm font-bold text-[var(--ink-soft)] max-sm:h-8 max-sm:w-8"
           >
             ×
           </button>
@@ -177,7 +177,7 @@ export default function Header({
         </AnimatePresence>
       </div>
 
-      <div className="flex flex-shrink-0 items-center gap-2.5">
+      <div className="flex flex-shrink-0 items-center gap-2.5 max-sm:gap-1.5">
         <button
           onClick={onProgressClick}
           title="See the Mascot Parade — how much of the chain we've mapped"
@@ -200,9 +200,11 @@ export default function Header({
         </Link>
         <button
           onClick={onSubmitClick}
-          className="rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)]"
+          aria-label="Submit a mascot"
+          className="flex-shrink-0 rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] max-sm:px-3 max-sm:text-xs"
         >
-          + Submit a mascot
+          <span className="max-sm:hidden">+ Submit a mascot</span>
+          <span className="hidden max-sm:inline">+ Submit</span>
         </button>
       </div>
     </header>

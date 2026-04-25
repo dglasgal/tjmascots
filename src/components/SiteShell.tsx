@@ -139,7 +139,7 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
         totalUnknown={unknownCount}
         percentMapped={percentMapped}
       />
-      <div className="bg-[var(--cream-dark)] px-6 py-1.5 text-center text-[11px] font-bold text-[var(--ink-soft)]">
+      <div className="bg-[var(--cream-dark)] px-6 py-1.5 text-center text-[11px] font-bold text-[var(--ink-soft)] max-sm:px-3">
         Fan project. Not affiliated with Trader Joe&apos;s Company. &ldquo;Trader Joe&apos;s&rdquo; is a trademark of Trader Joe&apos;s Company.{' '}
         <a href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">
           Privacy

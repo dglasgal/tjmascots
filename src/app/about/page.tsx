@@ -13,8 +13,8 @@ export default function AboutPage() {
   return (
     <div className="flex h-full flex-col">
       {/* Simple header — cart icon returns to the map */}
-      <header className="relative z-[1000] flex items-center justify-between gap-5 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card">
-        <div className="flex flex-shrink-0 items-center gap-3.5">
+      <header className="relative z-[1000] flex items-center justify-between gap-3 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card max-sm:gap-2 max-sm:px-3">
+        <div className="flex flex-shrink-0 items-center gap-3.5 max-sm:gap-2">
           <Link
             href="/"
             aria-label="Back to the map"
@@ -34,9 +34,11 @@ export default function AboutPage() {
         </div>
         <Link
           href="/"
-          className="rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)]"
+          aria-label="Back to the map"
+          className="flex-shrink-0 rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] max-sm:px-3 max-sm:text-xs"
         >
-          ← Back to the map
+          <span className="max-sm:hidden">← Back to the map</span>
+          <span className="hidden max-sm:inline">← Map</span>
         </Link>
       </header>
 
@@ -50,7 +52,7 @@ export default function AboutPage() {
 
       {/* Scrollable content area */}
       <main className="flex-1 overflow-y-auto bg-[var(--cream)]">
-        <div className="mx-auto max-w-4xl px-6 py-12 sm:py-16">
+        <div className="mx-auto max-w-4xl px-6 py-12 max-sm:px-4 sm:py-16">
           {/* Big ABOUT display */}
           <div className="relative mb-12 text-center">
             <div
