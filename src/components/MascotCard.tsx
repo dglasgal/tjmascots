@@ -221,6 +221,13 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
             {m.zip ? ` · ${m.zip}` : ''}
           </div>
         )}
+        {m.submitted_by && (
+          <div className="mb-4">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--cream-dark)] px-3 py-1 text-[12px] font-extrabold text-[var(--ink)]">
+              📷 Photo by {m.submitted_by}
+            </span>
+          </div>
+        )}
         {m.notes && (
           <div className="border-t-2 border-dashed border-[var(--cream-dark)] py-3.5 text-[15px] leading-[1.55] text-[var(--ink-soft)]">
             {m.notes}
