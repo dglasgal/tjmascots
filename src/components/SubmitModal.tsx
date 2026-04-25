@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { submitMascot } from '@/lib/data';
 import type { Store } from '@/lib/types';
 import StorePicker from './StorePicker';
+import { useAntiSpam } from '@/lib/anti-spam';
 
 export interface SubmitModalPreset {
   store?: string;
@@ -35,6 +36,8 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
   const [photoFile, setPhotoFile] = useState<File | undefined>(undefined);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState('');
+  const antiSpam = useAntiSpam();
 
   // If the preset specifies a store_number, find that store so the picker is
   // pre-filled (and we lock it from changing).
@@ -66,6 +69,13 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
   async function handleSubmit() {
     if (!selectedStore) {
       setMessage('Please pick the exact Trader Joe\'s store.');
+      return;
+    }
+    // Anti-spam: pretend success on bot detection so they don't realize they
+    // were caught and tweak their attack. Real humans never see this branch.
+    if (!antiSpam.isHuman(honeypot)) {
+      setMessage("Thanks! We'll review and add it to the map if it checks out.");
+      setTimeout(() => onClose(), 1800);
       return;
     }
     setBusy(true);
@@ -171,6 +181,13 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
                 placeholder="Any fun backstory?"
               />
             </Field>
+            {/* Honeypot — hidden from humans, bots fill it = silently rejected. */}
+            <input
+              {...antiSpam.honeypotProps}
+              type="text"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
 
             {message && (
               <div className="mt-3 rounded-lg bg-[var(--cream-dark)] px-3.5 py-2.5 text-sm font-semibold text-[var(--ink-soft)]">
