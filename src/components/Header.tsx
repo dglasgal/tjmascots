@@ -191,6 +191,13 @@ export default function Header({
           </span>
           <span className="parade-arrow text-[var(--tj-red)]">↗</span>
         </button>
+        <Link
+          href="/recent"
+          title="Recently spotted + top contributors"
+          className="rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-[var(--cream)] transition hover:bg-white/25 max-[900px]:hidden"
+        >
+          ✨ Recent
+        </Link>
         <button
           onClick={onSubmitClick}
           className="rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)]"
