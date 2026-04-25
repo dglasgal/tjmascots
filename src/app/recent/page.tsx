@@ -219,14 +219,18 @@ function RecentCard({ mascot }: { mascot: RawMascot }) {
   const emoji = emojiForAnimal(mascot.animal);
   const store = mascot.store_number ? storesByNum.get(mascot.store_number) : null;
   return (
-    <div className="overflow-hidden rounded-2xl bg-[var(--cream-dark)] transition hover:-translate-y-1 hover:shadow-card">
+    <Link
+      href={`/?mascot=${mascot.id}`}
+      title={`See ${mascot.name || mascot.animal} on the map`}
+      className="group block overflow-hidden rounded-2xl bg-[var(--cream-dark)] transition hover:-translate-y-1 hover:shadow-card"
+    >
       <div className="relative aspect-[4/3] w-full bg-[var(--cream)]">
         {photo ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={photo}
             alt={mascot.name || mascot.animal}
-            className="h-full w-full object-contain"
+            className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.03]"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[80px]">
@@ -238,6 +242,9 @@ function RecentCard({ mascot }: { mascot: RawMascot }) {
             📷 {mascot.submitted_by}
           </div>
         )}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center bg-[var(--tj-red)] py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[var(--cream)] opacity-0 transition-opacity group-hover:opacity-100">
+          See on map →
+        </div>
       </div>
       <div className="p-3.5">
         <div className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--ink-soft)]">
@@ -257,7 +264,7 @@ function RecentCard({ mascot }: { mascot: RawMascot }) {
           )}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
