@@ -3,11 +3,14 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { submitCorrection } from '@/lib/data';
-import type { Mascot } from '@/lib/types';
+import type { Mascot, Store } from '@/lib/types';
+import StorePicker from './StorePicker';
 
 interface ReportModalProps {
   open: boolean;
   mascot: Mascot | null;
+  /** All TJ stores — needed for the "store is wrong" picker. */
+  stores: Store[];
   onClose: () => void;
 }
 
@@ -20,10 +23,11 @@ const ISSUE_OPTIONS: { key: string; label: string }[] = [
   { key: 'other', label: 'Something else' },
 ];
 
-export default function ReportModal({ open, mascot, onClose }: ReportModalProps) {
+export default function ReportModal({ open, mascot, stores, onClose }: ReportModalProps) {
   const [issues, setIssues] = useState<string[]>([]);
   const [details, setDetails] = useState('');
   const [email, setEmail] = useState('');
+  const [correctedStore, setCorrectedStore] = useState<Store | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
@@ -32,6 +36,7 @@ export default function ReportModal({ open, mascot, onClose }: ReportModalProps)
       setIssues([]);
       setDetails('');
       setEmail('');
+      setCorrectedStore(null);
       setMessage(null);
     }
   }, [open]);
@@ -59,6 +64,7 @@ export default function ReportModal({ open, mascot, onClose }: ReportModalProps)
       issues,
       details: details.trim(),
       reporter_email: email.trim(),
+      corrected_store_number: correctedStore?.store_number,
     });
     setBusy(false);
     if (result.ok) {
@@ -137,6 +143,19 @@ export default function ReportModal({ open, mascot, onClose }: ReportModalProps)
                 ))}
               </div>
             </div>
+
+            {issues.includes('store') && (
+              <div className="mb-3.5">
+                <span className="mb-1 block text-[13px] font-extrabold text-[var(--ink)]">
+                  Which store is this mascot actually at?
+                </span>
+                <StorePicker
+                  stores={stores}
+                  value={correctedStore}
+                  onChange={setCorrectedStore}
+                />
+              </div>
+            )}
 
             <label className="mb-3.5 block">
               <span className="mb-1 block text-[13px] font-extrabold text-[var(--ink)]">

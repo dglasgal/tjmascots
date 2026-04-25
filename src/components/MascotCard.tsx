@@ -15,10 +15,12 @@ type Selection =
 interface MascotCardProps {
   selection: Selection;
   onClose: () => void;
-  onSubmitForStore: (city: string, state: string) => void;
+  onSubmitForStore: (city: string, state: string, store: Store) => void;
   /** Called when the user clicks "Submit this mascot" on a known mascot
    *  card that's missing a photo — opens the submit modal pre-filled. */
   onSubmitForMascot: (m: Mascot) => void;
+  /** All TJ stores — passed through to the ReportModal's StorePicker. */
+  stores: Store[];
   /** Retired/historical mascots, indexed by store_number, used to render the
    *  "Previous mascots" section at the bottom of each store or mascot card. */
   previousByStore?: Map<string, Mascot[]>;
@@ -29,6 +31,7 @@ export default function MascotCard({
   onClose,
   onSubmitForStore,
   onSubmitForMascot,
+  stores,
   previousByStore,
 }: MascotCardProps) {
   const storeNumber =
@@ -62,12 +65,13 @@ export default function MascotCard({
           {selection.kind === 'mascot' ? (
             <MascotBody
               m={selection.data}
+              stores={stores}
               onSubmit={() => onSubmitForMascot(selection.data)}
             />
           ) : (
             <StoreBody
               s={selection.data}
-              onSubmit={() => onSubmitForStore(selection.data.city, selection.data.state)}
+              onSubmit={() => onSubmitForStore(selection.data.city, selection.data.state, selection.data)}
             />
           )}
 
@@ -140,7 +144,7 @@ function PreviousMascots({ items }: { items: Mascot[] }) {
   );
 }
 
-function MascotBody({ m, onSubmit }: { m: Mascot; onSubmit: () => void }) {
+function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSubmit: () => void }) {
   const photoSrc = m.has_photo && m.photo ? photoUrl(m.photo) : null;
   const [reportOpen, setReportOpen] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -251,7 +255,7 @@ function MascotBody({ m, onSubmit }: { m: Mascot; onSubmit: () => void }) {
         </div>
       )}
 
-      <ReportModal open={reportOpen} mascot={m} onClose={() => setReportOpen(false)} />
+      <ReportModal open={reportOpen} mascot={m} stores={stores} onClose={() => setReportOpen(false)} />
     </>
   );
 }
