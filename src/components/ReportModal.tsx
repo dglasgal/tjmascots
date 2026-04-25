@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { submitCorrection } from '@/lib/data';
 import type { Mascot, Store } from '@/lib/types';
 import StorePicker from './StorePicker';
+import { useAntiSpam } from '@/lib/anti-spam';
 
 interface ReportModalProps {
   open: boolean;
@@ -30,6 +31,8 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
   const [correctedStore, setCorrectedStore] = useState<Store | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState('');
+  const antiSpam = useAntiSpam();
 
   useEffect(() => {
     if (open) {
@@ -55,6 +58,13 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
 
   async function handleSubmit() {
     if (!mascot) return;
+    // Anti-spam: pretend success on bot detection so they don't realize they
+    // were caught and tweak their attack. Real humans never see this branch.
+    if (!antiSpam.isHuman(honeypot)) {
+      setMessage("Thanks! We'll review your report and update the record.");
+      setTimeout(() => onClose(), 1800);
+      return;
+    }
     setBusy(true);
     setMessage(null);
     const result = await submitCorrection({
@@ -182,6 +192,13 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
                 className="w-full rounded-[10px] border-2 border-[var(--cream-dark)] bg-white px-3.5 py-2.5 text-sm outline-none focus:border-[var(--tj-red)]"
               />
             </label>
+            {/* Honeypot — hidden from humans, bots fill it = silently rejected. */}
+            <input
+              {...antiSpam.honeypotProps}
+              type="text"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
 
             {message && (
               <div className="mt-2 rounded-lg bg-[var(--cream-dark)] px-3.5 py-2.5 text-sm font-semibold text-[var(--ink-soft)]">
