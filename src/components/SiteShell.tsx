@@ -72,8 +72,11 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
     setTimeout(() => setSelection(r), 450);
   }
 
-  function handleSubmitForStore(city: string, state: string) {
-    setSubmitPreset({ store: `${city}, ${state}` });
+  function handleSubmitForStore(s: Store) {
+    setSubmitPreset({
+      store: `${s.city}, ${s.state}`,
+      store_number: s.store_number,
+    });
     setSubmitOpen(true);
   }
 
@@ -84,6 +87,7 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
         : `${m.store}${m.state ? `, ${m.state}` : ''}`;
     setSubmitPreset({
       store: storeLabel,
+      store_number: m.store_number ?? undefined,
       animal: m.animal || '',
       name: m.name || '',
       notes: m.notes || '',
@@ -129,14 +133,16 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
         <MascotCard
           selection={selection}
           onClose={() => setSelection(null)}
-          onSubmitForStore={handleSubmitForStore}
+          onSubmitForStore={(_city, _state, store) => handleSubmitForStore(store)}
           onSubmitForMascot={handleSubmitForMascot}
+          stores={stores}
           previousByStore={previousByStore}
         />
       </main>
 
       <SubmitModal
         open={submitOpen}
+        stores={stores}
         preset={submitPreset}
         onClose={() => setSubmitOpen(false)}
       />

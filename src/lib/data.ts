@@ -116,6 +116,9 @@ export function photoUrl(photoFilename: string | null): string | null {
 
 export interface SubmissionInput {
   store: string;
+  /** Exact TJ store_number — captured by the StorePicker so we never
+   *  ambiguously place a submission in the wrong city/store. */
+  store_number?: string;
   animal: string;
   name?: string;
   email?: string;
@@ -130,6 +133,9 @@ export interface CorrectionInput {
   issues: string[];
   details?: string;
   reporter_email?: string;
+  /** When the user picks "store/location is wrong" they can use the picker to
+   *  tell us the actual correct TJ store. */
+  corrected_store_number?: string;
 }
 
 /** Submits a correction report for an existing mascot to the Supabase
@@ -158,6 +164,7 @@ export async function submitCorrection(
         issues: input.issues,
         details: input.details || null,
         reporter_email: input.reporter_email || null,
+        corrected_store_number: input.corrected_store_number || null,
       }),
     );
     return { ok: true };
@@ -240,6 +247,7 @@ export async function flushQueuedCorrections(): Promise<void> {
         issues: item.issues,
         details: item.details || null,
         reporter_email: item.reporter_email || null,
+        corrected_store_number: item.corrected_store_number || null,
       });
       if (error) {
         remaining.push(item);
@@ -307,6 +315,7 @@ export async function submitMascot(
     // 2. Insert the submission row.
     const { error: insertErr } = await sb.from('submissions').insert({
       store: submission.store,
+      store_number: submission.store_number || null,
       animal: submission.animal,
       name: submission.name || null,
       email: submission.email || null,

@@ -1,31 +1,33 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { submitMascot } from '@/lib/data';
+import type { Store } from '@/lib/types';
+import StorePicker from './StorePicker';
 
 export interface SubmitModalPreset {
   store?: string;
+  /** When known (e.g. user clicked "submit this mascot" on an existing card),
+   *  the picker is locked to this store and the user can't change it. */
+  store_number?: string;
   animal?: string;
   name?: string;
   notes?: string;
-  /** Short banner text shown at the top of the modal, e.g.
-   *  "Adding a photo for Grant the Swan at Tucson…" */
+  /** Short banner text shown at the top of the modal. */
   headline?: string;
 }
 
 interface SubmitModalProps {
   open: boolean;
-  /** Legacy: just the store string. Kept for backwards compatibility. */
-  presetStore?: string;
-  /** Richer preset used when the user clicks "Submit this mascot" from an
-   *  existing card that's missing a photo. */
+  /** All Trader Joe's stores — passed in so the picker can search across them. */
+  stores: Store[];
   preset?: SubmitModalPreset;
   onClose: () => void;
 }
 
-export default function SubmitModal({ open, presetStore, preset, onClose }: SubmitModalProps) {
-  const [store, setStore] = useState('');
+export default function SubmitModal({ open, stores, preset, onClose }: SubmitModalProps) {
+  const [selectedStore, setSelectedStore] = useState<Store | null>(null);
   const [animal, setAnimal] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -34,9 +36,16 @@ export default function SubmitModal({ open, presetStore, preset, onClose }: Subm
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
+  // If the preset specifies a store_number, find that store so the picker is
+  // pre-filled (and we lock it from changing).
+  const lockedStore = useMemo(() => {
+    if (!preset?.store_number) return null;
+    return stores.find((s) => s.store_number === preset.store_number) ?? null;
+  }, [stores, preset?.store_number]);
+
   useEffect(() => {
     if (open) {
-      setStore(preset?.store ?? presetStore ?? '');
+      setSelectedStore(lockedStore);
       setAnimal(preset?.animal ?? '');
       setName(preset?.name ?? '');
       setEmail('');
@@ -44,7 +53,7 @@ export default function SubmitModal({ open, presetStore, preset, onClose }: Subm
       setPhotoFile(undefined);
       setMessage(null);
     }
-  }, [open, presetStore, preset]);
+  }, [open, preset, lockedStore]);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -55,9 +64,22 @@ export default function SubmitModal({ open, presetStore, preset, onClose }: Subm
   }, [open, onClose]);
 
   async function handleSubmit() {
+    if (!selectedStore) {
+      setMessage('Please pick the exact Trader Joe\'s store.');
+      return;
+    }
     setBusy(true);
     setMessage(null);
-    const result = await submitMascot({ store, animal, name, email, notes, photoFile });
+    const storeLabel = `${selectedStore.city}, ${selectedStore.state} #${selectedStore.store_number} — ${selectedStore.street}`;
+    const result = await submitMascot({
+      store: storeLabel,
+      store_number: selectedStore.store_number,
+      animal,
+      name,
+      email,
+      notes,
+      photoFile,
+    });
     setBusy(false);
     if (result.ok) {
       setMessage("Thanks! We'll review and add it to the map if it checks out.");
@@ -95,12 +117,22 @@ export default function SubmitModal({ open, presetStore, preset, onClose }: Subm
                 "Spotted a store mascot at your local Trader Joe's? Tell us about it. We'll verify before adding to the map."}
             </p>
 
-            <Field label="Store location (city + state)">
-              <input
-                value={store}
-                onChange={(e) => setStore(e.target.value)}
-                placeholder="e.g. Berkeley, CA"
-              />
+            <Field label="Which Trader Joe's?">
+              {lockedStore ? (
+                <div className="rounded-[10px] border-2 border-[var(--cream-dark)] bg-[var(--cream-dark)] px-3.5 py-2.5 text-sm font-bold text-[var(--ink)]">
+                  {lockedStore.city}, {lockedStore.state}{' '}
+                  <span className="text-[var(--tj-red)]">#{lockedStore.store_number}</span>
+                  <div className="mt-0.5 text-[11px] font-semibold text-[var(--ink-soft)]">
+                    {lockedStore.street} · {lockedStore.zip}
+                  </div>
+                </div>
+              ) : (
+                <StorePicker
+                  stores={stores}
+                  value={selectedStore}
+                  onChange={setSelectedStore}
+                />
+              )}
             </Field>
             <Field label="Animal type">
               <input
@@ -156,7 +188,7 @@ export default function SubmitModal({ open, presetStore, preset, onClose }: Subm
               </button>
               <button
                 onClick={handleSubmit}
-                disabled={busy || !store || !animal}
+                disabled={busy || !selectedStore || !animal}
                 className="rounded-full bg-[var(--tj-red)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--cream)] shadow-[0_2px_0_var(--tj-red-dark)] disabled:opacity-50"
               >
                 {busy ? 'Sending…' : 'Submit for review'}
