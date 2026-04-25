@@ -3750,9 +3750,9 @@
       "state": "IL",
       "animal": "Squirrel",
       "name": "Pickles",
-      "notes": "Store 697. Pickles the Squirrel rules the Oak Park Illinois Trader Joe's — usually in a Hawaiian shirt and nametag, sometimes off-duty in his natural bushy-tailed form.",
-      "photo": "336.jpg",
-      "has_photo": true,
+      "notes": "Store 697. Pickles the Squirrel rules the Oak Park Illinois Trader Joe's — usually in a Hawaiian shirt and nametag. Photo needed.",
+      "photo": null,
+      "has_photo": false,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/",
       "store_number": "697"
