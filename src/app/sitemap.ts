@@ -1,5 +1,8 @@
 import type { MetadataRoute } from 'next';
 
+// Required for static export (output: 'export' in next.config.js)
+export const dynamic = 'force-static';
+
 const SITE_URL = 'https://tjmascots.com';
 
 /**
