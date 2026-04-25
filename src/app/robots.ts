@@ -8,6 +8,9 @@ const SITE_URL = 'https://tjmascots.com';
  * point at the sitemap.
  */
 export default function robots(): MetadataRoute.Robots {
+  // We deliberately do NOT mention the admin path here — listing a `disallow`
+  // would advertise its existence. The admin slug is unguessable and unlinked
+  // from anywhere public, so crawlers will never find it.
   return {
     rules: [{ userAgent: '*', allow: '/' }],
     sitemap: `${SITE_URL}/sitemap.xml`,
