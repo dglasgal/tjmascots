@@ -82,30 +82,41 @@ export default function MascotCard({
   );
 }
 
-/** Small "Previous mascots" section shown at the bottom of every card.
- *  Renders even when empty so there's always a placeholder for future data. */
+/** "Retired mascots" section — collapsed by default, expands on click.
+ *  Hidden entirely when there are no retired entries for the store. The card's
+ *  selection-key remounts this whenever you switch stores, so each store starts
+ *  collapsed without needing to manage state outside this component. */
 function PreviousMascots({ items }: { items: Mascot[] }) {
+  const [expanded, setExpanded] = useState(false);
+  if (items.length === 0) return null;
   return (
-    <section className="mt-1 border-t-4 border-[var(--cream-dark)] bg-[var(--cream-dark)]/40 px-6 py-5 max-sm:px-4">
-      <div className="mb-2 flex items-baseline justify-between">
-        <h3 className="font-display text-sm font-extrabold uppercase tracking-[0.15em] text-[var(--ink-soft)]">
-          Previous mascots
-        </h3>
-        {items.length > 0 && (
-          <span className="text-[11px] font-bold text-[var(--ink-soft)]">
-            {items.length} retired
+    <section className="mt-1 border-t-4 border-[var(--cream-dark)] bg-[var(--cream-dark)]/40 px-6 py-4 max-sm:px-4">
+      <button
+        type="button"
+        onClick={() => setExpanded((v) => !v)}
+        aria-expanded={expanded}
+        className="flex w-full items-center justify-between gap-3 rounded-xl bg-[var(--cream)] px-3.5 py-2.5 text-left shadow-[0_1px_0_var(--cream-dark)] transition hover:-translate-y-px hover:shadow-card"
+      >
+        <div className="flex items-center gap-2.5">
+          <span className="text-lg">🗂</span>
+          <span className="font-display text-sm font-extrabold uppercase tracking-[0.1em] text-[var(--ink)]">
+            Retired mascots
           </span>
-        )}
-      </div>
+          <span className="rounded-full bg-[var(--ink-soft)] px-2 py-0.5 text-[10px] font-extrabold text-[var(--cream)]">
+            {items.length}
+          </span>
+        </div>
+        <span
+          className={`text-sm font-bold text-[var(--ink-soft)] transition-transform ${
+            expanded ? 'rotate-180' : ''
+          }`}
+        >
+          ▾
+        </span>
+      </button>
 
-      {items.length === 0 ? (
-        <p className="text-[13px] italic leading-snug text-[var(--ink-soft)]">
-          No retired mascots recorded here yet. Know one? Use{' '}
-          <span className="font-bold">Report incorrect info</span> above to tell us
-          about a mascot this store used to have.
-        </p>
-      ) : (
-        <ul className="space-y-2.5">
+      {expanded && (
+        <ul className="mt-3 space-y-2.5">
           {items.map((m) => (
             <li
               key={m.id}
