@@ -3951,6 +3951,19 @@
       "retired": false,
       "source_url": "User-submitted photo (Trader Joe's Indianapolis Castleton #671)",
       "store_number": "671"
+    },
+    {
+      "id": 367,
+      "store": "Long Beach (PCH)",
+      "state": "CA",
+      "animal": "Panda",
+      "name": "Percy",
+      "notes": "Store 43. Percy the Panda perches at the Long Beach Pacific Coast Hwy Trader Joe's.",
+      "photo": "367.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted photo (Trader Joe's Long Beach PCH #43)",
+      "store_number": "43"
     }
   ]
 }
