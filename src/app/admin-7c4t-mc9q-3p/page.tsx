@@ -25,13 +25,16 @@ import {
   getAdminClient,
   getAdminKey,
   listPendingCorrections,
+  listPendingMessages,
   listPendingSubmissions,
   rejectSubmission,
   setAdminKey,
   setCorrectionStatus,
+  setMessageStatus,
   signedSubmissionUrl,
   verifyAdminKey,
   type PendingCorrection,
+  type PendingMessage,
   type PendingSubmission,
 } from '@/lib/admin';
 import storesData from '@/data/tj-stores.json';
@@ -120,9 +123,10 @@ function Login({ onAuthed }: { onAuthed: () => void }) {
 /* --------------------------- Dashboard ----------------------------- */
 
 function Dashboard({ onSignOut }: { onSignOut: () => void }) {
-  const [tab, setTab] = useState<'submissions' | 'corrections'>('submissions');
+  const [tab, setTab] = useState<'submissions' | 'corrections' | 'messages'>('submissions');
   const [subs, setSubs] = useState<PendingSubmission[]>([]);
   const [corrs, setCorrs] = useState<PendingCorrection[]>([]);
+  const [msgs, setMsgs] = useState<PendingMessage[]>([]);
   const [busy, setBusy] = useState(true);
   const [err, setErr] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
@@ -154,9 +158,20 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
     const sb = getAdminClient();
     if (!sb) { setBusy(false); setErr('No admin key.'); return; }
     try {
-      const [s, c] = await Promise.all([listPendingSubmissions(sb), listPendingCorrections(sb)]);
+      const [s, c, m] = await Promise.all([
+        listPendingSubmissions(sb),
+        listPendingCorrections(sb),
+        // The messages table is new — if the migration hasn't been run yet,
+        // this call would 404. Catch and fall back to an empty list so the
+        // dashboard still renders the existing tabs.
+        listPendingMessages(sb).catch((e) => {
+          console.warn('[admin] listPendingMessages failed (run migration?):', e);
+          return [] as PendingMessage[];
+        }),
+      ]);
       setSubs(s);
       setCorrs(c);
+      setMsgs(m);
     } catch (e: unknown) {
       setErr(e instanceof Error ? e.message : String(e));
     }
@@ -186,7 +201,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
           <div>
             <h1 className="font-display text-xl font-extrabold leading-none">Admin</h1>
             <div className="mt-0.5 text-[11px] font-bold opacity-80">
-              {subs.length} submissions · {corrs.length} corrections pending
+              {subs.length} submissions · {corrs.length} corrections · {msgs.length} messages pending
             </div>
           </div>
         </div>
@@ -214,6 +229,9 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
         </TabButton>
         <TabButton active={tab === 'corrections'} onClick={() => setTab('corrections')}>
           Corrections ({corrs.length})
+        </TabButton>
+        <TabButton active={tab === 'messages'} onClick={() => setTab('messages')}>
+          Messages ({msgs.length})
         </TabButton>
       </div>
 
@@ -250,6 +268,22 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               <CorrectionCard
                 key={c.id}
                 correction={c}
+                onResolved={() => { refresh(); flash('Marked resolved.'); }}
+                onDismissed={() => { refresh(); flash('Dismissed.'); }}
+              />
+            ))}
+          </div>
+        )}
+
+        {tab === 'messages' && (
+          <div className="space-y-4">
+            {msgs.length === 0 && !busy && (
+              <Empty text="No pending messages. 🎉" />
+            )}
+            {msgs.map((m) => (
+              <MessageCard
+                key={m.id}
+                msg={m}
                 onResolved={() => { refresh(); flash('Marked resolved.'); }}
                 onDismissed={() => { refresh(); flash('Dismissed.'); }}
               />
@@ -485,6 +519,88 @@ function CorrectionCard({
           onClick={() => setStatus('resolved', 'fixed via admin UI')}
           disabled={busy}
           className="rounded-full bg-[var(--tj-red)] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[var(--cream)] disabled:opacity-50"
+        >
+          ✓ Mark resolved
+        </button>
+        <button
+          onClick={() => setStatus('dismissed', 'dismissed via admin UI')}
+          disabled={busy}
+          className="rounded-full border-2 border-[var(--ink-soft)] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[var(--ink-soft)] disabled:opacity-50"
+        >
+          ✗ Dismiss
+        </button>
+      </div>
+      {err && (
+        <div className="mt-3 rounded-lg bg-[var(--tj-red)]/10 px-3 py-2 text-xs font-bold text-[var(--tj-red)]">
+          {err}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* --------------------------- Message card -------------------------- */
+
+function MessageCard({
+  msg,
+  onResolved,
+  onDismissed,
+}: {
+  msg: PendingMessage;
+  onResolved: () => void;
+  onDismissed: () => void;
+}) {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  async function setStatus(status: 'resolved' | 'dismissed', notes?: string) {
+    setBusy(true);
+    setErr(null);
+    try {
+      const sb = getAdminClient();
+      if (!sb) throw new Error('Lost admin key.');
+      await setMessageStatus(sb, msg, status, notes);
+      if (status === 'resolved') onResolved();
+      else onDismissed();
+    } catch (e: unknown) {
+      setErr(e instanceof Error ? e.message : String(e));
+    }
+    setBusy(false);
+  }
+
+  return (
+    <div className="rounded-2xl bg-[var(--cream)] p-5 shadow-card">
+      <div className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--ink-soft)]">
+        Contact message · {timeAgo(msg.created_at)}
+      </div>
+      <h3 className="mt-1 font-display text-base font-extrabold leading-tight text-[var(--tj-red)]">
+        {msg.reply_to ? (
+          <a
+            href={`mailto:${msg.reply_to}?subject=Re%3A%20your%20TJ%20Mascots%20message`}
+            className="underline decoration-[var(--tj-red)]/30 underline-offset-4 hover:decoration-[var(--tj-red)]"
+          >
+            {msg.reply_to}
+          </a>
+        ) : (
+          <span className="italic text-[var(--ink-soft)]">Anonymous (no reply-to)</span>
+        )}
+      </h3>
+      <blockquote className="mt-3 whitespace-pre-wrap rounded-lg border-l-4 border-[var(--tj-red)] bg-[var(--cream-dark)] px-3.5 py-2.5 font-serif text-[15px] leading-relaxed text-[var(--ink)]">
+        {msg.message}
+      </blockquote>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {msg.reply_to && (
+          <a
+            href={`mailto:${msg.reply_to}?subject=Re%3A%20your%20TJ%20Mascots%20message`}
+            className="rounded-full bg-[var(--tj-red)] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[var(--cream)]"
+          >
+            ✉️ Reply
+          </a>
+        )}
+        <button
+          onClick={() => setStatus('resolved', 'handled via admin UI')}
+          disabled={busy}
+          className="rounded-full border-2 border-[var(--tj-red)] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[var(--tj-red)] disabled:opacity-50"
         >
           ✓ Mark resolved
         </button>

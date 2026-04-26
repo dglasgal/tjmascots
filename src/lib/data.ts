@@ -289,6 +289,38 @@ function extractErrorMessage(e: unknown): string {
   return String(e);
 }
 
+export interface ContactMessageInput {
+  message: string;
+  /** Optional reply-to email so the admin can respond directly. */
+  reply_to?: string;
+}
+
+/** Submit a contact-form message to the Supabase `messages` table.
+ *  Lightweight by design: just a body + optional reply-to. The admin
+ *  receives an email alert via the same Resend trigger that fires for
+ *  submissions and corrections. */
+export async function submitContactMessage(
+  input: ContactMessageInput,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const sb = getSupabase();
+  if (!sb) {
+    console.info('[prototype] message received (Supabase not configured):', input);
+    return { ok: true };
+  }
+  try {
+    await retryInsert(() =>
+      sb.from('messages').insert({
+        message: input.message,
+        reply_to: input.reply_to || null,
+      }),
+    );
+    return { ok: true };
+  } catch (e) {
+    console.error('[data] submitContactMessage failed:', e);
+    return { ok: false, error: extractErrorMessage(e) };
+  }
+}
+
 export async function submitMascot(
   submission: SubmissionInput,
 ): Promise<{ ok: true } | { ok: false; error: string }> {

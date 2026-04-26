@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ContactForm from '@/components/ContactForm';
 
 export const dynamic = 'force-static';
 
@@ -207,7 +208,9 @@ export default function PrivacyPage() {
             </Section>
           </div>
 
-          {/* Contact section — placeholder until David picks the contact mechanism. */}
+          {/* Contact section — real form, posts to Supabase `messages` table.
+              Admin gets an email alert via the same Resend trigger that fires
+              for submissions and corrections. Reply-to is set when provided. */}
           <div
             id="contact"
             className="mt-14 rounded-3xl bg-[var(--cream-dark)] px-6 py-8 sm:px-10 sm:py-10"
@@ -215,13 +218,12 @@ export default function PrivacyPage() {
             <h3 className="mb-2 font-display text-2xl font-extrabold uppercase tracking-[0.1em] text-[var(--tj-red)]">
               Contact us
             </h3>
-            <p className="text-base font-semibold leading-relaxed text-[var(--ink)]">
-              The contact form is coming online shortly. In the meantime, the
-              fastest way to reach the human admin is via the{' '}
-              <strong>Report incorrect info</strong> button on any mascot card —
-              add your message in the &ldquo;Other / details&rdquo; field and
-              we&apos;ll see it within minutes.
+            <p className="mb-5 text-base font-semibold leading-relaxed text-[var(--ink)]">
+              For takedown requests, privacy questions, or anything else — drop
+              us a line. Messages go straight to the human admin and we&apos;ll
+              respond as soon as possible.
             </p>
+            <ContactForm />
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3">

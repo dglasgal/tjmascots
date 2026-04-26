@@ -44,6 +44,15 @@ export interface PendingCorrection {
   created_at: string;
 }
 
+export interface PendingMessage {
+  id: string;
+  message: string;
+  reply_to: string | null;
+  status: 'pending' | 'resolved' | 'dismissed';
+  admin_notes: string | null;
+  created_at: string;
+}
+
 /** localStorage helpers for the admin key. */
 export function getAdminKey(): string | null {
   if (typeof window === 'undefined') return null;
@@ -91,6 +100,16 @@ export async function listPendingCorrections(sb: SupabaseClient): Promise<Pendin
     .order('created_at', { ascending: false });
   if (error) throw error;
   return (data ?? []) as PendingCorrection[];
+}
+
+export async function listPendingMessages(sb: SupabaseClient): Promise<PendingMessage[]> {
+  const { data, error } = await sb
+    .from('messages')
+    .select('*')
+    .eq('status', 'pending')
+    .order('created_at', { ascending: false });
+  if (error) throw error;
+  return (data ?? []) as PendingMessage[];
 }
 
 /** Get a temporary signed URL for a private submissions-bucket object. */
@@ -220,5 +239,24 @@ export async function setCorrectionStatus(
       admin_notes: adminNotes ?? null,
     })
     .eq('id', correction.id);
+  if (error) throw error;
+}
+
+/** Mark a contact message resolved or dismissed (same shape as
+ *  corrections; lets us share UI patterns in the dashboard). */
+export async function setMessageStatus(
+  sb: SupabaseClient,
+  message: PendingMessage,
+  status: 'resolved' | 'dismissed',
+  adminNotes?: string,
+): Promise<void> {
+  const { error } = await sb
+    .from('messages')
+    .update({
+      status,
+      reviewed_at: new Date().toISOString(),
+      admin_notes: adminNotes ?? null,
+    })
+    .eq('id', message.id);
   if (error) throw error;
 }
