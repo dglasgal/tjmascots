@@ -97,9 +97,9 @@ export default function PrivacyPage() {
             <Section heading="What we do with it">
               <ul className="ml-5 list-disc space-y-1.5">
                 <li>
-                  <strong>Review it.</strong> A human (David) reads every
-                  submission to make sure it&apos;s a real mascot at a real store
-                  before adding it to the map.
+                  <strong>Review it.</strong> The site&apos;s human admin reads
+                  every submission to make sure it&apos;s a real mascot at a
+                  real store before adding it to the map.
                 </li>
                 <li>
                   <strong>Display approved photos and notes</strong> on the
@@ -142,26 +142,11 @@ export default function PrivacyPage() {
 
             <Section heading="Where the data lives">
               <p>
-                Submitted photos and form rows are stored in{' '}
-                <a
-                  href="https://supabase.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-[var(--tj-red)] underline-offset-2 hover:underline"
-                >
-                  Supabase
-                </a>
-                , a managed Postgres database hosted in the U.S. The site itself
-                is served from{' '}
-                <a
-                  href="https://www.digitalocean.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-[var(--tj-red)] underline-offset-2 hover:underline"
-                >
-                  DigitalOcean
-                </a>
-                . Public mascot photos are served from a CDN.
+                Submitted photos and form rows are stored in a managed Postgres
+                database hosted in the U.S. The site itself is served as static
+                files from a U.S.-based cloud hosting provider. Public mascot
+                photos are served from a CDN. We don&apos;t use any
+                infrastructure that processes data outside the U.S.
               </p>
             </Section>
 
@@ -176,15 +161,12 @@ export default function PrivacyPage() {
 
             <Section heading="How to remove your stuff">
               <p>
-                Email{' '}
-                <a
-                  href="mailto:david@7ate9.com"
-                  className="font-bold text-[var(--tj-red)] underline-offset-2 hover:underline"
-                >
-                  david@7ate9.com
-                </a>{' '}
-                with what you&apos;d like removed (a photo, an email credit, a
-                note, etc.) and we&apos;ll take it down — usually same day.
+                If you want a photo, email credit, note, or any other piece of
+                your data taken down, send us a message via the{' '}
+                <strong>Contact us</strong> section at the bottom of this page.
+                Tell us what you&apos;d like removed (a description or a link to
+                the mascot card is enough) and the human admin will take it down
+                — usually the same day.
               </p>
             </Section>
 
@@ -192,7 +174,8 @@ export default function PrivacyPage() {
               <p>
                 The site isn&apos;t aimed at children under 13 and we don&apos;t
                 knowingly collect anything from them. If a kid submitted by
-                accident, email us and we&apos;ll wipe the entry.
+                accident, send us a note via the Contact section below and
+                we&apos;ll wipe the entry.
               </p>
             </Section>
 
@@ -202,14 +185,9 @@ export default function PrivacyPage() {
                 connected to Trader Joe&apos;s Company in any way.
                 &ldquo;Trader Joe&apos;s&rdquo; is a trademark of Trader
                 Joe&apos;s Company. If you&apos;re from Trader Joe&apos;s and
-                you&apos;d like us to take something down, please reach out to{' '}
-                <a
-                  href="mailto:david@7ate9.com"
-                  className="font-bold text-[var(--tj-red)] underline-offset-2 hover:underline"
-                >
-                  david@7ate9.com
-                </a>{' '}
-                and we&apos;ll respond promptly.
+                you&apos;d like us to take something down, please use the
+                Contact section at the bottom of this page and we&apos;ll
+                respond promptly.
               </p>
             </Section>
 
@@ -223,16 +201,27 @@ export default function PrivacyPage() {
 
             <Section heading="Questions">
               <p>
-                Anything unclear? Email{' '}
-                <a
-                  href="mailto:david@7ate9.com"
-                  className="font-bold text-[var(--tj-red)] underline-offset-2 hover:underline"
-                >
-                  david@7ate9.com
-                </a>
-                .
+                Anything unclear? Drop us a line via the Contact section just
+                below.
               </p>
             </Section>
+          </div>
+
+          {/* Contact section — placeholder until David picks the contact mechanism. */}
+          <div
+            id="contact"
+            className="mt-14 rounded-3xl bg-[var(--cream-dark)] px-6 py-8 sm:px-10 sm:py-10"
+          >
+            <h3 className="mb-2 font-display text-2xl font-extrabold uppercase tracking-[0.1em] text-[var(--tj-red)]">
+              Contact us
+            </h3>
+            <p className="text-base font-semibold leading-relaxed text-[var(--ink)]">
+              The contact form is coming online shortly. In the meantime, the
+              fastest way to reach the human admin is via the{' '}
+              <strong>Report incorrect info</strong> button on any mascot card —
+              add your message in the &ldquo;Other / details&rdquo; field and
+              we&apos;ll see it within minutes.
+            </p>
           </div>
 
           <div className="mt-12 flex flex-wrap gap-3">
