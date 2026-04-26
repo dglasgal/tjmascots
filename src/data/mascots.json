@@ -4349,6 +4349,21 @@
       "store_number": "43",
       "created_at": "2026-04-24",
       "submitted_by": "Jason D."
+    },
+    {
+      "id": 368,
+      "store": "Bixby Knolls (Long Beach)",
+      "state": "CA",
+      "animal": "Beagle",
+      "name": "Bixby",
+      "notes": "Bixby the Beagle keeps watch over the Bixby Knolls store, a fluffy tan-and-white pup in a tropical Hawaiian shirt perched among the granola. Red 'BIXBY CREW MEMBER' nametag.",
+      "photo": "368.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted: Andy K (04/26/2026)",
+      "store_number": "116",
+      "created_at": "2026-04-26",
+      "submitted_by": "Andy K."
     }
   ]
 }
