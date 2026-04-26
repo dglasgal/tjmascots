@@ -43,9 +43,13 @@ declare
   resend_api_key text := 'REPLACE_ME_RESEND_API_KEY';
   admin_email     text := 'david@7ate9.com';
   from_address    text := 'TJ Mascots <onboarding@resend.dev>';
+  -- Single source of truth for the admin URL — change this one line
+  -- when DNS is finally pointed at tjmascots.com.
+  admin_url       text := 'https://dolphin-app-aj5qf.ondigitalocean.app/admin-7c4t-mc9q-3p';
   subject         text;
   body_html       text;
   store_label     text;
+  reply_to        text := null;  -- only set for `messages` rows where the user gave a contact email
 begin
   if TG_TABLE_NAME = 'submissions' then
     subject := '🦆 New TJ Mascots submission: '
@@ -62,7 +66,7 @@ begin
         '<tr><td><b>Email:</b></td><td>' || coalesce(NEW.email, '<i>anonymous</i>') || '</td></tr>' ||
         '<tr><td><b>Photo:</b></td><td>' || case when NEW.photo_path is not null then 'yes (review in admin)' else 'no photo' end || '</td></tr>' ||
       '</table>' ||
-      '<p style="margin-top:20px;"><a href="https://dolphin-app-aj5qf.ondigitalocean.app/admin-7c4t-mc9q-3p" style="background:#C8102E;color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:bold;">Review in admin →</a></p>';
+      '<p style="margin-top:20px;"><a href="' || admin_url || '" style="background:#C8102E;color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:bold;">Review in admin →</a></p>';
 
   elsif TG_TABLE_NAME = 'corrections' then
     subject := '🦆 TJ Mascots correction report: '
@@ -77,7 +81,26 @@ begin
         '<tr><td><b>Corrected store #:</b></td><td>' || coalesce(NEW.corrected_store_number, '<i>not provided</i>') || '</td></tr>' ||
         '<tr><td><b>Reporter email:</b></td><td>' || coalesce(NEW.reporter_email, '<i>anonymous</i>') || '</td></tr>' ||
       '</table>' ||
-      '<p style="margin-top:20px;"><a href="https://dolphin-app-aj5qf.ondigitalocean.app/admin-7c4t-mc9q-3p" style="background:#C8102E;color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:bold;">Review in admin →</a></p>';
+      '<p style="margin-top:20px;"><a href="' || admin_url || '" style="background:#C8102E;color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:bold;">Review in admin →</a></p>';
+
+  elsif TG_TABLE_NAME = 'messages' then
+    -- Privacy-page contact form. If the visitor provided a reply-to
+    -- email, set it on the Resend payload so the admin can hit Reply
+    -- in their mail client and respond directly.
+    subject := '✉️  TJ Mascots contact message';
+    reply_to := nullif(NEW.reply_to, '');
+    body_html :=
+      '<h2 style="color:#C8102E;font-family:Helvetica,Arial,sans-serif;">New contact-form message</h2>' ||
+      '<p style="font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#666;margin-bottom:6px;">'
+        || case when reply_to is not null
+             then 'From: <b>' || reply_to || '</b> — hit Reply in your mail client to respond directly.'
+             else '<i>Anonymous (no reply-to email provided)</i>' end ||
+      '</p>' ||
+      '<blockquote style="font-family:Georgia,serif;font-size:15px;line-height:1.55;border-left:4px solid #C8102E;padding:6px 14px;margin:14px 0;color:#222;background:#FBF6EE;">' ||
+        regexp_replace(NEW.message, E'\n', '<br>', 'g') ||
+      '</blockquote>' ||
+      '<p style="margin-top:20px;"><a href="' || admin_url || '" style="background:#C8102E;color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:bold;">Review in admin →</a></p>';
+
   else
     return NEW;
   end if;
@@ -89,12 +112,23 @@ begin
       'Authorization', 'Bearer ' || resend_api_key,
       'Content-Type', 'application/json'
     ),
-    body := jsonb_build_object(
-      'from',    from_address,
-      'to',      admin_email,
-      'subject', subject,
-      'html',    body_html
-    )
+    body := case
+      when reply_to is not null then
+        jsonb_build_object(
+          'from',     from_address,
+          'to',       admin_email,
+          'subject',  subject,
+          'html',     body_html,
+          'reply_to', reply_to
+        )
+      else
+        jsonb_build_object(
+          'from',    from_address,
+          'to',      admin_email,
+          'subject', subject,
+          'html',    body_html
+        )
+    end
   );
 
   return NEW;
@@ -110,4 +144,9 @@ create trigger email_alert_on_new_submission
 drop trigger if exists email_alert_on_new_correction on public.corrections;
 create trigger email_alert_on_new_correction
   after insert on public.corrections
+  for each row execute function public.notify_admin_on_new_row();
+
+drop trigger if exists email_alert_on_new_message on public.messages;
+create trigger email_alert_on_new_message
+  after insert on public.messages
   for each row execute function public.notify_admin_on_new_row();
