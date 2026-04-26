@@ -152,7 +152,11 @@ export async function approveSubmission(
     await sb.storage.from('submissions').remove([submission.photo_path]);
   }
 
-  // 2. Mark approved
+  // 2. Mark approved.
+  //    `approved_mascot_id` is what the submitter-thank-you email trigger
+  //    reads to build a deep-link back to the live mascot pin
+  //    (e.g. /?mascot=217). Without this column set, the email's
+  //    "See your mascot live" button would just go to the homepage.
   const { error: updErr } = await sb
     .from('submissions')
     .update({
@@ -161,6 +165,7 @@ export async function approveSubmission(
       admin_notes: `Mapped to mascot id ${newMascotId}${
         photoFilename ? ` with photo ${photoFilename}` : ''
       }`,
+      approved_mascot_id: newMascotId,
     })
     .eq('id', submission.id);
   if (updErr) throw new Error(`status update failed: ${updErr.message}`);
