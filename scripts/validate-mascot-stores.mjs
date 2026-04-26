@@ -124,11 +124,9 @@ const ALIASES = {
  * land — it's a checklist, not a permanent escape hatch.
  */
 const PENDING_REVIEW = new Set([
-  11,  // Haze — Hayes Valley SF, currently store #38 Redondo Beach
-  121, // Felix — Denver, currently store #308 Westminster CO
-  176, // Harry — Dallas Far North, currently store #169 Tigard OR (cross-state)
-  184, // Craig — Orlando, currently store #733 Roswell GA (cross-state)
-  202, // Shelby — Virginia Beach, currently store #653 Washington DC (cross-state)
+  121, // Felix — Denver, currently store #308 Westminster CO. Source data
+       // is the Carlos Gomez Bay Area archive — not authoritative for CO.
+       // David needs to verify which Denver-area store Felix actually lives at.
 ]);
 
 const norm = (s) => (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
