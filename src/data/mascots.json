@@ -4364,6 +4364,51 @@
       "store_number": "116",
       "created_at": "2026-04-26",
       "submitted_by": "Andy K."
+    },
+    {
+      "store": "Berkeley",
+      "state": "CA",
+      "animal": "Bear",
+      "name": "Cal",
+      "notes": "Cal the golden-brown bear sports a blue-and-gold Cal Berkeley knit sweater (the Cal Golden Bears mascot). Usually spotted perched atop the Fresh Ground Coffee grinder.",
+      "store_number": "186",
+      "id": 369,
+      "photo": "369.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "created_at": "2026-04-26",
+      "submitted_by": null
+    },
+    {
+      "store": "San Rafael",
+      "state": "CA",
+      "animal": "Scarecrow",
+      "name": "Cindy",
+      "notes": "Cindy the Scarecrow is the San Rafael store's seasonal helper — wearing a red brimmed hat, floral shirt, and patched denim overalls with a 'CINDY CREW MEMBER' nametag. Comes out among the autumn gourds and Pumpkin Spice cans in the fall.",
+      "store_number": "61",
+      "id": 370,
+      "photo": "370.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "created_at": "2026-04-26",
+      "submitted_by": null
+    },
+    {
+      "store": "North Beach (San Francisco — Bay Street)",
+      "state": "CA",
+      "animal": "Seabird",
+      "name": "Gull",
+      "notes": "A hand-carved wooden seabird in a denim vest, perched above the iconic in-store Golden Gate Bridge model. The Bay Street store's resident sea-creature, alongside Patrick the Shark.",
+      "store_number": "19",
+      "id": 371,
+      "photo": "371.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
+      "created_at": "2026-04-26",
+      "submitted_by": null
     }
   ]
 }
