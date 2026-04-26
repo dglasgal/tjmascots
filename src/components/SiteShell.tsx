@@ -70,6 +70,11 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
   // Deep-link support: if the URL has ?mascot=ID (e.g. from the /recent page),
   // fly the map to that mascot and open its card automatically. Also supports
   // ?store=NUMBER to highlight a specific store.
+  //
+  // If neither is present, fall back to a SILENT auto-center on the user's
+  // location — but ONLY if the browser already has a granted geolocation
+  // permission from a previous visit. This never triggers a fresh permission
+  // prompt; first-time visitors continue to see the default US-wide view.
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const params = new URLSearchParams(window.location.search);
@@ -80,13 +85,48 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
       if (m) {
         setFlyTo({ lat: m.lat, lng: m.lng, zoom: 13 });
         setTimeout(() => setSelection({ kind: 'mascot', data: m }), 450);
+        return;
       }
-    } else if (storeNum) {
+    }
+    if (storeNum) {
       const s = stores.find((x) => x.store_number === storeNum);
       if (s) {
         setFlyTo({ lat: s.lat, lng: s.lng, zoom: 13 });
         setTimeout(() => setSelection({ kind: 'store', data: s }), 450);
+        return;
       }
+    }
+    // No deep-link override: try a silent auto-center.
+    // Permissions API tells us whether the browser already has a 'granted'
+    // geolocation permission for this origin. If yes, we silently fetch
+    // coordinates and re-center the map. If 'prompt' or 'denied' (or the API
+    // is unavailable), we do nothing — no surprise prompts on first landing.
+    if (
+      'permissions' in navigator &&
+      'geolocation' in navigator &&
+      typeof navigator.permissions.query === 'function'
+    ) {
+      navigator.permissions
+        .query({ name: 'geolocation' as PermissionName })
+        .then((result) => {
+          if (result.state !== 'granted') return;
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              setFlyTo({
+                lat: pos.coords.latitude,
+                lng: pos.coords.longitude,
+                zoom: 10,
+              });
+            },
+            () => {
+              /* silently ignore — we don't want to disturb first-time flow */
+            },
+            { enableHighAccuracy: false, timeout: 8000, maximumAge: 60_000 },
+          );
+        })
+        .catch(() => {
+          /* older browsers without Permissions API: skip silently */
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
