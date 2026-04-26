@@ -31,10 +31,30 @@ export default function Header({
   const [results, setResults] = useState<SearchResult[]>([]);
   const [active, setActive] = useState(-1);
   const [open, setOpen] = useState(false);
+  // Shorter placeholder on small viewports so the word "Search" stays visible
+  // even when the input is squeezed by the brand and submit button.
+  const [placeholder, setPlaceholder] = useState(
+    'Search a city, ZIP, mascot name, or animal…',
+  );
   const inputRef = useRef<HTMLInputElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
 
   const index = useMemo(() => buildSearchIndex(mascots, stores), [mascots, stores]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(min-width: 640px)');
+    const update = () => {
+      setPlaceholder(
+        mq.matches
+          ? 'Search a city, ZIP, mascot name, or animal…'
+          : 'Search city, mascot, or ZIP…',
+      );
+    };
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   useEffect(() => {
     if (!query) {
@@ -99,7 +119,12 @@ export default function Header({
           🛒
         </Link>
         <div>
-          <h1 className="font-display text-2xl font-black leading-none tracking-tight">TJ Mascots</h1>
+          {/* Mobile: stack "TJ" over "Mascots" so the search bar has more room.
+              Desktop (sm+): inline "TJ Mascots" wordmark unchanged. */}
+          <h1 className="font-display text-2xl font-black leading-none tracking-tight max-sm:text-lg max-sm:leading-[0.92]">
+            <span className="block sm:inline">TJ</span>
+            <span className="block sm:inline sm:ml-1.5">Mascots</span>
+          </h1>
           <p className="mt-0.5 text-xs font-semibold opacity-80 max-[700px]:hidden">
             an unofficial map of every Trader Joe&apos;s store mascot
           </p>
@@ -124,7 +149,7 @@ export default function Header({
           type="search"
           spellCheck={false}
           autoComplete="off"
-          placeholder="Search a city, ZIP, mascot name, or animal…"
+          placeholder={placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKey}
