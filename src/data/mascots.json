@@ -3961,21 +3961,6 @@
       "submitted_by": null
     },
     {
-      "id": 271,
-      "store": "Long Beach (Bixby Knolls)",
-      "state": "CA",
-      "animal": "Dog",
-      "name": "Bixby",
-      "notes": "Store 116. Bixby the Dog watches over the Bixby Knolls Trader Joe's — fittingly named for the neighborhood.",
-      "photo": null,
-      "has_photo": false,
-      "retired": false,
-      "source_url": "User-correction (Trader Joe's Long Beach Bixby Knolls #116)",
-      "store_number": "116",
-      "created_at": "2026-04-24",
-      "submitted_by": null
-    },
-    {
       "id": 272,
       "store": "Vancouver (Chkalov)",
       "state": "WA",
