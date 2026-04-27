@@ -1,9 +1,8 @@
 import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site-url';
 
 // Required for static export (output: 'export' in next.config.js)
 export const dynamic = 'force-static';
-
-const SITE_URL = 'https://tjmascots.com';
 
 /**
  * Tells search engines what they can and can't crawl. Since the whole point

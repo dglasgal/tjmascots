@@ -1,11 +1,10 @@
 import type { MetadataRoute } from 'next';
 import mascotsRaw from '@/data/mascots.json';
 import { slugForMascot } from '@/lib/slug';
+import { SITE_URL } from '@/lib/site-url';
 
 // Required for static export (output: 'export' in next.config.js)
 export const dynamic = 'force-static';
-
-const SITE_URL = 'https://tjmascots.com';
 
 interface RawMascot {
   id: number;
