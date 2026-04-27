@@ -4,7 +4,7 @@ import storesData from '@/data/tj-stores.json';
 import { emojiForAnimal } from '@/lib/emoji';
 import type { Store } from '@/lib/types';
 import { photoUrl } from '@/lib/data';
-import { slugForMascot } from '@/lib/slug';
+import { slugForMascot, slugForSpotter } from '@/lib/slug';
 
 export const dynamic = 'force-static';
 
@@ -137,8 +137,8 @@ export default function RecentPage() {
                 {topContributors.map((c, i) => (
                   <li key={c.name}>
                     <Link
-                      href={`/mascot/${slugForMascot(c.latest)}`}
-                      title={`See ${c.name}'s most recent submission: ${c.latest.name || c.latest.animal}`}
+                      href={`/spotter/${slugForSpotter(c.name)}`}
+                      title={`See all ${c.count} of ${c.name}'s spotted mascots`}
                       className="group relative flex items-center gap-3 rounded-2xl bg-[var(--cream-dark)] p-3.5 transition hover:-translate-y-px hover:bg-[var(--cream)] hover:shadow-card"
                     >
                       <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] text-2xl group-hover:bg-[var(--cream-dark)]">

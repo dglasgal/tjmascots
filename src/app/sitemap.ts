@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import mascotsRaw from '@/data/mascots.json';
-import { slugForMascot } from '@/lib/slug';
+import { slugForMascot, spotterSlugMap } from '@/lib/slug';
 import { stateSlug, statesWithMascots } from '@/lib/state';
 import { SITE_URL } from '@/lib/site-url';
 
@@ -15,6 +15,7 @@ interface RawMascot {
   state: string;
   store_number?: string;
   retired?: boolean;
+  submitted_by?: string | null;
 }
 
 /**
@@ -72,6 +73,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.7,
+    })),
+    // Per-spotter Hall of Fame pages
+    ...Array.from(spotterSlugMap(activeMascots).values()).map((slug) => ({
+      url: `${SITE_URL}/spotter/${slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
     })),
   ];
 }
