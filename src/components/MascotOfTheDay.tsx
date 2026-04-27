@@ -58,15 +58,15 @@ export default function MascotOfTheDay({ mascots, hidden, onPick }: MascotOfTheD
         {/* Top label — "MASCOT OF THE DAY" in two stacked lines for the
             block-stamp feel, using Fraunces (our display serif, the
             closest thing to TJ's hand-lettered signage in our stack) */}
-        <div className="font-display text-[10px] font-black uppercase leading-[0.95] tracking-[0.04em] text-[var(--tj-red)] max-sm:text-[8px]">
+        <div className="font-display text-[14px] font-black uppercase leading-[0.92] tracking-[0.02em] text-[var(--tj-red)] max-sm:text-[10px]">
           Mascot
           <br />
           of the Day
         </div>
 
         {/* Photo — the visual centerpiece. In full color, with a TJ-red
-            ring border. Larger than before so it's the actual feature. */}
-        <div className="my-1 flex h-[80px] w-[80px] flex-shrink-0 items-center justify-center overflow-hidden rounded-full border-[3px] border-[var(--tj-red)] bg-[var(--cream-dark)] shadow-[0_2px_6px_rgba(0,0,0,0.18)] max-sm:my-0.5 max-sm:h-[58px] max-sm:w-[58px]">
+            ring border. */}
+        <div className="my-1 flex h-[72px] w-[72px] flex-shrink-0 items-center justify-center overflow-hidden rounded-full border-[3px] border-[var(--tj-red)] bg-[var(--cream-dark)] shadow-[0_2px_6px_rgba(0,0,0,0.18)] max-sm:my-0.5 max-sm:h-[52px] max-sm:w-[52px]">
           {photoSrc ? (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
@@ -80,7 +80,7 @@ export default function MascotOfTheDay({ mascots, hidden, onPick }: MascotOfTheD
         </div>
 
         {/* Mascot name — block red Fraunces */}
-        <div className="max-w-[150px] truncate font-display text-sm font-black leading-none text-[var(--tj-red)] max-sm:max-w-[110px] max-sm:text-[11px]">
+        <div className="max-w-[150px] truncate font-display text-lg font-black leading-none text-[var(--tj-red)] max-sm:max-w-[110px] max-sm:text-[14px]">
           {displayName}
         </div>
       </div>
