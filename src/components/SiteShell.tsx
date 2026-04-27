@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Header from './Header';
 import MascotCard from './MascotCard';
+import MascotOfTheDay from './MascotOfTheDay';
 import MascotParade from './MascotParade';
 import SubmitModal, { type SubmitModalPreset } from './SubmitModal';
 import type { Mascot, Store } from '@/lib/types';
@@ -196,6 +197,11 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
             flyTo={flyTo}
           />
           <Legend />
+          <MascotOfTheDay
+            mascots={mascots}
+            hidden={selection !== null}
+            onPick={(m) => handleSearchSelect({ kind: 'mascot', data: m })}
+          />
         </div>
         <MascotCard
           selection={selection}
