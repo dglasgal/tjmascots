@@ -128,6 +128,12 @@ export interface SubmissionInput {
   email?: string;
   notes?: string;
   photoFile?: File;
+  /** GPS coords parsed from the photo's EXIF (if present). Used by the
+   *  admin queue to badge submissions as photo-location-verified. */
+  photo_lat?: number | null;
+  photo_lng?: number | null;
+  photo_distance_m?: number | null;
+  photo_location_status?: 'match' | 'mismatch' | 'no_gps' | 'error' | null;
 }
 
 export interface CorrectionInput {
@@ -357,6 +363,12 @@ export async function submitMascot(
       email: submission.email || null,
       notes: submission.notes || null,
       photo_path: photoPath,
+      // EXIF GPS verification (only present when we successfully read EXIF
+      // and the user supplied a photo + selected a store with coords).
+      photo_lat: submission.photo_lat ?? null,
+      photo_lng: submission.photo_lng ?? null,
+      photo_distance_m: submission.photo_distance_m ?? null,
+      photo_location_status: submission.photo_location_status ?? null,
     });
     if (insertErr) throw insertErr;
 
