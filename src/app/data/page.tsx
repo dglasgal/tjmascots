@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import mascotsRaw from '@/data/mascots.json';
+import MallardHead from '@/components/MallardHead';
 
 export const dynamic = 'force-static';
 
@@ -24,7 +25,7 @@ export default function DataPage() {
             title="Back to the map"
             className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--cream)] text-2xl shadow-[inset_0_0_0_3px_var(--tj-red-dark)] transition hover:scale-105"
           >
-            🛒
+            <MallardHead className="h-7 w-7" />
           </Link>
           <Link href="/" className="block">
             <h1 className="font-display text-2xl font-black leading-none tracking-tight">TJ Mascots</h1>

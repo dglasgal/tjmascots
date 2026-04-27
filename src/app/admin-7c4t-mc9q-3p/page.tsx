@@ -44,6 +44,7 @@ import {
 import { publishApproval, type PublishResult } from '@/lib/auto-publish';
 import storesData from '@/data/tj-stores.json';
 import type { Store } from '@/lib/types';
+import MallardHead from '@/components/MallardHead';
 
 const stores = storesData as Store[];
 const storesByNum = new Map(stores.map((s) => [s.store_number, s]));
@@ -205,7 +206,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
             href="/"
             className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--cream)] text-xl"
           >
-            🛒
+            <MallardHead className="h-7 w-7" />
           </Link>
           <div>
             <h1 className="font-display text-xl font-extrabold leading-none">Admin</h1>
