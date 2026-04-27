@@ -54,20 +54,20 @@ export default function MascotOfTheDay({ mascots, hidden, onPick }: MascotOfTheD
       <PalmLeaf className="pointer-events-none absolute -bottom-3 -left-6 z-0 h-[120px] w-[120px] -rotate-12" />
 
       {/* The cream circle that holds the text + photo, on top of the flowers */}
-      <div className="relative z-[1] flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-full bg-[var(--cream)] px-3 py-2 text-center shadow-pop ring-[3px] ring-[var(--tj-red)]">
+      <div className="relative z-[1] flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-full bg-[var(--cream)] px-2 py-1 text-center shadow-pop ring-[3px] ring-[var(--tj-red)]">
         {/* Top label — "MASCOT OF THE DAY" in two stacked lines for the
             block-stamp feel, using Fraunces (our display serif, the
             closest thing to TJ's hand-lettered signage in our stack) */}
-        <div className="font-display text-[12px] font-black uppercase leading-[0.92] tracking-[0.02em] text-[var(--tj-red)]">
+        <div className="font-display text-[11px] font-black uppercase leading-[0.92] tracking-[0.02em] text-[var(--tj-red)]">
           Mascot
           <br />
           of the Day
         </div>
 
-        {/* Photo — the visual centerpiece. In full color, with a TJ-red
-            ring border. Bumped up so the mascot is the obvious focal
-            point of the sticker. */}
-        <div className="my-1 flex h-[110px] w-[110px] flex-shrink-0 items-center justify-center overflow-hidden rounded-full border-[3px] border-[var(--tj-red)] bg-[var(--cream-dark)] shadow-[0_2px_6px_rgba(0,0,0,0.18)]">
+        {/* Photo — the visual centerpiece. Bigger circle so the mascot
+            fills most of the sticker; the outer cream circle is
+            unchanged but the negative space inside it is now tight. */}
+        <div className="my-0.5 flex h-[150px] w-[150px] flex-shrink-0 items-center justify-center overflow-hidden rounded-full border-[3px] border-[var(--tj-red)] bg-[var(--cream-dark)] shadow-[0_2px_6px_rgba(0,0,0,0.18)]">
           {photoSrc ? (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
