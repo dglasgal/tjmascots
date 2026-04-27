@@ -4,8 +4,10 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Mascot, Store } from '@/lib/types';
 import { photoUrl } from '@/lib/data';
+import { slugForMascot } from '@/lib/slug';
 import ReportModal from './ReportModal';
 import PhotoLightbox from './PhotoLightbox';
+import ShareButton from './ShareButton';
 
 type Selection =
   | { kind: 'mascot'; data: Mascot }
@@ -247,7 +249,15 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
           </div>
         )}
 
-        <div className="mt-3 text-[11px] text-[var(--ink-soft)]">
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] text-[var(--ink-soft)]">
+          <ShareButton
+            mascotSlug={slugForMascot(m)}
+            hasPhoto={Boolean(m.has_photo)}
+            displayName={m.name || 'Unnamed mascot'}
+            animal={m.animal || 'mascot'}
+            city={m.store}
+            storeNumber={m.store_number ?? null}
+          />
           <button
             type="button"
             onClick={() => setReportOpen(true)}
@@ -298,6 +308,15 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
         </div>
         <div className="border-t-2 border-dashed border-[var(--cream-dark)] py-3.5 text-[15px] leading-[1.55] text-[var(--ink-soft)]">
           No mascot on file for this store yet. If you&apos;ve spotted one, please share!
+        </div>
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <ShareButton
+            hasPhoto={false}
+            displayName="the mascot"
+            animal="mascot"
+            city={s.city}
+            storeNumber={s.store_number}
+          />
         </div>
       </div>
       <button
