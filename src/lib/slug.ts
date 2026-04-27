@@ -62,3 +62,35 @@ function slugify(s: string): string {
 function stripParens(s: string): string {
   return s.replace(/\s*\([^)]*\)/g, '').trim();
 }
+
+/**
+ * Slug for a spotter (the person credited in submitted_by).
+ * Examples:
+ *   "Emilie C. & Mookie" → "emilie-c-mookie"
+ *   "David G."           → "david-g"
+ *   "Jason Dawson"       → "jason-dawson"
+ *
+ * Used to build /spotter/{slug} pages that list everyone they spotted.
+ */
+export function slugForSpotter(name: string): string {
+  return slugify(name);
+}
+
+/**
+ * Build a deterministic name → slug map from a list of mascots so we
+ * can both render the right link in the Hall of Fame AND enumerate the
+ * static params for /spotter/[slug] at build time.
+ */
+export function spotterSlugMap<M extends { submitted_by?: string | null }>(
+  mascots: M[],
+): Map<string, string> {
+  const map = new Map<string, string>();
+  for (const m of mascots) {
+    const name = m.submitted_by?.trim();
+    if (!name) continue;
+    const slug = slugForSpotter(name);
+    if (!slug) continue;
+    map.set(name, slug);
+  }
+  return map;
+}
