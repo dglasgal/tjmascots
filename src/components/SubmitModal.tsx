@@ -6,6 +6,7 @@ import { submitMascot } from '@/lib/data';
 import type { Store } from '@/lib/types';
 import StorePicker from './StorePicker';
 import { useAntiSpam } from '@/lib/anti-spam';
+import { extractPhotoLocation, type PhotoLocationResult } from '@/lib/exif';
 
 export interface SubmitModalPreset {
   store?: string;
@@ -34,10 +35,33 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
   const [email, setEmail] = useState('');
   const [notes, setNotes] = useState('');
   const [photoFile, setPhotoFile] = useState<File | undefined>(undefined);
+  const [photoLocation, setPhotoLocation] = useState<PhotoLocationResult | null>(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState('');
   const antiSpam = useAntiSpam();
+
+  // Re-run EXIF GPS extraction whenever either the photo OR the chosen
+  // store changes — both are inputs to the match calculation.
+  useEffect(() => {
+    let cancelled = false;
+    if (!photoFile || !selectedStore) {
+      setPhotoLocation(null);
+      return;
+    }
+    extractPhotoLocation(photoFile, selectedStore.lat, selectedStore.lng)
+      .then((r) => {
+        if (!cancelled) setPhotoLocation(r);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setPhotoLocation({ status: 'error', lat: null, lng: null, distance_m: null });
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [photoFile, selectedStore]);
 
   // If the preset specifies a store_number, find that store so the picker is
   // pre-filled (and we lock it from changing).
@@ -54,6 +78,7 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
       setEmail('');
       setNotes(preset?.notes ?? '');
       setPhotoFile(undefined);
+      setPhotoLocation(null);
       setMessage(null);
     }
   }, [open, preset, lockedStore]);
@@ -89,6 +114,12 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
       email,
       notes,
       photoFile,
+      // Pass through whatever EXIF GPS analysis we computed (may be null
+      // if no photo was attached or EXIF was missing/stripped).
+      photo_lat: photoLocation?.lat ?? null,
+      photo_lng: photoLocation?.lng ?? null,
+      photo_distance_m: photoLocation?.distance_m ?? null,
+      photo_location_status: photoLocation?.status ?? null,
     });
     setBusy(false);
     if (result.ok) {
@@ -164,6 +195,32 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
                 accept="image/*"
                 onChange={(e) => setPhotoFile(e.target.files?.[0])}
               />
+              {photoFile && photoLocation && (
+                <div className="mt-1.5 text-[11px] font-semibold">
+                  {photoLocation.status === 'match' && (
+                    <span className="text-green-700">
+                      ✓ Photo location matches the store you picked
+                    </span>
+                  )}
+                  {photoLocation.status === 'mismatch' && (
+                    <span className="text-[var(--ink-soft)]">
+                      ℹ️ Photo location is{' '}
+                      {formatDistance(photoLocation.distance_m ?? 0)} from the store —
+                      that&apos;s fine, the admin will double-check
+                    </span>
+                  )}
+                  {photoLocation.status === 'no_gps' && (
+                    <span className="text-[var(--ink-soft)]">
+                      ℹ️ No location data in this photo — admin will verify manually
+                    </span>
+                  )}
+                  {photoLocation.status === 'error' && (
+                    <span className="text-[var(--ink-soft)]">
+                      ℹ️ Couldn&apos;t read photo metadata — that&apos;s OK
+                    </span>
+                  )}
+                </div>
+              )}
             </Field>
             <Field label="Your email (optional, for credit)">
               <input
@@ -216,6 +273,15 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
       )}
     </AnimatePresence>
   );
+}
+
+/** Pretty-print a distance in meters: "230 m", "1.4 km", "47 mi". */
+function formatDistance(meters: number): string {
+  if (meters < 1000) return `${meters} m`;
+  const km = meters / 1000;
+  if (km < 50) return `${km.toFixed(1)} km`;
+  const mi = km * 0.621371;
+  return `${mi.toFixed(0)} mi`;
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {

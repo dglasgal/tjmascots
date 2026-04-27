@@ -123,10 +123,20 @@ export default function PrivacyPage() {
                   We don&apos;t require an account, password, or any login.
                 </li>
                 <li>
-                  We don&apos;t collect your location unless you tap the
-                  &ldquo;📍 Use nearest store&rdquo; button — and even then your
-                  coordinates stay in your browser to find the closest TJ&apos;s.
-                  We never see them.
+                  We don&apos;t collect <em>your</em> location unless you tap
+                  the &ldquo;📍 Use nearest store&rdquo; button — and even then
+                  your coordinates stay in your browser to find the closest
+                  TJ&apos;s. We never see them.
+                </li>
+                <li>
+                  We <em>do</em> read the GPS coordinates embedded in any
+                  photo you upload (if your camera saved them) and compare them
+                  to the store you picked, just to give the moderator a
+                  &ldquo;does this photo look like it was actually taken at
+                  the store&rdquo; signal. Most photos sent through chat apps
+                  don&apos;t have GPS data, so this often does nothing. See
+                  the &ldquo;Photo location data&rdquo; section below for
+                  details.
                 </li>
               </ul>
             </Section>
@@ -149,6 +159,50 @@ export default function PrivacyPage() {
                 photos are served from a CDN. We don&apos;t use any
                 infrastructure that processes data outside the U.S.
               </p>
+            </Section>
+
+            <Section heading="Photo location data">
+              <p>
+                When you upload a mascot photo, we read the GPS coordinates
+                that your camera embeds inside the image file (the
+                &ldquo;EXIF&rdquo; metadata) and compare them to the store
+                you picked from the dropdown. The result is one of:
+                &ldquo;photo location matches the store,&rdquo; &ldquo;photo
+                location doesn&apos;t match,&rdquo; or &ldquo;no location
+                data found.&rdquo; This badge is shown to the moderator
+                only — never on the public map — and helps them spot
+                accidental misattributions faster.
+              </p>
+              <p className="mt-3">
+                A few important notes:
+              </p>
+              <ul className="ml-5 mt-2 list-disc space-y-1.5">
+                <li>
+                  <strong>Most photos won&apos;t have GPS data.</strong> When
+                  you send a photo through iMessage, WhatsApp, Slack,
+                  Instagram, or similar apps, those services strip the
+                  location data for your privacy. So in most submissions
+                  this check just reports &ldquo;no location data&rdquo; and
+                  changes nothing.
+                </li>
+                <li>
+                  <strong>We never auto-approve based on this.</strong> A
+                  human moderator still reviews every submission. The badge
+                  is purely an aid.
+                </li>
+                <li>
+                  <strong>The coordinates are stored in the moderation
+                  queue</strong> alongside your submission. They are never
+                  shown publicly, never sold, and you can request removal
+                  using the contact form below.
+                </li>
+                <li>
+                  <strong>If you don&apos;t want to share location info,</strong>
+                  the easiest way is to take a screenshot of your photo
+                  before submitting (screenshots have no GPS data) or
+                  re-save the photo through any chat app first.
+                </li>
+              </ul>
             </Section>
 
             <Section heading="How long we keep it">

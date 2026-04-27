@@ -398,6 +398,7 @@ function SubmissionCard({
               Submitted by: {sub.email}
             </div>
           )}
+          <PhotoLocationBadge sub={sub} />
           <div className="mt-3 flex flex-wrap gap-2">
             <button
               onClick={approve}
@@ -537,6 +538,68 @@ function CorrectionCard({
       )}
     </div>
   );
+}
+
+/* ----------------------- Photo location badge ---------------------- */
+
+/** Small chip rendered on each submission card showing whether the
+ *  photo's EXIF GPS coordinates match the store the submitter picked.
+ *  Pure visual aid for the moderator — never used to auto-approve. */
+function PhotoLocationBadge({ sub }: { sub: PendingSubmission }) {
+  // No photo or no GPS analysis ever happened (e.g. submission predates
+  // the EXIF feature, or photo was missing) → skip the badge entirely.
+  if (!sub.photo_path || !sub.photo_location_status) return null;
+
+  const dist = sub.photo_distance_m;
+  const lat = sub.photo_lat;
+  const lng = sub.photo_lng;
+  // Build a clickable Google Maps link to the photo's location, when known
+  const mapsHref =
+    lat != null && lng != null
+      ? `https://maps.google.com/?q=${lat},${lng}`
+      : null;
+
+  if (sub.photo_location_status === 'match') {
+    return (
+      <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-green-100 px-2.5 py-1 text-[11px] font-extrabold text-green-800">
+        ✓ Photo location matches store
+        {dist != null && <span className="font-bold opacity-70">({dist} m away)</span>}
+      </div>
+    );
+  }
+  if (sub.photo_location_status === 'mismatch') {
+    return (
+      <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-red-100 px-2.5 py-1 text-[11px] font-extrabold text-red-800">
+        ✗ Photo location is{' '}
+        {dist != null ? formatDistanceMeters(dist) : 'far'} from the store
+        {mapsHref && (
+          <a
+            href={mapsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:no-underline"
+          >
+            (open in Maps)
+          </a>
+        )}
+      </div>
+    );
+  }
+  // no_gps and error look the same to the moderator
+  return (
+    <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-[var(--cream-dark)] px-2.5 py-1 text-[11px] font-bold text-[var(--ink-soft)]">
+      ⚠ No location data in this photo
+    </div>
+  );
+}
+
+/** Pretty-print a distance in meters: "230 m", "1.4 km", "47 mi". */
+function formatDistanceMeters(meters: number): string {
+  if (meters < 1000) return `${meters} m`;
+  const km = meters / 1000;
+  if (km < 50) return `${km.toFixed(1)} km`;
+  const mi = km * 0.621371;
+  return `${mi.toFixed(0)} mi`;
 }
 
 /* --------------------------- Message card -------------------------- */

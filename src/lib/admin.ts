@@ -28,6 +28,12 @@ export interface PendingSubmission {
   status: 'pending' | 'approved' | 'rejected';
   admin_notes: string | null;
   created_at: string;
+  /** EXIF GPS verification fields. Null when no photo, no EXIF, or
+   *  the columns haven't been migrated into Supabase yet. */
+  photo_lat: number | null;
+  photo_lng: number | null;
+  photo_distance_m: number | null;
+  photo_location_status: 'match' | 'mismatch' | 'no_gps' | 'error' | null;
 }
 
 export interface PendingCorrection {
