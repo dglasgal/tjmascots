@@ -21,6 +21,14 @@ const ANIMAL_EMOJI: Record<string, string> = {
   mammoth: '🦣', 'woolly mammoth': '🦣', pelican: '🐦', capybara: '🦫', mare: '🐴',
   groundhog: '🦫', 'sun devil': '🌞', 'rock dove': '🕊️', anteater: '🐜',
   otter: '🦦',
+  // Dog breeds — without these, the substring fallback matches "beagle"
+  // against "eagle" 🦅 and renders dogs as birds.
+  beagle: '🐶', labrador: '🐶', retriever: '🐶', poodle: '🐶',
+  bulldog: '🐶', terrier: '🐶', dachshund: '🐶', collie: '🐶',
+  shepherd: '🐶', husky: '🐶', corgi: '🐶', spaniel: '🐶',
+  pug: '🐶', chihuahua: '🐶', pomeranian: '🐶',
+  // Also: scarecrow doesn't have an obvious emoji; use a friendly stand-in.
+  scarecrow: '🌾',
 };
 
 export function emojiForAnimal(animal: string | null | undefined): string {
