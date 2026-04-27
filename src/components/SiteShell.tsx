@@ -168,6 +168,15 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
     setSubmitOpen(true);
   }
 
+  /** Pick a random mascot (from those with photos for visual punch) and
+   *  fly the map there. Wired to the header's "🎲 Random" button. */
+  function handleRandomClick() {
+    const eligible = mascots.filter((m) => m.has_photo && m.photo);
+    if (eligible.length === 0) return;
+    const pick = eligible[Math.floor(Math.random() * eligible.length)];
+    handleSearchSelect({ kind: 'mascot', data: pick });
+  }
+
   return (
     <div className="flex h-full flex-col">
       <Header
@@ -176,6 +185,7 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
         onSelect={handleSearchSelect}
         onSubmitClick={openSubmit}
         onProgressClick={() => setParadeOpen(true)}
+        onRandomClick={handleRandomClick}
         totalMascots={mascots.length}
         totalUnknown={unknownCount}
         percentMapped={percentMapped}
