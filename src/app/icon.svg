@@ -1,0 +1,20 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- TJ-red circle background -->
+  <circle cx="32" cy="32" r="32" fill="#C8102E"/>
+  <!-- Inset cream ring to match the in-app store-icon style -->
+  <circle cx="32" cy="32" r="29" fill="#fdf6ec"/>
+  <!-- Mallard head (matches MallardHead.tsx) -->
+  <circle cx="26" cy="28" r="17" fill="#0f6e3d"/>
+  <ellipse cx="20" cy="22" rx="6" ry="3.5" fill="#1f8d52" opacity="0.7"/>
+  <!-- White collar ring -->
+  <ellipse cx="28" cy="45" rx="14" ry="3" fill="#fdf6ec"/>
+  <ellipse cx="28" cy="46.5" rx="13" ry="1.6" fill="#c9a36a" opacity="0.5"/>
+  <!-- Bill -->
+  <path d="M 38 26 Q 58 26 58 31 Q 58 38 40 36 Z" fill="#f4c430" stroke="#8a6a0a" stroke-width="0.6" stroke-linejoin="round"/>
+  <path d="M 40 33 Q 50 34 58 33 L 58 36 Q 48 37 40 36 Z" fill="#c89200" opacity="0.6"/>
+  <!-- Nostril -->
+  <circle cx="50" cy="30" r="0.9" fill="#5a4400"/>
+  <!-- Eye -->
+  <circle cx="33" cy="24" r="2.5" fill="#1a1a1a"/>
+  <circle cx="33.7" cy="23.3" r="0.8" fill="#fff"/>
+</svg>

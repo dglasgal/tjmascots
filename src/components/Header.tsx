@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { buildSearchIndex, runSearch, type SearchResult } from '@/lib/search';
 import type { Mascot, Store } from '@/lib/types';
+import MallardHead from './MallardHead';
 
 interface HeaderProps {
   mascots: Mascot[];
@@ -119,7 +120,7 @@ export default function Header({
           title="About this project"
           className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--cream)] text-2xl shadow-[inset_0_0_0_3px_var(--tj-red-dark)] transition hover:scale-105"
         >
-          🛒
+          <MallardHead className="h-7 w-7" />
         </Link>
         <div>
           {/* Mobile: stack "TJ" over "Mascots" so the search bar has more room.
