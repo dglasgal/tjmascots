@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { buildSearchIndex, runSearch, type SearchResult } from '@/lib/search';
 import type { Mascot, Store } from '@/lib/types';
-import MallardHead from './MallardHead';
+import MallardFull from './MallardFull';
 
 interface HeaderProps {
   mascots: Mascot[];
@@ -118,9 +118,11 @@ export default function Header({
           href="/about"
           aria-label="About TJ Mascots"
           title="About this project"
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--cream)] text-2xl shadow-[inset_0_0_0_3px_var(--tj-red-dark)] transition hover:scale-105"
+          className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] shadow-[inset_0_0_0_3px_var(--tj-red-dark)] transition hover:scale-105 max-sm:h-12 max-sm:w-12"
         >
-          <MallardHead className="h-7 w-7" />
+          {/* Full McQuackers — the brand mark, big enough to actually
+              read as a duck (head + body + bill + water ripples). */}
+          <MallardFull className="h-12 w-12 max-sm:h-10 max-sm:w-10" />
         </Link>
         <div>
           {/* Mobile: stack "TJ" over "Mascots" so the search bar has more room.
