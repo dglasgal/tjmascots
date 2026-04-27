@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import mascotsRaw from '@/data/mascots.json';
 import { slugForMascot } from '@/lib/slug';
+import { stateSlug, statesWithMascots } from '@/lib/state';
 import { SITE_URL } from '@/lib/site-url';
 
 // Required for static export (output: 'export' in next.config.js)
@@ -11,6 +12,7 @@ interface RawMascot {
   name: string;
   animal: string;
   store: string;
+  state: string;
   store_number?: string;
   retired?: boolean;
 }
@@ -51,12 +53,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    {
+      url: `${SITE_URL}/data`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.4,
+    },
     // Per-mascot SEO pages
     ...activeMascots.map((m) => ({
       url: `${SITE_URL}/mascot/${slugForMascot(m)}`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    // Per-state browse pages (one per state with at least one mascot)
+    ...statesWithMascots(activeMascots).map((code) => ({
+      url: `${SITE_URL}/state/${stateSlug(code)}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
     })),
   ];
 }

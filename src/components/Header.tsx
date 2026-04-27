@@ -12,6 +12,8 @@ interface HeaderProps {
   onSelect: (r: SearchResult) => void;
   onSubmitClick: () => void;
   onProgressClick: () => void;
+  /** Pick a random mascot and fly to it. Desktop only. */
+  onRandomClick: () => void;
   totalMascots: number;
   totalUnknown: number;
   percentMapped: number;
@@ -23,6 +25,7 @@ export default function Header({
   onSelect,
   onSubmitClick,
   onProgressClick,
+  onRandomClick,
   totalMascots,
   totalUnknown,
   percentMapped,
@@ -215,6 +218,14 @@ export default function Header({
             {percentMapped.toFixed(1)}% mapped
           </span>
           <span className="parade-arrow text-[var(--tj-red)]">↗</span>
+        </button>
+        <button
+          onClick={onRandomClick}
+          title="Spin to a random mascot"
+          aria-label="Show me a random mascot"
+          className="rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-[var(--cream)] transition hover:bg-white/25 max-sm:hidden"
+        >
+          🎲 Random
         </button>
         <Link
           href="/recent"

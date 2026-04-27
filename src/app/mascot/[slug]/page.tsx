@@ -25,6 +25,7 @@ import mascotsRaw from '@/data/mascots.json';
 import storesData from '@/data/tj-stores.json';
 import type { Store } from '@/lib/types';
 import { slugForMascot } from '@/lib/slug';
+import { stateName, stateSlug } from '@/lib/state';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { SITE_URL } from '@/lib/site-url';
@@ -273,6 +274,14 @@ export default async function MascotPage({
             >
               🗺️ See {displayName} on the map →
             </Link>
+            {m.state && (
+              <Link
+                href={`/state/${stateSlug(m.state)}`}
+                className="rounded-full border-2 border-[var(--tj-red)] bg-[var(--cream)] px-6 py-3 text-sm font-extrabold uppercase tracking-wider text-[var(--tj-red)] transition hover:-translate-y-px"
+              >
+                Other mascots in {stateName(m.state)}
+              </Link>
+            )}
             <Link
               href="/recent"
               className="rounded-full border-2 border-[var(--tj-red)] bg-[var(--cream)] px-6 py-3 text-sm font-extrabold uppercase tracking-wider text-[var(--tj-red)] transition hover:-translate-y-px"
