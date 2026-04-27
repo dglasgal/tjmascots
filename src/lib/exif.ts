@@ -62,6 +62,14 @@ export async function extractPhotoLocation(
     return { status: 'no_gps', lat: null, lng: null, distance_m: null };
   }
 
+  // Some phones/apps write (0, 0) into EXIF as a placeholder when they
+  // never actually got a GPS fix. Treat that — and anything within ~50m
+  // of Null Island, plus exact integer (0, 0) — as "no GPS" rather than
+  // a real coordinate that happens to be ~7,800 mi from any TJ store.
+  if (Math.abs(gps.latitude) < 0.0005 && Math.abs(gps.longitude) < 0.0005) {
+    return { status: 'no_gps', lat: null, lng: null, distance_m: null };
+  }
+
   const distance = haversineMeters(gps.latitude, gps.longitude, storeLat, storeLng);
   const status: PhotoLocationStatus =
     distance <= MATCH_RADIUS_METERS ? 'match' : 'mismatch';
