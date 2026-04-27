@@ -27,6 +27,7 @@ import type { Store } from '@/lib/types';
 import { slugForMascot } from '@/lib/slug';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
+import { SITE_URL } from '@/lib/site-url';
 
 interface RawMascot {
   id: number;
@@ -49,8 +50,6 @@ const storesByNum = new Map(stores.map((s) => [s.store_number, s]));
 const allMascots = (mascotsRaw as { mascots: RawMascot[] }).mascots;
 // Active mascots only — retired entries shouldn't get their own SEO page.
 const activeMascots = allMascots.filter((m) => !m.retired);
-
-const SITE_URL = 'https://tjmascots.com';
 
 // Static export prerequisites
 export const dynamic = 'force-static';
