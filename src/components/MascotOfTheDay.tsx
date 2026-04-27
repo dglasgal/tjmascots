@@ -41,38 +41,48 @@ export default function MascotOfTheDay({ mascots, hidden, onPick }: MascotOfTheD
       title={`Today's featured mascot: ${displayName} the ${animal} at ${todays.store}. Tap to fly there.`}
       aria-label={`Mascot of the day: ${displayName} the ${animal}. Tap to view on map.`}
       initial={{ opacity: 0, scale: 0.7, rotate: -20 }}
-      animate={{ opacity: 1, scale: 1, rotate: -6 }}
+      animate={{ opacity: 1, scale: 1, rotate: -5 }}
       transition={{ type: 'spring', damping: 14, stiffness: 220, delay: 0.5 }}
       whileHover={{ scale: 1.06, rotate: 0 }}
       whileTap={{ scale: 0.96 }}
-      className="absolute bottom-5 right-5 z-[450] flex h-[140px] w-[140px] flex-col items-center justify-center rounded-full bg-[var(--cream)] p-2 text-center shadow-pop ring-[3px] ring-[var(--tj-red)] transition max-sm:bottom-3 max-sm:right-3 max-sm:h-[100px] max-sm:w-[100px]"
+      className="absolute bottom-5 right-5 z-[450] block h-[180px] w-[180px] max-sm:bottom-3 max-sm:right-3 max-sm:h-[130px] max-sm:w-[130px]"
     >
-      {/* Hawaiian decoration — hibiscus flower top-right, palm leaf bottom-left */}
-      <Hibiscus className="pointer-events-none absolute -top-2 -right-2 h-12 w-12 max-sm:h-9 max-sm:w-9" />
-      <PalmLeaf className="pointer-events-none absolute -bottom-2 -left-3 h-12 w-12 -rotate-12 max-sm:h-9 max-sm:w-9" />
+      {/* Hawaiian decoration — sits BEHIND the cream circle, big enough
+          to peek out around the edges so the sticker looks pinned to a
+          flower. Pointer-events disabled so they never intercept clicks. */}
+      <Hibiscus className="pointer-events-none absolute -top-3 -right-4 z-0 h-[110px] w-[110px] max-sm:-top-2 max-sm:-right-3 max-sm:h-[78px] max-sm:w-[78px]" />
+      <PalmLeaf className="pointer-events-none absolute -bottom-2 -left-5 z-0 h-[100px] w-[100px] -rotate-12 max-sm:-bottom-1 max-sm:-left-4 max-sm:h-[72px] max-sm:w-[72px]" />
 
-      {/* Top label */}
-      <div className="z-[1] text-[8px] font-extrabold uppercase tracking-[0.2em] text-[var(--tj-red)] max-sm:text-[7px]">
-        Mascot of the Day
-      </div>
+      {/* The cream circle that holds the text + photo, on top of the flowers */}
+      <div className="relative z-[1] flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-full bg-[var(--cream)] p-2 text-center shadow-pop ring-[3px] ring-[var(--tj-red)]">
+        {/* Top label — "MASCOT OF THE DAY" in two stacked lines for the
+            block-stamp feel, using Fraunces (our display serif, the
+            closest thing to TJ's hand-lettered signage in our stack) */}
+        <div className="font-display text-[10px] font-black uppercase leading-[0.95] tracking-[0.04em] text-[var(--tj-red)] max-sm:text-[8px]">
+          Mascot
+          <br />
+          of the Day
+        </div>
 
-      {/* Photo or emoji */}
-      <div className="z-[1] my-1 flex h-[70px] w-[70px] flex-shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-[var(--cream-dark)] bg-[var(--cream-dark)] max-sm:my-0.5 max-sm:h-[48px] max-sm:w-[48px]">
-        {photoSrc ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={photoSrc}
-            alt={displayName}
-            className="h-full w-full object-cover"
-          />
-        ) : (
-          <span className="text-3xl">{todays.emoji}</span>
-        )}
-      </div>
+        {/* Photo — the visual centerpiece. In full color, with a TJ-red
+            ring border. Larger than before so it's the actual feature. */}
+        <div className="my-1 flex h-[80px] w-[80px] flex-shrink-0 items-center justify-center overflow-hidden rounded-full border-[3px] border-[var(--tj-red)] bg-[var(--cream-dark)] shadow-[0_2px_6px_rgba(0,0,0,0.18)] max-sm:my-0.5 max-sm:h-[58px] max-sm:w-[58px]">
+          {photoSrc ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={photoSrc}
+              alt={displayName}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <span className="text-3xl">{todays.emoji}</span>
+          )}
+        </div>
 
-      {/* Bottom label */}
-      <div className="z-[1] max-w-full truncate font-display text-xs font-extrabold leading-none text-[var(--ink)] max-sm:text-[10px]">
-        {displayName}
+        {/* Mascot name — block red Fraunces */}
+        <div className="max-w-[150px] truncate font-display text-sm font-black leading-none text-[var(--tj-red)] max-sm:max-w-[110px] max-sm:text-[11px]">
+          {displayName}
+        </div>
       </div>
     </motion.button>
   );
