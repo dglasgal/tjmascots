@@ -6,21 +6,19 @@
  * Login: paste your Supabase service_role key (starts with sb_secret_*).
  * The key is stored in localStorage so subsequent visits skip the login.
  *
- * The UI shows two tabs of pending items:
+ * Auto-publish: paste your GitHub Personal Access Token in the Settings
+ * panel. With it set, clicking Approve commits the photo + JSON straight
+ * to the repo — no manual git, no JSON snippet to paste.
+ *
+ * The UI shows three tabs of pending items:
  *   • Submissions — new mascots users want to add
  *   • Corrections — reports of incorrect info on existing mascots
- *
- * For each submission, you can Approve (moves photo to public bucket,
- * generates JSON to paste into mascots.json) or Reject (deletes photo).
- *
- * For each correction, you can mark Resolved (you applied the fix) or
- * Dismissed (not actually a bug).
+ *   • Messages    — contact-form messages
  */
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import {
-  approveSubmission,
   clearAdminKey,
   getAdminClient,
   getAdminKey,
@@ -37,14 +35,18 @@ import {
   type PendingMessage,
   type PendingSubmission,
 } from '@/lib/admin';
+import {
+  clearGithubPat,
+  getGithubPat,
+  setGithubPat,
+  verifyGithubPat,
+} from '@/lib/github';
+import { publishApproval, type PublishResult } from '@/lib/auto-publish';
 import storesData from '@/data/tj-stores.json';
-import mascotsRaw from '@/data/mascots.json';
 import type { Store } from '@/lib/types';
 
 const stores = storesData as Store[];
 const storesByNum = new Map(stores.map((s) => [s.store_number, s]));
-const allMascots = (mascotsRaw as { mascots: { id: number }[] }).mascots;
-const NEXT_MASCOT_ID = Math.max(...allMascots.map((m) => m.id)) + 1;
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState(false);
@@ -130,7 +132,14 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
   const [busy, setBusy] = useState(true);
   const [err, setErr] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
-  const [nextId, setNextId] = useState(NEXT_MASCOT_ID);
+  const [showSettings, setShowSettings] = useState(false);
+  const [hasPat, setHasPat] = useState(false);
+
+  // Refresh PAT status whenever settings panel closes (user may have just
+  // pasted/verified one).
+  useEffect(() => {
+    setHasPat(Boolean(getGithubPat()));
+  }, [showSettings]);
 
   // Auto-logout after 30 minutes of inactivity. Listens for mouse/keyboard
   // events; resets the timer on each. If the timer fires, clears the admin
@@ -185,7 +194,7 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 
   function flash(msg: string) {
     setToast(msg);
-    setTimeout(() => setToast(null), 4500);
+    setTimeout(() => setToast(null), 5500);
   }
 
   return (
@@ -207,6 +216,13 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
         </div>
         <div className="flex items-center gap-2">
           <button
+            onClick={() => setShowSettings(true)}
+            className="rounded-full bg-[var(--cream)] px-3 py-2 text-xs font-extrabold text-[var(--tj-red)]"
+            title="Settings"
+          >
+            ⚙️ Settings
+          </button>
+          <button
             onClick={refresh}
             disabled={busy}
             className="rounded-full bg-[var(--cream)] px-4 py-2 text-xs font-extrabold text-[var(--tj-red)] disabled:opacity-50"
@@ -221,6 +237,24 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
           </button>
         </div>
       </header>
+
+      {/* Auto-publish status banner */}
+      {!hasPat && (
+        <div className="border-b-2 border-[var(--tj-red)]/20 bg-[var(--tj-red)]/10 px-6 py-2.5 text-center text-[12px] font-bold text-[var(--tj-red)]">
+          Auto-publish is OFF. Approving will only generate a JSON snippet.{' '}
+          <button
+            onClick={() => setShowSettings(true)}
+            className="underline underline-offset-2 hover:no-underline"
+          >
+            Add your GitHub token in Settings →
+          </button>
+        </div>
+      )}
+      {hasPat && (
+        <div className="border-b-2 border-green-200 bg-green-50 px-6 py-1.5 text-center text-[11px] font-bold text-green-800">
+          ✓ Auto-publish ON — Approve will commit photo + JSON to GitHub directly.
+        </div>
+      )}
 
       {/* Tab bar */}
       <div className="flex gap-2 border-b-2 border-[var(--cream-dark)] bg-[var(--cream)] px-6 py-2">
@@ -251,8 +285,14 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
               <SubmissionCard
                 key={s.id}
                 sub={s}
-                nextMascotId={nextId}
-                onApproved={() => { setNextId((n) => n + 1); refresh(); flash('Approved. Copy the snippet into mascots.json.'); }}
+                onPublished={(result) => {
+                  refresh();
+                  flash(
+                    result.mode === 'merged'
+                      ? `Photo for #${result.mascotId} merged into existing entry. Live in ~3 min.`
+                      : `Mascot #${result.mascotId} added. Live in ~3 min.`,
+                  );
+                }}
                 onRejected={() => { refresh(); flash('Rejected.'); }}
               />
             ))}
@@ -297,6 +337,126 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
           {toast}
         </div>
       )}
+
+      {showSettings && <SettingsPanel onClose={() => setShowSettings(false)} />}
+    </div>
+  );
+}
+
+/* -------------------------- Settings panel ------------------------ */
+
+function SettingsPanel({ onClose }: { onClose: () => void }) {
+  const [pat, setPat] = useState(() => getGithubPat() ?? '');
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+  const [ok, setOk] = useState<string | null>(null);
+
+  async function save() {
+    setBusy(true);
+    setErr(null);
+    setOk(null);
+    const trimmed = pat.trim();
+    if (!trimmed) {
+      clearGithubPat();
+      setOk('Token cleared.');
+      setBusy(false);
+      return;
+    }
+    const result = await verifyGithubPat(trimmed);
+    if (!result.ok) {
+      setErr(result.error ?? 'Token verification failed.');
+      setBusy(false);
+      return;
+    }
+    setGithubPat(trimmed);
+    setOk('Token saved and verified — auto-publish is now ON.');
+    setBusy(false);
+  }
+
+  function remove() {
+    if (!confirm('Remove the GitHub token? Approve will fall back to manual JSON-snippet mode.')) return;
+    clearGithubPat();
+    setPat('');
+    setOk('Token removed.');
+    setErr(null);
+  }
+
+  return (
+    <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/40 p-4" onClick={onClose}>
+      <div
+        className="w-full max-w-lg rounded-2xl bg-[var(--cream)] p-6 shadow-card"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="font-display text-2xl font-extrabold text-[var(--tj-red)]">Settings</h2>
+          <button
+            onClick={onClose}
+            className="rounded-full bg-[var(--cream-dark)] px-3 py-1 text-xs font-extrabold text-[var(--ink)]"
+          >
+            Close
+          </button>
+        </div>
+
+        <h3 className="font-display text-sm font-extrabold uppercase tracking-wider text-[var(--ink)]">
+          GitHub Personal Access Token
+        </h3>
+        <p className="mt-1 text-xs text-[var(--ink-soft)]">
+          Paste a fine-grained PAT with{' '}
+          <code className="rounded bg-[var(--cream-dark)] px-1 py-0.5">Contents: Read &amp; write</code>
+          {' '}on the <code>dglasgal/tjmascots</code> repo. Stored in this
+          browser only. With it set, the Approve button commits photo + JSON
+          to GitHub for you. DigitalOcean redeploys automatically (~3 min).
+        </p>
+
+        <input
+          type="password"
+          value={pat}
+          onChange={(e) => setPat(e.target.value)}
+          placeholder="github_pat_..."
+          className="mt-3 w-full rounded-[10px] border-2 border-[var(--cream-dark)] bg-white px-3.5 py-2.5 text-sm outline-none focus:border-[var(--tj-red)]"
+        />
+
+        {err && (
+          <div className="mt-3 rounded-lg bg-[var(--tj-red)]/10 px-3 py-2 text-xs font-bold text-[var(--tj-red)]">
+            {err}
+          </div>
+        )}
+        {ok && (
+          <div className="mt-3 rounded-lg bg-green-50 px-3 py-2 text-xs font-bold text-green-800">
+            {ok}
+          </div>
+        )}
+
+        <div className="mt-4 flex gap-2">
+          <button
+            onClick={save}
+            disabled={busy}
+            className="rounded-full bg-[var(--tj-red)] px-4 py-2 text-xs font-extrabold text-[var(--cream)] disabled:opacity-50"
+          >
+            {busy ? 'Verifying…' : 'Save & verify'}
+          </button>
+          {getGithubPat() && (
+            <button
+              onClick={remove}
+              className="rounded-full border-2 border-[var(--ink-soft)] px-4 py-2 text-xs font-extrabold text-[var(--ink-soft)]"
+            >
+              Remove token
+            </button>
+          )}
+        </div>
+
+        <p className="mt-4 text-[11px] text-[var(--ink-soft)]">
+          Need a token?{' '}
+          <a
+            href="https://github.com/settings/personal-access-tokens/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold underline underline-offset-2 hover:no-underline"
+          >
+            Create one on GitHub →
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
@@ -305,18 +465,16 @@ function Dashboard({ onSignOut }: { onSignOut: () => void }) {
 
 function SubmissionCard({
   sub,
-  nextMascotId,
-  onApproved,
+  onPublished,
   onRejected,
 }: {
   sub: PendingSubmission;
-  nextMascotId: number;
-  onApproved: () => void;
+  onPublished: (result: PublishResult) => void;
   onRejected: () => void;
 }) {
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [snippet, setSnippet] = useState<string | null>(null);
+  const [result, setResult] = useState<PublishResult | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const storeMatch = sub.store_number ? storesByNum.get(sub.store_number) : undefined;
 
@@ -333,9 +491,26 @@ function SubmissionCard({
     try {
       const sb = getAdminClient();
       if (!sb) throw new Error('Lost admin key.');
-      const { jsonSnippet } = await approveSubmission(sb, sub, nextMascotId, storeMatch);
-      setSnippet(JSON.stringify(jsonSnippet, null, 2));
-      onApproved();
+      const pat = getGithubPat();
+      if (!pat) {
+        throw new Error(
+          'No GitHub token. Open Settings (⚙️) and paste your token first.',
+        );
+      }
+      const res = await publishApproval({
+        pat,
+        sb,
+        submission: sub,
+        storeMatch: storeMatch
+          ? {
+              city: storeMatch.city,
+              state: storeMatch.state,
+              store_number: storeMatch.store_number,
+            }
+          : null,
+      });
+      setResult(res);
+      onPublished(res);
     } catch (e: unknown) {
       setErr(e instanceof Error ? e.message : String(e));
     }
@@ -402,14 +577,14 @@ function SubmissionCard({
           <div className="mt-3 flex flex-wrap gap-2">
             <button
               onClick={approve}
-              disabled={busy}
+              disabled={busy || Boolean(result)}
               className="rounded-full bg-[var(--tj-red)] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[var(--cream)] disabled:opacity-50"
             >
-              ✓ Approve as #{nextMascotId}
+              {busy ? '⏳ Publishing…' : '✓ Approve & Publish'}
             </button>
             <button
               onClick={reject}
-              disabled={busy}
+              disabled={busy || Boolean(result)}
               className="rounded-full border-2 border-[var(--ink-soft)] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[var(--ink-soft)] disabled:opacity-50"
             >
               ✗ Reject
@@ -422,29 +597,34 @@ function SubmissionCard({
           )}
         </div>
       </div>
-      {snippet && (
-        <div className="border-t-2 border-[var(--cream-dark)] bg-[var(--cream-dark)]/50 px-5 py-4">
-          <div className="mb-2 flex items-center justify-between">
-            <strong className="font-display text-xs font-extrabold uppercase tracking-wider text-[var(--ink)]">
-              Paste this into <code>mascots.json</code> &rarr; mascots[]
-            </strong>
-            <button
-              onClick={() => navigator.clipboard.writeText(snippet)}
-              className="rounded-full bg-[var(--ink)] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[var(--cream)]"
-            >
-              📋 Copy
-            </button>
-          </div>
-          <pre className="overflow-x-auto rounded-lg bg-[var(--ink)] p-3 text-[11px] leading-snug text-[var(--cream)]">
-            {snippet}
-          </pre>
-          <p className="mt-2 text-[11px] font-semibold text-[var(--ink-soft)]">
-            Photo has been moved to the public mascot-photos bucket. Add this
-            object to <code>mascots.json</code>, push to GitHub, and DigitalOcean
-            will redeploy.
-          </p>
-        </div>
-      )}
+      {result && <PublishedBanner result={result} />}
+    </div>
+  );
+}
+
+/** Inline confirmation block shown after a successful publish. */
+function PublishedBanner({ result }: { result: PublishResult }) {
+  const shortSha = result.jsonCommitSha.slice(0, 7);
+  return (
+    <div className="border-t-2 border-green-200 bg-green-50 px-5 py-4 text-sm">
+      <div className="flex flex-wrap items-center gap-2 font-bold text-green-800">
+        ✓ Published as mascot #{result.mascotId}{' '}
+        <span className="rounded-full bg-green-200 px-2 py-0.5 text-[10px] uppercase tracking-wider">
+          {result.mode === 'merged' ? 'merged into existing' : 'new entry'}
+        </span>
+        <a
+          href={`https://github.com/dglasgal/tjmascots/commit/${result.jsonCommitSha}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[11px] font-mono text-green-900 underline underline-offset-2 hover:no-underline"
+        >
+          {shortSha}
+        </a>
+      </div>
+      <p className="mt-1 text-[12px] font-semibold text-green-900/80">
+        DigitalOcean is rebuilding now. The mascot will be live on the site
+        in ~3 min.
+      </p>
     </div>
   );
 }
