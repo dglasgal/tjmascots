@@ -157,6 +157,11 @@ export async function publishApproval(args: {
       merge.source_url = `User-submitted (${formatTodayShort()})`;
     }
     if (submission.notes && !merge.notes) merge.notes = submission.notes;
+    // Bump created_at to today so the mascot surfaces on the /recent
+    // page. Without this, a placeholder created weeks ago that just got
+    // its first photo would be buried at position ~190 and nobody would
+    // see that it's new.
+    if (photoBytes) merge.created_at = today;
   } else {
     mode = 'created';
     mascotId = nextId(file.mascots);
