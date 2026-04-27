@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useMemo, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
+import 'leaflet.markercluster';
 import type { Mascot, Store } from '@/lib/types';
 
 interface MapViewProps {
@@ -54,6 +55,115 @@ function mapTileUrl() {
   return 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
 }
 
+/**
+ * Clustered markers layer — adds both mascot and unknown-store markers
+ * into a single leaflet.markercluster group. Cluster bubbles are styled
+ * to reflect the dominant pin type (mostly mascots = red, mostly
+ * unknowns = soft accent, mixed = split). Stops clustering at city
+ * zoom (>= 11) so individual pins always show when you zoom in.
+ *
+ * We do this imperatively (vs declarative <Marker>) because
+ * leaflet.markercluster is a vanilla-Leaflet plugin and pre-dates
+ * react-leaflet's component model. It's still cleaner than wrapping
+ * a fragile third-party React adapter.
+ */
+function ClusteredMarkers({
+  mascots,
+  unknownStores,
+  onMascotClick,
+  onStoreClick,
+}: {
+  mascots: Mascot[];
+  unknownStores: Store[];
+  onMascotClick: (m: Mascot) => void;
+  onStoreClick: (s: Store) => void;
+}) {
+  const map = useMap();
+  // Track click handlers in a ref so we don't have to rebuild the whole
+  // cluster group every time the parent re-renders with new closures.
+  const handlersRef = useRef({ onMascotClick, onStoreClick });
+  handlersRef.current = { onMascotClick, onStoreClick };
+
+  useEffect(() => {
+    // The plugin attaches L.markerClusterGroup at runtime; the type
+    // declarations cover it but we need to assert through `unknown` to
+    // satisfy the strict overload checker.
+    const ClusterCtor = (L as unknown as {
+      markerClusterGroup: (opts?: L.MarkerClusterGroupOptions) => L.MarkerClusterGroup;
+    }).markerClusterGroup;
+
+    const cluster = ClusterCtor({
+      maxClusterRadius: 55,
+      // Once you're zoomed past city level (11), show every pin individually
+      // so dense neighborhoods are still browsable.
+      disableClusteringAtZoom: 11,
+      // When several pins share the *exact* same coordinates (e.g. Frank
+      // and Steve at Hoboken #611), spider them out radially on click.
+      spiderfyOnMaxZoom: true,
+      showCoverageOnHover: false,
+      zoomToBoundsOnClick: true,
+      iconCreateFunction: (c) => {
+        // Decide the cluster's flavor based on what's inside.
+        let mascotCount = 0;
+        let unknownCount = 0;
+        for (const m of c.getAllChildMarkers()) {
+          if ((m.options as { _kind?: string })._kind === 'mascot') mascotCount++;
+          else unknownCount++;
+        }
+        const total = mascotCount + unknownCount;
+        const flavor =
+          mascotCount === 0
+            ? 'mostly-unknown'
+            : unknownCount === 0
+              ? 'mostly-mascots'
+              : mascotCount >= unknownCount * 2
+                ? 'mostly-mascots'
+                : unknownCount >= mascotCount * 2
+                  ? 'mostly-unknown'
+                  : 'mixed';
+        const size =
+          total < 10 ? 'size-small' : total < 50 ? 'size-medium' : total < 200 ? 'size-large' : 'size-xlarge';
+        return L.divIcon({
+          className: '',
+          html: `<div class="tj-cluster ${flavor} ${size}">${total}</div>`,
+          iconSize: [44, 44],
+        });
+      },
+    });
+
+    // Mascot markers — louder pins, higher z-index.
+    for (const m of mascots) {
+      const marker = L.marker([m.lat, m.lng], {
+        icon: mascotIcon(m),
+        zIndexOffset: 500,
+        // Stash the kind on the options so the cluster icon factory can
+        // read it without a lookup back into our React arrays.
+        ...({ _kind: 'mascot' } as L.MarkerOptions),
+      });
+      marker.on('click', () => handlersRef.current.onMascotClick(m));
+      cluster.addLayer(marker);
+    }
+
+    // Unknown-store markers — small, quieter pins.
+    for (const s of unknownStores) {
+      const marker = L.marker([s.lat, s.lng], {
+        icon: unknownIcon(s),
+        zIndexOffset: 0,
+        ...({ _kind: 'unknown' } as L.MarkerOptions),
+      });
+      marker.on('click', () => handlersRef.current.onStoreClick(s));
+      cluster.addLayer(marker);
+    }
+
+    map.addLayer(cluster);
+    return () => {
+      map.removeLayer(cluster);
+    };
+  }, [map, mascots, unknownStores]);
+
+  return null;
+}
+
 export default function MapView({
   mascots,
   stores,
@@ -91,47 +201,12 @@ export default function MapView({
         zoomOffset={process.env.NEXT_PUBLIC_MAPBOX_TOKEN ? -1 : 0}
       />
       <MapFlyer target={flyTo} />
-
-      {unknownStores.map((s) => (
-        <Marker
-          key={`store-${s.store_number}`}
-          position={[s.lat, s.lng]}
-          icon={unknownIcon(s)}
-          zIndexOffset={0}
-          eventHandlers={{ click: () => onStoreClick(s) }}
-        >
-          <Popup>
-            <div className="text-sm font-extrabold text-[var(--tj-red)]">
-              TJ&apos;s {s.city}
-            </div>
-            <div className="text-xs font-semibold text-[var(--ink-soft)]">
-              {s.street}
-              <br />
-              Mascot unknown — tap to submit
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-
-      {mascots.map((m) => (
-        <Marker
-          key={`mascot-${m.id}`}
-          position={[m.lat, m.lng]}
-          icon={mascotIcon(m)}
-          zIndexOffset={500}
-          eventHandlers={{ click: () => onMascotClick(m) }}
-        >
-          <Popup>
-            <div className="font-display text-base font-extrabold text-[var(--tj-red)]">
-              {m.name || m.animal}
-            </div>
-            <div className="text-xs font-semibold text-[var(--ink-soft)]">
-              {m.store}
-              {m.state ? `, ${m.state}` : ''}
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      <ClusteredMarkers
+        mascots={mascots}
+        unknownStores={unknownStores}
+        onMascotClick={onMascotClick}
+        onStoreClick={onStoreClick}
+      />
     </MapContainer>
   );
 }
