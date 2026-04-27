@@ -730,16 +730,33 @@ function PhotoLocationBadge({ sub }: { sub: PendingSubmission }) {
   // the EXIF feature, or photo was missing) → skip the badge entirely.
   if (!sub.photo_path || !sub.photo_location_status) return null;
 
-  const dist = sub.photo_distance_m;
-  const lat = sub.photo_lat;
-  const lng = sub.photo_lng;
+  let dist = sub.photo_distance_m;
+  let lat = sub.photo_lat;
+  let lng = sub.photo_lng;
+  let status = sub.photo_location_status;
+
+  // Defensive override: some phones/apps wrote (0, 0) into EXIF as a
+  // placeholder, which makes the photo look like a "mismatch" ~7,800 mi
+  // from any TJ store. Re-classify near-zero coords as no_gps so the
+  // badge shows "No location data" instead of a misleading distance.
+  if (
+    lat != null &&
+    lng != null &&
+    Math.abs(lat) < 0.0005 &&
+    Math.abs(lng) < 0.0005
+  ) {
+    status = 'no_gps';
+    lat = null;
+    lng = null;
+    dist = null;
+  }
   // Build a clickable Google Maps link to the photo's location, when known
   const mapsHref =
     lat != null && lng != null
       ? `https://maps.google.com/?q=${lat},${lng}`
       : null;
 
-  if (sub.photo_location_status === 'match') {
+  if (status === 'match') {
     return (
       <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-green-100 px-2.5 py-1 text-[11px] font-extrabold text-green-800">
         ✓ Photo location matches store
@@ -747,7 +764,7 @@ function PhotoLocationBadge({ sub }: { sub: PendingSubmission }) {
       </div>
     );
   }
-  if (sub.photo_location_status === 'mismatch') {
+  if (status === 'mismatch') {
     return (
       <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-red-100 px-2.5 py-1 text-[11px] font-extrabold text-red-800">
         ✗ Photo location is{' '}
