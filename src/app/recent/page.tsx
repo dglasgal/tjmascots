@@ -135,24 +135,27 @@ export default function RecentPage() {
               </div>
               <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                 {topContributors.map((c, i) => (
-                  <li
-                    key={c.name}
-                    className="group relative flex items-center gap-3 rounded-2xl bg-[var(--cream-dark)] p-3.5 transition hover:-translate-y-px hover:shadow-card"
-                  >
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] text-2xl">
-                      {medalForRank(i)}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="truncate font-display text-base font-extrabold text-[var(--ink)]">
-                        {c.name}
+                  <li key={c.name}>
+                    <Link
+                      href={`/mascot/${slugForMascot(c.latest)}`}
+                      title={`See ${c.name}'s most recent submission: ${c.latest.name || c.latest.animal}`}
+                      className="group relative flex items-center gap-3 rounded-2xl bg-[var(--cream-dark)] p-3.5 transition hover:-translate-y-px hover:bg-[var(--cream)] hover:shadow-card"
+                    >
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] text-2xl group-hover:bg-[var(--cream-dark)]">
+                        {medalForRank(i)}
                       </div>
-                      <div className="text-[12px] font-bold text-[var(--ink-soft)]">
-                        {c.count} {c.count === 1 ? 'mascot' : 'mascots'} · most recent:{' '}
-                        <span className="text-[var(--tj-red)]">
-                          {c.latest.name || c.latest.animal}
-                        </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate font-display text-base font-extrabold text-[var(--ink)] group-hover:text-[var(--tj-red)]">
+                          {c.name}
+                        </div>
+                        <div className="text-[12px] font-bold text-[var(--ink-soft)]">
+                          {c.count} {c.count === 1 ? 'mascot' : 'mascots'} · most recent:{' '}
+                          <span className="text-[var(--tj-red)]">
+                            {c.latest.name || c.latest.animal}
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </li>
                 ))}
               </ol>
