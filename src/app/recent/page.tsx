@@ -4,6 +4,7 @@ import storesData from '@/data/tj-stores.json';
 import { emojiForAnimal } from '@/lib/emoji';
 import type { Store } from '@/lib/types';
 import { photoUrl } from '@/lib/data';
+import { slugForMascot } from '@/lib/slug';
 
 export const dynamic = 'force-static';
 
@@ -222,8 +223,8 @@ function RecentCard({ mascot }: { mascot: RawMascot }) {
   const store = mascot.store_number ? storesByNum.get(mascot.store_number) : null;
   return (
     <Link
-      href={`/?mascot=${mascot.id}`}
-      title={`See ${mascot.name || mascot.animal} on the map`}
+      href={`/mascot/${slugForMascot(mascot)}`}
+      title={`Read about ${mascot.name || mascot.animal}`}
       className="group block overflow-hidden rounded-2xl bg-[var(--cream-dark)] transition hover:-translate-y-1 hover:shadow-card"
     >
       <div className="relative aspect-[4/3] w-full bg-[var(--cream)]">
@@ -245,7 +246,7 @@ function RecentCard({ mascot }: { mascot: RawMascot }) {
           </div>
         )}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center bg-[var(--tj-red)] py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[var(--cream)] opacity-0 transition-opacity group-hover:opacity-100">
-          See on map →
+          Read more →
         </div>
       </div>
       <div className="p-3.5">

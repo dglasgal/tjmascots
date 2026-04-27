@@ -1,17 +1,32 @@
 import type { MetadataRoute } from 'next';
+import mascotsRaw from '@/data/mascots.json';
+import { slugForMascot } from '@/lib/slug';
 
 // Required for static export (output: 'export' in next.config.js)
 export const dynamic = 'force-static';
 
 const SITE_URL = 'https://tjmascots.com';
 
+interface RawMascot {
+  id: number;
+  name: string;
+  animal: string;
+  store: string;
+  store_number?: string;
+  retired?: boolean;
+}
+
 /**
- * Lists every page on the site so search engines know where to look. The map
- * itself is a single page (the mascot detail panes don't have their own URLs),
- * so this is short by design — homepage, about, privacy.
+ * Sitemap for search engines. Lists the static landing pages plus every
+ * per-mascot SEO page (one URL per active mascot, ~284 of them today).
+ * Retired mascots aren't included — they'd 404.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  const activeMascots = (mascotsRaw as { mascots: RawMascot[] }).mascots.filter(
+    (m) => !m.retired,
+  );
+
   return [
     {
       url: `${SITE_URL}/`,
@@ -37,5 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    // Per-mascot SEO pages
+    ...activeMascots.map((m) => ({
+      url: `${SITE_URL}/mascot/${slugForMascot(m)}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
   ];
 }
