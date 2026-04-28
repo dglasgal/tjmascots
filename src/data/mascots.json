@@ -4394,6 +4394,21 @@
       "store_number": "110",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 381,
+      "store": "Montrose",
+      "state": "CA",
+      "animal": "Bear",
+      "name": "Meatball",
+      "notes": "Named for Meatball the Bear, the celebrity black bear who became a local folk hero in 2012 after wandering down from the Angeles National Forest into Glendale-area backyards (and reportedly stealing a few frozen meatballs). The real Meatball was relocated to a sanctuary; the mascot lives on at Trader Joe's Montrose.",
+      "photo": "381.png",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "52",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
