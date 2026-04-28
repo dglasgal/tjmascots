@@ -45,12 +45,17 @@ function scoreMatch(entry: IndexEntry, q: string): number {
     if (m.name.toLowerCase() === q) score += 100;
     else if (m.name.toLowerCase().startsWith(q)) score += 50;
     if (m.animal.toLowerCase() === q) score += 40;
+    // Exact store-number hit (e.g. user types "57" or "#57"): rank above
+    // anything else so the right store comes back first, instead of every
+    // mascot whose haystack happens to contain "57" as a substring.
+    if (m.store_number && m.store_number === q) score += 300;
     score += 20; // mascots rank above unknown stores by default
   } else {
     const s = entry.result.data;
     if (s.city.toLowerCase() === q) score += 80;
     else if (s.city.toLowerCase().startsWith(q)) score += 40;
     if (s.zip === q) score += 100;
+    if (s.store_number === q) score += 300; // same exact-store-number boost
   }
   for (const tok of entry.haystack.split(/\s+/)) {
     if (tok.startsWith(q)) {
@@ -62,7 +67,10 @@ function scoreMatch(entry: IndexEntry, q: string): number {
 }
 
 export function runSearch(index: IndexEntry[], query: string, limit = 10): SearchResult[] {
-  const q = query.trim().toLowerCase();
+  // Allow users to type "#57" or "57" interchangeably for a store-number lookup.
+  // The leading "#" is how store numbers are shown in the UI, so it's natural
+  // to type — but it's not part of the data, so we strip it before matching.
+  const q = query.trim().toLowerCase().replace(/^#/, '');
   if (!q) return [];
   const scored: { score: number; result: SearchResult }[] = [];
   for (const entry of index) {
