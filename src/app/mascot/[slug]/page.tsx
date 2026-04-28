@@ -24,7 +24,7 @@ import { notFound } from 'next/navigation';
 import mascotsRaw from '@/data/mascots.json';
 import storesData from '@/data/tj-stores.json';
 import type { Store } from '@/lib/types';
-import { slugForMascot } from '@/lib/slug';
+import { slugForAnimal, slugForMascot } from '@/lib/slug';
 import { stateName, stateSlug } from '@/lib/state';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
@@ -305,6 +305,22 @@ export default async function MascotPage({
                 Other mascots in {stateName(m.state)}
               </Link>
             )}
+            {(() => {
+              // Only show the "Other [Animal]s" CTA if there ARE other mascots
+              // of this animal — singletons don't get their own /animal page.
+              const sameAnimalCount = activeMascots.filter(
+                (x) => x.animal === m.animal && x.id !== m.id,
+              ).length;
+              if (sameAnimalCount === 0) return null;
+              return (
+                <Link
+                  href={`/animal/${slugForAnimal(m.animal)}`}
+                  className="rounded-full border-2 border-[var(--tj-red)] bg-[var(--cream)] px-6 py-3 text-sm font-extrabold uppercase tracking-wider text-[var(--tj-red)] transition hover:-translate-y-px"
+                >
+                  All {m.animal.toLowerCase()} mascots ({sameAnimalCount + 1})
+                </Link>
+              );
+            })()}
             <Link
               href="/recent"
               className="rounded-full border-2 border-[var(--tj-red)] bg-[var(--cream)] px-6 py-3 text-sm font-extrabold uppercase tracking-wider text-[var(--tj-red)] transition hover:-translate-y-px"

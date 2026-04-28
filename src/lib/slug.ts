@@ -87,6 +87,15 @@ export function slugForCity(city: string, state: string): string {
 }
 
 /**
+ * Slug for an animal type page (`/animal/{slug}`). Strips slashes
+ * and normalizes whitespace so "Cat / Tiger" → "cat-tiger" and
+ * "Burrowing Owl" → "burrowing-owl".
+ */
+export function slugForAnimal(animal: string): string {
+  return slugify((animal || '').replace(/\s*\/\s*/g, ' '));
+}
+
+/**
  * Build a deterministic name → slug map from a list of mascots so we
  * can both render the right link in the Hall of Fame AND enumerate the
  * static params for /spotter/[slug] at build time.

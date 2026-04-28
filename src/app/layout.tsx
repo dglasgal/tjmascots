@@ -15,6 +15,24 @@ export const metadata: Metadata = {
     type: 'website',
     url: SITE_URL,
   },
+  // PWA — `apple-mobile-web-app-*` keys are iOS-specific home-screen
+  // hints; `applicationName` + `themeColor` are honored across browsers.
+  applicationName: 'TJ Mascots',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'TJ Mascots',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+/** Status-bar / address-bar tint when the site is added to a phone
+ *  home screen or shown in mobile browsers that color their chrome.
+ *  Matches our brand red so the app feels seamless. */
+export const viewport = {
+  themeColor: '#C8102E',
 };
 
 /**

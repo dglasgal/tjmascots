@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import mascotsRaw from '@/data/mascots.json';
-import { slugForCity, slugForMascot, spotterSlugMap } from '@/lib/slug';
+import { slugForAnimal, slugForCity, slugForMascot, spotterSlugMap } from '@/lib/slug';
 import storesData from '@/data/tj-stores.json';
 import type { Store } from '@/lib/types';
 import { stateSlug, statesWithMascots } from '@/lib/state';
@@ -96,7 +96,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 0.65,
     })),
+    // Per-animal browse pages (only animals with 2+ mascots)
+    ...multiMascotAnimalSlugs(activeMascots).map((slug) => ({
+      url: `${SITE_URL}/animal/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+    })),
   ];
+}
+
+/** Animals with 2+ mascots get their own /animal/{slug} page. */
+function multiMascotAnimalSlugs(active: RawMascot[]): string[] {
+  const counts = new Map<string, number>();
+  for (const m of active) {
+    const a = (m.animal || '').trim();
+    if (!a) continue;
+    counts.set(a, (counts.get(a) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .filter(([, c]) => c >= 2)
+    .map(([animal]) => slugForAnimal(animal));
 }
 
 /** Cities with 2+ TJ stores get their own /city/{slug} pages. */
