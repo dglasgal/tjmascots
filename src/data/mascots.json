@@ -4694,6 +4694,36 @@
       "store_number": "57",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 401,
+      "store": "Riverdale",
+      "state": "UT",
+      "animal": "Otter",
+      "name": "Henry and Dale",
+      "notes": "Henry and Dale are the resident duo at Trader Joe's Riverdale, Utah's northernmost TJ's. Dale is an otter; Henry's species hasn't been confirmed yet — if you shop here, please submit a photo of Henry (and his animal type) so we can complete the picture!",
+      "photo": "401.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.instagram.com/utahfamfun/",
+      "store_number": "355",
+      "created_at": "2026-04-27",
+      "submitted_by": null
+    },
+    {
+      "id": 402,
+      "store": "Dallas (Inwood / Lovers Lane)",
+      "state": "TX",
+      "animal": "Otter",
+      "name": "Harry",
+      "notes": "Harry the Otter is a card-carrying crew member at one of Dallas's five Trader Joe's stores — sporting a tropical aloha shirt and his own Trader Joe's name tag. We've placed him at the Inwood / Lovers Lane store as a best guess; if you shop in Dallas and know which TJ's is actually Harry's home, please submit a correction!",
+      "photo": "402.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "405",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
