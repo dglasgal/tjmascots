@@ -245,7 +245,7 @@ export default async function MascotPage({
             </div>
             {store && (
               <div className="mt-1 text-sm font-semibold text-[var(--ink-soft)]">
-                {store.street} · {store.zip}
+                {[store.street, store.zip, store.state].filter(Boolean).join(' · ')}
               </div>
             )}
           </div>
