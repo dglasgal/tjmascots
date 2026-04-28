@@ -137,7 +137,7 @@ export default function Header({
         </div>
       </div>
 
-      <div ref={wrapRef} className="relative flex-1 min-w-0 max-w-[560px] max-md:max-w-none">
+      <div ref={wrapRef} className="relative flex-1 min-w-[200px] max-w-[560px] max-md:max-w-none">
         <svg
           className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 opacity-55"
           viewBox="0 0 24 24"
@@ -209,10 +209,11 @@ export default function Header({
       </div>
 
       <div className="flex flex-shrink-0 items-center gap-2.5 max-sm:gap-1.5">
+        {/* Mascot Parade — full form at ≥1200px (counts + percent) */}
         <button
           onClick={onProgressClick}
           title="See the Mascot Parade — how much of the chain we've mapped"
-          className="group relative flex items-center gap-2 rounded-full bg-[var(--cream)] px-3.5 py-1.5 text-xs font-bold text-[var(--ink)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] max-[900px]:hidden"
+          className="group relative flex items-center gap-2 rounded-full bg-[var(--cream)] px-3.5 py-1.5 text-xs font-bold text-[var(--ink)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] max-[1199px]:hidden"
         >
           <span className="text-[var(--ink-soft)]">
             {totalMascots} known · {totalUnknown} unknown ·{' '}
@@ -222,18 +223,29 @@ export default function Header({
           </span>
           <span className="parade-arrow text-[var(--tj-red)]">↗</span>
         </button>
+        {/* Mascot Parade — compact form between 1024–1199px (just the percent) */}
+        <button
+          onClick={onProgressClick}
+          title="See the Mascot Parade — how much of the chain we've mapped"
+          className="group relative hidden items-center gap-1.5 rounded-full bg-[var(--cream)] px-3 py-1.5 text-xs font-bold text-[var(--ink)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] min-[1024px]:max-[1199px]:flex"
+        >
+          <span className="font-extrabold text-[var(--tj-red)]">
+            {percentMapped.toFixed(1)}% mapped
+          </span>
+          <span className="parade-arrow text-[var(--tj-red)]">↗</span>
+        </button>
         <button
           onClick={onRandomClick}
           title="Spin to a random mascot"
           aria-label="Show me a random mascot"
-          className="rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-[var(--cream)] transition hover:bg-white/25 max-sm:hidden"
+          className="rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-[var(--cream)] transition hover:bg-white/25 max-[767px]:hidden"
         >
           🎲 Random
         </button>
         <Link
           href="/recent"
           title="Recently spotted + top contributors"
-          className="rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-[var(--cream)] transition hover:bg-white/25 max-[900px]:hidden"
+          className="rounded-full bg-white/15 px-3 py-1.5 text-xs font-bold text-[var(--cream)] transition hover:bg-white/25 max-[1099px]:hidden"
         >
           ✨ Recent
         </Link>
