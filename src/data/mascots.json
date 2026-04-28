@@ -4304,6 +4304,21 @@
       "store_number": "266",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 375,
+      "store": "Sugar Land",
+      "state": "TX",
+      "animal": "Sugar Glider",
+      "name": "Crystal",
+      "notes": "Crystal the Sugar Glider, the resident mascot at Trader Joe's Sugar Land (a Houston suburb). A perfect pun for the store's name.",
+      "photo": "375.png",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "430",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
