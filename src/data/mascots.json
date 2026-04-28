@@ -4531,6 +4531,21 @@
       "submitted_by": null
     },
     {
+      "id": 392,
+      "store": "University Place",
+      "state": "WA",
+      "animal": "Octopus",
+      "name": "Ocho",
+      "notes": "Ocho the Octopus, the resident mascot at Trader Joe's University Place (just outside Tacoma).",
+      "photo": "392.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "148",
+      "created_at": "2026-04-27",
+      "submitted_by": null
+    },
+    {
       "id": 388,
       "store": "Palm Harbor",
       "state": "FL",
