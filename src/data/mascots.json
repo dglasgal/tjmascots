@@ -4664,6 +4664,21 @@
       "store_number": "15",
       "created_at": "2026-04-27",
       "submitted_by": "socialdhalofan07"
+    },
+    {
+      "id": 399,
+      "store": "Redondo Beach",
+      "state": "CA",
+      "animal": "Pelican",
+      "name": "Peter Pelican",
+      "notes": "Peter Pelican is the resident pelican at Trader Joe's Redondo Beach — a card-carrying crew member with his own Trader Joe's name tag, perched in the South Bay just blocks from the Pacific where his real-life cousins glide over the surf.",
+      "photo": "399.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "38",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
