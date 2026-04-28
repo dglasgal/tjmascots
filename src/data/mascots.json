@@ -4649,6 +4649,21 @@
       "store_number": "515",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 398,
+      "store": "Riverside",
+      "state": "CA",
+      "animal": "Bear",
+      "name": "Scotty Highlander",
+      "notes": "Scotty Highlander is the resident bear at Trader Joe's Riverside in the Inland Empire — a card-carrying crew member with his own Trader Joe's name tag holding court at the Riverside Plaza store.",
+      "photo": "398.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/Ce_zGurpTa1/",
+      "store_number": "15",
+      "created_at": "2026-04-27",
+      "submitted_by": "socialdhalofan07"
     }
   ]
 }
