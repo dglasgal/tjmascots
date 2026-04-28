@@ -182,7 +182,7 @@ export default function Header({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.12 }}
-              className="absolute left-0 right-0 top-[calc(100%+8px)] z-[1500] max-h-[420px] overflow-y-auto rounded-2xl bg-[var(--cream)] p-1.5 shadow-pop"
+              className="absolute left-0 right-0 top-[calc(100%+8px)] z-[1500] max-h-[420px] overflow-y-auto rounded-2xl bg-[var(--cream)] p-1.5 shadow-pop max-sm:fixed max-sm:left-2 max-sm:right-2 max-sm:top-[64px] max-sm:max-h-[60vh] max-sm:p-2"
             >
               {results.length === 0 ? (
                 <div className="p-4 text-center text-sm font-semibold text-[var(--ink-soft)]">
