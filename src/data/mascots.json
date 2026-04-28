@@ -4649,6 +4649,21 @@
       "store_number": "450",
       "created_at": "2026-04-27",
       "submitted_by": "MaryAlice K."
+    },
+    {
+      "id": 404,
+      "store": "Charlotte (Ballantyne)",
+      "state": "NC",
+      "animal": "Husky",
+      "name": "Holly",
+      "notes": "Holly the Husky lives at Trader Joe's Charlotte Ballantyne — a card-carrying crew member with her own Trader Joe's name tag, blue-eyed and ready to greet you on Rea Rd.",
+      "photo": "404.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "742",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
