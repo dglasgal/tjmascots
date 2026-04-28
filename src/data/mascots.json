@@ -4634,6 +4634,21 @@
       "store_number": "510",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 397,
+      "store": "Burlington",
+      "state": "MA",
+      "animal": "Lobsters (x2)",
+      "name": "Larry and Lemon",
+      "notes": "Larry and Lemon are the lobster duo who hold court at Trader Joe's Burlington — a perfect pair of New England locals greeting shoppers in the heart of Middlesex County.",
+      "photo": "397.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.instagram.com/p/DF9IHNDs6vV/",
+      "store_number": "515",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
