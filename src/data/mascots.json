@@ -4349,6 +4349,21 @@
       "store_number": "354",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 378,
+      "store": "Shoreline",
+      "state": "WA",
+      "animal": "Moose",
+      "name": "Marsha",
+      "notes": "Marsha the Moose, the resident mascot at Trader Joe's Shoreline (north of Seattle). If you spot her, please upload a better photo!",
+      "photo": "378.png",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted: Sean A. (04/27/2026)",
+      "store_number": "270",
+      "created_at": "2026-04-27",
+      "submitted_by": "Sean A."
     }
   ]
 }
