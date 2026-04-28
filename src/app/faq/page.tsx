@@ -32,7 +32,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Who runs TJ Mascots?",
-    a: "It's a one-person fan project, run independently by a Trader Joe's shopper who got tired of trying to remember which store had which animal. There's no commercial relationship with Trader Joe's Company.",
+    a: "It's a two-person fan project, run independently by a pair of Trader Joe's shoppers who got tired of trying to remember which store had which animal. There's no commercial relationship with Trader Joe's Company.",
   },
   {
     q: "Is this affiliated with Trader Joe's?",
