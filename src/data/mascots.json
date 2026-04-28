@@ -4634,6 +4634,21 @@
       "store_number": "742",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 405,
+      "store": "Kalamazoo",
+      "state": "MI",
+      "animal": "Bronco",
+      "name": "Buster",
+      "notes": "Buster the Bronco is the resident pinto at Trader Joe's Kalamazoo on Century Ave — a tip of the saddle to Western Michigan University's Broncos, just up the road. Caught here keeping an eye on the Premium Extra Virgin Olive Oil shelf.",
+      "photo": "405.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "708",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
