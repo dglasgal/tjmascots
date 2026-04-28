@@ -5641,18 +5641,6 @@
     "url": "https://locations.traderjoes.com/fl/sarasota/761/"
   },
   {
-    "store_number": "625",
-    "city": "Louisville",
-    "state": "KY",
-    "zip": "40207",
-    "street": "4600 Shelbyville Rd Ste 112, Ste 112",
-    "lat": 38.24927,
-    "lng": -85.63,
-    "phone": "502-895-7872",
-    "url": "https://locations.traderjoes.com/ky/louisville/625/",
-    "neighborhood": "St. Matthews"
-  },
-  {
     "store_number": "131",
     "city": "Bellevue",
     "state": "WA",
@@ -6093,18 +6081,6 @@
     "lng": -97.38513,
     "phone": "817-922-9107",
     "url": "https://locations.traderjoes.com/tx/fort-worth/404/"
-  },
-  {
-    "store_number": "626",
-    "city": "Lexington",
-    "state": "KY",
-    "zip": "40503",
-    "street": "2320 Nicholasville Road",
-    "lat": 38.00493,
-    "lng": -84.51851,
-    "phone": "859-277-0144",
-    "url": "https://locations.traderjoes.com/ky/lexington/626/",
-    "neighborhood": "Lansdowne"
   },
   {
     "store_number": "352",
@@ -7224,18 +7200,6 @@
     "phone": "310-264-2223",
     "url": "https://locations.traderjoes.com/ca/santa-monica/253/",
     "neighborhood": "Wilshire"
-  },
-  {
-    "store_number": "789",
-    "city": "Crestview Hills",
-    "state": "KY",
-    "zip": "41017",
-    "street": "2785 Dixie Highway",
-    "lat": 39.02611,
-    "lng": -84.57732,
-    "phone": "859-331-1472",
-    "url": "https://locations.traderjoes.com/ky/crestview-hills/789/",
-    "neighborhood": "Dixie Hwy"
   },
   {
     "store_number": "705",
