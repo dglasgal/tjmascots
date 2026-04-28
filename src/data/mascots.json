@@ -4319,6 +4319,21 @@
       "store_number": "430",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 376,
+      "store": "Queen Creek",
+      "state": "AZ",
+      "animal": "Coyote",
+      "name": null,
+      "notes": "A coyote, fitting for the Sonoran desert outside Phoenix. Name unknown — and we still need a photo. If you spot the mascot at Trader Joe's Queen Creek, please submit a photo (and the name if you know it)!",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "286",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
