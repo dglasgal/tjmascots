@@ -460,7 +460,7 @@
       "photo": null,
       "has_photo": false,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "Story shared by Jason D.",
       "store_number": "178",
       "created_at": "2026-04-24",
       "submitted_by": null
@@ -4258,6 +4258,21 @@
       "retired": false,
       "source_url": "https://app.carlos.plus/Extras/Bay-Area-TJs",
       "created_at": "2026-04-26",
+      "submitted_by": null
+    },
+    {
+      "id": 372,
+      "store": "Goodyear",
+      "state": "AZ",
+      "animal": "Burrowing Owl",
+      "name": null,
+      "notes": "A burrowing owl, a fitting nod to the species native to the Sonoran desert around Goodyear. Name unknown — if you know what the crew calls this owl, please submit a correction!",
+      "photo": "372.png",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "289",
+      "created_at": "2026-04-27",
       "submitted_by": null
     }
   ]
