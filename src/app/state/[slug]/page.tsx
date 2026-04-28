@@ -202,11 +202,16 @@ export default async function StatePage({
                             <div className="mt-0.5 truncate font-display text-base font-extrabold leading-tight text-[var(--tj-red)]">
                               {m.name || <span className="italic opacity-60">Unnamed</span>}
                             </div>
-                            {m.store_number && (
-                              <div className="mt-1 text-[10px] font-bold text-[var(--ink-soft)]">
-                                Store #{m.store_number}
-                              </div>
-                            )}
+                            {(() => {
+                              const sm = m.store_number ? stores.find((s) => s.store_number === m.store_number) : null;
+                              const hood = sm?.neighborhood;
+                              return (
+                                <div className="mt-1 text-[10px] font-bold text-[var(--ink-soft)]">
+                                  {hood ? `${hood} · ` : ''}
+                                  {m.store_number ? `Store #${m.store_number}` : ''}
+                                </div>
+                              );
+                            })()}
                           </div>
                         </Link>
                       </li>

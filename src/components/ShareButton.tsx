@@ -43,6 +43,10 @@ interface ShareButtonProps {
   animal: string;
   /** Store city — e.g. "Vista". */
   city: string;
+  /** Optional neighborhood within the city — added to the share text
+   *  when present so multi-store cities like "Atlanta — Buckhead" are
+   *  unambiguous in the recipient's notification. */
+  neighborhood?: string;
   /** Store number — e.g. "259". */
   storeNumber: string | null;
 }
@@ -262,9 +266,11 @@ function ChannelTile({
 /* ----------------------- Share text builders ----------------------- */
 
 function buildShareText(p: ShareButtonProps): string {
+  // "Trader Joe's Atlanta — Buckhead (#735)" / "Trader Joe's Bedford (#562)"
+  const cityHood = p.neighborhood ? `${p.city} — ${p.neighborhood}` : p.city;
   const storeLabel = p.storeNumber
-    ? `Trader Joe's ${p.city} (#${p.storeNumber})`
-    : `Trader Joe's ${p.city}`;
+    ? `Trader Joe's ${cityHood} (#${p.storeNumber})`
+    : `Trader Joe's ${cityHood}`;
   if (p.hasPhoto) {
     return `Meet ${p.displayName} the ${p.animal} at ${storeLabel}. Find every TJ mascot at tjmascots.com 🛒`;
   }
@@ -272,9 +278,10 @@ function buildShareText(p: ShareButtonProps): string {
 }
 
 function buildShareSubject(p: ShareButtonProps): string {
+  const cityHood = p.neighborhood ? `${p.city} — ${p.neighborhood}` : p.city;
   const storeLabel = p.storeNumber
-    ? `TJ ${p.city} #${p.storeNumber}`
-    : `TJ ${p.city}`;
+    ? `TJ ${cityHood} #${p.storeNumber}`
+    : `TJ ${cityHood}`;
   if (p.hasPhoto) {
     return `${p.displayName} the ${p.animal} — ${storeLabel}`;
   }

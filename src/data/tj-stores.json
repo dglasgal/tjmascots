@@ -41,7 +41,8 @@
     "lat": 29.73541,
     "lng": -95.58249,
     "phone": "281-496-2488",
-    "url": "https://locations.traderjoes.com/tx/houston/431/"
+    "url": "https://locations.traderjoes.com/tx/houston/431/",
+    "neighborhood": "Westchase"
   },
   {
     "store_number": "84",
@@ -74,7 +75,8 @@
     "lat": 33.83554,
     "lng": -118.18844,
     "phone": "562-422-1020",
-    "url": "https://locations.traderjoes.com/ca/long-beach/116/"
+    "url": "https://locations.traderjoes.com/ca/long-beach/116/",
+    "neighborhood": "Bixby Knolls"
   },
   {
     "store_number": "306",
@@ -118,7 +120,8 @@
     "lat": 33.98801,
     "lng": -118.39285,
     "phone": "310-313-0441",
-    "url": "https://locations.traderjoes.com/ca/culver-city/251/"
+    "url": "https://locations.traderjoes.com/ca/culver-city/251/",
+    "neighborhood": "Slauson"
   },
   {
     "store_number": "169",
@@ -140,7 +143,8 @@
     "lat": 38.90728,
     "lng": -104.81728,
     "phone": "719-264-0123",
-    "url": "https://locations.traderjoes.com/co/colorado-springs/305/"
+    "url": "https://locations.traderjoes.com/co/colorado-springs/305/",
+    "neighborhood": "University Village"
   },
   {
     "store_number": "585",
@@ -162,7 +166,8 @@
     "lat": 45.61625,
     "lng": -122.50002,
     "phone": "360-322-3554",
-    "url": "https://locations.traderjoes.com/wa/vancouver/272/"
+    "url": "https://locations.traderjoes.com/wa/vancouver/272/",
+    "neighborhood": "Mill Plain"
   },
   {
     "store_number": "790",
@@ -184,7 +189,8 @@
     "lat": 38.78762,
     "lng": -121.28168,
     "phone": "279-217-4579",
-    "url": "https://locations.traderjoes.com/ca/roseville/266/"
+    "url": "https://locations.traderjoes.com/ca/roseville/266/",
+    "neighborhood": "Galleria"
   },
   {
     "store_number": "582",
@@ -228,7 +234,8 @@
     "lat": 34.02608,
     "lng": -118.28466,
     "phone": "213-749-1497",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/250/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/250/",
+    "neighborhood": "USC / Exposition Park"
   },
   {
     "store_number": "309",
@@ -250,7 +257,8 @@
     "lat": 38.88529,
     "lng": -76.99523,
     "phone": "202-698-0190",
-    "url": "https://locations.traderjoes.com/dc/washington/622/"
+    "url": "https://locations.traderjoes.com/dc/washington/622/",
+    "neighborhood": "Capitol Hill"
   },
   {
     "store_number": "621",
@@ -261,7 +269,8 @@
     "lat": 38.90757,
     "lng": -77.0008,
     "phone": "202-608-1023",
-    "url": "https://locations.traderjoes.com/dc/washington/621/"
+    "url": "https://locations.traderjoes.com/dc/washington/621/",
+    "neighborhood": "NoMa / H Street"
   },
   {
     "store_number": "756",
@@ -294,7 +303,8 @@
     "lat": 32.77202,
     "lng": -117.07035,
     "phone": "619-229-9092",
-    "url": "https://locations.traderjoes.com/ca/san-diego/224/"
+    "url": "https://locations.traderjoes.com/ca/san-diego/224/",
+    "neighborhood": "College Area"
   },
   {
     "store_number": "560",
@@ -338,7 +348,8 @@
     "lat": 40.72567,
     "lng": -74.00473,
     "phone": "212-691-2721",
-    "url": "https://locations.traderjoes.com/ny/new-york/539/"
+    "url": "https://locations.traderjoes.com/ny/new-york/539/",
+    "neighborhood": "SoHo"
   },
   {
     "store_number": "739",
@@ -349,7 +360,8 @@
     "lat": 36.13073,
     "lng": -86.85223,
     "phone": "615-356-1066",
-    "url": "https://locations.traderjoes.com/tn/nashville/739/"
+    "url": "https://locations.traderjoes.com/tn/nashville/739/",
+    "neighborhood": "West Nashville"
   },
   {
     "store_number": "769",
@@ -404,7 +416,8 @@
     "lat": 34.42503,
     "lng": -119.68151,
     "phone": "805-560-1182",
-    "url": "https://locations.traderjoes.com/ca/santa-barbara/59/"
+    "url": "https://locations.traderjoes.com/ca/santa-barbara/59/",
+    "neighborhood": "Eastside / Milpas"
   },
   {
     "store_number": "14",
@@ -448,7 +461,8 @@
     "lat": 34.10764,
     "lng": -118.27157,
     "phone": "323-665-6774",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/17/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/17/",
+    "neighborhood": "Silver Lake"
   },
   {
     "store_number": "246",
@@ -492,7 +506,8 @@
     "lat": 34.03006,
     "lng": -118.42148,
     "phone": "310-470-1917",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/7/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/7/",
+    "neighborhood": "West LA"
   },
   {
     "store_number": "9",
@@ -525,7 +540,8 @@
     "lat": 34.02636,
     "lng": -118.45577,
     "phone": "310-581-0253",
-    "url": "https://locations.traderjoes.com/ca/santa-monica/6/"
+    "url": "https://locations.traderjoes.com/ca/santa-monica/6/",
+    "neighborhood": "Sunset Park / Pico"
   },
   {
     "store_number": "728",
@@ -580,7 +596,8 @@
     "lat": 33.1737,
     "lng": -96.64287,
     "phone": "214-491-1893",
-    "url": "https://locations.traderjoes.com/tx/mckinney/408/"
+    "url": "https://locations.traderjoes.com/tx/mckinney/408/",
+    "neighborhood": "Stonebridge Ranch"
   },
   {
     "store_number": "58",
@@ -602,7 +619,8 @@
     "lat": 37.25156,
     "lng": -121.87923,
     "phone": "408-264-8120",
-    "url": "https://locations.traderjoes.com/ca/san-jose/63/"
+    "url": "https://locations.traderjoes.com/ca/san-jose/63/",
+    "neighborhood": "Almaden Valley"
   },
   {
     "store_number": "100",
@@ -613,7 +631,8 @@
     "lat": 37.78337,
     "lng": -122.44787,
     "phone": "415-346-9964",
-    "url": "https://locations.traderjoes.com/ca/san-francisco/100/"
+    "url": "https://locations.traderjoes.com/ca/san-francisco/100/",
+    "neighborhood": "Inner Richmond"
   },
   {
     "store_number": "56",
@@ -635,7 +654,8 @@
     "lat": 37.97922,
     "lng": -122.0564,
     "phone": "925-689-2990",
-    "url": "https://locations.traderjoes.com/ca/concord/60/"
+    "url": "https://locations.traderjoes.com/ca/concord/60/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "62",
@@ -646,7 +666,8 @@
     "lat": 37.29297,
     "lng": -121.99415,
     "phone": "408-446-5055",
-    "url": "https://locations.traderjoes.com/ca/san-jose/62/"
+    "url": "https://locations.traderjoes.com/ca/san-jose/62/",
+    "neighborhood": "West San Jose"
   },
   {
     "store_number": "249",
@@ -668,7 +689,8 @@
     "lat": 33.75595,
     "lng": -118.31076,
     "phone": "310-832-1241",
-    "url": "https://locations.traderjoes.com/ca/rancho-palos-verdes/57/"
+    "url": "https://locations.traderjoes.com/ca/rancho-palos-verdes/57/",
+    "neighborhood": "Western Ave"
   },
   {
     "store_number": "708",
@@ -723,7 +745,8 @@
     "lat": 33.69253,
     "lng": -117.99272,
     "phone": "714-848-9640",
-    "url": "https://locations.traderjoes.com/ca/huntington-beach/47/"
+    "url": "https://locations.traderjoes.com/ca/huntington-beach/47/",
+    "neighborhood": "Downtown HB"
   },
   {
     "store_number": "104",
@@ -756,7 +779,8 @@
     "lat": 34.06915,
     "lng": -118.34442,
     "phone": "323-965-1989",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/31/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/31/",
+    "neighborhood": "La Brea / Mid-Wilshire"
   },
   {
     "store_number": "25",
@@ -811,7 +835,8 @@
     "lat": 34.12789,
     "lng": -118.08948,
     "phone": "626-356-2963",
-    "url": "https://locations.traderjoes.com/ca/pasadena/32/"
+    "url": "https://locations.traderjoes.com/ca/pasadena/32/",
+    "neighborhood": "Hastings Ranch"
   },
   {
     "store_number": "302",
@@ -822,7 +847,8 @@
     "lat": 39.72686,
     "lng": -104.98279,
     "phone": "303-318-7112",
-    "url": "https://locations.traderjoes.com/co/denver/302/"
+    "url": "https://locations.traderjoes.com/co/denver/302/",
+    "neighborhood": "Capitol Hill"
   },
   {
     "store_number": "34",
@@ -833,7 +859,8 @@
     "lat": 33.88764,
     "lng": -118.37989,
     "phone": "310-372-1274",
-    "url": "https://locations.traderjoes.com/ca/manhattan-beach/34/"
+    "url": "https://locations.traderjoes.com/ca/manhattan-beach/34/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "102",
@@ -877,7 +904,8 @@
     "lat": 47.69313,
     "lng": -122.35535,
     "phone": "206-414-6379",
-    "url": "https://locations.traderjoes.com/wa/seattle/273/"
+    "url": "https://locations.traderjoes.com/wa/seattle/273/",
+    "neighborhood": "Greenwood"
   },
   {
     "store_number": "274",
@@ -888,7 +916,8 @@
     "lat": 48.79556,
     "lng": -122.4878,
     "phone": "360-217-2007",
-    "url": "https://locations.traderjoes.com/wa/bellingham/274/"
+    "url": "https://locations.traderjoes.com/wa/bellingham/274/",
+    "neighborhood": "Cordata"
   },
   {
     "store_number": "35",
@@ -899,7 +928,8 @@
     "lat": 33.63679,
     "lng": -117.92458,
     "phone": "949-642-5134",
-    "url": "https://locations.traderjoes.com/ca/costa-mesa/35/"
+    "url": "https://locations.traderjoes.com/ca/costa-mesa/35/",
+    "neighborhood": "17th Street"
   },
   {
     "store_number": "815",
@@ -943,7 +973,8 @@
     "lat": 40.52211,
     "lng": -74.21529,
     "phone": "329-208-1571",
-    "url": "https://locations.traderjoes.com/ny/staten-island/580/"
+    "url": "https://locations.traderjoes.com/ny/staten-island/580/",
+    "neighborhood": "South Shore"
   },
   {
     "store_number": "838",
@@ -965,7 +996,8 @@
     "lat": 38.96015,
     "lng": -77.08512,
     "phone": "227-229-0636",
-    "url": "https://locations.traderjoes.com/dc/washington/819/"
+    "url": "https://locations.traderjoes.com/dc/washington/819/",
+    "neighborhood": "Friendship Heights"
   },
   {
     "store_number": "820",
@@ -976,7 +1008,8 @@
     "lat": 38.93217,
     "lng": -76.99591,
     "phone": "202-677-7460",
-    "url": "https://locations.traderjoes.com/dc/washington/820/"
+    "url": "https://locations.traderjoes.com/dc/washington/820/",
+    "neighborhood": "Brookland"
   },
   {
     "store_number": "589",
@@ -987,7 +1020,8 @@
     "lat": 39.08646,
     "lng": -77.15256,
     "phone": "240-219-2398",
-    "url": "https://locations.traderjoes.com/md/rockville/589/"
+    "url": "https://locations.traderjoes.com/md/rockville/589/",
+    "neighborhood": "Town Center"
   },
   {
     "store_number": "38",
@@ -1053,7 +1087,8 @@
     "lat": 29.96095,
     "lng": -90.08787,
     "phone": "504-229-9973",
-    "url": "https://locations.traderjoes.com/la/new-orleans/811/"
+    "url": "https://locations.traderjoes.com/la/new-orleans/811/",
+    "neighborhood": "Mid-City"
   },
   {
     "store_number": "593",
@@ -1086,7 +1121,8 @@
     "lat": 42.28203,
     "lng": -71.15783,
     "phone": "617-682-7600",
-    "url": "https://locations.traderjoes.com/ma/boston/588/"
+    "url": "https://locations.traderjoes.com/ma/boston/588/",
+    "neighborhood": "West Roxbury"
   },
   {
     "store_number": "308",
@@ -1152,7 +1188,8 @@
     "lat": 29.54915,
     "lng": -98.58351,
     "phone": "210-607-6510",
-    "url": "https://locations.traderjoes.com/tx/san-antonio/457/"
+    "url": "https://locations.traderjoes.com/tx/san-antonio/457/",
+    "neighborhood": "Huebner Oaks"
   },
   {
     "store_number": "410",
@@ -1163,7 +1200,8 @@
     "lat": 33.17542,
     "lng": -96.72329,
     "phone": "",
-    "url": "https://locations.traderjoes.com/tx/mckinney/410/"
+    "url": "https://locations.traderjoes.com/tx/mckinney/410/",
+    "neighborhood": "West McKinney"
   },
   {
     "store_number": "289",
@@ -1262,7 +1300,8 @@
     "lat": 36.26311,
     "lng": -115.25674,
     "phone": "702-396-3372",
-    "url": "https://locations.traderjoes.com/nv/las-vegas/98/"
+    "url": "https://locations.traderjoes.com/nv/las-vegas/98/",
+    "neighborhood": "Centennial Hills"
   },
   {
     "store_number": "808",
@@ -1306,7 +1345,8 @@
     "lat": 29.9349,
     "lng": -90.10395,
     "phone": "",
-    "url": "https://locations.traderjoes.com/la/new-orleans/793/"
+    "url": "https://locations.traderjoes.com/la/new-orleans/793/",
+    "neighborhood": "Uptown"
   },
   {
     "store_number": "823",
@@ -1317,7 +1357,8 @@
     "lat": 36.84158,
     "lng": -76.12964,
     "phone": "757-863-7406",
-    "url": "https://locations.traderjoes.com/va/virginia-beach/823/"
+    "url": "https://locations.traderjoes.com/va/virginia-beach/823/",
+    "neighborhood": "Town Center"
   },
   {
     "store_number": "583",
@@ -1339,7 +1380,8 @@
     "lat": 33.75766,
     "lng": -118.10893,
     "phone": "562-596-4388",
-    "url": "https://locations.traderjoes.com/ca/long-beach/43/"
+    "url": "https://locations.traderjoes.com/ca/long-beach/43/",
+    "neighborhood": "2nd & PCH"
   },
   {
     "store_number": "577",
@@ -1405,7 +1447,8 @@
     "lat": 39.95419,
     "lng": -75.16243,
     "phone": "215-563-2170",
-    "url": "https://locations.traderjoes.com/pa/philadelphia/618/"
+    "url": "https://locations.traderjoes.com/pa/philadelphia/618/",
+    "neighborhood": "Center City East"
   },
   {
     "store_number": "45",
@@ -1416,7 +1459,8 @@
     "lat": 34.2572,
     "lng": -119.21183,
     "phone": "805-650-9977",
-    "url": "https://locations.traderjoes.com/ca/ventura/45/"
+    "url": "https://locations.traderjoes.com/ca/ventura/45/",
+    "neighborhood": "Pacific View"
   },
   {
     "store_number": "848",
@@ -1449,7 +1493,8 @@
     "lat": 33.65326,
     "lng": -117.9191,
     "phone": "949-208-7420",
-    "url": "https://locations.traderjoes.com/ca/costa-mesa/290/"
+    "url": "https://locations.traderjoes.com/ca/costa-mesa/290/",
+    "neighborhood": "Harbor Blvd"
   },
   {
     "store_number": "856",
@@ -1460,7 +1505,8 @@
     "lat": 34.07316,
     "lng": -81.16045,
     "phone": "803-574-8020",
-    "url": "https://locations.traderjoes.com/sc/columbia/856/"
+    "url": "https://locations.traderjoes.com/sc/columbia/856/",
+    "neighborhood": "Harbison"
   },
   {
     "store_number": "432",
@@ -1493,7 +1539,8 @@
     "lat": 33.70616,
     "lng": -117.78842,
     "phone": "949-857-8108",
-    "url": "https://locations.traderjoes.com/ca/irvine/37/"
+    "url": "https://locations.traderjoes.com/ca/irvine/37/",
+    "neighborhood": "Walnut / Westpark"
   },
   {
     "store_number": "293",
@@ -1515,7 +1562,8 @@
     "lat": 32.22113,
     "lng": -110.94,
     "phone": "",
-    "url": "https://locations.traderjoes.com/az/tucson/288/"
+    "url": "https://locations.traderjoes.com/az/tucson/288/",
+    "neighborhood": "Sam Hughes"
   },
   {
     "store_number": "796",
@@ -1559,7 +1607,8 @@
     "lat": 34.02523,
     "lng": -118.39299,
     "phone": "310-202-1108",
-    "url": "https://locations.traderjoes.com/ca/culver-city/36/"
+    "url": "https://locations.traderjoes.com/ca/culver-city/36/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "873",
@@ -1581,7 +1630,8 @@
     "lat": 28.56443,
     "lng": -81.20987,
     "phone": "",
-    "url": "https://locations.traderjoes.com/fl/orlando/876/"
+    "url": "https://locations.traderjoes.com/fl/orlando/876/",
+    "neighborhood": "Waterford Lakes"
   },
   {
     "store_number": "291",
@@ -1625,7 +1675,8 @@
     "lat": 47.70575,
     "lng": -122.32584,
     "phone": "",
-    "url": "https://locations.traderjoes.com/wa/seattle/297/"
+    "url": "https://locations.traderjoes.com/wa/seattle/297/",
+    "neighborhood": "Northgate"
   },
   {
     "store_number": "44",
@@ -1702,7 +1753,8 @@
     "lat": 33.50712,
     "lng": -112.03781,
     "phone": "602-912-9022",
-    "url": "https://locations.traderjoes.com/az/phoenix/90/"
+    "url": "https://locations.traderjoes.com/az/phoenix/90/",
+    "neighborhood": "Biltmore"
   },
   {
     "store_number": "28",
@@ -1724,7 +1776,8 @@
     "lat": 32.24978,
     "lng": -110.89094,
     "phone": "520-323-4500",
-    "url": "https://locations.traderjoes.com/az/tucson/88/"
+    "url": "https://locations.traderjoes.com/az/tucson/88/",
+    "neighborhood": "Park Place"
   },
   {
     "store_number": "92",
@@ -1746,7 +1799,8 @@
     "lat": 32.80054,
     "lng": -117.24065,
     "phone": "858-581-9101",
-    "url": "https://locations.traderjoes.com/ca/san-diego/21/"
+    "url": "https://locations.traderjoes.com/ca/san-diego/21/",
+    "neighborhood": "Pacific Beach"
   },
   {
     "store_number": "361",
@@ -1768,7 +1822,8 @@
     "lat": 33.52944,
     "lng": -111.92758,
     "phone": "480-948-9886",
-    "url": "https://locations.traderjoes.com/az/scottsdale/94/"
+    "url": "https://locations.traderjoes.com/az/scottsdale/94/",
+    "neighborhood": "Old Town"
   },
   {
     "store_number": "30",
@@ -1790,7 +1845,8 @@
     "lat": 34.13514,
     "lng": -118.14687,
     "phone": "626-568-9254",
-    "url": "https://locations.traderjoes.com/ca/pasadena/51/"
+    "url": "https://locations.traderjoes.com/ca/pasadena/51/",
+    "neighborhood": "South Arroyo"
   },
   {
     "store_number": "83",
@@ -1801,7 +1857,8 @@
     "lat": 37.93683,
     "lng": -122.02474,
     "phone": "925-521-1134",
-    "url": "https://locations.traderjoes.com/ca/concord/83/"
+    "url": "https://locations.traderjoes.com/ca/concord/83/",
+    "neighborhood": "Treat / Oak Grove"
   },
   {
     "store_number": "49",
@@ -1812,7 +1869,8 @@
     "lat": 34.15797,
     "lng": -118.44081,
     "phone": "818-789-2771",
-    "url": "https://locations.traderjoes.com/ca/sherman-oaks/49/"
+    "url": "https://locations.traderjoes.com/ca/sherman-oaks/49/",
+    "neighborhood": "Riverside Dr"
   },
   {
     "store_number": "20",
@@ -1834,7 +1892,8 @@
     "lat": 36.1806,
     "lng": -115.2579,
     "phone": "702-242-8240",
-    "url": "https://locations.traderjoes.com/nv/las-vegas/86/"
+    "url": "https://locations.traderjoes.com/nv/las-vegas/86/",
+    "neighborhood": "Summerlin"
   },
   {
     "store_number": "26",
@@ -1845,7 +1904,8 @@
     "lat": 32.74988,
     "lng": -117.15382,
     "phone": "619-296-3122",
-    "url": "https://locations.traderjoes.com/ca/san-diego/26/"
+    "url": "https://locations.traderjoes.com/ca/san-diego/26/",
+    "neighborhood": "Hillcrest"
   },
   {
     "store_number": "22",
@@ -1889,7 +1949,8 @@
     "lat": 32.98211,
     "lng": -117.07505,
     "phone": "858-673-0526",
-    "url": "https://locations.traderjoes.com/ca/san-diego/23/"
+    "url": "https://locations.traderjoes.com/ca/san-diego/23/",
+    "neighborhood": "Carmel Mountain"
   },
   {
     "store_number": "50",
@@ -1922,7 +1983,8 @@
     "lat": 33.90047,
     "lng": -118.38043,
     "phone": "310-725-9800",
-    "url": "https://locations.traderjoes.com/ca/manhattan-beach/106/"
+    "url": "https://locations.traderjoes.com/ca/manhattan-beach/106/",
+    "neighborhood": "North MB"
   },
   {
     "store_number": "82",
@@ -1933,7 +1995,8 @@
     "lat": 39.47879,
     "lng": -119.78399,
     "phone": "775-826-1621",
-    "url": "https://locations.traderjoes.com/nv/reno/82/"
+    "url": "https://locations.traderjoes.com/nv/reno/82/",
+    "neighborhood": "South Reno"
   },
   {
     "store_number": "67",
@@ -1944,7 +2007,8 @@
     "lat": 37.55454,
     "lng": -122.30251,
     "phone": "650-570-6140",
-    "url": "https://locations.traderjoes.com/ca/san-mateo/67/"
+    "url": "https://locations.traderjoes.com/ca/san-mateo/67/",
+    "neighborhood": "25th Ave"
   },
   {
     "store_number": "76",
@@ -1977,7 +2041,8 @@
     "lat": 37.80552,
     "lng": -122.41374,
     "phone": "415-351-1013",
-    "url": "https://locations.traderjoes.com/ca/san-francisco/19/"
+    "url": "https://locations.traderjoes.com/ca/san-francisco/19/",
+    "neighborhood": "North Beach"
   },
   {
     "store_number": "66",
@@ -2010,7 +2075,8 @@
     "lat": 37.77111,
     "lng": -122.40738,
     "phone": "415-863-1292",
-    "url": "https://locations.traderjoes.com/ca/san-francisco/78/"
+    "url": "https://locations.traderjoes.com/ca/san-francisco/78/",
+    "neighborhood": "SoMa"
   },
   {
     "store_number": "108",
@@ -2043,7 +2109,8 @@
     "lat": 32.23717,
     "lng": -110.85892,
     "phone": "520-733-1313",
-    "url": "https://locations.traderjoes.com/az/tucson/95/"
+    "url": "https://locations.traderjoes.com/az/tucson/95/",
+    "neighborhood": "East Tucson"
   },
   {
     "store_number": "87",
@@ -2054,7 +2121,8 @@
     "lat": 33.63586,
     "lng": -111.91713,
     "phone": "480-367-8920",
-    "url": "https://locations.traderjoes.com/az/scottsdale/87/"
+    "url": "https://locations.traderjoes.com/az/scottsdale/87/",
+    "neighborhood": "North Scottsdale"
   },
   {
     "store_number": "65",
@@ -2109,7 +2177,8 @@
     "lat": 33.79064,
     "lng": -118.33019,
     "phone": "310-326-9520",
-    "url": "https://locations.traderjoes.com/ca/torrance/29/"
+    "url": "https://locations.traderjoes.com/ca/torrance/29/",
+    "neighborhood": "Hollywood Riviera"
   },
   {
     "store_number": "706",
@@ -2120,7 +2189,8 @@
     "lat": 41.7964,
     "lng": -87.58838,
     "phone": "773-363-8831",
-    "url": "https://locations.traderjoes.com/il/chicago/706/"
+    "url": "https://locations.traderjoes.com/il/chicago/706/",
+    "neighborhood": "Hyde Park"
   },
   {
     "store_number": "70",
@@ -2131,7 +2201,8 @@
     "lat": 38.6186,
     "lng": -121.40017,
     "phone": "916-481-8797",
-    "url": "https://locations.traderjoes.com/ca/sacramento/70/"
+    "url": "https://locations.traderjoes.com/ca/sacramento/70/",
+    "neighborhood": "Arden-Arcade"
   },
   {
     "store_number": "24",
@@ -2164,7 +2235,8 @@
     "lat": 33.36181,
     "lng": -111.91225,
     "phone": "480-838-4142",
-    "url": "https://locations.traderjoes.com/az/tempe/93/"
+    "url": "https://locations.traderjoes.com/az/tempe/93/",
+    "neighborhood": "South Tempe"
   },
   {
     "store_number": "74",
@@ -2186,7 +2258,8 @@
     "lat": 38.74629,
     "lng": -121.27489,
     "phone": "916-784-9084",
-    "url": "https://locations.traderjoes.com/ca/roseville/80/"
+    "url": "https://locations.traderjoes.com/ca/roseville/80/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "27",
@@ -2241,7 +2314,8 @@
     "lat": 30.39558,
     "lng": -97.75177,
     "phone": "512-241-1248",
-    "url": "https://locations.traderjoes.com/tx/austin/454/"
+    "url": "https://locations.traderjoes.com/tx/austin/454/",
+    "neighborhood": "Great Hills"
   },
   {
     "store_number": "107",
@@ -2285,7 +2359,8 @@
     "lat": 36.06958,
     "lng": -115.08112,
     "phone": "702-433-6773",
-    "url": "https://locations.traderjoes.com/nv/henderson/97/"
+    "url": "https://locations.traderjoes.com/nv/henderson/97/",
+    "neighborhood": "Green Valley"
   },
   {
     "store_number": "75",
@@ -2296,7 +2371,8 @@
     "lat": 38.47355,
     "lng": -122.7323,
     "phone": "707-525-1406",
-    "url": "https://locations.traderjoes.com/ca/santa-rosa/75/"
+    "url": "https://locations.traderjoes.com/ca/santa-rosa/75/",
+    "neighborhood": "North"
   },
   {
     "store_number": "110",
@@ -2318,7 +2394,8 @@
     "lat": 33.65047,
     "lng": -117.83751,
     "phone": "949-509-6138",
-    "url": "https://locations.traderjoes.com/ca/irvine/111/"
+    "url": "https://locations.traderjoes.com/ca/irvine/111/",
+    "neighborhood": "University / UCI"
   },
   {
     "store_number": "112",
@@ -2395,7 +2472,8 @@
     "lat": 34.02048,
     "lng": -118.42211,
     "phone": "310-836-2458",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/119/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/119/",
+    "neighborhood": "Palms"
   },
   {
     "store_number": "115",
@@ -2428,7 +2506,8 @@
     "lat": 33.85225,
     "lng": -118.35329,
     "phone": "310-793-8585",
-    "url": "https://locations.traderjoes.com/ca/torrance/121/"
+    "url": "https://locations.traderjoes.com/ca/torrance/121/",
+    "neighborhood": "Del Amo"
   },
   {
     "store_number": "123",
@@ -2593,7 +2672,8 @@
     "lat": 45.53472,
     "lng": -122.62082,
     "phone": "503-284-4232",
-    "url": "https://locations.traderjoes.com/or/portland/144/"
+    "url": "https://locations.traderjoes.com/or/portland/144/",
+    "neighborhood": "Hollywood District"
   },
   {
     "store_number": "765",
@@ -2615,7 +2695,8 @@
     "lat": 47.66261,
     "lng": -122.37425,
     "phone": "206-783-0498",
-    "url": "https://locations.traderjoes.com/wa/seattle/147/"
+    "url": "https://locations.traderjoes.com/wa/seattle/147/",
+    "neighborhood": "Ballard"
   },
   {
     "store_number": "149",
@@ -2637,7 +2718,8 @@
     "lat": 45.5261,
     "lng": -122.69516,
     "phone": "971-544-0788",
-    "url": "https://locations.traderjoes.com/or/portland/146/"
+    "url": "https://locations.traderjoes.com/or/portland/146/",
+    "neighborhood": "Northwest / Nob Hill"
   },
   {
     "store_number": "130",
@@ -2648,7 +2730,8 @@
     "lat": 47.61601,
     "lng": -122.3097,
     "phone": "206-322-7268",
-    "url": "https://locations.traderjoes.com/wa/seattle/130/"
+    "url": "https://locations.traderjoes.com/wa/seattle/130/",
+    "neighborhood": "Capitol Hill"
   },
   {
     "store_number": "165",
@@ -2681,7 +2764,8 @@
     "lat": 45.48882,
     "lng": -122.62355,
     "phone": "503-777-1601",
-    "url": "https://locations.traderjoes.com/or/portland/143/"
+    "url": "https://locations.traderjoes.com/or/portland/143/",
+    "neighborhood": "SE / Reed"
   },
   {
     "store_number": "139",
@@ -2725,7 +2809,8 @@
     "lat": 45.61953,
     "lng": -122.5532,
     "phone": "360-883-9000",
-    "url": "https://locations.traderjoes.com/wa/vancouver/136/"
+    "url": "https://locations.traderjoes.com/wa/vancouver/136/",
+    "neighborhood": "Cascade Park"
   },
   {
     "store_number": "196",
@@ -2736,7 +2821,8 @@
     "lat": 34.21899,
     "lng": -118.86907,
     "phone": "805-492-7107",
-    "url": "https://locations.traderjoes.com/ca/thousand-oaks/196/"
+    "url": "https://locations.traderjoes.com/ca/thousand-oaks/196/",
+    "neighborhood": "Thousand Oaks"
   },
   {
     "store_number": "137",
@@ -2747,7 +2833,8 @@
     "lat": 47.66269,
     "lng": -122.31774,
     "phone": "206-547-6299",
-    "url": "https://locations.traderjoes.com/wa/seattle/137/"
+    "url": "https://locations.traderjoes.com/wa/seattle/137/",
+    "neighborhood": "U District"
   },
   {
     "store_number": "210",
@@ -2758,7 +2845,8 @@
     "lat": 33.69987,
     "lng": -117.74186,
     "phone": "949-551-6402",
-    "url": "https://locations.traderjoes.com/ca/irvine/210/"
+    "url": "https://locations.traderjoes.com/ca/irvine/210/",
+    "neighborhood": "Northwood"
   },
   {
     "store_number": "212",
@@ -2769,7 +2857,8 @@
     "lat": 37.34087,
     "lng": -121.90918,
     "phone": "408-298-9731",
-    "url": "https://locations.traderjoes.com/ca/san-jose/212/"
+    "url": "https://locations.traderjoes.com/ca/san-jose/212/",
+    "neighborhood": "The Alameda"
   },
   {
     "store_number": "202",
@@ -2791,7 +2880,8 @@
     "lat": 37.80974,
     "lng": -122.24425,
     "phone": "510-238-9076",
-    "url": "https://locations.traderjoes.com/ca/oakland/203/"
+    "url": "https://locations.traderjoes.com/ca/oakland/203/",
+    "neighborhood": "Lakeshore"
   },
   {
     "store_number": "213",
@@ -2901,7 +2991,8 @@
     "lat": 33.79678,
     "lng": -118.1229,
     "phone": "562-596-2514",
-    "url": "https://locations.traderjoes.com/ca/long-beach/194/"
+    "url": "https://locations.traderjoes.com/ca/long-beach/194/",
+    "neighborhood": "Los Altos"
   },
   {
     "store_number": "185",
@@ -2945,7 +3036,8 @@
     "lat": 34.43896,
     "lng": -119.72895,
     "phone": "805-563-7383",
-    "url": "https://locations.traderjoes.com/ca/santa-barbara/183/"
+    "url": "https://locations.traderjoes.com/ca/santa-barbara/183/",
+    "neighborhood": "Upper State"
   },
   {
     "store_number": "180",
@@ -2989,7 +3081,8 @@
     "lat": 35.17513,
     "lng": -106.54266,
     "phone": "505-796-0311",
-    "url": "https://locations.traderjoes.com/nm/albuquerque/166/"
+    "url": "https://locations.traderjoes.com/nm/albuquerque/166/",
+    "neighborhood": "Far Northeast"
   },
   {
     "store_number": "190",
@@ -3022,7 +3115,8 @@
     "lat": 33.30313,
     "lng": -111.99487,
     "phone": "480-759-2293",
-    "url": "https://locations.traderjoes.com/az/phoenix/177/"
+    "url": "https://locations.traderjoes.com/az/phoenix/177/",
+    "neighborhood": "Ahwatukee"
   },
   {
     "store_number": "504",
@@ -3088,7 +3182,8 @@
     "lat": 34.14005,
     "lng": -118.13291,
     "phone": "626-395-9553",
-    "url": "https://locations.traderjoes.com/ca/pasadena/179/"
+    "url": "https://locations.traderjoes.com/ca/pasadena/179/",
+    "neighborhood": "Lake Avenue"
   },
   {
     "store_number": "172",
@@ -3110,7 +3205,8 @@
     "lat": 34.1537,
     "lng": -118.0782,
     "phone": "626-351-3399",
-    "url": "https://locations.traderjoes.com/ca/pasadena/171/"
+    "url": "https://locations.traderjoes.com/ca/pasadena/171/",
+    "neighborhood": "East Pasadena"
   },
   {
     "store_number": "174",
@@ -3132,7 +3228,8 @@
     "lat": 38.41752,
     "lng": -122.71205,
     "phone": "707-535-0788",
-    "url": "https://locations.traderjoes.com/ca/santa-rosa/178/"
+    "url": "https://locations.traderjoes.com/ca/santa-rosa/178/",
+    "neighborhood": "South"
   },
   {
     "store_number": "173",
@@ -3143,7 +3240,8 @@
     "lat": 34.08799,
     "lng": -118.37956,
     "phone": "310-657-0152",
-    "url": "https://locations.traderjoes.com/ca/west-hollywood/173/"
+    "url": "https://locations.traderjoes.com/ca/west-hollywood/173/",
+    "neighborhood": "West WeHo"
   },
   {
     "store_number": "184",
@@ -3165,7 +3263,8 @@
     "lat": 32.2835,
     "lng": -110.9448,
     "phone": "520-325-0069",
-    "url": "https://locations.traderjoes.com/az/tucson/191/"
+    "url": "https://locations.traderjoes.com/az/tucson/191/",
+    "neighborhood": "Catalina Foothills"
   },
   {
     "store_number": "509",
@@ -3209,7 +3308,8 @@
     "lat": 32.73596,
     "lng": -117.21729,
     "phone": "619-758-9272",
-    "url": "https://locations.traderjoes.com/ca/san-diego/188/"
+    "url": "https://locations.traderjoes.com/ca/san-diego/188/",
+    "neighborhood": "Liberty Station"
   },
   {
     "store_number": "187",
@@ -3275,7 +3375,8 @@
     "lat": 33.58331,
     "lng": -111.97903,
     "phone": "602-485-7788",
-    "url": "https://locations.traderjoes.com/az/phoenix/282/"
+    "url": "https://locations.traderjoes.com/az/phoenix/282/",
+    "neighborhood": "Paradise Valley Village"
   },
   {
     "store_number": "231",
@@ -3286,7 +3387,8 @@
     "lat": 37.84556,
     "lng": -122.25281,
     "phone": "510-923-9428",
-    "url": "https://locations.traderjoes.com/ca/oakland/231/"
+    "url": "https://locations.traderjoes.com/ca/oakland/231/",
+    "neighborhood": "Rockridge"
   },
   {
     "store_number": "280",
@@ -3297,7 +3399,8 @@
     "lat": 36.00087,
     "lng": -115.10933,
     "phone": "702-407-8673",
-    "url": "https://locations.traderjoes.com/nv/henderson/280/"
+    "url": "https://locations.traderjoes.com/nv/henderson/280/",
+    "neighborhood": "Inspirada"
   },
   {
     "store_number": "170",
@@ -3319,7 +3422,8 @@
     "lat": 42.35186,
     "lng": -71.04727,
     "phone": "617-941-3714",
-    "url": "https://locations.traderjoes.com/ma/boston/566/"
+    "url": "https://locations.traderjoes.com/ma/boston/566/",
+    "neighborhood": "Seaport"
   },
   {
     "store_number": "510",
@@ -3330,7 +3434,8 @@
     "lat": 42.34846,
     "lng": -71.08409,
     "phone": "617-262-6505",
-    "url": "https://locations.traderjoes.com/ma/boston/510/"
+    "url": "https://locations.traderjoes.com/ma/boston/510/",
+    "neighborhood": "Back Bay (Pru)"
   },
   {
     "store_number": "241",
@@ -3341,7 +3446,8 @@
     "lat": 33.65184,
     "lng": -117.95413,
     "phone": "714-968-4070",
-    "url": "https://locations.traderjoes.com/ca/huntington-beach/241/"
+    "url": "https://locations.traderjoes.com/ca/huntington-beach/241/",
+    "neighborhood": "South HB"
   },
   {
     "store_number": "501",
@@ -3385,7 +3491,8 @@
     "lat": 42.35826,
     "lng": -71.11417,
     "phone": "617-491-8582",
-    "url": "https://locations.traderjoes.com/ma/cambridge/502/"
+    "url": "https://locations.traderjoes.com/ma/cambridge/502/",
+    "neighborhood": "Central Square"
   },
   {
     "store_number": "521",
@@ -3407,7 +3514,8 @@
     "lat": 34.06227,
     "lng": -118.44377,
     "phone": "310-824-1495",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/234/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/234/",
+    "neighborhood": "Westwood"
   },
   {
     "store_number": "518",
@@ -3572,7 +3680,8 @@
     "lat": 34.0976,
     "lng": -118.36523,
     "phone": "323-822-7663",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/192/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/192/",
+    "neighborhood": "Sunset Strip"
   },
   {
     "store_number": "220",
@@ -3616,7 +3725,8 @@
     "lat": 37.31179,
     "lng": -122.03091,
     "phone": "408-873-7384",
-    "url": "https://locations.traderjoes.com/ca/san-jose/232/"
+    "url": "https://locations.traderjoes.com/ca/san-jose/232/",
+    "neighborhood": "Cupertino Border"
   },
   {
     "store_number": "531",
@@ -3649,7 +3759,8 @@
     "lat": 40.73337,
     "lng": -73.9879,
     "phone": "212-529-4612",
-    "url": "https://locations.traderjoes.com/ny/new-york/540/"
+    "url": "https://locations.traderjoes.com/ny/new-york/540/",
+    "neighborhood": "Union Square"
   },
   {
     "store_number": "175",
@@ -3660,7 +3771,8 @@
     "lat": 38.5604,
     "lng": -121.44481,
     "phone": "916-456-1853",
-    "url": "https://locations.traderjoes.com/ca/sacramento/175/"
+    "url": "https://locations.traderjoes.com/ca/sacramento/175/",
+    "neighborhood": "East Sacramento"
   },
   {
     "store_number": "532",
@@ -3682,7 +3794,8 @@
     "lat": 40.73045,
     "lng": -73.981,
     "phone": "212-777-9412",
-    "url": "https://locations.traderjoes.com/ny/new-york/546/"
+    "url": "https://locations.traderjoes.com/ny/new-york/546/",
+    "neighborhood": "East Village"
   },
   {
     "store_number": "525",
@@ -3715,7 +3828,8 @@
     "lat": 37.72665,
     "lng": -122.47631,
     "phone": "415-665-1835",
-    "url": "https://locations.traderjoes.com/ca/san-francisco/236/"
+    "url": "https://locations.traderjoes.com/ca/san-francisco/236/",
+    "neighborhood": "Stonestown"
   },
   {
     "store_number": "605",
@@ -3770,7 +3884,8 @@
     "lat": 40.71092,
     "lng": -73.85826,
     "phone": "718-275-1791",
-    "url": "https://locations.traderjoes.com/ny/queens/557/"
+    "url": "https://locations.traderjoes.com/ny/queens/557/",
+    "neighborhood": "Rego Park"
   },
   {
     "store_number": "606",
@@ -3803,7 +3918,8 @@
     "lat": 29.60945,
     "lng": -98.4991,
     "phone": "210-939-5789",
-    "url": "https://locations.traderjoes.com/tx/san-antonio/455/"
+    "url": "https://locations.traderjoes.com/tx/san-antonio/455/",
+    "neighborhood": "Stone Oak"
   },
   {
     "store_number": "632",
@@ -3836,7 +3952,8 @@
     "lat": 39.95418,
     "lng": -75.17597,
     "phone": "215-569-9282",
-    "url": "https://locations.traderjoes.com/pa/philadelphia/634/"
+    "url": "https://locations.traderjoes.com/pa/philadelphia/634/",
+    "neighborhood": "Rittenhouse"
   },
   {
     "store_number": "558",
@@ -3847,7 +3964,8 @@
     "lat": 40.68958,
     "lng": -73.99287,
     "phone": "718-246-8460",
-    "url": "https://locations.traderjoes.com/ny/brooklyn/558/"
+    "url": "https://locations.traderjoes.com/ny/brooklyn/558/",
+    "neighborhood": "Brooklyn Heights"
   },
   {
     "store_number": "512",
@@ -3924,7 +4042,8 @@
     "lat": 32.84955,
     "lng": -96.81944,
     "phone": "214-366-0205",
-    "url": "https://locations.traderjoes.com/tx/dallas/405/"
+    "url": "https://locations.traderjoes.com/tx/dallas/405/",
+    "neighborhood": "Inwood / Lovers Lane"
   },
   {
     "store_number": "638",
@@ -3935,7 +4054,8 @@
     "lat": 40.45924,
     "lng": -79.91918,
     "phone": "412-363-5748",
-    "url": "https://locations.traderjoes.com/pa/pittsburgh/638/"
+    "url": "https://locations.traderjoes.com/pa/pittsburgh/638/",
+    "neighborhood": "East Liberty"
   },
   {
     "store_number": "641",
@@ -3957,7 +4077,8 @@
     "lat": 39.05705,
     "lng": -77.12235,
     "phone": "301-468-6656",
-    "url": "https://locations.traderjoes.com/md/rockville/642/"
+    "url": "https://locations.traderjoes.com/md/rockville/642/",
+    "neighborhood": "Twinbrook"
   },
   {
     "store_number": "639",
@@ -4045,7 +4166,8 @@
     "lat": 33.42239,
     "lng": -111.92502,
     "phone": "480-303-9974",
-    "url": "https://locations.traderjoes.com/az/tempe/91/"
+    "url": "https://locations.traderjoes.com/az/tempe/91/",
+    "neighborhood": "ASU / Downtown"
   },
   {
     "store_number": "654",
@@ -4078,7 +4200,8 @@
     "lat": 38.90409,
     "lng": -77.05302,
     "phone": "202-296-1921",
-    "url": "https://locations.traderjoes.com/dc/washington/653/"
+    "url": "https://locations.traderjoes.com/dc/washington/653/",
+    "neighborhood": "Foggy Bottom"
   },
   {
     "store_number": "649",
@@ -4122,7 +4245,8 @@
     "lat": 38.97826,
     "lng": -77.09053,
     "phone": "301-907-0982",
-    "url": "https://locations.traderjoes.com/md/bethesda/645/"
+    "url": "https://locations.traderjoes.com/md/bethesda/645/",
+    "neighborhood": "Bethesda Row"
   },
   {
     "store_number": "648",
@@ -4133,7 +4257,8 @@
     "lat": 39.09654,
     "lng": -77.20679,
     "phone": "301-762-0782",
-    "url": "https://locations.traderjoes.com/md/rockville/648/"
+    "url": "https://locations.traderjoes.com/md/rockville/648/",
+    "neighborhood": "King Farm"
   },
   {
     "store_number": "730",
@@ -4144,7 +4269,8 @@
     "lat": 33.77875,
     "lng": -84.36702,
     "phone": "404-815-9210",
-    "url": "https://locations.traderjoes.com/ga/atlanta/730/"
+    "url": "https://locations.traderjoes.com/ga/atlanta/730/",
+    "neighborhood": "Midtown"
   },
   {
     "store_number": "644",
@@ -4166,7 +4292,8 @@
     "lat": 47.63698,
     "lng": -122.35667,
     "phone": "206-284-2546",
-    "url": "https://locations.traderjoes.com/wa/seattle/135/"
+    "url": "https://locations.traderjoes.com/wa/seattle/135/",
+    "neighborhood": "Queen Anne"
   },
   {
     "store_number": "713",
@@ -4210,7 +4337,8 @@
     "lat": 33.92624,
     "lng": -84.3781,
     "phone": "404-236-2414",
-    "url": "https://locations.traderjoes.com/ga/sandy-springs/731/"
+    "url": "https://locations.traderjoes.com/ga/sandy-springs/731/",
+    "neighborhood": "North Springs"
   },
   {
     "store_number": "712",
@@ -4276,7 +4404,8 @@
     "lat": 41.91449,
     "lng": -87.65498,
     "phone": "312-274-9733",
-    "url": "https://locations.traderjoes.com/il/chicago/691/"
+    "url": "https://locations.traderjoes.com/il/chicago/691/",
+    "neighborhood": "Clybourn Corridor"
   },
   {
     "store_number": "620",
@@ -4287,7 +4416,8 @@
     "lat": 38.91771,
     "lng": -77.06833,
     "phone": "202-944-8403",
-    "url": "https://locations.traderjoes.com/dc/washington/620/"
+    "url": "https://locations.traderjoes.com/dc/washington/620/",
+    "neighborhood": "Glover Park / Georgetown"
   },
   {
     "store_number": "760",
@@ -4353,7 +4483,8 @@
     "lat": 41.94989,
     "lng": -87.67514,
     "phone": "773-248-4920",
-    "url": "https://locations.traderjoes.com/il/chicago/688/"
+    "url": "https://locations.traderjoes.com/il/chicago/688/",
+    "neighborhood": "Roscoe Village"
   },
   {
     "store_number": "692",
@@ -4397,7 +4528,8 @@
     "lat": 41.89343,
     "lng": -87.62631,
     "phone": "312-951-6369",
-    "url": "https://locations.traderjoes.com/il/chicago/696/"
+    "url": "https://locations.traderjoes.com/il/chicago/696/",
+    "neighborhood": "River North"
   },
   {
     "store_number": "695",
@@ -4452,7 +4584,8 @@
     "lat": 34.42857,
     "lng": -118.53828,
     "phone": "661-263-3796",
-    "url": "https://locations.traderjoes.com/ca/santa-clarita/13/"
+    "url": "https://locations.traderjoes.com/ca/santa-clarita/13/",
+    "neighborhood": "Saugus"
   },
   {
     "store_number": "219",
@@ -4474,7 +4607,8 @@
     "lat": 36.10508,
     "lng": -86.81563,
     "phone": "615-297-6560",
-    "url": "https://locations.traderjoes.com/tn/nashville/664/"
+    "url": "https://locations.traderjoes.com/tn/nashville/664/",
+    "neighborhood": "Green Hills"
   },
   {
     "store_number": "609",
@@ -4496,7 +4630,8 @@
     "lat": 35.10224,
     "lng": -106.56546,
     "phone": "505-883-3662",
-    "url": "https://locations.traderjoes.com/nm/albuquerque/167/"
+    "url": "https://locations.traderjoes.com/nm/albuquerque/167/",
+    "neighborhood": "Uptown"
   },
   {
     "store_number": "669",
@@ -4584,7 +4719,8 @@
     "lat": 35.21178,
     "lng": -80.83563,
     "phone": "704-334-0737",
-    "url": "https://locations.traderjoes.com/nc/charlotte/744/"
+    "url": "https://locations.traderjoes.com/nc/charlotte/744/",
+    "neighborhood": "Midtown"
   },
   {
     "store_number": "714",
@@ -4705,7 +4841,8 @@
     "lat": 35.33681,
     "lng": -80.75453,
     "phone": "704-688-9578",
-    "url": "https://locations.traderjoes.com/nc/charlotte/743/"
+    "url": "https://locations.traderjoes.com/nc/charlotte/743/",
+    "neighborhood": "University City"
   },
   {
     "store_number": "735",
@@ -4716,7 +4853,8 @@
     "lat": 33.84095,
     "lng": -84.37499,
     "phone": "404-842-0907",
-    "url": "https://locations.traderjoes.com/ga/atlanta/735/"
+    "url": "https://locations.traderjoes.com/ga/atlanta/735/",
+    "neighborhood": "Buckhead"
   },
   {
     "store_number": "683",
@@ -4749,7 +4887,8 @@
     "lat": 35.07886,
     "lng": -80.81793,
     "phone": "704-543-5249",
-    "url": "https://locations.traderjoes.com/nc/charlotte/742/"
+    "url": "https://locations.traderjoes.com/nc/charlotte/742/",
+    "neighborhood": "Ballantyne"
   },
   {
     "store_number": "716",
@@ -4815,7 +4954,8 @@
     "lat": 36.84861,
     "lng": -76.02478,
     "phone": "757-422-4840",
-    "url": "https://locations.traderjoes.com/va/virginia-beach/660/"
+    "url": "https://locations.traderjoes.com/va/virginia-beach/660/",
+    "neighborhood": "Hilltop"
   },
   {
     "store_number": "681",
@@ -4837,7 +4977,8 @@
     "lat": 32.91449,
     "lng": -117.11517,
     "phone": "858-549-9185",
-    "url": "https://locations.traderjoes.com/ca/san-diego/221/"
+    "url": "https://locations.traderjoes.com/ca/san-diego/221/",
+    "neighborhood": "Scripps Ranch"
   },
   {
     "store_number": "670",
@@ -4848,7 +4989,8 @@
     "lat": 39.91257,
     "lng": -86.2118,
     "phone": "317-337-1880",
-    "url": "https://locations.traderjoes.com/in/indianapolis/670/"
+    "url": "https://locations.traderjoes.com/in/indianapolis/670/",
+    "neighborhood": "Northwest / 86th"
   },
   {
     "store_number": "672",
@@ -4870,7 +5012,8 @@
     "lat": 33.71752,
     "lng": -118.05145,
     "phone": "714-846-7307",
-    "url": "https://locations.traderjoes.com/ca/huntington-beach/244/"
+    "url": "https://locations.traderjoes.com/ca/huntington-beach/244/",
+    "neighborhood": "Bolsa Chica"
   },
   {
     "store_number": "671",
@@ -4881,7 +5024,8 @@
     "lat": 39.90371,
     "lng": -86.07518,
     "phone": "317-595-8950",
-    "url": "https://locations.traderjoes.com/in/indianapolis/671/"
+    "url": "https://locations.traderjoes.com/in/indianapolis/671/",
+    "neighborhood": "Castleton"
   },
   {
     "store_number": "733",
@@ -4903,7 +5047,8 @@
     "lat": 40.57041,
     "lng": -80.02231,
     "phone": "412-366-1131",
-    "url": "https://locations.traderjoes.com/pa/pittsburgh/624/"
+    "url": "https://locations.traderjoes.com/pa/pittsburgh/624/",
+    "neighborhood": "North Hills"
   },
   {
     "store_number": "607",
@@ -4969,7 +5114,8 @@
     "lat": 35.82324,
     "lng": -78.62171,
     "phone": "919-981-7422",
-    "url": "https://locations.traderjoes.com/nc/raleigh/746/"
+    "url": "https://locations.traderjoes.com/nc/raleigh/746/",
+    "neighborhood": "North Hills"
   },
   {
     "store_number": "243",
@@ -4980,7 +5126,8 @@
     "lat": 34.18009,
     "lng": -118.95383,
     "phone": "805-375-1984",
-    "url": "https://locations.traderjoes.com/ca/thousand-oaks/243/"
+    "url": "https://locations.traderjoes.com/ca/thousand-oaks/243/",
+    "neighborhood": "Newbury Park"
   },
   {
     "store_number": "182",
@@ -5068,7 +5215,8 @@
     "lat": 34.03372,
     "lng": -118.44931,
     "phone": "310-477-5949",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/215/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/215/",
+    "neighborhood": "Sawtelle"
   },
   {
     "store_number": "543",
@@ -5079,7 +5227,8 @@
     "lat": 40.74209,
     "lng": -73.99412,
     "phone": "212-255-2106",
-    "url": "https://locations.traderjoes.com/ny/new-york/543/"
+    "url": "https://locations.traderjoes.com/ny/new-york/543/",
+    "neighborhood": "Chelsea"
   },
   {
     "store_number": "206",
@@ -5090,7 +5239,8 @@
     "lat": 34.10038,
     "lng": -118.32606,
     "phone": "323-856-0689",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/206/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/206/",
+    "neighborhood": "Hollywood"
   },
   {
     "store_number": "517",
@@ -5101,7 +5251,8 @@
     "lat": 42.39002,
     "lng": -71.14359,
     "phone": "617-498-3201",
-    "url": "https://locations.traderjoes.com/ma/cambridge/517/"
+    "url": "https://locations.traderjoes.com/ma/cambridge/517/",
+    "neighborhood": "Alewife"
   },
   {
     "store_number": "154",
@@ -5123,7 +5274,8 @@
     "lat": 33.74933,
     "lng": -118.40668,
     "phone": "310-544-1727",
-    "url": "https://locations.traderjoes.com/ca/rancho-palos-verdes/233/"
+    "url": "https://locations.traderjoes.com/ca/rancho-palos-verdes/233/",
+    "neighborhood": "Golden Cove"
   },
   {
     "store_number": "207",
@@ -5167,7 +5319,8 @@
     "lat": 40.77855,
     "lng": -73.98226,
     "phone": "212-799-0028",
-    "url": "https://locations.traderjoes.com/ny/new-york/542/"
+    "url": "https://locations.traderjoes.com/ny/new-york/542/",
+    "neighborhood": "Lincoln Square"
   },
   {
     "store_number": "720",
@@ -5211,7 +5364,8 @@
     "lat": 47.62897,
     "lng": -117.36664,
     "phone": "509-534-1077",
-    "url": "https://locations.traderjoes.com/wa/spokane/159/"
+    "url": "https://locations.traderjoes.com/wa/spokane/159/",
+    "neighborhood": "South Hill"
   },
   {
     "store_number": "153",
@@ -5233,7 +5387,8 @@
     "lat": 37.53543,
     "lng": -122.29828,
     "phone": "650-286-1509",
-    "url": "https://locations.traderjoes.com/ca/san-mateo/245/"
+    "url": "https://locations.traderjoes.com/ca/san-mateo/245/",
+    "neighborhood": "Hillsdale"
   },
   {
     "store_number": "186",
@@ -5299,7 +5454,8 @@
     "lat": 41.93242,
     "lng": -87.64626,
     "phone": "773-935-7255",
-    "url": "https://locations.traderjoes.com/il/chicago/703/"
+    "url": "https://locations.traderjoes.com/il/chicago/703/",
+    "neighborhood": "Lincoln Park"
   },
   {
     "store_number": "218",
@@ -5310,7 +5466,8 @@
     "lat": 34.27167,
     "lng": -119.24918,
     "phone": "805-658-2664",
-    "url": "https://locations.traderjoes.com/ca/ventura/218/"
+    "url": "https://locations.traderjoes.com/ca/ventura/218/",
+    "neighborhood": "Mid-town"
   },
   {
     "store_number": "752",
@@ -5321,7 +5478,8 @@
     "lat": 32.80479,
     "lng": -79.88717,
     "phone": "843-884-4037",
-    "url": "https://locations.traderjoes.com/sc/mt-pleasant/752/"
+    "url": "https://locations.traderjoes.com/sc/mt-pleasant/752/",
+    "neighborhood": "Towne Centre"
   },
   {
     "store_number": "701",
@@ -5332,7 +5490,8 @@
     "lat": 41.86775,
     "lng": -87.62539,
     "phone": "312-588-0489",
-    "url": "https://locations.traderjoes.com/il/chicago/701/"
+    "url": "https://locations.traderjoes.com/il/chicago/701/",
+    "neighborhood": "South Loop"
   },
   {
     "store_number": "559",
@@ -5343,7 +5502,8 @@
     "lat": 40.58966,
     "lng": -74.16574,
     "phone": "718-370-1085",
-    "url": "https://locations.traderjoes.com/ny/staten-island/559/"
+    "url": "https://locations.traderjoes.com/ny/staten-island/559/",
+    "neighborhood": "New Springville"
   },
   {
     "store_number": "534",
@@ -5376,7 +5536,8 @@
     "lat": 40.35135,
     "lng": -80.05172,
     "phone": "412-835-2212",
-    "url": "https://locations.traderjoes.com/pa/pittsburgh/630/"
+    "url": "https://locations.traderjoes.com/pa/pittsburgh/630/",
+    "neighborhood": "South Hills"
   },
   {
     "store_number": "270",
@@ -5409,7 +5570,8 @@
     "lat": 47.56193,
     "lng": -122.38103,
     "phone": "206-913-0013",
-    "url": "https://locations.traderjoes.com/wa/seattle/157/"
+    "url": "https://locations.traderjoes.com/wa/seattle/157/",
+    "neighborhood": "West Seattle"
   },
   {
     "store_number": "629",
@@ -5431,7 +5593,8 @@
     "lat": 38.25009,
     "lng": -85.63137,
     "phone": "502-895-1361",
-    "url": "https://locations.traderjoes.com/ky/louisville/628/"
+    "url": "https://locations.traderjoes.com/ky/louisville/628/",
+    "neighborhood": "St. Matthews"
   },
   {
     "store_number": "762",
@@ -5486,7 +5649,8 @@
     "lat": 38.24927,
     "lng": -85.63,
     "phone": "502-895-7872",
-    "url": "https://locations.traderjoes.com/ky/louisville/625/"
+    "url": "https://locations.traderjoes.com/ky/louisville/625/",
+    "neighborhood": "St. Matthews (wine)"
   },
   {
     "store_number": "131",
@@ -5497,7 +5661,8 @@
     "lat": 47.63076,
     "lng": -122.13343,
     "phone": "425-641-5069",
-    "url": "https://locations.traderjoes.com/wa/bellevue/131/"
+    "url": "https://locations.traderjoes.com/wa/bellevue/131/",
+    "neighborhood": "Crossroads"
   },
   {
     "store_number": "590",
@@ -5519,7 +5684,8 @@
     "lat": 29.4967,
     "lng": -98.47803,
     "phone": "210-826-1110",
-    "url": "https://locations.traderjoes.com/tx/san-antonio/451/"
+    "url": "https://locations.traderjoes.com/tx/san-antonio/451/",
+    "neighborhood": "Alamo Heights"
   },
   {
     "store_number": "749",
@@ -5541,7 +5707,8 @@
     "lat": 29.73921,
     "lng": -95.41132,
     "phone": "713-526-4034",
-    "url": "https://locations.traderjoes.com/tx/houston/426/"
+    "url": "https://locations.traderjoes.com/tx/houston/426/",
+    "neighborhood": "Upper Kirby"
   },
   {
     "store_number": "520",
@@ -5596,7 +5763,8 @@
     "lat": 25.68441,
     "lng": -80.31256,
     "phone": "305-661-1432",
-    "url": "https://locations.traderjoes.com/fl/miami/770/"
+    "url": "https://locations.traderjoes.com/fl/miami/770/",
+    "neighborhood": "Pinecrest"
   },
   {
     "store_number": "528",
@@ -5640,7 +5808,8 @@
     "lat": 34.07221,
     "lng": -118.36178,
     "phone": "323-931-4012",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/240/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/240/",
+    "neighborhood": "Fairfax"
   },
   {
     "store_number": "529",
@@ -5662,7 +5831,8 @@
     "lat": 34.02003,
     "lng": -80.97268,
     "phone": "803-790-2404",
-    "url": "https://locations.traderjoes.com/sc/columbia/753/"
+    "url": "https://locations.traderjoes.com/sc/columbia/753/",
+    "neighborhood": "Forest Acres"
   },
   {
     "store_number": "403",
@@ -5673,7 +5843,8 @@
     "lat": 32.81483,
     "lng": -96.77056,
     "phone": "469-334-0614",
-    "url": "https://locations.traderjoes.com/tx/dallas/403/"
+    "url": "https://locations.traderjoes.com/tx/dallas/403/",
+    "neighborhood": "Lower Greenville"
   },
   {
     "store_number": "428",
@@ -5706,7 +5877,8 @@
     "lat": 30.27013,
     "lng": -97.78981,
     "phone": "512-306-1032",
-    "url": "https://locations.traderjoes.com/tx/austin/453/"
+    "url": "https://locations.traderjoes.com/tx/austin/453/",
+    "neighborhood": "Westlake"
   },
   {
     "store_number": "138",
@@ -5794,7 +5966,8 @@
     "lat": 38.00493,
     "lng": -84.51836,
     "phone": "859-313-5030",
-    "url": "https://locations.traderjoes.com/ky/lexington/627/"
+    "url": "https://locations.traderjoes.com/ky/lexington/627/",
+    "neighborhood": "Lansdowne"
   },
   {
     "store_number": "427",
@@ -5805,7 +5978,8 @@
     "lat": 29.75272,
     "lng": -95.50167,
     "phone": "713-266-2377",
-    "url": "https://locations.traderjoes.com/tx/houston/427/"
+    "url": "https://locations.traderjoes.com/tx/houston/427/",
+    "neighborhood": "Tanglewood"
   },
   {
     "store_number": "155",
@@ -5827,7 +6001,8 @@
     "lat": 40.71614,
     "lng": -73.98677,
     "phone": "212-477-8340",
-    "url": "https://locations.traderjoes.com/ny/new-york/538/"
+    "url": "https://locations.traderjoes.com/ny/new-york/538/",
+    "neighborhood": "Lower East Side"
   },
   {
     "store_number": "507",
@@ -5871,7 +6046,8 @@
     "lat": 36.14553,
     "lng": -115.33549,
     "phone": "702-242-0597",
-    "url": "https://locations.traderjoes.com/nv/las-vegas/284/"
+    "url": "https://locations.traderjoes.com/nv/las-vegas/284/",
+    "neighborhood": "Downtown Summerlin"
   },
   {
     "store_number": "619",
@@ -5904,7 +6080,8 @@
     "lat": 30.2675,
     "lng": -97.75279,
     "phone": "512-474-2263",
-    "url": "https://locations.traderjoes.com/tx/austin/452/"
+    "url": "https://locations.traderjoes.com/tx/austin/452/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "404",
@@ -5926,7 +6103,8 @@
     "lat": 38.00493,
     "lng": -84.51851,
     "phone": "859-277-0144",
-    "url": "https://locations.traderjoes.com/ky/lexington/626/"
+    "url": "https://locations.traderjoes.com/ky/lexington/626/",
+    "neighborhood": "Lansdowne (wine)"
   },
   {
     "store_number": "352",
@@ -5959,7 +6137,8 @@
     "lat": 32.88057,
     "lng": -96.77228,
     "phone": "214-346-6579",
-    "url": "https://locations.traderjoes.com/tx/dallas/401/"
+    "url": "https://locations.traderjoes.com/tx/dallas/401/",
+    "neighborhood": "Preston Hollow"
   },
   {
     "store_number": "740",
@@ -5992,7 +6171,8 @@
     "lat": 32.82254,
     "lng": -96.78975,
     "phone": "214-599-2155",
-    "url": "https://locations.traderjoes.com/tx/dallas/400/"
+    "url": "https://locations.traderjoes.com/tx/dallas/400/",
+    "neighborhood": "Knox-Henderson"
   },
   {
     "store_number": "661",
@@ -6014,7 +6194,8 @@
     "lat": 39.72883,
     "lng": -104.94025,
     "phone": "303-321-1003",
-    "url": "https://locations.traderjoes.com/co/denver/300/"
+    "url": "https://locations.traderjoes.com/co/denver/300/",
+    "neighborhood": "Hilltop"
   },
   {
     "store_number": "222",
@@ -6025,7 +6206,8 @@
     "lat": 32.76616,
     "lng": -117.15517,
     "phone": "619-297-0749",
-    "url": "https://locations.traderjoes.com/ca/san-diego/222/"
+    "url": "https://locations.traderjoes.com/ca/san-diego/222/",
+    "neighborhood": "Mission Valley"
   },
   {
     "store_number": "764",
@@ -6047,7 +6229,8 @@
     "lat": 40.75967,
     "lng": -111.8726,
     "phone": "801-359-2462",
-    "url": "https://locations.traderjoes.com/ut/salt-lake-city/350/"
+    "url": "https://locations.traderjoes.com/ut/salt-lake-city/350/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "675",
@@ -6069,7 +6252,8 @@
     "lat": 34.07117,
     "lng": -118.37707,
     "phone": "310-248-2984",
-    "url": "https://locations.traderjoes.com/ca/los-angeles/237/"
+    "url": "https://locations.traderjoes.com/ca/los-angeles/237/",
+    "neighborhood": "Beverly Grove"
   },
   {
     "store_number": "200",
@@ -6080,7 +6264,8 @@
     "lat": 37.79065,
     "lng": -122.41799,
     "phone": "415-292-7665",
-    "url": "https://locations.traderjoes.com/ca/san-francisco/200/"
+    "url": "https://locations.traderjoes.com/ca/san-francisco/200/",
+    "neighborhood": "Nob Hill"
   },
   {
     "store_number": "563",
@@ -6102,7 +6287,8 @@
     "lat": 39.72904,
     "lng": -104.94029,
     "phone": "303-321-3245",
-    "url": "https://locations.traderjoes.com/co/denver/310/"
+    "url": "https://locations.traderjoes.com/co/denver/310/",
+    "neighborhood": "Hilltop (wine)"
   },
   {
     "store_number": "776",
@@ -6201,7 +6387,8 @@
     "lat": 40.73004,
     "lng": -73.85037,
     "phone": "718-544-8589",
-    "url": "https://locations.traderjoes.com/ny/queens/578/"
+    "url": "https://locations.traderjoes.com/ny/queens/578/",
+    "neighborhood": "Forest Hills"
   },
   {
     "store_number": "709",
@@ -6223,7 +6410,8 @@
     "lat": 34.01577,
     "lng": -118.49197,
     "phone": "310-912-6877",
-    "url": "https://locations.traderjoes.com/ca/santa-monica/256/"
+    "url": "https://locations.traderjoes.com/ca/santa-monica/256/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "773",
@@ -6245,7 +6433,8 @@
     "lat": 40.79071,
     "lng": -73.96951,
     "phone": "212-678-1680",
-    "url": "https://locations.traderjoes.com/ny/new-york/545/"
+    "url": "https://locations.traderjoes.com/ny/new-york/545/",
+    "neighborhood": "Upper West Side"
   },
   {
     "store_number": "780",
@@ -6278,7 +6467,8 @@
     "lat": 48.76213,
     "lng": -122.46392,
     "phone": "360-734-5166",
-    "url": "https://locations.traderjoes.com/wa/bellingham/151/"
+    "url": "https://locations.traderjoes.com/wa/bellingham/151/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "283",
@@ -6322,7 +6512,8 @@
     "lat": 45.46617,
     "lng": -122.75088,
     "phone": "503-244-4625",
-    "url": "https://locations.traderjoes.com/or/portland/168/"
+    "url": "https://locations.traderjoes.com/or/portland/168/",
+    "neighborhood": "Garden Home"
   },
   {
     "store_number": "226",
@@ -6333,7 +6524,8 @@
     "lat": 37.77811,
     "lng": -122.42626,
     "phone": "415-718-0175",
-    "url": "https://locations.traderjoes.com/ca/san-francisco/226/"
+    "url": "https://locations.traderjoes.com/ca/san-francisco/226/",
+    "neighborhood": "Hayes Valley"
   },
   {
     "store_number": "271",
@@ -6344,7 +6536,8 @@
     "lat": 45.7229,
     "lng": -122.66074,
     "phone": "360-512-2792",
-    "url": "https://locations.traderjoes.com/wa/vancouver/271/"
+    "url": "https://locations.traderjoes.com/wa/vancouver/271/",
+    "neighborhood": "Salmon Creek"
   },
   {
     "store_number": "500",
@@ -6355,7 +6548,8 @@
     "lat": 42.35037,
     "lng": -71.07447,
     "phone": "617-693-6302",
-    "url": "https://locations.traderjoes.com/ma/boston/500/"
+    "url": "https://locations.traderjoes.com/ma/boston/500/",
+    "neighborhood": "Back Bay (Copley)"
   },
   {
     "store_number": "804",
@@ -6377,7 +6571,8 @@
     "lat": 40.81389,
     "lng": -73.96243,
     "phone": "646-337-1986",
-    "url": "https://locations.traderjoes.com/ny/new-york/576/"
+    "url": "https://locations.traderjoes.com/ny/new-york/576/",
+    "neighborhood": "Harlem"
   },
   {
     "store_number": "258",
@@ -6432,7 +6627,8 @@
     "lat": 39.40245,
     "lng": -119.75224,
     "phone": "775-249-6301",
-    "url": "https://locations.traderjoes.com/nv/reno/278/"
+    "url": "https://locations.traderjoes.com/nv/reno/278/",
+    "neighborhood": "South Meadows"
   },
   {
     "store_number": "623",
@@ -6443,7 +6639,8 @@
     "lat": 38.98962,
     "lng": -77.0957,
     "phone": "301-215-7913",
-    "url": "https://locations.traderjoes.com/md/bethesda/623/"
+    "url": "https://locations.traderjoes.com/md/bethesda/623/",
+    "neighborhood": "Old Georgetown"
   },
   {
     "store_number": "279",
@@ -6465,7 +6662,8 @@
     "lat": 33.87969,
     "lng": -84.38159,
     "phone": "770-678-7294",
-    "url": "https://locations.traderjoes.com/ga/sandy-springs/799/"
+    "url": "https://locations.traderjoes.com/ga/sandy-springs/799/",
+    "neighborhood": "South / Lockwood"
   },
   {
     "store_number": "312",
@@ -6509,7 +6707,8 @@
     "lat": 40.72395,
     "lng": -111.87223,
     "phone": "801-720-8834",
-    "url": "https://locations.traderjoes.com/ut/salt-lake-city/354/"
+    "url": "https://locations.traderjoes.com/ut/salt-lake-city/354/",
+    "neighborhood": "Sugar House"
   },
   {
     "store_number": "265",
@@ -6542,7 +6741,8 @@
     "lat": 34.15733,
     "lng": -118.44132,
     "phone": "747-245-6608",
-    "url": "https://locations.traderjoes.com/ca/sherman-oaks/267/"
+    "url": "https://locations.traderjoes.com/ca/sherman-oaks/267/",
+    "neighborhood": "Riverside Dr (wine)"
   },
   {
     "store_number": "812",
@@ -6553,7 +6753,8 @@
     "lat": 32.83043,
     "lng": -79.82584,
     "phone": "854-223-5830",
-    "url": "https://locations.traderjoes.com/sc/mt-pleasant/812/"
+    "url": "https://locations.traderjoes.com/sc/mt-pleasant/812/",
+    "neighborhood": "Park West"
   },
   {
     "store_number": "548",
@@ -6564,7 +6765,8 @@
     "lat": 40.71772,
     "lng": -73.96468,
     "phone": "718-218-7315",
-    "url": "https://locations.traderjoes.com/ny/brooklyn/548/"
+    "url": "https://locations.traderjoes.com/ny/brooklyn/548/",
+    "neighborhood": "Williamsburg"
   },
   {
     "store_number": "817",
@@ -6586,7 +6788,8 @@
     "lat": 35.89795,
     "lng": -78.68279,
     "phone": "984-252-3344",
-    "url": "https://locations.traderjoes.com/nc/raleigh/748/"
+    "url": "https://locations.traderjoes.com/nc/raleigh/748/",
+    "neighborhood": "Brier Creek"
   },
   {
     "store_number": "263",
@@ -6597,7 +6800,8 @@
     "lat": 34.39565,
     "lng": -118.46222,
     "phone": "661-276-1430",
-    "url": "https://locations.traderjoes.com/ca/santa-clarita/263/"
+    "url": "https://locations.traderjoes.com/ca/santa-clarita/263/",
+    "neighborhood": "Canyon Country"
   },
   {
     "store_number": "4",
@@ -6652,7 +6856,8 @@
     "lat": 40.75966,
     "lng": -73.96154,
     "phone": "212-935-3870",
-    "url": "https://locations.traderjoes.com/ny/new-york/571/"
+    "url": "https://locations.traderjoes.com/ny/new-york/571/",
+    "neighborhood": "Bridgemarket / E 59th"
   },
   {
     "store_number": "794",
@@ -6663,7 +6868,8 @@
     "lat": 25.80688,
     "lng": -80.19266,
     "phone": "786-422-0606",
-    "url": "https://locations.traderjoes.com/fl/miami/794/"
+    "url": "https://locations.traderjoes.com/fl/miami/794/",
+    "neighborhood": "Midtown / Wynwood"
   },
   {
     "store_number": "228",
@@ -6740,7 +6946,8 @@
     "lat": 38.90716,
     "lng": -104.8169,
     "phone": "719-266-6838",
-    "url": "https://locations.traderjoes.com/co/colorado-springs/315/"
+    "url": "https://locations.traderjoes.com/co/colorado-springs/315/",
+    "neighborhood": "University Village (wine)"
   },
   {
     "store_number": "792",
@@ -6784,7 +6991,8 @@
     "lat": 37.78533,
     "lng": -122.40567,
     "phone": "415-536-7801",
-    "url": "https://locations.traderjoes.com/ca/san-francisco/225/"
+    "url": "https://locations.traderjoes.com/ca/san-francisco/225/",
+    "neighborhood": "Yerba Buena"
   },
   {
     "store_number": "460",
@@ -6806,7 +7014,8 @@
     "lat": 39.0288,
     "lng": -84.57711,
     "phone": "859-331-0034",
-    "url": "https://locations.traderjoes.com/ky/crestview-hills/788/"
+    "url": "https://locations.traderjoes.com/ky/crestview-hills/788/",
+    "neighborhood": "Dixie Hwy"
   },
   {
     "store_number": "197",
@@ -6839,7 +7048,8 @@
     "lat": 40.74584,
     "lng": -73.9462,
     "phone": "718-472-2672",
-    "url": "https://locations.traderjoes.com/ny/queens/565/"
+    "url": "https://locations.traderjoes.com/ny/queens/565/",
+    "neighborhood": "Long Island City"
   },
   {
     "store_number": "164",
@@ -6850,7 +7060,8 @@
     "lat": 47.7089,
     "lng": -117.4093,
     "phone": "509-487-4188",
-    "url": "https://locations.traderjoes.com/wa/spokane/164/"
+    "url": "https://locations.traderjoes.com/wa/spokane/164/",
+    "neighborhood": "North Division"
   },
   {
     "store_number": "544",
@@ -6861,7 +7072,8 @@
     "lat": 40.74399,
     "lng": -73.97908,
     "phone": "212-889-3279",
-    "url": "https://locations.traderjoes.com/ny/new-york/544/"
+    "url": "https://locations.traderjoes.com/ny/new-york/544/",
+    "neighborhood": "Murray Hill"
   },
   {
     "store_number": "53",
@@ -6883,7 +7095,8 @@
     "lat": 38.91605,
     "lng": -77.03219,
     "phone": "202-986-1591",
-    "url": "https://locations.traderjoes.com/ny/new-york/662/"
+    "url": "https://locations.traderjoes.com/ny/new-york/662/",
+    "neighborhood": "U Street / Logan"
   },
   {
     "store_number": "600",
@@ -6905,7 +7118,8 @@
     "lat": 47.61373,
     "lng": -122.18482,
     "phone": "425-454-9799",
-    "url": "https://locations.traderjoes.com/wa/bellevue/162/"
+    "url": "https://locations.traderjoes.com/wa/bellevue/162/",
+    "neighborhood": "Downtown"
   },
   {
     "store_number": "461",
@@ -6927,7 +7141,8 @@
     "lat": 40.69099,
     "lng": -73.98292,
     "phone": "718-243-0107",
-    "url": "https://locations.traderjoes.com/ny/brooklyn/547/"
+    "url": "https://locations.traderjoes.com/ny/brooklyn/547/",
+    "neighborhood": "Downtown Brooklyn"
   },
   {
     "store_number": "407",
@@ -6938,7 +7153,8 @@
     "lat": 32.95087,
     "lng": -96.80282,
     "phone": "972-239-3901",
-    "url": "https://locations.traderjoes.com/tx/dallas/407/"
+    "url": "https://locations.traderjoes.com/tx/dallas/407/",
+    "neighborhood": "Far North Dallas"
   },
   {
     "store_number": "737",
@@ -6982,7 +7198,8 @@
     "lat": 34.09059,
     "lng": -118.34921,
     "phone": "323-969-8048",
-    "url": "https://locations.traderjoes.com/ca/west-hollywood/40/"
+    "url": "https://locations.traderjoes.com/ca/west-hollywood/40/",
+    "neighborhood": "Central WeHo"
   },
   {
     "store_number": "768",
@@ -6993,7 +7210,8 @@
     "lat": 28.4503,
     "lng": -81.49659,
     "phone": "407-345-0611",
-    "url": "https://locations.traderjoes.com/fl/orlando/768/"
+    "url": "https://locations.traderjoes.com/fl/orlando/768/",
+    "neighborhood": "Sand Lake / Dr. Phillips"
   },
   {
     "store_number": "253",
@@ -7004,7 +7222,8 @@
     "lat": 34.03337,
     "lng": -118.48047,
     "phone": "310-264-2223",
-    "url": "https://locations.traderjoes.com/ca/santa-monica/253/"
+    "url": "https://locations.traderjoes.com/ca/santa-monica/253/",
+    "neighborhood": "Wilshire"
   },
   {
     "store_number": "789",
@@ -7015,7 +7234,8 @@
     "lat": 39.02611,
     "lng": -84.57732,
     "phone": "859-331-1472",
-    "url": "https://locations.traderjoes.com/ky/crestview-hills/789/"
+    "url": "https://locations.traderjoes.com/ky/crestview-hills/789/",
+    "neighborhood": "Dixie Hwy (wine)"
   },
   {
     "store_number": "705",
@@ -7103,7 +7323,8 @@
     "lat": 32.96114,
     "lng": -117.1914,
     "phone": "858-755-7130",
-    "url": "https://locations.traderjoes.com/ca/san-diego/223/"
+    "url": "https://locations.traderjoes.com/ca/san-diego/223/",
+    "neighborhood": "Carmel Valley"
   },
   {
     "store_number": "782",
