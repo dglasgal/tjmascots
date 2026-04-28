@@ -237,7 +237,8 @@ function RecentCard({ mascot }: { mascot: RawMascot }) {
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={photo}
-            alt={mascot.name || mascot.animal}
+            alt={`${mascot.name || 'Unnamed'} the ${mascot.animal} at Trader Joe's ${mascot.store}`}
+            loading="lazy"
             className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.03]"
           />
         ) : (

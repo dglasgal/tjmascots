@@ -129,7 +129,10 @@ function PreviousMascots({ items }: { items: Mascot[] }) {
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   src={photoUrl(m.photo) || ''}
-                  alt={`${m.name || 'Unnamed'} the ${m.animal || 'mascot'}`}
+                  alt={`${m.name || 'Unnamed'} the ${m.animal || 'mascot'} (retired)`}
+                  loading="lazy"
+                  width={48}
+                  height={48}
                   className="h-12 w-12 flex-shrink-0 rounded-full border-2 border-dashed border-[var(--ink-soft)] object-cover opacity-80 grayscale"
                 />
               ) : (

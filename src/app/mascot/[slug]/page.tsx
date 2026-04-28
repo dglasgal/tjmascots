@@ -31,6 +31,7 @@ import { photoUrl } from '@/lib/data';
 import { SITE_URL } from '@/lib/site-url';
 import { formatStoreLabel, formatStoreLocation } from '@/lib/store-label';
 import MallardHead from '@/components/MallardHead';
+import Breadcrumbs, { type Crumb } from '@/components/Breadcrumbs';
 
 interface RawMascot {
   id: number;
@@ -201,6 +202,16 @@ export default async function MascotPage({
 
       <main className="flex-1 overflow-y-auto bg-[var(--cream)]">
         <div className="mx-auto max-w-3xl px-6 py-10 max-sm:px-4 sm:py-12">
+          <Breadcrumbs
+            className="mb-6"
+            items={[
+              { label: 'Map', href: '/' },
+              { label: stateName(m.state) || m.state, href: `/state/${stateSlug(m.state)}` },
+              ...(store?.city ? [{ label: store.city } as Crumb] : []),
+              { label: displayName },
+            ]}
+          />
+
           {/* Animal type label */}
           <div className="text-center text-xs font-extrabold uppercase tracking-[0.3em] text-[var(--accent)]">
             {m.animal}
@@ -300,6 +311,13 @@ export default async function MascotPage({
             </Link>
           </div>
 
+          {/* Other mascots in the same city/state — internal-linking
+              boost for SEO + helps visitors keep clicking around.
+              Prefers same-city peers when there are any (so multi-store
+              cities like Long Beach show their other mascots), falls
+              back to same-state peers otherwise. */}
+          <RelatedMascots current={m} store={store ?? null} />
+
           <footer className="mt-16 border-t border-[var(--cream-dark)] pt-6 text-center text-xs font-semibold text-[var(--ink-soft)]">
             A fan project. Unaffiliated with Trader Joe&apos;s Company.
           </footer>
@@ -321,6 +339,94 @@ export default async function MascotPage({
 function truncate(s: string, max: number): string {
   if (s.length <= max) return s;
   return s.slice(0, max - 1).replace(/\s+\S*$/, '') + '…';
+}
+
+/** Renders a small grid of related mascots for SEO-juicy internal
+ *  linking + cross-discovery. Prefers same-city peers so visitors on
+ *  the Bixby page see McQuackers et al.; falls back to same-state. */
+function RelatedMascots({
+  current,
+  store,
+}: {
+  current: RawMascot;
+  store: Store | null;
+}) {
+  const sameCity = store
+    ? activeMascots.filter(
+        (x) =>
+          x.id !== current.id &&
+          x.store_number &&
+          storesByNum.get(x.store_number)?.city === store.city,
+      )
+    : [];
+  const sameState = activeMascots.filter(
+    (x) => x.id !== current.id && x.state === current.state,
+  );
+  // Prefer city peers; if there are fewer than 3, top up with state peers.
+  const seen = new Set<number>();
+  const picked: RawMascot[] = [];
+  for (const m of [...sameCity, ...sameState]) {
+    if (seen.has(m.id)) continue;
+    seen.add(m.id);
+    picked.push(m);
+    if (picked.length >= 6) break;
+  }
+  if (picked.length === 0) return null;
+  const heading =
+    sameCity.length > 0
+      ? `More mascots in ${store?.city}`
+      : `More mascots in ${stateName(current.state) || current.state}`;
+  return (
+    <section className="mt-16 border-t-2 border-[var(--cream-dark)] pt-8">
+      <h3 className="mb-5 text-center font-display text-2xl font-extrabold text-[var(--ink)]">
+        {heading}
+      </h3>
+      <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+        {picked.map((m) => {
+          const photo = m.has_photo && m.photo ? photoUrl(m.photo) : null;
+          const peerStore = m.store_number ? storesByNum.get(m.store_number) : null;
+          return (
+            <Link
+              key={m.id}
+              href={`/mascot/${slugForMascot(m)}`}
+              className="group flex items-center gap-3 rounded-2xl bg-[var(--cream-dark)] p-3 transition hover:-translate-y-px hover:bg-[var(--cream)] hover:shadow-card"
+            >
+              <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-[var(--cream)] text-2xl">
+                {photo ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src={photo}
+                    alt={`${m.name || 'Unnamed'} the ${m.animal}`}
+                    loading="lazy"
+                    width={56}
+                    height={56}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  emojiForAnimal(m.animal)
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--ink-soft)]">
+                  {m.animal}
+                </div>
+                <div className="truncate font-display text-base font-extrabold text-[var(--tj-red)] group-hover:underline">
+                  {m.name || `Unnamed ${m.animal}`}
+                </div>
+                {peerStore && (
+                  <div className="truncate text-[11px] font-bold text-[var(--ink-soft)]">
+                    {peerStore.neighborhood
+                      ? `${peerStore.city} — ${peerStore.neighborhood}`
+                      : peerStore.city}
+                  </div>
+                )}
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
 }
 
 function sourceLabel(url: string): string {
