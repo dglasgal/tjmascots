@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Mascot, Store } from '@/lib/types';
 import { photoUrl } from '@/lib/data';
 import { slugForMascot } from '@/lib/slug';
+import { formatStoreLabel } from '@/lib/store-label';
 import ReportModal from './ReportModal';
 import PhotoLightbox from './PhotoLightbox';
 import ShareButton from './ShareButton';
@@ -206,7 +207,7 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
         </h2>
         <div className="mb-1 flex items-baseline gap-2 text-base font-bold">
           <span>
-            {m.store}
+            {formatStoreLabel({ city: m.city ?? m.store, neighborhood: m.neighborhood })}
             {m.state && (
               <span className="font-semibold text-[var(--ink-soft)]">, {m.state}</span>
             )}
@@ -255,7 +256,8 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
             hasPhoto={Boolean(m.has_photo)}
             displayName={m.name || 'Unnamed mascot'}
             animal={m.animal || 'mascot'}
-            city={m.store}
+            city={m.city ?? m.store}
+            neighborhood={m.neighborhood}
             storeNumber={m.store_number ?? null}
           />
           <button
@@ -300,7 +302,7 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
           Mascot unknown
         </div>
         <h2 className="my-1.5 font-display text-4xl font-extrabold leading-tight text-[var(--tj-red)] max-sm:text-3xl">
-          TJ&apos;s {s.city}
+          {formatStoreLabel(s)}
         </h2>
         <div className="mb-1 text-base font-bold">Store #{s.store_number}</div>
         <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
@@ -315,6 +317,7 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
             displayName="the mascot"
             animal="mascot"
             city={s.city}
+            neighborhood={s.neighborhood}
             storeNumber={s.store_number}
           />
         </div>

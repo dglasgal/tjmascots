@@ -5,6 +5,7 @@ import storesData from '@/data/tj-stores.json';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { slugForMascot, spotterSlugMap } from '@/lib/slug';
+import { formatStoreLocation } from '@/lib/store-label';
 import type { Store } from '@/lib/types';
 import MallardHead from '@/components/MallardHead';
 
@@ -238,7 +239,9 @@ function SpotterMascotCard({ mascot }: { mascot: RawMascot }) {
         </div>
         <div className="mt-1 flex items-center gap-1.5 text-[12px] font-bold text-[var(--ink)]">
           <span className="truncate">
-            {store ? `${store.city}, ${store.state}` : `${mascot.store}, ${mascot.state}`}
+            {store
+              ? `${formatStoreLocation(store)}, ${store.state}`
+              : `${mascot.store}, ${mascot.state}`}
           </span>
           {mascot.store_number && (
             <span className="flex-shrink-0 rounded-full bg-[var(--tj-red)] px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[var(--cream)]">

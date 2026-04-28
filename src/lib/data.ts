@@ -48,6 +48,8 @@ function enrichWithEmoji(m: LocalMascot, storeMatch?: Store): Mascot {
     street: storeMatch?.street,
     zip: storeMatch?.zip,
     store_number: storeMatch?.store_number ?? null,
+    city: storeMatch?.city ?? m.store,
+    neighborhood: storeMatch?.neighborhood,
     emoji: emojiForAnimal(m.animal),
     created_at: m.created_at,
     submitted_by: m.submitted_by ?? null,

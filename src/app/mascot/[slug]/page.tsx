@@ -29,6 +29,7 @@ import { stateName, stateSlug } from '@/lib/state';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { SITE_URL } from '@/lib/site-url';
+import { formatStoreLabel, formatStoreLocation } from '@/lib/store-label';
 import MallardHead from '@/components/MallardHead';
 
 interface RawMascot {
@@ -78,7 +79,10 @@ export async function generateMetadata({
   if (!m) return { title: 'Mascot not found — TJ Mascots' };
 
   const store = m.store_number ? storesByNum.get(m.store_number) : null;
-  const storeLabel = store ? `${store.city}, ${store.state}` : `${m.store}, ${m.state}`;
+  const cityHood = store
+    ? { city: store.city, neighborhood: store.neighborhood }
+    : { city: m.store, neighborhood: undefined };
+  const storeLabel = `${formatStoreLocation(cityHood)}, ${m.state}`;
   const storeNum = m.store_number ? ` (Store #${m.store_number})` : '';
   const displayName = m.name || `Unnamed ${m.animal}`;
 
@@ -124,7 +128,12 @@ export default async function MascotPage({
   const photoSrc = m.has_photo && m.photo ? photoUrl(m.photo) : null;
   const emoji = emojiForAnimal(m.animal);
   const displayName = m.name || `Unnamed ${m.animal}`;
-  const storeLabel = store ? `${store.city}, ${store.state}` : `${m.store}, ${m.state}`;
+  const cityHood = store
+    ? { city: store.city, neighborhood: store.neighborhood }
+    : { city: m.store, neighborhood: undefined };
+  const storeLabel = `${formatStoreLocation(cityHood)}, ${m.state}`;
+  // Without "TJ's" suffix for inline narrative use; with for headline.
+  const storeHeadline = formatStoreLabel(cityHood);
 
   // JSON-LD structured data — helps Google understand the page is about
   // a specific physical place (the store) and the mascot living there.
@@ -227,7 +236,7 @@ export default async function MascotPage({
           {/* Store */}
           <div className="mt-8 text-center">
             <div className="font-display text-2xl font-extrabold text-[var(--ink)]">
-              Trader Joe&apos;s {storeLabel}
+              {storeHeadline}
               {m.store_number && (
                 <span className="ml-2 inline-block rounded-full bg-[var(--tj-red)] px-2.5 py-1 align-middle text-xs font-extrabold uppercase tracking-wider text-[var(--cream)]">
                   Store #{m.store_number}
