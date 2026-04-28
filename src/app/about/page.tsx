@@ -48,6 +48,8 @@ export default function AboutPage() {
         trademark of Trader Joe&apos;s Company.{' '}
         <Link href="/faq" className="underline underline-offset-2 hover:text-[var(--tj-red)]">FAQ</Link>
         {' · '}
+        <Link href="/animal" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Animals</Link>
+        {' · '}
         <Link href="/data" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Data</Link>
         {' · '}
         <Link href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Privacy</Link>
