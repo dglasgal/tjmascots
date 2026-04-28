@@ -8,6 +8,7 @@ import { photoUrl } from '@/lib/data';
 import { slugForMascot } from '@/lib/slug';
 import { stateName, stateSlug } from '@/lib/state';
 import { SITE_URL } from '@/lib/site-url';
+import { formatStreetAddress } from '@/lib/store-label';
 import type { Store } from '@/lib/types';
 import MallardHead from '@/components/MallardHead';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -240,7 +241,12 @@ export default async function CityPage({
                         </div>
                       )}
                       <div className="mt-1.5 text-[11px] text-[var(--ink-soft)]">
-                        {store.street} · {store.zip}
+                        {formatStreetAddress({
+                          street: store.street,
+                          city: store.city,
+                          state: store.state,
+                          zip: store.zip,
+                        })}
                       </div>
                       <div className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[var(--ink-soft)]">
                         Store #{store.store_number}

@@ -46,6 +46,31 @@ export function formatStoreLocation(
 }
 
 /**
+ * Format a real-world US-style street address: "1820 E Arbors Dr,
+ * Charlotte, NC 28262". Used in the address line on store/mascot
+ * cards. Gracefully drops any missing pieces — e.g. if `street` is
+ * blank, returns "Charlotte, NC 28262"; if `zip` is missing, returns
+ * "1820 E Arbors Dr, Charlotte, NC".
+ */
+export function formatStreetAddress(parts: {
+  street?: string | null;
+  city?: string | null;
+  state?: string | null;
+  zip?: string | null;
+}): string {
+  const street = (parts.street || '').trim();
+  const city = (parts.city || '').trim();
+  const state = (parts.state || '').trim();
+  const zip = (parts.zip || '').trim();
+  // "NC 28262" — single space, no comma between state and zip
+  const stateZip = [state, zip].filter(Boolean).join(' ');
+  // "Charlotte, NC 28262" — comma between city and state-zip block
+  const cityLine = [city, stateZip].filter(Boolean).join(', ');
+  // "1820 E Arbors Dr, Charlotte, NC 28262" — street prepended with comma
+  return [street, cityLine].filter(Boolean).join(', ');
+}
+
+/**
  * Convenience: produce a store label for a mascot record. When we have
  * a matching Store record (from tj-stores.json), use its city +
  * neighborhood for the canonical formatted label. When we don't (rare

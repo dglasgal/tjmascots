@@ -42,6 +42,7 @@ import {
   verifyGithubPat,
 } from '@/lib/github';
 import { publishApproval, type PublishResult } from '@/lib/auto-publish';
+import { formatStreetAddress } from '@/lib/store-label';
 import storesData from '@/data/tj-stores.json';
 import type { Store } from '@/lib/types';
 import MallardHead from '@/components/MallardHead';
@@ -559,7 +560,12 @@ function SubmissionCard({
                   Store #{storeMatch.store_number}
                 </span>
                 <div className="text-[12px] font-semibold text-[var(--ink-soft)]">
-                  {storeMatch.street} · {storeMatch.zip}
+                  {formatStreetAddress({
+                    street: storeMatch.street,
+                    city: storeMatch.city,
+                    state: storeMatch.state,
+                    zip: storeMatch.zip,
+                  })}
                 </div>
               </>
             ) : (

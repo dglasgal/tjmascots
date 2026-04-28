@@ -29,7 +29,7 @@ import { stateName, stateSlug } from '@/lib/state';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { SITE_URL } from '@/lib/site-url';
-import { formatStoreLabel, formatStoreLocation } from '@/lib/store-label';
+import { formatStoreLabel, formatStoreLocation, formatStreetAddress } from '@/lib/store-label';
 import MallardHead from '@/components/MallardHead';
 import Breadcrumbs, { type Crumb } from '@/components/Breadcrumbs';
 
@@ -260,7 +260,12 @@ export default async function MascotPage({
             </div>
             {store && (
               <div className="mt-1 text-sm font-semibold text-[var(--ink-soft)]">
-                {[store.street, store.zip, store.state].filter(Boolean).join(' · ')}
+                {formatStreetAddress({
+                  street: store.street,
+                  city: store.city,
+                  state: store.state,
+                  zip: store.zip,
+                })}
               </div>
             )}
           </div>

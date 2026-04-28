@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Mascot, Store } from '@/lib/types';
 import { photoUrl } from '@/lib/data';
 import { slugForMascot } from '@/lib/slug';
-import { formatStoreLabel } from '@/lib/store-label';
+import { formatStoreLabel, formatStreetAddress } from '@/lib/store-label';
 import ReportModal from './ReportModal';
 import PhotoLightbox from './PhotoLightbox';
 import ShareButton from './ShareButton';
@@ -218,9 +218,14 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
             </span>
           )}
         </div>
-        {(m.street || m.zip || m.state) && (
+        {(m.street || m.zip || m.state || m.city) && (
           <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
-            {[m.street, m.zip, m.state].filter(Boolean).join(' · ')}
+            {formatStreetAddress({
+              street: m.street,
+              city: m.city ?? m.store,
+              state: m.state,
+              zip: m.zip,
+            })}
           </div>
         )}
         {m.submitted_by && (
@@ -309,7 +314,12 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
         </h2>
         <div className="mb-1 text-base font-bold">Store #{s.store_number}</div>
         <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
-          {[s.street, s.zip, s.state].filter(Boolean).join(' · ')}
+          {formatStreetAddress({
+            street: s.street,
+            city: s.city,
+            state: s.state,
+            zip: s.zip,
+          })}
         </div>
         <div className="border-t-2 border-dashed border-[var(--cream-dark)] py-3.5 text-[15px] leading-[1.55] text-[var(--ink-soft)]">
           No mascot on file for this store yet. If you&apos;ve spotted one, please share!
