@@ -4484,6 +4484,21 @@
       "store_number": "648",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 387,
+      "store": "Chandler",
+      "state": "AZ",
+      "animal": "Ostrich",
+      "name": "Rosie",
+      "notes": "Rosie the Ostrich, the resident mascot at Trader Joe's Chandler. If you spot her, please upload a better photo!",
+      "photo": "387.png",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "287",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
