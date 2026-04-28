@@ -95,20 +95,72 @@ export default function MascotOfTheDay({ mascots, hidden, onPick }: MascotOfTheD
 
 /* -------------------------- Daily picker -------------------------- */
 
-/** Returns today's mascot. Same date → same mascot for every visitor.
- *  Filters to mascots with photos for visual punch. */
+const MOTD_DATE_KEY = 'tjmascots:motd-date';
+const MOTD_ID_KEY = 'tjmascots:motd-id';
+
+/** Returns today's mascot. Sticks for the visitor's full local day even
+ *  if we publish new mascots in the meantime (which would otherwise
+ *  shift the deterministic `days_since_epoch % count` pick to a
+ *  different entry).
+ *
+ *  Implementation:
+ *   1. If localStorage has a pick from today's date, return that mascot.
+ *   2. Otherwise, deterministically pick one (date × id-sorted index)
+ *      and cache it for the rest of today.
+ *
+ *  Filters to mascots with real photos for visual punch.
+ */
 function pickTodaysMascot(mascots: Mascot[]): Mascot | null {
   const eligible = mascots.filter((m) => m.has_photo && m.photo);
   if (eligible.length === 0) return null;
-  const seed = daysSinceEpoch();
-  // Sort by id for a stable order independent of array order changes
+
+  const today = todayLocalISODate();
+
+  // Try to honor a cached pick from earlier today.
+  if (typeof window !== 'undefined') {
+    try {
+      const cachedDate = window.localStorage.getItem(MOTD_DATE_KEY);
+      const cachedId = window.localStorage.getItem(MOTD_ID_KEY);
+      if (cachedDate === today && cachedId) {
+        const found = eligible.find((m) => String(m.id) === cachedId);
+        if (found) return found;
+      }
+    } catch {
+      // localStorage may be blocked (private mode, etc.); fall through
+      // to the deterministic pick.
+    }
+  }
+
+  // Fresh deterministic pick. Sort by id so the order is stable
+  // regardless of catalog insertion order.
   const sorted = [...eligible].sort((a, b) => a.id - b.id);
-  return sorted[seed % sorted.length];
+  const picked = sorted[daysSinceEpoch() % sorted.length];
+
+  if (typeof window !== 'undefined') {
+    try {
+      window.localStorage.setItem(MOTD_DATE_KEY, today);
+      window.localStorage.setItem(MOTD_ID_KEY, String(picked.id));
+    } catch {
+      // ignore — picker still works without persistence
+    }
+  }
+  return picked;
 }
 
-/** Number of UTC days since Unix epoch — flips at midnight UTC.
- *  Using UTC keeps the rotation consistent across visitor timezones
- *  (matters for caching too). */
+/** Local-time YYYY-MM-DD — the cache key. We use local time (not UTC)
+ *  so a visitor seeing the sticker at 11pm and again at 1am sees
+ *  different mascots only when their own day flips, matching their
+ *  real-world expectation of "today." */
+function todayLocalISODate(): string {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+/** Number of UTC days since Unix epoch — used as the deterministic
+ *  selection seed for first-of-day visitors. */
 function daysSinceEpoch(): number {
   return Math.floor(Date.now() / 86_400_000);
 }
