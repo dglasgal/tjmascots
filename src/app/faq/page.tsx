@@ -59,12 +59,12 @@ const FAQS: { q: string; a: string }[] = [
     a: "Some stores don't have a mascot at all — the practice varies by store and by era. Others have mascots but no shopper has photographed them yet. Help us fill in the map: next time you're in a TJ that's missing one, look behind the bananas, snap a pic, and submit it.",
   },
   {
-    q: "Why does each mascot get a Hawaiian shirt or a name?",
-    a: "Trader Joe's leans into a tropical / nautical theme (the \"trader\" comes from Joe Coulombe's interest in Polynesian-themed restaurants in 1960s LA), and individual stores extend that with their own crew traditions. Naming the mascot is left to each store's crew.",
+    q: "Why does every Trader Joe's have a different mascot?",
+    a: "Each Trader Joe's has a different mascot meant to represent the store and its community. Crews pick them to fit something local — a sea turtle for a coastal store, a longhorn for a Texas one, a beagle for a dog-loving neighborhood. Naming, dressing (Hawaiian shirts are big), and hiding the mascot is a tradition each store makes its own.",
   },
   {
     q: "How do I find the mascot in my local store?",
-    a: "Most are tucked above eye level — on top of refrigerator cases, in the windows, or peeking out from a shelf. They're usually near produce or near the registers. Crew members are friendly about pointing them out if you ask.",
+    a: "Each mascot hides around the store, often in a different place every day. It's not only a fun hide-and-seek game to play — kids (and, honestly, plenty of adults) may get a little treat if they let a Trader Joe's crew member know where they spotted the store mascot that day. Most mascots are tucked above eye level — on top of refrigerator cases, in the windows, or peeking out from a shelf — and crew members are friendly about pointing them out if you ask.",
   },
 ];
 
