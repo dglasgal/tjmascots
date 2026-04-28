@@ -208,9 +208,6 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
         <div className="mb-1 flex items-baseline gap-2 text-base font-bold">
           <span>
             {formatStoreLabel({ city: m.city ?? m.store, neighborhood: m.neighborhood })}
-            {m.state && (
-              <span className="font-semibold text-[var(--ink-soft)]">, {m.state}</span>
-            )}
           </span>
           {m.store_number && (
             <span className="rounded-full bg-[var(--tj-red)] px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
@@ -218,10 +215,9 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
             </span>
           )}
         </div>
-        {m.street && (
+        {(m.street || m.zip || m.state) && (
           <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
-            {m.street}
-            {m.zip ? ` · ${m.zip}` : ''}
+            {[m.street, m.zip, m.state].filter(Boolean).join(' · ')}
           </div>
         )}
         {m.submitted_by && (
@@ -306,7 +302,7 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
         </h2>
         <div className="mb-1 text-base font-bold">Store #{s.store_number}</div>
         <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
-          {s.street} · {s.city}, {s.state} {s.zip}
+          {[s.street, s.zip, s.state].filter(Boolean).join(' · ')}
         </div>
         <div className="border-t-2 border-dashed border-[var(--cream-dark)] py-3.5 text-[15px] leading-[1.55] text-[var(--ink-soft)]">
           No mascot on file for this store yet. If you&apos;ve spotted one, please share!
