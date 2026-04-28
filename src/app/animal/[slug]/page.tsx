@@ -158,7 +158,7 @@ export default async function AnimalPage({
             className="mb-6"
             items={[
               { label: 'Map', href: '/' },
-              { label: 'Browse by animal' },
+              { label: 'Browse by animal', href: '/animal' },
               { label: animal },
             ]}
           />
