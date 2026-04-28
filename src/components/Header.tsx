@@ -38,7 +38,7 @@ export default function Header({
   // Shorter placeholder on small viewports so the word "Search" stays visible
   // even when the input is squeezed by the brand and submit button.
   const [placeholder, setPlaceholder] = useState(
-    'Search a city, ZIP, mascot name, or animal…',
+    'Search a city, ZIP, mascot, animal, or store #…',
   );
   const inputRef = useRef<HTMLInputElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -51,8 +51,8 @@ export default function Header({
     const update = () => {
       setPlaceholder(
         mq.matches
-          ? 'Search a city, ZIP, mascot name, or animal…'
-          : 'Search city, mascot, or ZIP…',
+          ? 'Search a city, ZIP, mascot, animal, or store #…'
+          : 'Search city, mascot, ZIP, or #…',
       );
     };
     update();
@@ -186,7 +186,7 @@ export default function Header({
             >
               {results.length === 0 ? (
                 <div className="p-4 text-center text-sm font-semibold text-[var(--ink-soft)]">
-                  No matches. Try a city, ZIP, or animal.
+                  No matches. Try a city, ZIP, animal, or store number.
                 </div>
               ) : (
                 results.map((r, i) => (
