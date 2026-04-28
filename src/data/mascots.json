@@ -4514,6 +4514,21 @@
       "store_number": "795",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 389,
+      "store": "Boston",
+      "state": "MA",
+      "animal": "Hot Dog",
+      "name": "Frank",
+      "notes": "Frank the Hot Dog, the resident mascot at Trader Joe's Boston — Back Bay (Prudential). A nod to Fenway Frank country, a few blocks from the ballpark.",
+      "photo": "389.webp",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "510",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
