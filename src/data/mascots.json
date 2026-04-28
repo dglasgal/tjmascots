@@ -4274,6 +4274,21 @@
       "store_number": "289",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 373,
+      "store": "Wilmington",
+      "state": "DE",
+      "animal": "Frog",
+      "name": "Froggy Joe",
+      "notes": "Froggy Joe, the resident frog at Trader Joe's Wilmington (Concord Pike). If you spot him, please upload a better photo!",
+      "photo": "373.png",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "636",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
