@@ -263,9 +263,7 @@ function RecentCard({ mascot }: { mascot: RawMascot }) {
         </div>
         <div className="mt-1 flex items-center gap-1.5 text-[12px] font-bold text-[var(--ink)]">
           <span className="truncate">
-            {store
-              ? `${formatStoreLocation(store)}, ${store.state}`
-              : `${mascot.store}, ${mascot.state}`}
+            {store ? formatStoreLocation(store) : mascot.store}
           </span>
           {mascot.store_number && (
             <span className="flex-shrink-0 rounded-full bg-[var(--tj-red)] px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
