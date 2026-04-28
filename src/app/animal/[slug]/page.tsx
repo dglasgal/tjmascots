@@ -192,8 +192,8 @@ export default async function AnimalPage({
                     const photo = m.has_photo && m.photo ? photoUrl(m.photo) : null;
                     const store = m.store_number ? storesByNum.get(m.store_number) : null;
                     const cityHood = store
-                      ? formatStoreLocation({ city: store.city, neighborhood: store.neighborhood })
-                      : m.store;
+                      ? `${formatStoreLocation({ city: store.city, neighborhood: store.neighborhood })}, ${store.state}`
+                      : `${m.store}${m.state ? `, ${m.state}` : ''}`;
                     return (
                       <li key={m.id}>
                         <Link
