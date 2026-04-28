@@ -194,6 +194,8 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
         Fan project. Not affiliated with Trader Joe&apos;s Company. &ldquo;Trader Joe&apos;s&rdquo; is a trademark of Trader Joe&apos;s Company.{' '}
         <a href="/faq" className="underline underline-offset-2 hover:text-[var(--tj-red)]">FAQ</a>
         {' · '}
+        <a href="/animal" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Animals</a>
+        {' · '}
         <a href="/data" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Data</a>
         {' · '}
         <a href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Privacy</a>

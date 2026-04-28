@@ -68,6 +68,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    {
+      url: `${SITE_URL}/animal`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
     // Per-mascot SEO pages
     ...activeMascots.map((m) => ({
       url: `${SITE_URL}/mascot/${slugForMascot(m)}`,
