@@ -10,6 +10,12 @@ import type { MetadataRoute } from 'next';
  * load times are fast, and offline support doesn't add much for a
  * map of physical TJ stores you'd be walking into.
  */
+
+// REQUIRED for `output: 'export'` in next.config — without this, Next refuses
+// to bake the manifest at build time and the deploy fails. The manifest is
+// fully static; nothing in it changes per-request.
+export const dynamic = 'force-static';
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "TJ Mascots — the unofficial map of every Trader Joe's store mascot",
