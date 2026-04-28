@@ -238,14 +238,18 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
         {m.source_url && (
           <div className="mt-4 border-t-2 border-dashed border-[var(--cream-dark)] pt-3.5 text-xs text-[var(--ink-soft)]">
             Source:{' '}
-            <a
-              href={m.source_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--tj-red)] underline"
-            >
-              {sourceLabel(m.source_url)}
-            </a>
+            {m.source_url.startsWith('http') ? (
+              <a
+                href={m.source_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--tj-red)] underline"
+              >
+                {sourceLabel(m.source_url)}
+              </a>
+            ) : (
+              <span>{m.source_url}</span>
+            )}
           </div>
         )}
 
