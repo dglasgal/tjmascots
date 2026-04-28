@@ -17,12 +17,13 @@ import { notFound } from 'next/navigation';
 import mascotsRaw from '@/data/mascots.json';
 import storesData from '@/data/tj-stores.json';
 import type { Store } from '@/lib/types';
-import { slugForMascot } from '@/lib/slug';
+import { slugForCity, slugForMascot } from '@/lib/slug';
 import { stateName, stateSlug, stateCodeFromSlug, statesWithMascots } from '@/lib/state';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { SITE_URL } from '@/lib/site-url';
 import MallardHead from '@/components/MallardHead';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 interface RawMascot {
   id: number;
@@ -146,6 +147,13 @@ export default async function StatePage({
 
       <main className="flex-1 overflow-y-auto bg-[var(--cream)]">
         <div className="mx-auto max-w-5xl px-6 py-12 max-sm:px-4 sm:py-16">
+          <Breadcrumbs
+            className="mb-6"
+            items={[
+              { label: 'Map', href: '/' },
+              { label: name },
+            ]}
+          />
           {/* Hero */}
           <div className="mb-10 text-center">
             <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.4em] text-[var(--accent)]">
@@ -164,10 +172,25 @@ export default async function StatePage({
 
           {/* Mascots by city */}
           <div className="space-y-8">
-            {cities.map(([city, ms]) => (
+            {cities.map(([city, ms]) => {
+              const cityHasMultipleStores =
+                stores.filter((s) => s.state === code && s.city === city).length >= 2;
+              const cityPagePath = cityHasMultipleStores
+                ? `/city/${slugForCity(city, code)}`
+                : null;
+              return (
               <section key={city}>
                 <div className="mb-3 flex items-baseline justify-between">
-                  <h3 className="font-display text-2xl font-extrabold text-[var(--ink)]">{city}</h3>
+                  {cityPagePath ? (
+                    <Link
+                      href={cityPagePath}
+                      className="font-display text-2xl font-extrabold text-[var(--ink)] hover:text-[var(--tj-red)] hover:underline"
+                    >
+                      {city} →
+                    </Link>
+                  ) : (
+                    <h3 className="font-display text-2xl font-extrabold text-[var(--ink)]">{city}</h3>
+                  )}
                   <span className="text-xs font-bold text-[var(--ink-soft)]">
                     {ms.length} {ms.length === 1 ? 'mascot' : 'mascots'}
                   </span>
@@ -186,7 +209,8 @@ export default async function StatePage({
                               /* eslint-disable-next-line @next/next/no-img-element */
                               <img
                                 src={photo}
-                                alt={m.name || m.animal}
+                                alt={`${m.name || 'Unnamed'} the ${m.animal} at Trader Joe's ${city}`}
+                                loading="lazy"
                                 className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.03]"
                               />
                             ) : (
@@ -219,7 +243,8 @@ export default async function StatePage({
                   })}
                 </ul>
               </section>
-            ))}
+              );
+            })}
           </div>
 
           {/* CTA */}

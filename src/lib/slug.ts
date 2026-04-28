@@ -77,6 +77,16 @@ export function slugForSpotter(name: string): string {
 }
 
 /**
+ * Slug for a city page (`/city/{slug}`). City names alone collide
+ * across states (Long Beach CA vs NY) so we suffix with the state
+ * code: `long-beach-ca`. Only multi-store cities get city pages —
+ * single-store cities are already clear from the state page.
+ */
+export function slugForCity(city: string, state: string): string {
+  return `${slugify(city)}-${state.toLowerCase()}`;
+}
+
+/**
  * Build a deterministic name → slug map from a list of mascots so we
  * can both render the right link in the Hall of Fame AND enumerate the
  * static params for /spotter/[slug] at build time.

@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import mascotsRaw from '@/data/mascots.json';
-import { slugForMascot, spotterSlugMap } from '@/lib/slug';
+import { slugForCity, slugForMascot, spotterSlugMap } from '@/lib/slug';
+import storesData from '@/data/tj-stores.json';
+import type { Store } from '@/lib/types';
 import { stateSlug, statesWithMascots } from '@/lib/state';
 import { SITE_URL } from '@/lib/site-url';
 
@@ -60,6 +62,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.4,
     },
+    {
+      url: `${SITE_URL}/faq`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
     // Per-mascot SEO pages
     ...activeMascots.map((m) => ({
       url: `${SITE_URL}/mascot/${slugForMascot(m)}`,
@@ -81,5 +89,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     })),
+    // Per-city pages (only for cities with 2+ TJ stores)
+    ...multiStoreCitySlugs().map((slug) => ({
+      url: `${SITE_URL}/city/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.65,
+    })),
   ];
+}
+
+/** Cities with 2+ TJ stores get their own /city/{slug} pages. */
+function multiStoreCitySlugs(): string[] {
+  const stores = storesData as Store[];
+  const counts = new Map<string, { count: number; city: string; state: string }>();
+  for (const s of stores) {
+    const key = `${s.city}|${s.state}`;
+    const cur = counts.get(key);
+    if (cur) cur.count++;
+    else counts.set(key, { count: 1, city: s.city, state: s.state });
+  }
+  return [...counts.values()]
+    .filter((v) => v.count >= 2)
+    .map((v) => slugForCity(v.city, v.state));
 }

@@ -8,6 +8,7 @@ import { slugForMascot, spotterSlugMap } from '@/lib/slug';
 import { formatStoreLocation } from '@/lib/store-label';
 import type { Store } from '@/lib/types';
 import MallardHead from '@/components/MallardHead';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -129,6 +130,14 @@ export default async function SpotterPage({ params }: PageProps) {
 
       <main className="flex-1 overflow-y-auto bg-[var(--cream)]">
         <div className="mx-auto max-w-6xl px-6 py-12 max-sm:px-4 sm:py-16">
+          <Breadcrumbs
+            className="mb-6"
+            items={[
+              { label: 'Map', href: '/' },
+              { label: 'Hall of Fame', href: '/recent' },
+              { label: name },
+            ]}
+          />
           {/* Spotter card */}
           <div className="mb-10 rounded-3xl bg-[var(--cream-dark)] px-6 py-8 text-center sm:px-12 sm:py-10">
             <div className="text-6xl">{medal}</div>
@@ -218,7 +227,8 @@ function SpotterMascotCard({ mascot }: { mascot: RawMascot }) {
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={photo}
-            alt={mascot.name || mascot.animal}
+            alt={`${mascot.name || 'Unnamed'} the ${mascot.animal} at Trader Joe's ${mascot.store}`}
+            loading="lazy"
             className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.03]"
           />
         ) : (
