@@ -4364,6 +4364,36 @@
       "store_number": "270",
       "created_at": "2026-04-27",
       "submitted_by": "Sean A."
+    },
+    {
+      "id": 379,
+      "store": "Goleta",
+      "state": "CA",
+      "animal": "Walrus",
+      "name": "Wally",
+      "notes": "Retired. Wally the Walrus was the longtime mascot at Trader Joe's Goleta before being replaced by Isla the Channel Islands Fox.",
+      "photo": "379.jpg",
+      "has_photo": true,
+      "retired": true,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "110",
+      "created_at": "2026-04-27",
+      "submitted_by": null
+    },
+    {
+      "id": 380,
+      "store": "Goleta",
+      "state": "CA",
+      "animal": "Channel Islands Fox",
+      "name": "Isla",
+      "notes": "CURRENT mascot at Trader Joe's Goleta — a Channel Islands fox, named for the Channel Islands National Park visible from the Santa Barbara coast. Replaced Wally the Walrus (now retired). If you spot her, please upload a better photo!",
+      "photo": "380.png",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "110",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
