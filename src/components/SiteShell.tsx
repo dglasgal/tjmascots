@@ -192,9 +192,11 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
       />
       <div className="bg-[var(--cream-dark)] px-6 py-1.5 text-center text-[11px] font-bold text-[var(--ink-soft)] max-sm:px-3">
         Fan project. Not affiliated with Trader Joe&apos;s Company. &ldquo;Trader Joe&apos;s&rdquo; is a trademark of Trader Joe&apos;s Company.{' '}
-        <a href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">
-          Privacy
-        </a>
+        <a href="/faq" className="underline underline-offset-2 hover:text-[var(--tj-red)]">FAQ</a>
+        {' · '}
+        <a href="/data" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Data</a>
+        {' · '}
+        <a href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Privacy</a>
       </div>
 
       <main className="relative flex min-h-0 flex-1">

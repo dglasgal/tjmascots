@@ -112,7 +112,12 @@ export default function FaqPage() {
 
       <div className="bg-[var(--cream-dark)] px-6 py-1.5 text-center text-[11px] font-bold text-[var(--ink-soft)]">
         Fan project. Not affiliated with Trader Joe&apos;s Company. &ldquo;Trader Joe&apos;s&rdquo; is a
-        trademark of Trader Joe&apos;s Company.
+        trademark of Trader Joe&apos;s Company.{' '}
+        <Link href="/faq" className="underline underline-offset-2 hover:text-[var(--tj-red)]">FAQ</Link>
+        {' · '}
+        <Link href="/data" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Data</Link>
+        {' · '}
+        <Link href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Privacy</Link>
       </div>
 
       <main className="flex-1 overflow-y-auto bg-[var(--cream)]">
