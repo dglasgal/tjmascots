@@ -4559,6 +4559,21 @@
       "store_number": "164",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 414,
+      "store": "Glastonbury",
+      "state": "CT",
+      "animal": "Unknown",
+      "name": null,
+      "notes": "The mysterious resident of Trader Joe's Glastonbury, Connecticut — a green creature with a flashy red-and-yellow neck frill, sharp black claws, and a fierce expression. Could be a frilled lizard, could be a baby dragon, could be something else entirely. Spotters: please proceed with caution if you try to get close enough for a photo, and if you can, ask the store's mascot handler what kind of animal he is — and submit his name too while you're at it.",
+      "photo": "414.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "586",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
