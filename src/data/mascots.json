@@ -4724,6 +4724,21 @@
       "store_number": "762",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 425,
+      "store": "Austin (Great Hills / Arboretum)",
+      "state": "TX",
+      "animal": "Cow",
+      "name": "Clover",
+      "notes": "Clover the Cow holds court at Trader Joe's Austin Great Hills (the Arboretum area) — a black-and-white spotted cow with her Trader Joe's name tag, posted up among the Petite Pumpkin Spice Cookies and Pumpkin Spice Cold Brew Coffee on the seasonal shelf.",
+      "photo": "425.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "454",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
