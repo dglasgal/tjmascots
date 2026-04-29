@@ -4649,6 +4649,21 @@
       "store_number": "670",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 407,
+      "store": "Knoxville",
+      "state": "TN",
+      "animal": "Black Bear",
+      "name": null,
+      "notes": "The resident black bear at Trader Joe's Knoxville on Kingston Pike — Smoky Mountains country, naturally. Posted up high on a rock perch, sporting a Hawaiian shirt, with a hand-painted Daniel Boone mural keeping watchful aim from the wall behind. Name unknown — if you shop here, please tell us what the crew calls him!",
+      "photo": "407.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "663",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
