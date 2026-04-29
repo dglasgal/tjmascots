@@ -88,9 +88,14 @@ export default function MascotCard({
 /** "Retired mascots" section — collapsed by default, expands on click.
  *  Hidden entirely when there are no retired entries for the store. The card's
  *  selection-key remounts this whenever you switch stores, so each store starts
- *  collapsed without needing to manage state outside this component. */
+ *  collapsed without needing to manage state outside this component.
+ *
+ *  Retired photos are clickable — same lightbox behavior as the active card,
+ *  so the small grayscale thumbnail isn't the only way to see the mascot. */
 function PreviousMascots({ items }: { items: Mascot[] }) {
   const [expanded, setExpanded] = useState(false);
+  // Which retired mascot (if any) is currently open in the lightbox.
+  const [lightboxFor, setLightboxFor] = useState<Mascot | null>(null);
   if (items.length === 0) return null;
   return (
     <section className="mt-1 border-t-4 border-[var(--cream-dark)] bg-[var(--cream-dark)]/40 px-6 py-4 max-sm:px-4">
@@ -126,15 +131,22 @@ function PreviousMascots({ items }: { items: Mascot[] }) {
               className="flex items-center gap-3 rounded-xl bg-[var(--cream)] px-3 py-2.5 shadow-[0_1px_0_var(--cream-dark)]"
             >
               {m.has_photo && m.photo ? (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  src={photoUrl(m.photo) || ''}
-                  alt={`${m.name || 'Unnamed'} the ${m.animal || 'mascot'} (retired)`}
-                  loading="lazy"
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 flex-shrink-0 rounded-full border-2 border-dashed border-[var(--ink-soft)] object-cover opacity-80 grayscale"
-                />
+                <button
+                  type="button"
+                  onClick={() => setLightboxFor(m)}
+                  title="Click to view full photo"
+                  className="group flex-shrink-0 rounded-full focus:outline-none focus:ring-2 focus:ring-[var(--tj-red)]"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={photoUrl(m.photo) || ''}
+                    alt={`${m.name || 'Unnamed'} the ${m.animal || 'mascot'} (retired)`}
+                    loading="lazy"
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 rounded-full border-2 border-dashed border-[var(--ink-soft)] object-cover opacity-80 grayscale transition group-hover:opacity-100 group-hover:grayscale-0"
+                  />
+                </button>
               ) : (
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-dashed border-[var(--ink-soft)] bg-[var(--cream-dark)] text-xl opacity-80">
                   {m.emoji}
@@ -157,6 +169,25 @@ function PreviousMascots({ items }: { items: Mascot[] }) {
           ))}
         </ul>
       )}
+
+      {/* Shared lightbox for any retired-mascot thumbnail click. */}
+      <PhotoLightbox
+        open={lightboxFor !== null}
+        onClose={() => setLightboxFor(null)}
+        src={lightboxFor && lightboxFor.photo ? photoUrl(lightboxFor.photo) : null}
+        alt={
+          lightboxFor
+            ? `${lightboxFor.name || 'Unnamed'} the ${lightboxFor.animal || 'mascot'} (retired)`
+            : ''
+        }
+        caption={
+          lightboxFor
+            ? `${lightboxFor.name || 'Unnamed'} the ${lightboxFor.animal || 'mascot'} · Retired${
+                lightboxFor.store ? ' from ' + lightboxFor.store.replace(/\s*—\s*RETIRED$/i, '') : ''
+              }`
+            : undefined
+        }
+      />
     </section>
   );
 }
