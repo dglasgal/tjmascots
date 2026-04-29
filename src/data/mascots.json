@@ -4679,6 +4679,21 @@
       "store_number": "610",
       "created_at": "2026-04-27",
       "submitted_by": "MaLiCioUs420x"
+    },
+    {
+      "id": 422,
+      "store": "Arroyo Grande",
+      "state": "CA",
+      "animal": "Goose",
+      "name": "Mc Fuddy",
+      "notes": "Mc Fuddy holds court at Trader Joe's Arroyo Grande on California's Central Coast — a fluffy bird with a chocolate-brown hood, pale face, and gray-and-white body, sporting his Trader Joe's name tag. We think he's a goose, but his species is informally crowdsourced — spotters with better intel, please confirm! Caught here tucked between bottles of Trader Joe's Refresh Citrus Body Wash on the shelf.",
+      "photo": "422.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "117",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
