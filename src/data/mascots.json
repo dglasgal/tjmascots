@@ -4664,6 +4664,21 @@
       "store_number": "652",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 421,
+      "store": "Clifton",
+      "state": "NJ",
+      "animal": "Pterodactyl",
+      "name": "Terri",
+      "notes": "Terri the Terri-dactyl soars above Trader Joe's Clifton, New Jersey on Allwood Road — wings spread wide in her tropical Hawaiian shirt, hanging from the ceiling with her Trader Joe's name tag. The dino theme is a deeper New Jersey deep-cut than you might expect: NJ is the official Dinosaur State, home of the famous Hadrosaurus discovery in Haddonfield in 1858 (the first nearly-complete dinosaur skeleton ever found in North America). And during the Late Cretaceous, this whole stretch of what's now northern Jersey was coastal terrain where pterosaurs really did glide overhead — so Terri the Pterodactyl gracing the Clifton TJ's is a tribute to a long line of local Terri-dactyls who came before her, 70 million years ago.",
+      "photo": "421.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/MaLiCioUs420x/",
+      "store_number": "610",
+      "created_at": "2026-04-27",
+      "submitted_by": "MaLiCioUs420x"
     }
   ]
 }
