@@ -4709,6 +4709,21 @@
       "store_number": "622",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 424,
+      "store": "Naples",
+      "state": "FL",
+      "animal": "Manatee",
+      "name": "Monty",
+      "notes": "Monty the Manatee glides above Trader Joe's Naples on the Tamiami Trail in southwest Florida — caught here resting on the produce shelf among autumn maple leaves with his Trader Joe's name tag. The species is a perfect Naples local: real Florida manatees (Trichechus manatus latirostris) — Florida's official state marine mammal — graze in the warm Gulf coastal waters and inland rivers all around Collier County, especially during winter when they congregate in warmer spring-fed waterways. Naples-area manatee hotspots include the Faka Union River and Manatee Park up in Fort Myers, and they're a beloved symbol of southwest Florida wildlife — currently listed as threatened, so locals know to slow their boats in manatee zones.",
+      "photo": "424.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "762",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
