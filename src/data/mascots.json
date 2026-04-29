@@ -4694,6 +4694,21 @@
       "store_number": "117",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 423,
+      "store": "Washington (Capitol Hill)",
+      "state": "DC",
+      "animal": "Great Blue Heron",
+      "name": "Moe",
+      "notes": "Moe the Great Blue Heron stands watch at Trader Joe's Capitol Hill on Pennsylvania Ave SE — slate-gray plumage, long orange beak, and his Trader Joe's name tag, perched on a wooden ledge between a corn-stalk mural and a chalkboard sign. The species fits: great blue herons are a familiar sight along the Anacostia River and Tidal Basin just blocks from the store.",
+      "photo": "423.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/r/traderjoes/comments/1eipuad/capitol_hill_dc_mascot_last_weekend/",
+      "store_number": "622",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
