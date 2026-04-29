@@ -4799,6 +4799,21 @@
       "store_number": "555",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 430,
+      "store": "Burbank",
+      "state": "CA",
+      "animal": "Tiger",
+      "name": "Wesley",
+      "notes": "Wesley the Tiger holds court at Trader Joe's Burbank on E Alameda Ave — orange and black with a fluffy white mane and his Trader Joe's name tag. Caught here perched in a pink TJ reusable shopping bag, ready for a grocery run.",
+      "photo": "430.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "124",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
