@@ -137,7 +137,10 @@ async function main() {
     for (const s of removedFromLive) summaryLines.push(`| ${s.store_number} | ${s.city}, ${s.state} | ${s.street} |`);
     summaryLines.push('');
   }
-  await fs.writeFile(path.resolve(__dirname, '..', '..', 'STORE_UPDATE_SUMMARY.md'), summaryLines.join('\n'));
+  // Write at repo root (one level up from scripts/) so the GitHub Action's
+  // create-pull-request step can pick it up via body-path: STORE_UPDATE_SUMMARY.md.
+  // Earlier this used '..', '..' which landed OUTSIDE the repo and broke the PR step.
+  await fs.writeFile(path.resolve(__dirname, '..', 'STORE_UPDATE_SUMMARY.md'), summaryLines.join('\n'));
 
   return { changed: fetched.length > 0, added: fetched.length, removed: removedFromLive.length };
 }
