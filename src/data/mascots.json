@@ -4529,6 +4529,21 @@
       "store_number": "239",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 412,
+      "store": "Sandy Springs",
+      "state": "GA",
+      "animal": "Turtle",
+      "name": "Joey",
+      "notes": "Joey the Turtle holds court at Trader Joe's Sandy Springs in metro Atlanta — sporting his red Trader Joe's bandana cap and peeking out from behind a hand-drawn Georgia peach sign. Caught here keeping watch over the Medjool Dates shelf.",
+      "photo": "412.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "799",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
