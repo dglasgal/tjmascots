@@ -4619,6 +4619,21 @@
       "store_number": "712",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 418,
+      "store": "Jacksonville Beach",
+      "state": "FL",
+      "animal": "Shark",
+      "name": null,
+      "notes": "The resident shark at Trader Joe's Jacksonville Beach, Florida — a fitting mascot for a store right on the Atlantic coast. Caught here peeking down from atop a wooden ledge with an ocean-themed mural behind him. We don't know his name yet — spotters: if you can carefully get close enough to read his Trader Joe's crew member badge, please update us with his name!",
+      "photo": "418.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "760",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
