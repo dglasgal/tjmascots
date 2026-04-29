@@ -4589,6 +4589,21 @@
       "store_number": "612",
       "created_at": "2026-04-27",
       "submitted_by": "eriko_girl"
+    },
+    {
+      "id": 416,
+      "store": "Orange",
+      "state": "CT",
+      "animal": "Pirate",
+      "name": "Barnacle Billy",
+      "notes": "Barnacle Billy holds court at Trader Joe's Orange, Connecticut on the Boston Post Road — decked out in full pirate regalia: tricorn hat with skull-and-crossbones, eye patch, red-and-white striped shirt, sword, and a green parrot on his shoulder. The pirate theme is no accident — just down the road in neighboring Milford sits Charles Island, a tiny tidal island famous for its Captain Kidd buried-treasure legend. In 1699, the Scottish pirate Captain William Kidd allegedly buried iron chests of gold and gems there (and supposedly cursed the ground), making this stretch of the Connecticut coastline pirate country in local lore.",
+      "photo": "416.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "524",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
