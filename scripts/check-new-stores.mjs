@@ -33,6 +33,22 @@ const STORES_PATH = path.resolve(__dirname, '..', 'src', 'data', 'tj-stores.json
 const SITEMAP_URL = 'https://locations.traderjoes.com/sitemap.xml';
 const CONCURRENCY = 15;
 
+/**
+ * Stores on the live TJ site that we DELIBERATELY exclude from our map.
+ * Without this list the daily watcher would re-add them every run.
+ *
+ * Currently: the three Kentucky "Wine Shop" entries that share an address
+ * with a sibling grocery store (KY law requires alcohol to be sold under a
+ * separate license, so TJ runs a co-located wine shop). They map to the
+ * same physical visitor experience as the grocery, so a separate map pin
+ * just produces a stacked-pin duplicate and inflates the "%-mapped" stat.
+ *
+ *   #625 Louisville Wine Shop  → grocery sibling at #628
+ *   #626 Lexington Wine Shop   → grocery sibling at #627
+ *   #789 Crestview Hills Wine Shop → grocery sibling at #788
+ */
+const EXCLUDED_STORE_NUMBERS = new Set(['625', '626', '789']);
+
 async function main() {
   const localText = await fs.readFile(STORES_PATH, 'utf8');
   const local = JSON.parse(localText);
@@ -52,7 +68,10 @@ async function main() {
 
   console.log(`🌐 Live: ${liveUrls.length} stores on locations.traderjoes.com`);
 
-  const newOnLive = liveUrls.filter((s) => !localByNum.has(s.store_number));
+  // Skip "new" stores that we've deliberately excluded (e.g. KY wine shops).
+  const newOnLive = liveUrls.filter(
+    (s) => !localByNum.has(s.store_number) && !EXCLUDED_STORE_NUMBERS.has(s.store_number),
+  );
   const removedFromLive = local.filter((s) => !liveByNum.has(s.store_number));
 
   if (newOnLive.length === 0 && removedFromLive.length === 0) {
