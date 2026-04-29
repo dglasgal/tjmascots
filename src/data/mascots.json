@@ -4784,6 +4784,21 @@
       "store_number": "181",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 429,
+      "store": "Plainview",
+      "state": "NY",
+      "animal": "Hawk",
+      "name": "Tony",
+      "notes": "Tony the Hawk presides over Trader Joe's Plainview on Long Island — the name is a wink to the legendary skateboarder Tony Hawk, naturally. We don't have a photo yet — spotters at the Plainview store, please grab one and submit it!",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "555",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
