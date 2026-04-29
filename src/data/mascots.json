@@ -4634,6 +4634,21 @@
       "store_number": "760",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 419,
+      "store": "Brookline",
+      "state": "MA",
+      "animal": "Yeti",
+      "name": "Steeb",
+      "notes": "Steeb the Yeti reigns over Trader Joe's Brookline on Beacon Street, Massachusetts — swinging cheerfully in his red scarf in front of a mural of the Green Line trolley (the 'C' branch of which literally runs right down Beacon Street). Yeti sightings around Boston are a real local legend: during the historic 2014–2015 winter — the snowiest in Boston's recorded history, with 110+ inches piled up — a mysterious figure in a full yeti costume started appearing all over town, posing in snowdrifts and shoveling out cars. The 'Boston Yeti' became a folk hero of that brutal winter, racking up viral photos and a beloved social-media following. Steeb feels like the friendly grocery-store cousin of that legend, smiling out from his Beacon St swing through every New England snowstorm.",
+      "photo": "419.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "501",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
