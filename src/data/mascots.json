@@ -4604,6 +4604,21 @@
       "store_number": "524",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 417,
+      "store": "Madison — RETIRED",
+      "state": "WI",
+      "animal": "Lobster",
+      "name": "Larry",
+      "notes": "Larry the Lobster served as the resident mascot at Trader Joe's Madison, Wisconsin from 2006 to 2023 — a remarkable 17-year run of hide-and-seek with shoppers. After his retirement, the crew built him a beautiful tribute display: a wood-and-glass case with a tropical-island diorama (palm trees, sandy beach, ocean backdrop) where Larry now lounges in his Hawaiian shirt. Above the case is a hand-painted cardboard lobster reading \"17 Years of Hide & Seek · Larry the Lobster · 2006–2023 · Congrats Larry!\" — the kind of send-off only earned by a beloved mascot. Flo the Flamingo took over after Larry retired.",
+      "photo": "417.jpg",
+      "has_photo": true,
+      "retired": true,
+      "source_url": "User-submitted (04/27/2026)",
+      "store_number": "712",
+      "created_at": "2026-04-27",
+      "submitted_by": null
     }
   ]
 }
