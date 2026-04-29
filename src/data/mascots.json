@@ -4739,6 +4739,21 @@
       "store_number": "454",
       "created_at": "2026-04-27",
       "submitted_by": null
+    },
+    {
+      "id": 426,
+      "store": "Milford",
+      "state": "MA",
+      "animal": "Scarlet Hawk",
+      "name": "Rocket",
+      "notes": "Rocket the Scarlet Hawk soars over Trader Joe's Milford, Massachusetts on Fortune Blvd — a handmade crocheted hawk in bold red with a yellow beak, eye-rings, and taloned yellow feet, suspended from the ceiling tiles. The species is a deliberate town tribute: Milford High School's mascot is the Scarlet Hawks, so Rocket is the grocery-store cousin of the local sports legend.",
+      "photo": "426.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/Canuck_in_a_Bunnyhug/",
+      "store_number": "582",
+      "created_at": "2026-04-27",
+      "submitted_by": "Canuck_in_a_Bunnyhug"
     }
   ]
 }
