@@ -1217,18 +1217,18 @@
     },
     {
       "id": 86,
-      "store": "West Hollywood",
+      "store": "West Hollywood (West WeHo)",
       "state": "CA",
       "animal": "Unicorn",
       "name": "Steven Sparkles",
-      "notes": "Harmonie-the-unicorn beanie baby. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
-      "retired": true,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
-      "store_number": "192",
+      "notes": "Steven Sparkles is the rainbow-polka-dotted unicorn at Trader Joe's West Hollywood on Santa Monica Blvd (West WeHo) — sporting a sparkly gold horn, rainbow ears, and metallic glittery hooves, with his very own Trader Joe's name tag.",
+      "photo": "086.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/badbaristuh/",
+      "store_number": "173",
       "created_at": "2026-04-24",
-      "submitted_by": null
+      "submitted_by": "badbaristuh"
     },
     {
       "id": 87,
