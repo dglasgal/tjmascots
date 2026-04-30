@@ -4859,6 +4859,21 @@
       "store_number": "457",
       "created_at": "2026-04-27",
       "submitted_by": "Turkey1177"
+    },
+    {
+      "id": 434,
+      "store": "Ithaca",
+      "state": "NY",
+      "animal": "Mastodon",
+      "name": "Don",
+      "notes": "Don the Mastodon stomps around Trader Joe's Ithaca on South Meadow Street — the name is a perfect upstate New York wink (Don → Mastodon → 'MastaDon'). The species fits the geography: real mastodons roamed the Finger Lakes region during the last Ice Age, and Ithaca is home to Cornell's Paleontological Research Institution and the Museum of the Earth, where mastodon fossils discovered nearby in places like Hyde Park, NY are on display. Caught here in his cozy Fair Isle sweater with his Trader Joe's name tag.",
+      "photo": "434.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/B00ksmith/",
+      "store_number": "568",
+      "created_at": "2026-04-27",
+      "submitted_by": "B00ksmith"
     }
   ]
 }
