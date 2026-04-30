@@ -4874,6 +4874,21 @@
       "store_number": "568",
       "created_at": "2026-04-27",
       "submitted_by": "B00ksmith"
+    },
+    {
+      "id": 435,
+      "store": "Chicago (Clybourn Corridor)",
+      "state": "IL",
+      "animal": "Lion",
+      "name": "Clyde (TBC)",
+      "notes": "The resident lion at Trader Joe's Chicago Clybourn Corridor on N Clybourn Ave — sporting a magnificent orange mane and a quiet majesty befitting a city whose most famous statues are the bronze lions guarding the Art Institute of Chicago. We think his name is 'Clyde' (a fitting tip-of-the-paw to Clybourn Ave), but it's not yet confirmed — spotters: please check his Trader Joe's crew member badge and submit his actual name!",
+      "photo": "435.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/PrincessDrywall/",
+      "store_number": "691",
+      "created_at": "2026-04-27",
+      "submitted_by": "PrincessDrywall"
     }
   ]
 }
