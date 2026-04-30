@@ -4919,6 +4919,21 @@
       "store_number": "780",
       "created_at": "2026-04-27",
       "submitted_by": "scholasticsprint"
+    },
+    {
+      "id": 438,
+      "store": "San Diego (Scripps Ranch)",
+      "state": "CA",
+      "animal": "Octopus",
+      "name": null,
+      "notes": "The resident octopus at Trader Joe's Scripps Ranch in San Diego on Hibert St — a large red-pink octopus with tentacles draped over a wooden display in front of a chalkboard mural. We don't know his/her name yet — spotters: please grab a closer shot of the Trader Joe's crew member badge and submit the name!",
+      "photo": "438.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/Thick_Side_6140/",
+      "store_number": "221",
+      "created_at": "2026-04-27",
+      "submitted_by": "Thick_Side_6140"
     }
   ]
 }
