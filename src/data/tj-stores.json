@@ -7258,14 +7258,15 @@
   },
   {
     "store_number": "707",
-    "city": "Kentwood",
+    "city": "Grand Rapids",
     "state": "MI",
     "zip": "49512",
     "street": "3684 28th St SE",
     "lat": 42.91197,
     "lng": -85.57669,
     "phone": "616-977-1819",
-    "url": "https://locations.traderjoes.com/mi/kentwood/707/"
+    "url": "https://locations.traderjoes.com/mi/kentwood/707/",
+    "neighborhood": "Kentwood"
   },
   {
     "store_number": "567",
