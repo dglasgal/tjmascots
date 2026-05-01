@@ -3591,14 +3591,14 @@
       "state": "NY",
       "animal": "Troll",
       "name": "Bridget",
-      "notes": "Store 571. Bridget the Troll presides over the 59th Street Bridgemarket Trader Joe's, tucked beneath the Queensboro Bridge — a pun so good it hurts.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Bridget the Troll presides over the 59th Street Bridgemarket Trader Joe’s in Manhattan, tucked beneath the Queensboro Bridge — a pun so good it hurts. Caught here as a pink-haired troll with a teal floral headband, in a flowery dress with a red TJ price-tag tied around her wrist.",
+      "photo": "267.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.instagram.com/p/C1uzT4PvuDx/",
+      "source_url": "https://www.reddit.com/user/neckbones_/",
       "store_number": "571",
       "created_at": "2026-04-24",
-      "submitted_by": null
+      "submitted_by": "neckbones_"
     },
     {
       "id": 269,
@@ -5069,6 +5069,51 @@
       "store_number": "202",
       "created_at": "2026-04-30",
       "submitted_by": "miss_mi_"
+    },
+    {
+      "id": 448,
+      "store": "Syracuse (DeWitt)",
+      "state": "NY",
+      "animal": "Yeti",
+      "name": "DeWitt",
+      "notes": "DeWitt the Yeti reigns over Trader Joe’s Syracuse on Erie Blvd East — named for DeWitt, the Onondaga County township the store actually sits in. A fitting mascot for one of the snowiest cities in America: Syracuse averages around 124 inches of snow per year, more than any other major US city. Hung here in front of a painted Syracuse cityscape mural, big fluffy white body with gray paws and a wide toothy grin, his TJ badge reading ‘DEWITT — Crew Member.’",
+      "photo": "448.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/Outrageous_Ad9804/",
+      "store_number": "537",
+      "created_at": "2026-04-30",
+      "submitted_by": "Outrageous_Ad9804"
+    },
+    {
+      "id": 449,
+      "store": "West Hartford",
+      "state": "CT",
+      "animal": "Husky",
+      "name": "Jonathan",
+      "notes": "Jonathan the Husky guards Trader Joe’s West Hartford on New Britain Ave — named (we’re guessing) for the University of Connecticut’s beloved live mascot. UConn has had a husky named Jonathan as its official mascot since 1934, currently on Jonathan XV; the name honors Connecticut’s Revolutionary-era governor Jonathan Trumbull. UConn’s Storrs campus is about a 30-minute drive from the store. Caught here lounging on top of a row of pasta sauce jars in classic gray-and-white husky coat.",
+      "photo": "449.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/hm-kat/",
+      "store_number": "526",
+      "created_at": "2026-04-30",
+      "submitted_by": "hm-kat"
+    },
+    {
+      "id": 450,
+      "store": "Annapolis",
+      "state": "MD",
+      "animal": "Goat",
+      "name": null,
+      "notes": "The mascot at Trader Joe’s Annapolis on Jennifer Road is an unnamed white goat with floppy yellow ears — almost certainly a tribute to ‘Bill the Goat,’ the official mascot of the United States Naval Academy just down the road in Annapolis. The Navy goat tradition dates back to 1893, when sailors brought a live goat from the USS New York to the Army-Navy football game and Navy won; the goat became the academy’s mascot, and every Navy mascot since (currently around Bill XXXVII) has carried the name. The TJ goat is in full Hawaiian-vacation mode here, draped in a multicolored flower lei. We don’t know his real name yet — spotters: please grab a closer shot of the crew badge!",
+      "photo": "450.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/Sea-Collection-7367/",
+      "store_number": "650",
+      "created_at": "2026-04-30",
+      "submitted_by": "Sea-Collection-7367"
     }
   ]
 }
