@@ -5159,6 +5159,21 @@
       "store_number": "234",
       "created_at": "2026-04-30",
       "submitted_by": "LaCuriosaChola"
+    },
+    {
+      "id": 454,
+      "store": "Laguna Hills",
+      "state": "CA",
+      "animal": "Triceratops",
+      "name": "Topsy",
+      "notes": "Topsy the Triceratops watches over Trader Joe’s Laguna Hills on Avenida De La Carlota — a bright cobalt-blue ‘ceratops with a gray frill, three horns, and a perpetual half-smile, perched up on a wooden display. Discovery story: ST012Mi’s daughter found Topsy, marched up to the manager, and snitched on his hiding spot — earning herself a candy reward in the time-honored Trader Joe’s tradition of paying off small mascot-spotters in confectionery currency.",
+      "photo": "454.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/ST012Mi/",
+      "store_number": "39",
+      "created_at": "2026-04-30",
+      "submitted_by": "ST012Mi"
     }
   ]
 }
