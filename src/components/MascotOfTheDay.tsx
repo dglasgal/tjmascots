@@ -110,7 +110,7 @@ const MOTD_ID_KEY = 'tjmascots:motd-id';
  *
  *  Filters to mascots with real photos for visual punch.
  */
-function pickTodaysMascot(mascots: Mascot[]): Mascot | null {
+export function pickTodaysMascot(mascots: Mascot[]): Mascot | null {
   const eligible = mascots.filter((m) => m.has_photo && m.photo);
   if (eligible.length === 0) return null;
 

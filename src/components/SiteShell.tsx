@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Header from './Header';
 import MascotCard from './MascotCard';
-import MascotOfTheDay from './MascotOfTheDay';
+import MascotOfTheDay, { pickTodaysMascot } from './MascotOfTheDay';
 import MascotParade from './MascotParade';
 import SubmitModal, { type SubmitModalPreset } from './SubmitModal';
 import type { Mascot, Store } from '@/lib/types';
@@ -177,6 +177,15 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
     handleSearchSelect({ kind: 'mascot', data: pick });
   }
 
+  /** Tap "Mascot of the Day" in the mobile drawer → pick today's
+   *  mascot (same deterministic picker the on-map sticker uses) and
+   *  fly there. No-op if there are no eligible mascots. */
+  function handleMOTDClick() {
+    const todays = pickTodaysMascot(mascots);
+    if (!todays) return;
+    handleSearchSelect({ kind: 'mascot', data: todays });
+  }
+
   return (
     <div className="flex h-full flex-col">
       <Header
@@ -186,19 +195,24 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
         onSubmitClick={openSubmit}
         onProgressClick={() => setParadeOpen(true)}
         onRandomClick={handleRandomClick}
+        onMOTDClick={handleMOTDClick}
         totalMascots={mascots.length}
         totalUnknown={unknownCount}
         percentMapped={percentMapped}
       />
       <div className="bg-[var(--cream-dark)] px-6 py-1.5 text-center text-[11px] font-bold text-[var(--ink-soft)] max-sm:px-3">
-        Fan project. Not affiliated with Trader Joe&apos;s Company. &ldquo;Trader Joe&apos;s&rdquo; is a trademark of Trader Joe&apos;s Company.{' '}
-        <a href="/faq" className="underline underline-offset-2 hover:text-[var(--tj-red)]">FAQ</a>
-        {' · '}
-        <a href="/animal" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Animals</a>
-        {' · '}
-        <a href="/data" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Data</a>
-        {' · '}
-        <a href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Privacy</a>
+        Fan project. Not affiliated with Trader Joe&apos;s Company. &ldquo;Trader Joe&apos;s&rdquo; is a trademark of Trader Joe&apos;s Company.
+        {/* Inline page links — hidden on mobile because they live in the hamburger drawer. */}
+        <span className="max-sm:hidden">
+          {' '}
+          <a href="/faq" className="underline underline-offset-2 hover:text-[var(--tj-red)]">FAQ</a>
+          {' · '}
+          <a href="/animal" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Animals</a>
+          {' · '}
+          <a href="/data" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Data</a>
+          {' · '}
+          <a href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Privacy</a>
+        </span>
       </div>
 
       <main className="relative flex min-h-0 flex-1">
