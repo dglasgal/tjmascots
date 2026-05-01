@@ -394,9 +394,9 @@
       "id": 29,
       "store": "Shoreview",
       "state": "MN",
-      "animal": "Red fox",
-      "name": "Garbanzo",
-      "notes": "Garbanzo the Fox slinks through Trader Joe's Shoreview, Minnesota — named for the chickpea, naturally. Caught here decked out in a brown cowboy hat and a red bandana, sporting his Trader Joe's name tag.",
+      "animal": "Red fox and Horse",
+      "name": "Garbanzo & Melvin",
+      "notes": "A two-mascot crew at Trader Joe’s Shoreview, Minnesota. Garbanzo the Red Fox is decked out in his brown cowboy hat and red bandana with his TJ name tag. Joining him: Melvin the Horse — a brown plush horse with a tan mane and a matching red bandana, name badge reading ‘MELVIN — Crew Member,’ caught here lounging on a wooden display by an old brass bell.",
       "photo": "029.jpg",
       "has_photo": true,
       "retired": false,
@@ -5174,6 +5174,21 @@
       "store_number": "39",
       "created_at": "2026-04-30",
       "submitted_by": "ST012Mi"
+    },
+    {
+      "id": 455,
+      "store": "Boston (Seaport)",
+      "state": "MA",
+      "animal": "Blue Whale",
+      "name": "Walter",
+      "notes": "Walter the Blue Whale lives at Trader Joe’s Boston Seaport on Thomson Place — a perfect mascot for the location, since the store sits right on Boston’s harbor in the maritime Seaport district. Boston Harbor is a major whale-watching launch point: trips out to Stellwagen Bank National Marine Sanctuary regularly spot humpbacks, finbacks, minkes, and the occasional endangered North Atlantic right whale. Walter himself is a stout dark-blue whale with a lighter blue belly, his TJ badge reading ‘WALTER — Crew Member,’ caught here resting atop a row of spice jars.",
+      "photo": "455.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/Astroezombiee/",
+      "store_number": "566",
+      "created_at": "2026-04-30",
+      "submitted_by": "Astroezombiee"
     }
   ]
 }
