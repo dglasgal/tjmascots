@@ -169,7 +169,7 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
 
             <label className="mb-3.5 block">
               <span className="mb-1 block text-[13px] font-extrabold text-[var(--ink)]">
-                What should it say instead? (optional)
+                Give us your updates or any other suggestions (optional)
               </span>
               <textarea
                 rows={3}
