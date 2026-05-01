@@ -142,9 +142,10 @@ export default function MascotParade({
 
           {/* The parade stage is re-rendered on each replay via the key */}
           <div key={runKey} className="relative h-full w-full">
-            {/* BEAT 1: McQuackers enters */}
+            {/* BEAT 1+2: McQuackers stays visible while the mascots parade on.
+                He fades out only when the percentage counter begins. */}
             <AnimatePresence>
-              {phase === 'enter' && (
+              {(phase === 'enter' || phase === 'parade') && (
                 <McQuackersEntry mcquackers={mcquackers} />
               )}
             </AnimatePresence>
@@ -201,6 +202,15 @@ export default function MascotParade({
 /* ------------------------------------------------------------------------- */
 
 function McQuackersEntry({ mcquackers }: { mcquackers: Mascot | null }) {
+  // Play a synthesized "quack" pair when McQuackers enters. We don't ship
+  // an mp3 — Web Audio is enough for two cheerful quacks, and it sidesteps
+  // any asset-hosting concerns. Wrapped in try/catch because some browsers
+  // block AudioContext outside an explicit user gesture; the modal-open
+  // click counts, but we still tolerate failures silently.
+  useEffect(() => {
+    playQuackPair();
+  }, []);
+
   return (
     <motion.div
       key="enter"
@@ -212,15 +222,23 @@ function McQuackersEntry({ mcquackers }: { mcquackers: Mascot | null }) {
     >
       <div className="text-center">
         <motion.div
-          initial={{ x: -600, rotate: -10 }}
+          // Waddle entry — McQuackers enters from the left and waddles in:
+          // x is a smooth slide-in, y bounces in 4 steps (the waddle), and
+          // rotate alternates left/right rapidly to look like hip-sway.
+          // scaleX: -1 stays constant throughout — that mirrors the default
+          // 🦆 emoji (which natively faces left) so he faces RIGHT, away
+          // from his point of origin and in the direction he traveled.
+          initial={{ x: -600, y: 0, rotate: 0, scaleX: -1 }}
           animate={{
-            x: [-600, 0, 0, 0],
-            rotate: [-10, 0, 5, -5, 0],
+            x: [-600, 0],
+            y: [0, -10, 0, -10, 0, -10, 0, -10, 0, 0],
+            rotate: [0, 10, -10, 10, -10, 10, -10, 6, -6, 0],
+            scaleX: -1,
           }}
           transition={{
-            duration: 1.8,
-            times: [0, 0.5, 0.7, 0.85, 1],
-            ease: ['easeOut', 'easeInOut', 'easeInOut', 'easeInOut'],
+            x: { duration: 1.8, ease: 'easeOut' },
+            y: { duration: 1.8, ease: 'linear' },
+            rotate: { duration: 1.8, ease: 'linear' },
           }}
           className="inline-block text-[220px] leading-none drop-shadow-[0_8px_0_var(--tj-red-dark)] max-sm:text-[150px]"
         >
@@ -674,6 +692,48 @@ function PennantBanner() {
       </div>
     </div>
   );
+}
+
+/* ------------------------------------------------------------------------- */
+/* Quack sound — synthesized via Web Audio so we don't ship an mp3 asset.    */
+/* ------------------------------------------------------------------------- */
+
+/** Plays a cheerful pair of cartoon "quacks". Silent fallback if the
+ *  browser's autoplay policy blocks it (we tolerate failure quietly). */
+function playQuackPair() {
+  try {
+    type WebkitWindow = Window & { webkitAudioContext?: typeof AudioContext };
+    const Ctx =
+      window.AudioContext ||
+      (window as unknown as WebkitWindow).webkitAudioContext;
+    if (!Ctx) return;
+    const ctx = new Ctx();
+
+    // Each "quack" is a sawtooth sweep from a higher pitch down to a lower
+    // one, with a short attack/decay envelope. Two of them in quick
+    // succession reads as the classic comic-duck "quack-quack".
+    const playOne = (startSec: number, basePitch: number) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(basePitch * 1.6, ctx.currentTime + startSec);
+      osc.frequency.exponentialRampToValueAtTime(
+        basePitch,
+        ctx.currentTime + startSec + 0.18,
+      );
+      gain.gain.setValueAtTime(0.0001, ctx.currentTime + startSec);
+      gain.gain.exponentialRampToValueAtTime(0.28, ctx.currentTime + startSec + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + startSec + 0.22);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(ctx.currentTime + startSec);
+      osc.stop(ctx.currentTime + startSec + 0.24);
+    };
+
+    playOne(0, 280);     // first quack — higher
+    playOne(0.28, 230);  // second quack — slightly lower
+  } catch {
+    /* autoplay blocked or no Web Audio — silent fallback */
+  }
 }
 
 function AmbientConfetti() {
