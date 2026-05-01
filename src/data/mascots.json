@@ -4934,6 +4934,21 @@
       "store_number": "221",
       "created_at": "2026-04-27",
       "submitted_by": "Thick_Side_6140"
+    },
+    {
+      "id": 439,
+      "store": "Rochester Hills",
+      "state": "MI",
+      "animal": "Deer",
+      "name": "Forrest",
+      "notes": "Forrest the Buck stands guard at Trader Joe's Rochester Hills, Michigan on Walton Blvd — a perfect match of name and habitat (a 'Forrest' deer in suburban Oakland County, peak Michigan whitetail country). Caught here in his yellow scarf and red plaid Buffalo-check, with his Trader Joe's name tag, holding up a kid joke whiteboard: \"What tree fits in your hand? A Palm Tree.\" Perched on top of a row of wine bottles.",
+      "photo": "439.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/MlyMe/",
+      "store_number": "668",
+      "created_at": "2026-04-27",
+      "submitted_by": "MlyMe"
     }
   ]
 }
