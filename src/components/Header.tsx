@@ -118,22 +118,25 @@ export default function Header({
   }
 
   return (
-    <header className="relative z-[1000] flex items-center justify-between gap-3 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card max-sm:gap-2 max-sm:px-3">
-      <div className="flex flex-shrink-0 items-center gap-3.5 max-sm:gap-2">
+    <header className="relative z-[1000] flex items-center justify-between gap-3 bg-[var(--tj-red)] px-6 py-3 text-[var(--cream)] shadow-card max-sm:gap-2 max-sm:px-3 max-[400px]:gap-1.5 max-[400px]:px-2">
+      <div className="flex flex-shrink-0 items-center gap-3.5 max-sm:gap-2 max-[400px]:gap-1.5">
         <Link
           href="/about"
           aria-label="About TJ Mascots"
           title="About this project"
-          className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] shadow-[inset_0_0_0_3px_var(--tj-red-dark)] transition hover:scale-105 max-sm:h-12 max-sm:w-12"
+          className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] shadow-[inset_0_0_0_3px_var(--tj-red-dark)] transition hover:scale-105 max-sm:h-12 max-sm:w-12 max-[400px]:h-10 max-[400px]:w-10"
         >
           {/* Full McQuackers — the brand mark, big enough to actually
               read as a duck (head + body + bill + water ripples). */}
-          <MallardFull className="h-12 w-12 max-sm:h-10 max-sm:w-10" />
+          <MallardFull className="h-12 w-12 max-sm:h-10 max-sm:w-10 max-[400px]:h-8 max-[400px]:w-8" />
         </Link>
         <div>
           {/* Mobile: stack "TJ" over "Mascots" so the search bar has more room.
+              Narrowest phones (<=400px, e.g. iPhone 13/14): step down again to
+              text-sm so the wordmark column is narrow enough to leave room for
+              the search bar AND the hamburger button without clipping.
               Desktop (sm+): inline "TJ Mascots" wordmark unchanged. */}
-          <h1 className="font-display text-2xl font-black leading-none tracking-tight max-sm:text-lg max-sm:leading-[0.92]">
+          <h1 className="font-display text-2xl font-black leading-none tracking-tight max-sm:text-lg max-sm:leading-[0.92] max-[400px]:text-sm">
             <span className="block sm:inline">TJ</span>
             <span className="block sm:inline sm:ml-1.5">Mascots</span>
           </h1>
@@ -143,7 +146,7 @@ export default function Header({
         </div>
       </div>
 
-      <div ref={wrapRef} className="relative flex-1 min-w-[200px] max-w-[560px] max-md:max-w-none">
+      <div ref={wrapRef} className="relative flex-1 min-w-[200px] max-w-[560px] max-md:max-w-none max-[400px]:min-w-[120px]">
         <svg
           className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 opacity-55"
           viewBox="0 0 24 24"
@@ -271,7 +274,7 @@ export default function Header({
           onClick={() => setDrawerOpen(true)}
           aria-label="Open menu"
           aria-expanded={drawerOpen}
-          className="hidden h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition active:translate-y-px max-sm:flex"
+          className="hidden h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition active:translate-y-px max-sm:flex max-[400px]:h-9 max-[400px]:w-9"
         >
           <svg
             viewBox="0 0 24 24"
