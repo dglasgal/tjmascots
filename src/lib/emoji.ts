@@ -29,11 +29,63 @@ const ANIMAL_EMOJI: Record<string, string> = {
   pug: '🐶', chihuahua: '🐶', pomeranian: '🐶',
   // Also: scarecrow doesn't have an obvious emoji; use a friendly stand-in.
   scarecrow: '🌾',
+  // Additional real-world animals that didn't have a dedicated emoji
+  // before — most map to the closest taxonomic cousin (penguin emoji,
+  // big-cat emoji for big cats, bird for birds without their own glyph).
+  penguin: '🐧', sloth: '🦥', manatee: '🦭',
+  coyote: '🐺',
+  bull: '🐂', longhorn: '🐂', ox: '🐂',
+  gopher: '🦫', mole: '🦫', beaver: '🦫',
+  platypus: '🦫',
+  kitten: '🐱', kitty: '🐱', cougar: '🐆', panther: '🐆',
+  donkey: '🫏', mule: '🫏', burro: '🫏',
+  pony: '🐴', bronco: '🐴', mustang: '🐴', stallion: '🐴',
+  rooster: '🐓', hen: '🐔', chick: '🐤',
+  hawk: '🦅', falcon: '🦅', osprey: '🦅', kestrel: '🦅',
+  heron: '🐦', crane: '🐦', egret: '🐦', ibis: '🐦',
+  bluebird: '🐦', cardinal: '🐦', robin: '🐦', sparrow: '🐦',
+  finch: '🐦', warbler: '🐦', wren: '🐦', oriole: '🐦',
+  jay: '🐦', magpie: '🐦', dove: '🕊️', albatross: '🐦',
+  roadrunner: '🐦', kiwi: '🐦', emu: '🐦', cassowary: '🐦',
+  ostrich: '🐦',
+  sugar: '🐿️', glider: '🐿️',
+  alpaca: '🦙', vicuna: '🦙', guanaco: '🦙',
+  shrimp: '🦐', prawn: '🦐', krill: '🦐',
+  quahog: '🦪', clam: '🦪', oyster: '🦪', mussel: '🦪',
+  elk: '🦌', caribou: '🦌', reindeer: '🦌', antelope: '🦌', gazelle: '🦌',
+  jackalope: '🐰', hare: '🐰',
+  pterodactyl: '🦖', pteranodon: '🦖',
+  brontosaurus: '🦕', sauropod: '🦕', diplodocus: '🦕',
+  mastodon: '🦣',
+  // Mythical / folklore — pick a thematically close glyph
+  sasquatch: '🐾', bigfoot: '🐾',
+  troll: '🧌', gnome: '🧝', elf: '🧝', fairy: '🧚',
+  'loch ness monster': '🦕', nessie: '🦕', chessie: '🦕',
+  // Non-animal mascots (food, objects, characters)
+  toast: '🍞', bread: '🍞',
+  avocado: '🥑', lemon: '🍋', lime: '🍋', orange: '🍊',
+  apple: '🍎', banana: '🍌', strawberry: '🍓',
+  onion: '🧅', pearl: '🧅',
+  maple: '🍁', leaf: '🍁',
+  rock: '🪨', stone: '🪨', boulder: '🪨',
+  sponge: '🧽',
+  pirate: '🏴‍☠️',
+  colonial: '🎩', figure: '🎩',
+  muppet: '🎭', animal: '🎭',
+  sun: '☀️', star: '⭐',
+  train: '🚂',
 };
 
-export function emojiForAnimal(animal: string | null | undefined): string {
-  if (!animal) return '⭐';
+export function emojiForAnimal(animal: string | null | undefined, hasPhoto = false): string {
+  // Two fallback modes:
+  //   • If we have a photo of the mascot but no recognized animal type,
+  //     show 📸 — communicates "we have something here, just don't know
+  //     what species it is yet."
+  //   • Otherwise (no animal AND no photo) ⭐ remains the "unknown" pin.
+  const fallback = hasPhoto ? '📸' : '⭐';
+  if (!animal) return fallback;
   const a = animal.toLowerCase();
+  if (a === 'unknown') return fallback;
   if (ANIMAL_EMOJI[a]) return ANIMAL_EMOJI[a];
   for (const tok of a.split(/[\s/()]+/)) {
     if (tok && ANIMAL_EMOJI[tok]) return ANIMAL_EMOJI[tok];
@@ -41,5 +93,5 @@ export function emojiForAnimal(animal: string | null | undefined): string {
   for (const [phrase, e] of Object.entries(ANIMAL_EMOJI)) {
     if (a.includes(phrase)) return e;
   }
-  return '⭐';
+  return fallback;
 }

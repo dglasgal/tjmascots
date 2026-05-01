@@ -231,7 +231,7 @@ export default function RecentPage() {
 
 function RecentCard({ mascot }: { mascot: RawMascot }) {
   const photo = mascot.has_photo && mascot.photo ? photoUrl(mascot.photo) : null;
-  const emoji = emojiForAnimal(mascot.animal);
+  const emoji = emojiForAnimal(mascot.animal, Boolean(mascot.has_photo));
   const store = mascot.store_number ? storesByNum.get(mascot.store_number) : null;
   return (
     <Link

@@ -222,7 +222,7 @@ export default async function StatePage({
                               />
                             ) : (
                               <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[60px]">
-                                {emojiForAnimal(m.animal)}
+                                {emojiForAnimal(m.animal, Boolean(m.has_photo))}
                               </div>
                             )}
                           </div>

@@ -222,7 +222,7 @@ export default async function CityPage({
                           className="h-full w-full object-cover"
                         />
                       ) : mascot ? (
-                        emojiForAnimal(mascot.animal)
+                        emojiForAnimal(mascot.animal, Boolean(mascot.has_photo))
                       ) : (
                         '❓'
                       )}
