@@ -2312,13 +2312,13 @@
     },
     {
       "id": 171,
-      "store": "Scripps Ranch (San Diego)",
+      "store": "San Diego (Carmel Valley)",
       "state": "CA",
       "animal": "Kiwi",
       "name": "Kiwi",
-      "notes": "",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Kiwi the Kiwi presides over Trader Joe’s San Diego in the Carmel Valley neighborhood — a fluffy brown kiwi bird with a long pale beak, lounging on the wood shelving in a sun hat and palm-tree sunglasses. (Note: this record was previously mislabeled as Scripps Ranch — that store is #221, not #223.)",
+      "photo": "171.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
       "store_number": "223",
@@ -4279,16 +4279,16 @@
       "id": 395,
       "store": "Arlington",
       "state": "MA",
-      "animal": "Lobster",
-      "name": null,
-      "notes": "The incoming lobster mascot at Trader Joe's Arlington — niece or nephew of the retired Lulu the Lobster. Name still being decided by the crew. The image shown is the in-store artwork; a photo of the actual plush will follow. If you spot them in the store, please submit the name and a real photo!",
+      "animal": "Lobster and Frog",
+      "name": "Lobster & Froggie",
+      "notes": "Trader Joe’s Arlington now has a duo: the unnamed lobster (niece/nephew of retired Lulu the Lobster — name still being decided by the crew) shares the spotlight with Froggie the Frog. Froggie wears a floral crew shirt and gray overalls with his TJ name badge that reads ‘FROGGIE — Crew Member.’",
       "photo": "395.jpg",
       "has_photo": true,
       "retired": false,
-      "source_url": "User-submitted (04/27/2026)",
+      "source_url": "https://www.reddit.com/user/BionicGreek/",
       "store_number": "505",
       "created_at": "2026-04-27",
-      "submitted_by": null
+      "submitted_by": "BionicGreek"
     },
     {
       "id": 396,
@@ -5039,6 +5039,36 @@
       "store_number": "35",
       "created_at": "2026-04-30",
       "submitted_by": "f4rt054uru5r3x"
+    },
+    {
+      "id": 446,
+      "store": "Crestview Hills",
+      "state": "KY",
+      "animal": "Penguin",
+      "name": "Ice Cube",
+      "notes": "Ice Cube the Penguin chills at Trader Joe’s Crestview Hills in northern Kentucky on Dixie Hwy — caught here in full Hawaiian-vacation mode with a green grass skirt and a pair of yellow and orange flower leis layered over his black-and-white tuxedo.",
+      "photo": "446.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/statti3/",
+      "store_number": "788",
+      "created_at": "2026-04-30",
+      "submitted_by": "statti3"
+    },
+    {
+      "id": 447,
+      "store": "Morgan Hill",
+      "state": "CA",
+      "animal": "Bull",
+      "name": "Morgan",
+      "notes": "Morgan the Bull lives at Trader Joe’s Morgan Hill — a bright red plush with cream horns, named for the town itself. We don’t have his real name yet — ‘Morgan’ is our placeholder. Spotters: please grab a closer shot of the crew badge and submit the official name!",
+      "photo": "447.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "https://www.reddit.com/user/miss_mi_/",
+      "store_number": "202",
+      "created_at": "2026-04-30",
+      "submitted_by": "miss_mi_"
     }
   ]
 }
