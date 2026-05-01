@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { buildSearchIndex, runSearch, type SearchResult } from '@/lib/search';
 import type { Mascot, Store } from '@/lib/types';
 import MallardFull from './MallardFull';
+import MobileDrawer from './MobileDrawer';
 
 interface HeaderProps {
   mascots: Mascot[];
@@ -13,8 +14,10 @@ interface HeaderProps {
   onSelect: (r: SearchResult) => void;
   onSubmitClick: () => void;
   onProgressClick: () => void;
-  /** Pick a random mascot and fly to it. Desktop only. */
+  /** Pick a random mascot and fly to it. */
   onRandomClick: () => void;
+  /** Pick today's "Mascot of the Day" and fly to it. Used by the mobile drawer. */
+  onMOTDClick: () => void;
   totalMascots: number;
   totalUnknown: number;
   percentMapped: number;
@@ -27,6 +30,7 @@ export default function Header({
   onSubmitClick,
   onProgressClick,
   onRandomClick,
+  onMOTDClick,
   totalMascots,
   totalUnknown,
   percentMapped,
@@ -35,6 +39,8 @@ export default function Header({
   const [results, setResults] = useState<SearchResult[]>([]);
   const [active, setActive] = useState(-1);
   const [open, setOpen] = useState(false);
+  // Drawer is mobile-only; opened by the hamburger button.
+  const [drawerOpen, setDrawerOpen] = useState(false);
   // Shorter placeholder on small viewports so the word "Search" stays visible
   // even when the input is squeezed by the brand and submit button.
   const [placeholder, setPlaceholder] = useState(
@@ -209,7 +215,7 @@ export default function Header({
       </div>
 
       <div className="flex flex-shrink-0 items-center gap-2.5 max-sm:gap-1.5">
-        {/* Mascot Parade — full form at ≥1200px (counts + percent) */}
+        {/* Mascot Parade — full form at ≥1200px (counts + percent). Hidden on mobile. */}
         <button
           onClick={onProgressClick}
           title="See the Mascot Parade — how much of the chain we've mapped"
@@ -223,7 +229,7 @@ export default function Header({
           </span>
           <span className="parade-arrow text-[var(--tj-red)]">↗</span>
         </button>
-        {/* Mascot Parade — compact form between 1024–1199px (just the percent) */}
+        {/* Mascot Parade — compact form between 1024–1199px (just the percent). Hidden on mobile. */}
         <button
           onClick={onProgressClick}
           title="See the Mascot Parade — how much of the chain we've mapped"
@@ -249,15 +255,53 @@ export default function Header({
         >
           ✨ Recent
         </Link>
+        {/* Submit — desktop/tablet only. On mobile this lives in the drawer. */}
         <button
           onClick={onSubmitClick}
           aria-label="Submit a mascot"
-          className="flex-shrink-0 rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] max-sm:px-3 max-sm:text-xs"
+          className="flex-shrink-0 rounded-full bg-[var(--cream)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition hover:-translate-y-px hover:shadow-[0_4px_0_var(--tj-red-dark)] max-sm:hidden"
         >
-          <span className="max-sm:hidden">+ Submit a mascot</span>
-          <span className="hidden max-sm:inline">+ Submit</span>
+          + Submit a mascot
+        </button>
+
+        {/* Mobile-only hamburger button. Opens the drawer that holds every
+            secondary feature (count, random, recent, submit, MOTD, map key,
+            and the four utility pages). */}
+        <button
+          onClick={() => setDrawerOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={drawerOpen}
+          className="hidden h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream)] text-[var(--tj-red)] shadow-[0_2px_0_var(--tj-red-dark)] transition active:translate-y-px max-sm:flex"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.6}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-5 w-5"
+            aria-hidden="true"
+          >
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
         </button>
       </div>
+
+      {/* Mobile drawer — only mounted when needed; sm:hidden inside. */}
+      <MobileDrawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        totalMascots={totalMascots}
+        totalUnknown={totalUnknown}
+        percentMapped={percentMapped}
+        onProgressClick={onProgressClick}
+        onRandomClick={onRandomClick}
+        onSubmitClick={onSubmitClick}
+        onMOTDClick={onMOTDClick}
+      />
     </header>
   );
 }
