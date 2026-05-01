@@ -50,7 +50,7 @@ function enrichWithEmoji(m: LocalMascot, storeMatch?: Store): Mascot {
     store_number: storeMatch?.store_number ?? null,
     city: storeMatch?.city ?? m.store,
     neighborhood: storeMatch?.neighborhood,
-    emoji: emojiForAnimal(m.animal),
+    emoji: emojiForAnimal(m.animal, Boolean(m.has_photo)),
     created_at: m.created_at,
     submitted_by: m.submitted_by ?? null,
   };

@@ -127,7 +127,7 @@ export default async function MascotPage({
 
   const store = m.store_number ? storesByNum.get(m.store_number) : null;
   const photoSrc = m.has_photo && m.photo ? photoUrl(m.photo) : null;
-  const emoji = emojiForAnimal(m.animal);
+  const emoji = emojiForAnimal(m.animal, Boolean(m.has_photo));
   const displayName = m.name || `Unnamed ${m.animal}`;
   const cityHood = store
     ? { city: store.city, neighborhood: store.neighborhood }
@@ -428,7 +428,7 @@ function RelatedMascots({
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  emojiForAnimal(m.animal)
+                  emojiForAnimal(m.animal, Boolean(m.has_photo))
                 )}
               </div>
               <div className="min-w-0 flex-1">
