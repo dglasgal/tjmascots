@@ -5620,14 +5620,15 @@
   },
   {
     "store_number": "535",
-    "city": "Colonie",
+    "city": "Albany",
     "state": "NY",
     "zip": "12205",
     "street": "79 Wolf Rd",
     "lat": 42.71416,
     "lng": -73.81204,
     "phone": "518-482-4538",
-    "url": "https://locations.traderjoes.com/ny/colonie/535/"
+    "url": "https://locations.traderjoes.com/ny/colonie/535/",
+    "neighborhood": "Colonie"
   },
   {
     "store_number": "761",
