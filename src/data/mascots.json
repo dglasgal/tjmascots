@@ -169,16 +169,16 @@
       "id": 13,
       "store": "Greenwood Village",
       "state": "CO",
-      "animal": "Unknown",
+      "animal": "Sasquatch",
       "name": "Chewy",
-      "notes": "Hangs out by checkouts; animal type not specified.",
-      "photo": null,
-      "has_photo": false,
+      "notes": "Chewy presides over Trader Joe’s Greenwood Village in suburban Denver. Best identified as a Sasquatch — a shaggy gray-brown bipedal cryptid with tan hairless feet, sporting big black aviator sunglasses, a Hawaiian floral shirt, a TJ red lei, and a bandolier strap across the chest. The bandolier plus the name ‘Chewy’ make it a near-certain homage to Chewbacca the Wookiee from Star Wars. His TJ name badge clearly reads ‘CHEWY — Crew Member.’",
+      "photo": "013.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/user/lunathecrazycorgi/",
       "store_number": "303",
       "created_at": "2026-04-24",
-      "submitted_by": null
+      "submitted_by": "lunathecrazycorgi"
     },
     {
       "id": 14,
@@ -245,15 +245,15 @@
       "store": "Alpharetta",
       "state": "GA",
       "animal": "Frog",
-      "name": "",
-      "notes": "New store. Name not yet shared. Photo needed — previous image was misattributed (audit April 2026).",
-      "photo": null,
-      "has_photo": false,
+      "name": "Alphie",
+      "notes": "Alphie the Frog (pronounced AL-FEE) lives at Trader Joe’s Alpharetta, Georgia. The photo here isn’t Alphie himself — it’s the in-store chalkboard sign that introduces him: a green frog in a Hawaiian shirt and flower lei, with the message ‘Hey Kids! Aloha — my name is ALPHIE, pronounced AL-FEE. Find me hopping through the store, take me to your cashier, and claim your prize!’ A hide-and-seek scavenger hunt for the smallest TJ shoppers.",
+      "photo": "019.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/user/Fancy-Asparagus9210/",
       "store_number": "798",
       "created_at": "2026-04-24",
-      "submitted_by": null
+      "submitted_by": "Fancy-Asparagus9210"
     },
     {
       "id": 20,
@@ -340,10 +340,10 @@
       "photo": "025.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m86t1hj/",
+      "source_url": "https://www.reddit.com/user/definitelynother/",
       "store_number": "576",
       "created_at": "2026-04-24",
-      "submitted_by": null
+      "submitted_by": "definitelynother"
     },
     {
       "id": 26,
@@ -355,10 +355,10 @@
       "photo": "026.jpeg",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/m53vjm4/",
+      "source_url": "https://www.reddit.com/user/Pastelpunkprincesss/",
       "store_number": "362",
       "created_at": "2026-04-24",
-      "submitted_by": null
+      "submitted_by": "Pastelpunkprincesss"
     },
     {
       "id": 27,
@@ -370,10 +370,10 @@
       "photo": "027.png",
       "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/1gc35we/mascot_megathread_request_part_2_looking_for/",
+      "source_url": "https://www.reddit.com/user/BourbonBravado/",
       "store_number": "609",
       "created_at": "2026-04-24",
-      "submitted_by": null
+      "submitted_by": "BourbonBravado"
     },
     {
       "id": 28,
