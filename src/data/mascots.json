@@ -2780,15 +2780,15 @@
       "store": "North Hills (Pittsburgh)",
       "state": "PA",
       "animal": "Porcupine",
-      "name": "Quilliam",
-      "notes": "Store 624 (McCandless / North Hills area). Quilliam the Porcupine watches over the Pittsburgh North Hills Trader Joe's.",
-      "photo": null,
-      "has_photo": false,
+      "name": "Quill-i-am",
+      "notes": "Quill-i-am the Porcupine watches over Trader Joe’s Pittsburgh North Hills (in the McCandless area) on Covenant Ave — a fluffy brown porcupine perched on top of the in-store ‘ORGANIC’ display sign. The pun on ‘William’ is, of course, a poke at his quills.",
+      "photo": "205.jpg",
+      "has_photo": true,
       "retired": false,
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/",
+      "source_url": "https://www.reddit.com/user/BflatPenguin/",
       "store_number": "624",
       "created_at": "2026-04-24",
-      "submitted_by": null
+      "submitted_by": "BflatPenguin"
     },
     {
       "id": 206,
@@ -5189,21 +5189,6 @@
       "store_number": "566",
       "created_at": "2026-04-30",
       "submitted_by": "Astroezombiee"
-    },
-    {
-      "id": 456,
-      "store": "Tarzana",
-      "state": "CA",
-      "animal": "Porcupine",
-      "name": "Quill-i-am",
-      "notes": "Quill-i-am the Porcupine watches over Trader Joe’s Tarzana on Ventura Blvd in the western San Fernando Valley — a fluffy brown porcupine perched on top of the in-store ‘ORGANIC’ display sign. The pun on ‘William’ is, of course, a poke at his quills.",
-      "photo": "456.jpg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "https://www.reddit.com/user/BflatPenguin/",
-      "store_number": "264",
-      "created_at": "2026-04-30",
-      "submitted_by": "BflatPenguin"
     },
     {
       "id": 457,
