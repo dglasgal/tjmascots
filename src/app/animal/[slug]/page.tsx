@@ -206,7 +206,13 @@ export default async function AnimalPage({
                                 className="h-full w-full object-cover"
                               />
                             ) : (
-                              emoji
+                              /* eslint-disable-next-line @next/next/no-img-element */
+                              <img
+                                src="/images/missing-mascot.jpg"
+                                alt={`Photo of ${m.animal} at Trader Joe's ${cityHood} not yet found`}
+                                loading="lazy"
+                                className="h-full w-full object-cover"
+                              />
                             )}
                           </div>
                           <div className="min-w-0 flex-1">

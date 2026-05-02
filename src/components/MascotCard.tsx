@@ -219,9 +219,12 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
           </span>
         </button>
       ) : (
-        <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[120px]">
-          {m.emoji}
-        </div>
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src="/images/missing-mascot.jpg"
+          alt={`Photo of ${m.name || m.animal} the ${m.animal} not yet found — help us spot them!`}
+          className="aspect-square w-full object-cover bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)]"
+        />
       )}
 
       <PhotoLightbox
@@ -333,9 +336,12 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
 function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
   return (
     <>
-      <div className="flex aspect-square w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[120px]">
-        ❓
-      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/missing-mascot.jpg"
+        alt={`No mascot on file for Trader Joe's ${formatStoreLabel(s)} yet — help us find it!`}
+        className="aspect-square w-full object-cover bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)]"
+      />
       <div className="px-6 pb-2 pt-5 max-sm:px-4">
         <div className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--ink-soft)]">
           Mascot unknown

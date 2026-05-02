@@ -221,10 +221,18 @@ export default async function CityPage({
                           loading="lazy"
                           className="h-full w-full object-cover"
                         />
-                      ) : mascot ? (
-                        emojiForAnimal(mascot.animal, Boolean(mascot.has_photo))
                       ) : (
-                        '❓'
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img
+                          src="/images/missing-mascot.jpg"
+                          alt={
+                            mascot
+                              ? `Photo of ${mascot.animal} at Trader Joe's ${city.city} not yet found`
+                              : `Mascot for Trader Joe's ${city.city} ${store.neighborhood || ''} not yet known`
+                          }
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
                       )}
                     </div>
                     <div className="min-w-0 flex-1">

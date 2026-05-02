@@ -221,9 +221,13 @@ export default async function StatePage({
                                 className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.03]"
                               />
                             ) : (
-                              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[60px]">
-                                {emojiForAnimal(m.animal, Boolean(m.has_photo))}
-                              </div>
+                              /* eslint-disable-next-line @next/next/no-img-element */
+                              <img
+                                src="/images/missing-mascot.jpg"
+                                alt={`Photo of ${m.animal} at Trader Joe's ${city} not yet found`}
+                                loading="lazy"
+                                className="h-full w-full object-cover"
+                              />
                             )}
                           </div>
                           <div className="p-3">

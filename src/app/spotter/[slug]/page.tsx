@@ -239,9 +239,13 @@ function SpotterMascotCard({ mascot }: { mascot: RawMascot }) {
             className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[80px]">
-            {emoji}
-          </div>
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src="/images/missing-mascot.jpg"
+            alt={`Photo of ${mascot.name || mascot.animal} the ${mascot.animal} not yet found`}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
         )}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center bg-[var(--tj-red)] py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[var(--cream)] opacity-0 transition-opacity group-hover:opacity-100">
           Read more →
