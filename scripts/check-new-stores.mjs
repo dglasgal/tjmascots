@@ -37,17 +37,24 @@ const CONCURRENCY = 15;
  * Stores on the live TJ site that we DELIBERATELY exclude from our map.
  * Without this list the daily watcher would re-add them every run.
  *
- * Currently: the three Kentucky "Wine Shop" entries that share an address
- * with a sibling grocery store (KY law requires alcohol to be sold under a
- * separate license, so TJ runs a co-located wine shop). They map to the
+ * The Kentucky entries are "Wine Shop" sibling stores that share an
+ * address with a grocery store (KY law requires alcohol to be sold under
+ * a separate license, so TJ runs a co-located wine shop). They map to the
  * same physical visitor experience as the grocery, so a separate map pin
  * just produces a stacked-pin duplicate and inflates the "%-mapped" stat.
  *
  *   #625 Louisville Wine Shop  → grocery sibling at #628
  *   #626 Lexington Wine Shop   → grocery sibling at #627
  *   #789 Crestview Hills Wine Shop → grocery sibling at #788
+ *
+ * The Colorado entry is the same pattern: pre-2019 Colorado law capped a
+ * grocery chain at one full-liquor-license store statewide, so TJ ran a
+ * co-located wine-shop sibling right next door. Lat/lng are within ~75 ft
+ * of the grocery — a duplicate pin from the user's perspective.
+ *
+ *   #310 Denver Hilltop Wine Shop (790 N Colorado Blvd) → grocery sibling at #300 (750 N Colorado Blvd)
  */
-const EXCLUDED_STORE_NUMBERS = new Set(['625', '626', '789']);
+const EXCLUDED_STORE_NUMBERS = new Set(['625', '626', '789', '310']);
 
 async function main() {
   const localText = await fs.readFile(STORES_PATH, 'utf8');
