@@ -248,8 +248,10 @@ export default async function CityPage({
                           zip: store.zip,
                         })}
                       </div>
-                      <div className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[var(--ink-soft)]">
-                        Store #{store.store_number}
+                      <div className="mt-1.5 flex">
+                        <span className="rounded-full bg-[var(--tj-red)] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
+                          Store #{store.store_number}
+                        </span>
                       </div>
                     </div>
                   </Link>
