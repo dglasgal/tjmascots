@@ -237,9 +237,12 @@ export default async function MascotPage({
                 className="mx-auto max-h-[480px] w-auto rounded-3xl shadow-card"
               />
             ) : (
-              <div className="mx-auto flex aspect-square max-w-[360px] items-center justify-center rounded-3xl bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[180px]">
-                {emoji}
-              </div>
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src="/images/missing-mascot.jpg"
+                alt={`Photo of ${displayName} the ${m.animal} at Trader Joe's ${storeLabel} not yet found — help us spot them!`}
+                className="mx-auto aspect-square w-full max-w-[360px] rounded-3xl bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] object-cover shadow-card"
+              />
             )}
             {m.submitted_by && (
               <p className="mt-3 text-center text-xs font-semibold italic text-[var(--ink-soft)]">
@@ -428,7 +431,13 @@ function RelatedMascots({
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  emojiForAnimal(m.animal, Boolean(m.has_photo))
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src="/images/missing-mascot.jpg"
+                    alt={`Photo of ${m.name || m.animal} not yet found`}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
                 )}
               </div>
               <div className="min-w-0 flex-1">
