@@ -1,0 +1,101 @@
+{
+  "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'.",
+  "events": [
+    {
+      "date": "2026-05-01",
+      "kind": "renamed",
+      "store_number": "76",
+      "mascot_id": 39,
+      "summary": "Stockton tiger renamed Jo-Jo → Joe-Joe",
+      "reason": "Crew badge in the new photo clearly reads ‘JOE JOE — Crew Member.’ The earlier ‘Jo-Jo’ spelling was a transcription error."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "photo",
+      "store_number": "76",
+      "mascot_id": 39,
+      "summary": "New photo for Joe-Joe at Stockton #76",
+      "reason": "Submitted by Historical_Truth_731 (Reddit). Striped tiger with a blue ribbon bow, posed in front of a wooden ‘JOE’ sign with raffia and palm fronds."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "photo",
+      "store_number": "272",
+      "mascot_id": 30,
+      "summary": "Pepper #272 now pictured with her three puggles!",
+      "reason": "Pepper the Platypus had babies — and a ‘puggle’ is the proper term for a platypus pup. The new photo is a holiday family portrait with all three of them in matching knit sweaters."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "photo",
+      "store_number": "653",
+      "mascot_id": 33,
+      "summary": "Fresh photo for Meatball at #653",
+      "reason": "New autumn-themed shot with a scarecrow and felt pumpkin. Also cleaned up the file extension from .png → .jpg."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "renamed",
+      "store_number": "303",
+      "mascot_id": 13,
+      "summary": "Chewy #303 species identified: Sasquatch (Chewbacca homage)",
+      "reason": "Shaggy ape build + bandolier strap across the chest + the name ‘Chewy’ all point to Chewbacca the Wookiee. Listing the species as Sasquatch (real-world cousin) since Wookiee is a fictional Star Wars species."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "photo",
+      "store_number": "303",
+      "mascot_id": 13,
+      "summary": "First photo of Chewy at Greenwood Village #303",
+      "reason": "Submitted by lunathecrazycorgi (Reddit)."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "photo",
+      "store_number": "798",
+      "mascot_id": 19,
+      "summary": "Alphie sign added at Alpharetta #798",
+      "reason": "We don’t have a photo of Alphie himself yet — instead we’ve got the in-store chalkboard sign that explains the kids’ scavenger hunt: find the frog, take him to a cashier, claim a prize. Submitted by Fancy-Asparagus9210 (Reddit)."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "credit",
+      "store_number": "576",
+      "mascot_id": 25,
+      "summary": "Tux #576 photo credited to definitelynother (Reddit)"
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "credit",
+      "store_number": "362",
+      "mascot_id": 26,
+      "summary": "Huckleberry #362 photo credited to Pastelpunkprincesss (Reddit)"
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "credit",
+      "store_number": "609",
+      "mascot_id": 27,
+      "summary": "Taylor #609 photo credited to BourbonBravado (Reddit)"
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "store_removed",
+      "store_number": "310",
+      "summary": "Removed Denver Hilltop wine-shop sibling #310 — duplicate of grocery #300",
+      "reason": "Pre-2019 Colorado law capped a grocery chain at one full-liquor-license store statewide, so TJ ran a co-located wine shop right next door (lat/lng within ~75 ft of the grocery). Removing #310 keeps the map honest. Same pattern as the three Kentucky wine shops we removed earlier."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "site",
+      "summary": "Unified Store # display: red pill across all listings",
+      "reason": "Yorktown #567 ‘no mascot yet’ card was showing the store number in plain bold text while Elk Grove #190 (with mascot) showed it in a red pill. Now consistent across the popup card, /city, and /state pages."
+    },
+    {
+      "date": "2026-05-01",
+      "kind": "site",
+      "summary": "Header tightened on iPhone-13-class screens",
+      "reason": "Hamburger button was clipping off the right edge on 390-pixel-wide phones. Added a finer ≤400px breakpoint that shrinks the duck logo, wordmark, search-bar minimum width, and hamburger size to give everything breathing room."
+    }
+  ]
+}

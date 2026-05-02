@@ -1,11 +1,9 @@
 import Link from 'next/link';
 import mascotsRaw from '@/data/mascots.json';
-import storesData from '@/data/tj-stores.json';
+import eventsRaw from '@/data/events.json';
 import { emojiForAnimal } from '@/lib/emoji';
-import type { Store } from '@/lib/types';
 import { photoUrl } from '@/lib/data';
 import { slugForMascot, slugForSpotter } from '@/lib/slug';
-import { formatStoreLocation } from '@/lib/store-label';
 import MallardHead from '@/components/MallardHead';
 
 export const dynamic = 'force-static';
@@ -31,20 +29,98 @@ interface RawMascot {
   submitted_by?: string | null;
 }
 
-const stores = storesData as Store[];
-const storesByNum = new Map(stores.map((s) => [s.store_number, s]));
-
 const allMascots = (mascotsRaw as { mascots: RawMascot[] }).mascots;
 // Filter to active mascots only
 const active = allMascots.filter((m) => !m.retired);
+const mascotsById = new Map(active.map((m) => [m.id, m]));
 
-// "Recently spotted" — sort by created_at desc, then by id desc as tiebreaker
-const recent = [...active].sort((a, b) => {
-  const da = a.created_at || '';
-  const db = b.created_at || '';
-  if (da === db) return b.id - a.id;
-  return db.localeCompare(da);
-}).slice(0, 24);
+// --- Unified change-log feed -----------------------------------------------
+//
+// The /recent page used to just show the 24 most-recently-added mascots,
+// which meant edits-after-the-fact (a renamed mascot, a swapped photo,
+// a removed wine-shop store) never showed up — they had no row in
+// mascots.json with a timestamp newer than the original add.
+//
+// Now we maintain an explicit change log at src/data/events.json. Each
+// time we touch a record (rename, replace a photo, add or remove a
+// store, etc.) we append an entry. The feed below merges:
+//   1. Every explicit event in events.json (new mascots, renames,
+//      photo swaps, credits, store add/remove, site-wide changes).
+//   2. Auto-synthesized "added" events for any mascot whose creation
+//      pre-dates events.json — derived from its created_at timestamp.
+//      This keeps the feed pleasantly populated even before the log
+//      had many entries.
+//
+// Sort is newest-first. Cards link to the affected mascot or store.
+type EventKind =
+  | 'added'
+  | 'renamed'
+  | 'photo'
+  | 'credit'
+  | 'notes'
+  | 'store_added'
+  | 'store_removed'
+  | 'site';
+
+interface FeedEvent {
+  date: string;
+  kind: EventKind;
+  store_number?: string;
+  mascot_id?: number;
+  summary: string;
+  reason?: string;
+  /** True if this entry was auto-generated from a mascot's created_at;
+   *  false (or missing) means it was an explicit hand-written entry. */
+  synthetic?: boolean;
+}
+
+interface EventsFile {
+  events: FeedEvent[];
+}
+
+const explicitEvents = (eventsRaw as EventsFile).events.map((e) => ({
+  ...e,
+  synthetic: false,
+}));
+
+// Build a set of (mascot_id) that already have an explicit "added" event,
+// so we don't double-list them when synthesizing from created_at.
+const explicitlyAddedIds = new Set(
+  explicitEvents
+    .filter((e) => e.kind === 'added' && typeof e.mascot_id === 'number')
+    .map((e) => e.mascot_id as number),
+);
+
+// Synthesize an "added" event for every active mascot that doesn't
+// already have one in the explicit log. created_at is required.
+const syntheticAddedEvents: FeedEvent[] = active
+  .filter((m) => !explicitlyAddedIds.has(m.id) && m.created_at)
+  .map((m) => ({
+    date: m.created_at!,
+    kind: 'added' as const,
+    store_number: m.store_number,
+    mascot_id: m.id,
+    summary: `${m.name || `Unnamed ${m.animal}`} the ${m.animal}${
+      m.store_number ? ` joined #${m.store_number} ${m.store}` : ` joined ${m.store}`
+    }${m.state ? `, ${m.state}` : ''}`,
+    synthetic: true,
+  }));
+
+const allEvents: FeedEvent[] = [...explicitEvents, ...syntheticAddedEvents].sort(
+  (a, b) => {
+    if (a.date === b.date) {
+      // Within the same day, explicit events appear before synthetic
+      // ones (so today's hand-written notes sit at the top of today's
+      // bucket), and within each group higher mascot_id wins.
+      if (a.synthetic !== b.synthetic) return a.synthetic ? 1 : -1;
+      return (b.mascot_id ?? 0) - (a.mascot_id ?? 0);
+    }
+    return b.date.localeCompare(a.date);
+  },
+);
+
+const FEED_LIMIT = 36;
+const feed = allEvents.slice(0, FEED_LIMIT);
 
 // Top contributors — group by submitted_by, count, sort
 const contributorCounts = new Map<string, { count: number; latest: RawMascot }>();
@@ -174,21 +250,26 @@ export default function RecentPage() {
             </section>
           )}
 
-          {/* Recently spotted grid */}
+          {/* Unified change-log feed: new mascots, renames, photo updates,
+              credit changes, store additions/removals, all in one timeline. */}
           <section>
             <div className="mb-5 flex items-baseline justify-between">
               <h3 className="font-display text-2xl font-extrabold text-[var(--ink)]">
-                ✨ Latest additions
+                ✨ Latest updates
               </h3>
               <span className="text-sm font-bold text-[var(--ink-soft)]">
-                showing the {recent.length} newest
+                showing the {feed.length} newest
               </span>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {recent.map((m) => (
-                <RecentCard key={m.id} mascot={m} />
+            <ol className="flex flex-col gap-3">
+              {feed.map((e, i) => (
+                <FeedRow key={`${e.date}-${e.kind}-${e.mascot_id ?? e.store_number ?? i}`} event={e} />
               ))}
-            </div>
+            </ol>
+            <p className="mt-5 text-center text-[12px] font-semibold italic text-[var(--ink-soft)]">
+              Every site change shows up here — new mascots, renames,
+              photo updates, even store removals.
+            </p>
           </section>
 
           {/* CTA footer */}
@@ -229,66 +310,104 @@ export default function RecentPage() {
 
 /* -------------------------- helpers -------------------------- */
 
-function RecentCard({ mascot }: { mascot: RawMascot }) {
-  const photo = mascot.has_photo && mascot.photo ? photoUrl(mascot.photo) : null;
-  const emoji = emojiForAnimal(mascot.animal, Boolean(mascot.has_photo));
-  const store = mascot.store_number ? storesByNum.get(mascot.store_number) : null;
-  return (
-    <Link
-      href={`/mascot/${slugForMascot(mascot)}`}
-      title={`Read about ${mascot.name || mascot.animal}`}
-      className="group block overflow-hidden rounded-2xl bg-[var(--cream-dark)] transition hover:-translate-y-1 hover:shadow-card"
-    >
-      <div className="relative aspect-[4/3] w-full bg-[var(--cream)]">
-        {photo ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={photo}
-            alt={`${mascot.name || 'Unnamed'} the ${mascot.animal} at Trader Joe's ${mascot.store}`}
-            loading="lazy"
-            className="h-full w-full object-contain transition-transform duration-200 group-hover:scale-[1.03]"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)] text-[80px]">
-            {emoji}
-          </div>
-        )}
-        {mascot.submitted_by && (
-          <div className="absolute right-2 top-2 rounded-full bg-[var(--ink)]/85 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
-            📷 {mascot.submitted_by}
-          </div>
-        )}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center bg-[var(--tj-red)] py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[var(--cream)] opacity-0 transition-opacity group-hover:opacity-100">
-          Read more →
-        </div>
-      </div>
-      <div className="p-3.5">
-        <div className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--ink-soft)]">
-          {mascot.animal}
-        </div>
-        <div className="mt-0.5 truncate font-display text-lg font-extrabold leading-tight text-[var(--tj-red)]">
-          {mascot.name || <span className="italic opacity-60">Unnamed</span>}
-        </div>
-        <div className="mt-1 flex items-center gap-1.5 text-[12px] font-bold text-[var(--ink)]">
-          <span className="truncate">
-            {store
-              ? `${formatStoreLocation(store)}, ${store.state}`
-              : `${mascot.store}${mascot.state ? `, ${mascot.state}` : ''}`}
-          </span>
-          {mascot.store_number && (
-            <span className="flex-shrink-0 rounded-full bg-[var(--tj-red)] px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
-              #{mascot.store_number}
-            </span>
-          )}
-        </div>
-      </div>
-    </Link>
-  );
-}
-
 function medalForRank(rank: number): string {
   if (rank === 0) return '🥇';
   if (rank === 1) return '🥈';
   if (rank === 2) return '🥉';
   return '⭐';
+}
+
+/* ---------------------- unified feed row ----------------------- */
+
+/** Visual style + label per event kind. The accent color appears as a
+ *  left border on each card so the feed is scannable at a glance. */
+const KIND_STYLE: Record<
+  EventKind,
+  { icon: string; label: string; accent: string }
+> = {
+  added:         { icon: '✨', label: 'New mascot',     accent: 'var(--tj-red)' },
+  renamed:       { icon: '✏️', label: 'Renamed',         accent: '#c79100' },
+  photo:         { icon: '📷', label: 'New photo',       accent: '#1f7a4d' },
+  credit:        { icon: '🙏', label: 'Photo credit',    accent: '#5b6cff' },
+  notes:         { icon: '📝', label: 'Notes updated',   accent: '#888' },
+  store_added:   { icon: '🏬', label: 'Store added',     accent: '#0f8e7e' },
+  store_removed: { icon: '🗑️', label: 'Store removed',   accent: '#a3322a' },
+  site:          { icon: '🛠️', label: 'Site update',     accent: '#444' },
+};
+
+function FeedRow({ event }: { event: FeedEvent }) {
+  const style = KIND_STYLE[event.kind] ?? KIND_STYLE.site;
+
+  // Where this card links to. Mascot link wins; store link is the fallback.
+  let href: string | null = null;
+  let thumbEmoji: string | null = null;
+  let thumbPhoto: string | null = null;
+  if (event.mascot_id) {
+    const m = mascotsById.get(event.mascot_id);
+    if (m) {
+      href = `/mascot/${slugForMascot(m)}`;
+      thumbEmoji = emojiForAnimal(m.animal, Boolean(m.has_photo));
+      thumbPhoto = m.has_photo && m.photo ? photoUrl(m.photo) : null;
+    }
+  }
+  if (!href && event.store_number) {
+    href = `/?store=${encodeURIComponent(event.store_number)}`;
+  }
+
+  const inner = (
+    <article
+      className="group flex items-stretch gap-3 overflow-hidden rounded-2xl bg-[var(--cream-dark)] p-3.5 transition hover:-translate-y-px hover:bg-[var(--cream)] hover:shadow-card"
+      style={{ borderLeft: `4px solid ${style.accent}` }}
+    >
+      {/* Thumb: photo if we have one, otherwise emoji on tinted bg */}
+      <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[var(--cream)] text-2xl">
+        {thumbPhoto ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={thumbPhoto}
+            alt=""
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        ) : thumbEmoji ? (
+          <span>{thumbEmoji}</span>
+        ) : (
+          <span>{style.icon}</span>
+        )}
+      </div>
+
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center gap-2 text-[10px] font-extrabold uppercase tracking-wider text-[var(--ink-soft)]">
+          <span style={{ color: style.accent }}>
+            {style.icon} {style.label}
+          </span>
+          <span>·</span>
+          <time dateTime={event.date}>{formatDate(event.date)}</time>
+        </div>
+        <div className="mt-1 font-display text-[15px] font-extrabold leading-snug text-[var(--ink)] group-hover:text-[var(--tj-red)]">
+          {event.summary}
+        </div>
+        {event.reason && (
+          <div className="mt-1 text-[12px] font-semibold leading-snug text-[var(--ink-soft)]">
+            {event.reason}
+          </div>
+        )}
+      </div>
+    </article>
+  );
+
+  return (
+    <li>{href ? <Link href={href} className="block">{inner}</Link> : inner}</li>
+  );
+}
+
+/** Format an ISO date as "May 1, 2026" — friendlier than 2026-05-01. */
+function formatDate(iso: string): string {
+  // Manual format avoids locale drift between server build and client render.
+  const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return iso;
+  const [, y, mm, dd] = m;
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const monthName = months[parseInt(mm, 10) - 1] ?? mm;
+  return `${monthName} ${parseInt(dd, 10)}, ${y}`;
 }
