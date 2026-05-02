@@ -102,8 +102,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 0.65,
     })),
-    // Per-animal browse pages (only animals with 2+ mascots)
-    ...multiMascotAnimalSlugs(activeMascots).map((slug) => ({
+    // Per-animal browse pages (one per unique animal, including singletons)
+    ...allAnimalSlugs(activeMascots).map((slug) => ({
       url: `${SITE_URL}/animal/${slug}`,
       lastModified,
       changeFrequency: 'weekly' as const,
@@ -112,17 +112,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 }
 
-/** Animals with 2+ mascots get their own /animal/{slug} page. */
-function multiMascotAnimalSlugs(active: RawMascot[]): string[] {
-  const counts = new Map<string, number>();
+/** Every unique animal gets its own /animal/{slug} page. */
+function allAnimalSlugs(active: RawMascot[]): string[] {
+  const seen = new Set<string>();
   for (const m of active) {
     const a = (m.animal || '').trim();
-    if (!a) continue;
-    counts.set(a, (counts.get(a) ?? 0) + 1);
+    if (a) seen.add(a);
   }
-  return [...counts.entries()]
-    .filter(([, c]) => c >= 2)
-    .map(([animal]) => slugForAnimal(animal));
+  return [...seen].map((animal) => slugForAnimal(animal));
 }
 
 /** Cities with 2+ TJ stores get their own /city/{slug} pages. */
