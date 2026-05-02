@@ -36,13 +36,10 @@ const allMascots = (mascotsRaw as { mascots: RawMascot[] }).mascots;
 const activeMascots = allMascots.filter((m) => !m.retired);
 
 /**
- * Per-animal browse pages — one per unique animal type with 2+
- * mascots. Captures queries like "trader joe's monkey mascot" or
- * "all the trader joe's bears."
- *
- * Singleton animals (only one mascot) don't get their own page —
- * the per-mascot SEO page is already sufficient and 90+ thin pages
- * would dilute the site's overall ranking.
+ * Per-animal browse pages — one per unique animal type, including
+ * singletons. Captures queries like "trader joe's monkey mascot",
+ * "all the trader joe's bears", and direct lookups like
+ * "trader joe's capybara mascot" even when there's just one.
  */
 function animalCounts(): Map<string, RawMascot[]> {
   const m = new Map<string, RawMascot[]>();
@@ -57,7 +54,6 @@ function animalCounts(): Map<string, RawMascot[]> {
 
 function eligibleAnimals(): { animal: string; mascots: RawMascot[] }[] {
   return [...animalCounts().entries()]
-    .filter(([, list]) => list.length >= 2)
     .map(([animal, mascots]) => ({ animal, mascots }));
 }
 

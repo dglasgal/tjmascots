@@ -26,9 +26,8 @@ interface AnimalEntry {
 }
 
 /** Sorted list of every animal with at least one active mascot.
- *  Used to render the index. Animals with 2+ mascots get clickable
- *  /animal/{slug} links; singletons stay listed but don't link
- *  anywhere (we don't generate per-singleton pages). */
+ *  Every animal links to its own /animal/{slug} page, including
+ *  singletons. */
 function allAnimals(): AnimalEntry[] {
   const counts = new Map<string, number>();
   for (const m of activeMascots) {
@@ -65,7 +64,6 @@ export const metadata: Metadata = {
 
 export default function AnimalIndexPage() {
   const animals = allAnimals();
-  const eligibleCount = animals.filter((a) => a.count >= 2).length;
 
   return (
     <div className="flex h-full flex-col">
@@ -126,9 +124,8 @@ export default function AnimalIndexPage() {
             <div className="mx-auto mt-4 h-1.5 w-24 rounded-full bg-[var(--accent)]" />
             <p className="mx-auto mt-5 max-w-xl text-base font-semibold text-[var(--ink-soft)]">
               <strong className="text-[var(--ink)]">{animals.length}</strong> different
-              kinds of animals (and a few non-animals) have served as Trader Joe&apos;s mascots.{' '}
-              <strong className="text-[var(--tj-red)]">{eligibleCount}</strong> of them
-              show up at multiple stores — click any to see them all.
+              kinds of animals (and a few non-animals) have served as Trader Joe&apos;s mascots.
+              Click any to see every store that has one.
             </p>
           </div>
 
@@ -149,21 +146,12 @@ export default function AnimalIndexPage() {
               );
               return (
                 <li key={a.animal}>
-                  {a.count >= 2 ? (
-                    <Link
-                      href={`/animal/${a.slug}`}
-                      className="group flex h-full items-center gap-3 rounded-2xl bg-[var(--cream-dark)] p-3 transition hover:-translate-y-px hover:bg-[var(--cream)] hover:shadow-card"
-                    >
-                      {inner}
-                    </Link>
-                  ) : (
-                    <div
-                      className="flex h-full items-center gap-3 rounded-2xl bg-[var(--cream-dark)]/50 p-3 opacity-60"
-                      title="Singleton — only one TJ store has this mascot. See it on the map."
-                    >
-                      {inner}
-                    </div>
-                  )}
+                  <Link
+                    href={`/animal/${a.slug}`}
+                    className="group flex h-full items-center gap-3 rounded-2xl bg-[var(--cream-dark)] p-3 transition hover:-translate-y-px hover:bg-[var(--cream)] hover:shadow-card"
+                  >
+                    {inner}
+                  </Link>
                 </li>
               );
             })}
