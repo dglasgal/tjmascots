@@ -343,7 +343,11 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
         <h2 className="my-1.5 font-display text-4xl font-extrabold leading-tight text-[var(--tj-red)] max-sm:text-3xl">
           {formatStoreLabel(s)}
         </h2>
-        <div className="mb-1 text-base font-bold">Store #{s.store_number}</div>
+        <div className="mb-1 flex items-center">
+          <span className="rounded-full bg-[var(--tj-red)] px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
+            Store #{s.store_number}
+          </span>
+        </div>
         <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
           {formatStreetAddress({
             street: s.street,

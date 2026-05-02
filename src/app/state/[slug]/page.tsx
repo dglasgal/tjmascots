@@ -237,9 +237,13 @@ export default async function StatePage({
                               const sm = m.store_number ? stores.find((s) => s.store_number === m.store_number) : null;
                               const hood = sm?.neighborhood;
                               return (
-                                <div className="mt-1 text-[10px] font-bold text-[var(--ink-soft)]">
-                                  {hood ? `${hood} · ` : ''}
-                                  {m.store_number ? `Store #${m.store_number}` : ''}
+                                <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-[10px] font-bold text-[var(--ink-soft)]">
+                                  {hood && <span>{hood}</span>}
+                                  {m.store_number && (
+                                    <span className="rounded-full bg-[var(--tj-red)] px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
+                                      Store #{m.store_number}
+                                    </span>
+                                  )}
                                 </div>
                               );
                             })()}
