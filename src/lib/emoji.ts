@@ -51,6 +51,11 @@ const ANIMAL_EMOJI: Record<string, string> = {
   sugar: '🐿️', glider: '🐿️',
   alpaca: '🦙', vicuna: '🦙', guanaco: '🦙',
   shrimp: '🦐', prawn: '🦐', krill: '🦐',
+  // Fish — generic + a few species we've actually seen
+  fish: '🐟', walleye: '🐟', trout: '🐟', bass: '🐟', salmon: '🐟',
+  pike: '🐟', perch: '🐟', sturgeon: '🐟', catfish: '🐟', halibut: '🐟',
+  tuna: '🐟', marlin: '🐟', swordfish: '🐟', mackerel: '🐟', pufferfish: '🐡',
+  goldfish: '🐠', koi: '🐠', minnow: '🐟',
   quahog: '🦪', clam: '🦪', oyster: '🦪', mussel: '🦪',
   elk: '🦌', caribou: '🦌', reindeer: '🦌', antelope: '🦌', gazelle: '🦌',
   jackalope: '🐰', hare: '🐰',
