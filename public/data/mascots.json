@@ -2324,7 +2324,7 @@
     {
       "id": 137,
       "name": "Hidee",
-      "animal": "Yeti / Monkey",
+      "animal": "Yeti",
       "store_number": "217",
       "store_label": "Rancho Cucamonga (Haven)",
       "city": "Rancho Cucamonga",
@@ -5896,7 +5896,7 @@
     {
       "id": 437,
       "name": "Sandy",
-      "animal": "Sandhill Crane",
+      "animal": "Sandhill crane",
       "store_number": "780",
       "store_label": "Bradenton",
       "city": "Bradenton",
