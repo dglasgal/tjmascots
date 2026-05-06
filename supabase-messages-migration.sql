@@ -36,12 +36,20 @@ create table if not exists public.messages (
 -- did not, see project memory).
 alter table public.messages enable row level security;
 
+-- WITH CHECK is intentionally tight. Generous size cap on the body
+-- prevents abuse and forcing status='pending' blocks anon from sneaking
+-- in pre-resolved rows. Without these the Supabase advisor flags this
+-- as 'always-true RLS'.
 drop policy if exists "anyone can insert messages" on public.messages;
 create policy "anyone can insert messages"
   on public.messages
   for insert
   to anon, authenticated
-  with check (true);
+  with check (
+    length(coalesce(message, ''))      between 1 and 10000
+    and length(coalesce(reply_to, '')) <= 320
+    and (status is null or status = 'pending')
+  );
 
 grant insert on public.messages to anon, authenticated;
 

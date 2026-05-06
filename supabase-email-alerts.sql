@@ -150,3 +150,12 @@ drop trigger if exists email_alert_on_new_message on public.messages;
 create trigger email_alert_on_new_message
   after insert on public.messages
   for each row execute function public.notify_admin_on_new_row();
+
+-- 4. Lock the trigger function down — it's SECURITY DEFINER, which
+-- means it runs as the function owner (typically `postgres`) regardless
+-- of who calls it. Triggers bypass EXECUTE permission, but anything
+-- exposed via PostgREST (/rest/v1/rpc/...) inherits the default
+-- 'execute by anyone' grant. Without revoking that, anyone with the
+-- anon key could fire spam emails by directly calling the RPC.
+revoke execute on function public.notify_admin_on_new_row()
+  from anon, authenticated, public;

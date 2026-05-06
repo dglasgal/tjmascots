@@ -56,11 +56,24 @@ CREATE POLICY "mascots are public"
   USING (retired = FALSE);
 
 -- Submissions: anyone can INSERT, nobody can read via anon key. Admin reads use service_role.
+-- The WITH CHECK predicate is intentionally tight — generous size caps prevent
+-- abuse, and forcing status='pending' blocks anon from sneaking in pre-approved
+-- rows. Without these caps the Supabase advisor flags this as 'always-true RLS'.
 ALTER TABLE public.submissions ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS "anyone can submit" ON public.submissions;
 CREATE POLICY "anyone can submit"
   ON public.submissions FOR INSERT
-  WITH CHECK (TRUE);
+  TO anon, authenticated
+  WITH CHECK (
+    length(coalesce(store, ''))         BETWEEN 1 AND 500
+    AND length(coalesce(animal, ''))    BETWEEN 1 AND 200
+    AND length(coalesce(name, ''))             <= 200
+    AND length(coalesce(email, ''))            <= 320      -- RFC 5321 max
+    AND length(coalesce(notes, ''))            <= 10000
+    AND length(coalesce(photo_path, ''))       <= 500
+    AND length(coalesce(store_number, ''))     <= 20
+    AND (status IS NULL OR status = 'pending')
+  );
 -- No SELECT policy on submissions → anon key can't read them back. Good.
 
 -- ---------- Storage buckets ----------
@@ -84,20 +97,26 @@ CREATE POLICY "anyone can upload submission photos"
     AND (storage.foldername(name))[1] = 'pending'
   );
 
--- Anyone can READ mascot-photos (since the bucket is public, this is already true,
--- but explicit policy helps with SDK-side type inference).
+-- Direct-URL access to files in the mascot-photos bucket already works
+-- because the bucket itself is marked public above. We deliberately do
+-- NOT add a broad SELECT policy on storage.objects for this bucket —
+-- doing so would let the anon client enumerate every file in the bucket
+-- via the storage list API (flagged by the Supabase advisor as
+-- public_bucket_allows_listing). We only ever access files by name, so
+-- listing buys us nothing and exposes more than necessary.
 DROP POLICY IF EXISTS "mascot photos are public" ON storage.objects;
-CREATE POLICY "mascot photos are public"
-  ON storage.objects FOR SELECT
-  USING (bucket_id = 'mascot-photos');
 
 -- ---------- updated_at trigger ----------
+-- search_path is pinned to '' so a hostile schema can't shadow built-in
+-- functions and hijack this function's body (advisor lint
+-- function_search_path_mutable). All references in the body must therefore
+-- be fully qualified; we only use NEW and now() so we're fine.
 CREATE OR REPLACE FUNCTION public.touch_updated_at() RETURNS TRIGGER AS $$
 BEGIN
   NEW.updated_at = now();
   RETURN NEW;
 END;
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql SET search_path = '';
 
 DROP TRIGGER IF EXISTS mascots_touch_updated_at ON public.mascots;
 CREATE TRIGGER mascots_touch_updated_at

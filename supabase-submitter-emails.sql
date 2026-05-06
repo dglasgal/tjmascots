@@ -146,3 +146,11 @@ drop trigger if exists notify_submitter_on_approval on public.submissions;
 create trigger notify_submitter_on_approval
   after update on public.submissions
   for each row execute function public.notify_submitter();
+
+-- 4. Lock the function down — it's SECURITY DEFINER, which means it runs
+-- as the function owner regardless of caller. Triggers don't need EXECUTE
+-- permission, but the default 'execute by anyone' grant exposes this via
+-- /rest/v1/rpc/notify_submitter. Without revoking, any visitor with the
+-- anon key could fire arbitrary submitter-confirmation emails.
+revoke execute on function public.notify_submitter()
+  from anon, authenticated, public;

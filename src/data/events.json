@@ -2,6 +2,12 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'.",
   "events": [
     {
+      "date": "2026-05-06",
+      "kind": "site",
+      "summary": "Database security hardened — RLS gap closed, all advisor warnings resolved",
+      "reason": "Supabase flagged that the submissions and corrections tables had policies but RLS itself was disabled, meaning the policies weren’t being enforced and anyone with the public anon key could read or modify those tables. Enabled RLS on both, then went on to clear every other security advisory: REVOKE'd REST execute on the two trigger functions, pinned a search_path on touch_updated_at, dropped the broad listing policy on the mascot-photos bucket, and tightened the three public-facing INSERT policies with size caps and forced pending-status. Site is now clean on Supabase’s security linter (zero findings)."
+    },
+    {
       "date": "2026-05-01",
       "kind": "renamed",
       "store_number": "76",
