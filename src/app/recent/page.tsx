@@ -78,10 +78,19 @@ interface EventsFile {
   events: FeedEvent[];
 }
 
-const explicitEvents = (eventsRaw as EventsFile).events.map((e) => ({
-  ...e,
-  synthetic: false,
-}));
+// Public-facing feed: filter out kinds that are interesting to me as
+// the maintainer but noise for visitors. "site" entries are backend /
+// programming / security changes (e.g. RLS hardening, header tweaks)
+// — those still live in events.json for the historical record, but
+// shouldn't appear on /recent.
+const HIDDEN_KINDS_ON_RECENT: ReadonlySet<EventKind> = new Set(['site']);
+
+const explicitEvents = (eventsRaw as EventsFile).events
+  .filter((e) => !HIDDEN_KINDS_ON_RECENT.has(e.kind))
+  .map((e) => ({
+    ...e,
+    synthetic: false,
+  }));
 
 // Build a set of (mascot_id) that already have an explicit "added" event,
 // so we don't double-list them when synthesizing from created_at.
