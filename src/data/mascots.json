@@ -5294,6 +5294,21 @@
       "store_number": "567",
       "created_at": "2026-04-30",
       "submitted_by": "BooksForDinner"
+    },
+    {
+      "id": 464,
+      "store": "West Hollywood",
+      "state": "CA",
+      "animal": "Moose ",
+      "name": "Harvey",
+      "notes": null,
+      "photo": "464.jpeg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (05/11/2026)",
+      "store_number": "40",
+      "created_at": "2026-05-11",
+      "submitted_by": null
     }
   ]
 }
