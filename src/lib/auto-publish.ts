@@ -16,8 +16,8 @@
  *      mascot at the same store_number with the same animal — Phil
  *      the Parrot's case) or APPEND a new entry.
  *   4. Pick the photo's filename (`{mascot.id}.{ext}`).
- *   5. Upload the photo bytes to `site/public/photos/{id}.{ext}` in
- *      GitHub.
+ *   5. Upload the photo bytes to `public/photos/{id}.{ext}` in GitHub
+ *      (the repo root IS the Next.js app directory).
  *   6. Upload the updated `mascots.json` in GitHub.
  *   7. Move the photo from the private to the public Supabase bucket
  *      (so the submitter-thank-you email's deep-link still works while
@@ -66,7 +66,7 @@ export interface PublishResult {
   mode: 'merged' | 'created';
   /** The mascot id that was published. */
   mascotId: number;
-  /** Photo filename inside `site/public/photos/`. */
+  /** Photo filename inside `public/photos/` (repo path). */
   photoFilename: string | null;
   /** GitHub commit SHA of the mascots.json update. */
   jsonCommitSha: string;

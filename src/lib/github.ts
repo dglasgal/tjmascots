@@ -184,7 +184,12 @@ function encodeBase64(bytes: Uint8Array): string {
 
 /* ------------------------- Convenience -------------------------- */
 
+// The `tjmascots` GitHub repo's working tree IS the site/ folder of our
+// local checkout — the Next.js app sits at the repo root, not under a
+// site/ subdirectory. So these paths are relative to repo root, no
+// site/ prefix. The earlier `site/...` paths produced 404s when the
+// admin tried to auto-publish.
 export const REPO_PATHS = {
-  mascotsJson: 'site/src/data/mascots.json',
-  photosDir: 'site/public/photos',
+  mascotsJson: 'src/data/mascots.json',
+  photosDir: 'public/photos',
 } as const;
