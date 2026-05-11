@@ -191,5 +191,6 @@ function encodeBase64(bytes: Uint8Array): string {
 // admin tried to auto-publish.
 export const REPO_PATHS = {
   mascotsJson: 'src/data/mascots.json',
-  photosDir: 'public/photos',
+  eventsJson:  'src/data/events.json',
+  photosDir:   'public/photos',
 } as const;

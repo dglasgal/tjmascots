@@ -225,6 +225,34 @@ export async function publishApproval(args: {
     jsonSha,
   );
 
+  // ---------- 6b. Append an entry to events.json --------------------
+  // The /recent page reads events.json for its "Latest updates" feed.
+  // Auto-publish should keep that feed honest by recording every
+  // community submission as a proper event with the submitter credited.
+  //
+  // This is best-effort: if events.json doesn't exist yet or the API
+  // call fails, we log and continue. The mascot itself is already live
+  // from step 6; the synthetic auto-derived fallback on /recent will
+  // still surface this mascot from its created_at timestamp.
+  try {
+    await appendEventForApproval({
+      pat,
+      mode,
+      mascotId,
+      submission,
+      storeMatch: storeMatch ?? null,
+      photoAdded: Boolean(photoBytes),
+      today,
+      submittedBy,
+    });
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      '[auto-publish] events.json append failed (non-fatal):',
+      e instanceof Error ? e.message : String(e),
+    );
+  }
+
   // ---------- 7. Mirror photo into public Supabase bucket + mark approved ----------
   // The public bucket copy keeps the submitter-thank-you email's "see
   // your mascot live" deep-link working in the ~3 min before
@@ -303,6 +331,118 @@ function formatTodayShort(): string {
 function displayLabel(s: PendingSubmission, id: number): string {
   const name = s.name?.trim();
   return name ? `${name} the ${s.animal} (#${id})` : `${s.animal} #${id}`;
+}
+
+/* ---------------- events.json append (best-effort) ---------------- */
+
+interface FeedEvent {
+  date: string;
+  kind: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site';
+  store_number?: string;
+  mascot_id?: number;
+  summary: string;
+  reason?: string;
+}
+
+interface EventsFile {
+  _doc?: string;
+  events: FeedEvent[];
+}
+
+/** Prepend a new event entry into the repo's events.json. Reads the
+ *  current file, mutates the events array in place, writes it back.
+ *  Best-effort caller — see comment at call site. */
+async function appendEventForApproval(args: {
+  pat: string;
+  mode: 'merged' | 'created';
+  mascotId: number;
+  submission: PendingSubmission;
+  storeMatch: { city: string; state: string; store_number: string } | null;
+  photoAdded: boolean;
+  today: string;
+  submittedBy: string | null;
+}): Promise<void> {
+  const { pat, mode, mascotId, submission, storeMatch, photoAdded, today, submittedBy } = args;
+
+  // Read current events.json. If the file doesn't exist (404), just bail
+  // — the feature isn't deployed everywhere yet and we don't want to
+  // fail the publish.
+  let eventsSha: string;
+  let eventsText: string;
+  try {
+    const res = await getRepoFile(pat, REPO_PATHS.eventsJson);
+    eventsSha = res.sha;
+    eventsText = res.content;
+  } catch {
+    return; // file missing — silently skip
+  }
+
+  const file = JSON.parse(eventsText) as EventsFile;
+  if (!Array.isArray(file.events)) return;
+
+  // Compose the event. Two cases:
+  //   • mode='created' — new mascot record. kind='added'.
+  //   • mode='merged'  — placeholder picked up a real photo. kind='photo'.
+  const cityLabel = storeMatch ? `${storeMatch.city}, ${storeMatch.state}` : submission.store;
+  const storeRef = submission.store_number
+    ? `#${submission.store_number} ${cityLabel}`
+    : cityLabel;
+  const animalLower = submission.animal.toLowerCase();
+  const subjectName = submission.name?.trim()
+    ? `${submission.name.trim()} the ${animalLower}`
+    : `the ${animalLower}`;
+
+  const summary =
+    mode === 'created'
+      ? `${capitalize(subjectName)} joined ${storeRef}`
+      : `First photo for ${subjectName} at ${storeRef}`;
+
+  const reasonBits: string[] = [];
+  reasonBits.push(
+    submittedBy
+      ? `Community submission from ${submittedBy}.`
+      : 'Community submission via the Submit form.',
+  );
+  if (submission.notes?.trim()) {
+    // Trim noisy whitespace + cap at ~240 chars so the feed row stays
+    // skimmable. Full notes are on the mascot detail page anyway.
+    const trimmed = submission.notes.replace(/\s+/g, ' ').trim();
+    reasonBits.push(
+      trimmed.length > 240 ? `${trimmed.slice(0, 237)}…` : trimmed,
+    );
+  }
+  if (!photoAdded && mode === 'created') {
+    reasonBits.push('No photo yet — spotters welcome!');
+  }
+
+  const event: FeedEvent = {
+    date: today,
+    kind: mode === 'created' ? 'added' : 'photo',
+    mascot_id: mascotId,
+    summary,
+    reason: reasonBits.join(' '),
+  };
+  if (submission.store_number) {
+    event.store_number = submission.store_number;
+  }
+
+  // Prepend so newest sits at the top of the array (matches the format
+  // convention in the file's _doc string).
+  file.events.unshift(event);
+  const updated = JSON.stringify(file, null, 2) + '\n';
+
+  await putRepoTextFile(
+    pat,
+    REPO_PATHS.eventsJson,
+    updated,
+    `events.json: log approval of mascot ${mascotId}`,
+    eventsSha,
+  );
+}
+
+function capitalize(s: string): string {
+  if (!s) return s;
+  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 function contentTypeFor(ext: string): string {
