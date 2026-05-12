@@ -212,6 +212,10 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
           <a href="/data" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Data</a>
           {' · '}
           <a href="/privacy" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Privacy</a>
+
+          {' · '}
+
+          <a href="/terms" className="underline underline-offset-2 hover:text-[var(--tj-red)]">Terms and Conditions</a>
         </span>
       </div>
 
