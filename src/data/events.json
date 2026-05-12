@@ -2,6 +2,14 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'.",
   "events": [
     {
+      "date": "2026-05-12",
+      "kind": "added",
+      "mascot_id": 465,
+      "summary": "Paulie the piglet joined #209 Woodland Hills, CA",
+      "reason": "Community submission via the Submit form. Spotted by Jessica and Tulip",
+      "store_number": "209"
+    },
+    {
       "date": "2026-05-11",
       "kind": "site",
       "summary": "Easter egg launched: McQuackers' Quest at /terms",
