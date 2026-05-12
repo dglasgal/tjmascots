@@ -193,6 +193,7 @@ export default function MobileDrawer({
               <DrawerLinkRow icon="❓" label="FAQ" href="/faq" onNavigate={onClose} />
               <DrawerLinkRow icon="📊" label="Data" href="/data" onNavigate={onClose} />
               <DrawerLinkRow icon="🔒" label="Privacy" href="/privacy" onNavigate={onClose} />
+              <DrawerLinkRow icon="📄" label="Terms and Conditions" href="/terms" onNavigate={onClose} />
             </nav>
 
             {/* Footer note inside drawer */}

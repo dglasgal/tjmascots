@@ -3,6 +3,12 @@
   "events": [
     {
       "date": "2026-05-11",
+      "kind": "site",
+      "summary": "Easter egg launched: McQuackers' Quest at /terms",
+      "reason": "Tucked a hidden-object game behind the boring 'Terms and Conditions' footer link. Scroll past the first section and McQuackers crashes through the page — then you guide him through 5 real Trader Joe's stores (West Hollywood, Lake Grove, East Liberty Pittsburgh, Silverdale, Rochester) to find their actual cataloged mascots: Steven Sparkles, Schmooli, Tuskanini, Confetti Yeti, Susan Bee Anthony. All art hand-painted via Higgsfield AI in vintage Fearless Flyer style. Time-based scoring, optional hints, global leaderboard with 3-letter initials, brag-share URLs. Also reachable directly at /quack."
+    },
+    {
+      "date": "2026-05-11",
       "kind": "added",
       "mascot_id": 464,
       "summary": "Harvey the moose  joined #40 West Hollywood, CA",
