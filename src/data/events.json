@@ -4,6 +4,12 @@
     {
       "date": "2026-05-16",
       "kind": "site",
+      "summary": "Compressed 267 oversize photos (281 MB → 82 MB)",
+      "reason": "DigitalOcean build timed out at the 1-hour wall trying to clone the repo from GitHub. The .git directory was 416 MB and public/photos was 465 MB — including a 13 MB 091.png and dozens of 2–4 MB jpegs that had been committed without compression. Resized everything wider than 1600px and re-encoded at JPEG quality 85; saved ~200 MB of working-tree size. Repo history is still heavy until a future BFG pass, but new clones will be much faster going forward."
+    },
+    {
+      "date": "2026-05-16",
+      "kind": "site",
       "summary": "McQuackers' Quest: lowered minimum-time validation from 30s to 10s",
       "reason": "Skilled players who know mascot positions can finish all 5 levels in ~15s. A legitimate 0:16 run was being rejected by the Supabase CHECK constraint as 'too fast to be human.' Lowered the floor to 10s in both the client-side score validator and the database constraint; live database was updated directly via an ALTER, and the repo file now matches reality."
     },
