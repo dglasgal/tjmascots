@@ -2,6 +2,12 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'.",
   "events": [
     {
+      "date": "2026-05-16",
+      "kind": "site",
+      "summary": "McQuackers' Quest: lowered minimum-time validation from 30s to 10s",
+      "reason": "Skilled players who know mascot positions can finish all 5 levels in ~15s. A legitimate 0:16 run was being rejected by the Supabase CHECK constraint as 'too fast to be human.' Lowered the floor to 10s in both the client-side score validator and the database constraint; live database was updated directly via an ALTER, and the repo file now matches reality."
+    },
+    {
       "date": "2026-05-12",
       "kind": "added",
       "mascot_id": 465,
