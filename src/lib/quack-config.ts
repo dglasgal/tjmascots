@@ -207,7 +207,11 @@ export const MAX_POSSIBLE_SCORE = LEVELS.reduce((s, l) => s + l.basePoints, 0);
 export const SCORE_BOUNDS = {
   minScore: LEVEL_SCORE_FLOOR * LEVELS.length, // 500
   maxScore: MAX_POSSIBLE_SCORE, // 10,000
-  minTimeSeconds: 30, // no plausible 5-level run finishes faster than 30s
+  // Skilled players who know mascot positions can speedrun in ~15s.
+  // 10s is the floor — anything faster is implausible / scripted.
+  // Keep in sync with the Supabase CHECK constraint in
+  // supabase-mcquackers-scores.sql.
+  minTimeSeconds: 10,
   maxTimeSeconds: 60 * 60, // sanity cap at 1 hour
   maxHints: LEVELS.length * 5, // 25 total hints possible
 };

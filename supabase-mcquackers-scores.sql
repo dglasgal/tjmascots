@@ -36,10 +36,12 @@ create table if not exists public.mcquackers_scores (
   constraint score_in_range
     check (total_score between 500 and 10000),
 
-  -- Anything under 30s for a 5-level hidden-object run isn't human.
-  -- Cap at 1 hour to avoid junk submissions.
+  -- 10s minimum — skilled players who know the positions can speedrun
+  -- the 5 levels in ~15s, so we allow times this low. Cap at 1 hour
+  -- to filter junk submissions. Migration `relax_mcquackers_time_minimum`
+  -- moved this from 30 → 10 on 2026-05-12 after a legitimate 0:16 run.
   constraint time_in_range
-    check (total_time_seconds between 30 and 3600),
+    check (total_time_seconds between 10 and 3600),
 
   -- 5 levels × 5 max hints per level = 25 ceiling.
   constraint hints_in_range
