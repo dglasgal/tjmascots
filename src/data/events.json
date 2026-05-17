@@ -2,6 +2,14 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'.",
   "events": [
     {
+      "date": "2026-05-17",
+      "kind": "added",
+      "mascot_id": 466,
+      "store_number": "264",
+      "summary": "Leo the Lion joined #264 Tarzana, CA",
+      "reason": "Spotted at the Tarzana store in Safari Walk shopping center on Ventura Blvd. The lion choice is a nod to the town’s namesake — Tarzana was named after Edgar Rice Burroughs’ jungle-hero character Tarzan, whose stories are set in the African jungle. Photo submitted by David G."
+    },
+    {
       "date": "2026-05-16",
       "kind": "site",
       "summary": "Compressed 267 oversize photos (281 MB → 82 MB)",
