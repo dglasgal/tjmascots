@@ -5324,6 +5324,21 @@
       "store_number": "209",
       "created_at": "2026-05-12",
       "submitted_by": null
+    },
+    {
+      "id": 466,
+      "store": "Tarzana",
+      "state": "CA",
+      "animal": "Lion",
+      "name": "Leo",
+      "notes": "Leo the Lion presides over Trader Joe’s Tarzana on Ventura Blvd — a tan-and-cream lion with a thick golden mane and a TJ badge clearly reading ‘LEO — Crew Member.’ The choice of a lion is no accident: Tarzana itself is named after Tarzan. Author Edgar Rice Burroughs bought a 540-acre ranch in the southern San Fernando Valley in 1919 and named it ‘Tarzana Ranch’ after his famous jungle-hero character. When the surrounding community was officially recognized in 1930, it kept the name. The Tarzan novels are set in the African jungle, so lions are baked into the town’s namesake DNA. The shopping center the store sits in is even called ‘Safari Walk’ — doubling down on the theme.",
+      "photo": "466.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": null,
+      "store_number": "264",
+      "created_at": "2026-05-17",
+      "submitted_by": "David G."
     }
   ]
 }
