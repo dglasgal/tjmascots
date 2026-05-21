@@ -190,9 +190,10 @@ export default function MapView({
     >
       <TileLayer
         attribution={
-          process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+          (process.env.NEXT_PUBLIC_MAPBOX_TOKEN
             ? '© Mapbox © OpenStreetMap'
-            : '© OpenStreetMap contributors © CARTO'
+            : '© OpenStreetMap contributors © CARTO') +
+          ' · <a href="/complaints">Complaints</a>'
         }
         url={mapTileUrl()}
         subdomains={process.env.NEXT_PUBLIC_MAPBOX_TOKEN ? [] : ['a', 'b', 'c', 'd']}
