@@ -2,6 +2,14 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'.",
   "events": [
     {
+      "date": "2026-05-20",
+      "kind": "added",
+      "mascot_id": 469,
+      "store_number": "252",
+      "summary": "Ocho the Octopus joined #252 North Hollywood, CA",
+      "reason": "An octopus in landlocked North Hollywood is itself a small surprise — but the name is a quiet nod to area history. In October 1887, J.B. Lankershim and eight other developers organized the Lankershim Ranch Land and Water Company, the syndicate whose 12,000-acre purchase became modern North Hollywood and the surrounding San Fernando Valley. Ocho (Spanish for 'eight') brings the same number of arms to the job. Photo submitted by David G."
+    },
+    {
       "date": "2026-05-19",
       "kind": "added",
       "mascot_id": 468,

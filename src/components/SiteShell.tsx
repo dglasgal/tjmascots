@@ -286,3 +286,4 @@ function LegendRow({ dotClass, children }: { dotClass: string; children: React.R
     </div>
   );
 }
+
