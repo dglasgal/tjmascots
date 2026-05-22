@@ -2,6 +2,14 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'.",
   "events": [
     {
+      "date": "2026-05-22",
+      "kind": "added",
+      "mascot_id": 470,
+      "summary": "Larry the lobster joined #114 Camarillo, CA",
+      "reason": "Community submission from Tamarabmarks.",
+      "store_number": "114"
+    },
+    {
       "date": "2026-05-20",
       "kind": "added",
       "mascot_id": 469,
