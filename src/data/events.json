@@ -3,6 +3,14 @@
   "events": [
     {
       "date": "2026-05-22",
+      "kind": "notes",
+      "mascot_id": 470,
+      "store_number": "114",
+      "summary": "Phil the Parrot was scared off — Larry the Lobster takes over Camarillo #114",
+      "reason": "Phil (id 88) flew the coop and has been removed from the roster. The Camarillo store now belongs to Larry the Lobster, who's making himself comfortable on a fresh wooden mount."
+    },
+    {
+      "date": "2026-05-22",
       "kind": "added",
       "mascot_id": 470,
       "summary": "Larry the lobster joined #114 Camarillo, CA",
