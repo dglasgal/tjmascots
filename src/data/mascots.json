@@ -1216,21 +1216,6 @@
       "submitted_by": null
     },
     {
-      "id": 88,
-      "store": "Camarillo",
-      "state": "CA",
-      "animal": "Parrot",
-      "name": "Phil",
-      "notes": "Store 114.",
-      "photo": "88.jpeg",
-      "has_photo": true,
-      "retired": false,
-      "source_url": "User-submitted (04/26/2026)",
-      "store_number": "114",
-      "created_at": "2026-04-27",
-      "submitted_by": "Emilie C. & Mookie"
-    },
-    {
       "id": 89,
       "store": "Surprise",
       "state": "AZ",
@@ -5391,7 +5376,7 @@
       "state": "CA",
       "animal": "Lobster",
       "name": "Larry",
-      "notes": null,
+      "notes": "Phil the Parrot was scared off and flew away. Larry the Lobster is now making himself comfortable at Trader Joe's Camarillo.",
       "photo": "470.jpeg",
       "has_photo": true,
       "retired": false,
