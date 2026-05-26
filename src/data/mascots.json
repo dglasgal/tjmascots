@@ -5384,6 +5384,21 @@
       "store_number": "114",
       "created_at": "2026-05-22",
       "submitted_by": "skramtam"
+    },
+    {
+      "id": 471,
+      "store": "Los Angeles",
+      "state": "CA",
+      "animal": "Baby Giraffe",
+      "name": "Georgie",
+      "notes": null,
+      "photo": "471.jpeg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (05/26/2026)",
+      "store_number": "7",
+      "created_at": "2026-05-26",
+      "submitted_by": null
     }
   ]
 }
