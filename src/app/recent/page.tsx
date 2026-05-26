@@ -72,6 +72,10 @@ interface FeedEvent {
   /** True if this entry was auto-generated from a mascot's created_at;
    *  false (or missing) means it was an explicit hand-written entry. */
   synthetic?: boolean;
+  /** Per-entry opt-out from the public /recent feed. Use for back-office
+   *  corrections (e.g. credit fixes) that we want preserved in events.json
+   *  for the audit trail but that aren't worth showing to visitors. */
+  hidden?: boolean;
 }
 
 interface EventsFile {
@@ -87,6 +91,7 @@ const HIDDEN_KINDS_ON_RECENT: ReadonlySet<EventKind> = new Set(['site']);
 
 const explicitEvents = (eventsRaw as EventsFile).events
   .filter((e) => !HIDDEN_KINDS_ON_RECENT.has(e.kind))
+  .filter((e) => !e.hidden)
   .map((e) => ({
     ...e,
     synthetic: false,
