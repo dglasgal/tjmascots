@@ -50,6 +50,38 @@ body {
   background: var(--cream);
 }
 
+/* "You are here" pin — solid blue dot with a soft pulsing halo, classic
+   Google/Apple maps look. The Leaflet marker is set to non-interactive
+   so this dot never intercepts clicks meant for a nearby mascot pin. */
+.user-location-pin {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-location-pin::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.25);
+  animation: user-location-pulse 2s ease-out infinite;
+}
+.user-location-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+@keyframes user-location-pulse {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
 /* Custom cluster bubbles — replace the default leaflet.markercluster styling
    with TJ-branded circles. Colored by what's inside: mostly-mascot clusters
    are red, mostly-unknown clusters are softer accent. Size grows with count. */

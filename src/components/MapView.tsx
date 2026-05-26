@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet.markercluster';
@@ -164,6 +164,58 @@ function ClusteredMarkers({
   return null;
 }
 
+/**
+ * UserLocationLayer — renders the blue "you are here" dot when the
+ * geolocation lookup succeeds, and flies the map to that location at
+ * neighborhood-level zoom (14). The dot persists across navigation so
+ * the user can pan around and still see where they started.
+ */
+function UserLocationLayer({
+  location,
+}: {
+  location: { lat: number; lng: number } | null;
+}) {
+  const map = useMap();
+  const markerRef = useRef<L.Marker | null>(null);
+
+  useEffect(() => {
+    // Tear down any previous "you are here" marker before placing a new one
+    // (e.g. user taps the button again from a different spot).
+    if (markerRef.current) {
+      markerRef.current.remove();
+      markerRef.current = null;
+    }
+
+    if (!location) return;
+
+    const icon = L.divIcon({
+      className: '',
+      html: '<div class="user-location-pin"><div class="user-location-dot"></div></div>',
+      iconSize: [24, 24],
+      iconAnchor: [12, 12],
+    });
+    const marker = L.marker([location.lat, location.lng], {
+      icon,
+      // Sit above mascot pins (which use zIndexOffset 500) so the user dot
+      // is never hidden in dense clusters.
+      zIndexOffset: 1500,
+      interactive: false,
+      keyboard: false,
+    });
+    marker.addTo(map);
+    markerRef.current = marker;
+
+    map.flyTo([location.lat, location.lng], 14, { duration: 1.2 });
+
+    return () => {
+      marker.remove();
+      if (markerRef.current === marker) markerRef.current = null;
+    };
+  }, [location, map]);
+
+  return null;
+}
+
 export default function MapView({
   mascots,
   stores,
@@ -180,34 +232,116 @@ export default function MapView({
     [stores, mascotStoreNums],
   );
 
-  return (
-    <MapContainer
-      center={[39.5, -98.5]}
-      zoom={4}
-      className="h-full w-full bg-[var(--cream-dark)]"
-      preferCanvas
-      scrollWheelZoom
-    >
-      <TileLayer
-        attribution={
-          (process.env.NEXT_PUBLIC_MAPBOX_TOKEN
-            ? '© Mapbox © OpenStreetMap'
-            : '© OpenStreetMap contributors © CARTO') +
-          ' · <a href="/complaints">Complaints</a>'
+  // Geolocation state — kept here (not in a child) so the button can read
+  // "locating" / "error" and update its label, while UserLocationLayer
+  // consumes only the successful coords.
+  const [userLoc, setUserLoc] = useState<{ lat: number; lng: number } | null>(null);
+  const [locating, setLocating] = useState(false);
+  const [locError, setLocError] = useState<string | null>(null);
+
+  const handleLocate = () => {
+    if (typeof navigator === 'undefined' || !navigator.geolocation) {
+      setLocError("Your browser doesn't support location lookup.");
+      return;
+    }
+    setLocating(true);
+    setLocError(null);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setUserLoc({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setLocating(false);
+      },
+      (err) => {
+        setLocating(false);
+        // 1 = PERMISSION_DENIED, 2 = POSITION_UNAVAILABLE, 3 = TIMEOUT
+        if (err.code === 1) {
+          setLocError('Location permission denied. Enable it in your browser settings to use this.');
+        } else if (err.code === 3) {
+          setLocError('Location lookup timed out. Try again?');
+        } else {
+          setLocError("Couldn't find your location. Try again?");
         }
-        url={mapTileUrl()}
-        subdomains={process.env.NEXT_PUBLIC_MAPBOX_TOKEN ? [] : ['a', 'b', 'c', 'd']}
-        maxZoom={19}
-        tileSize={process.env.NEXT_PUBLIC_MAPBOX_TOKEN ? 512 : 256}
-        zoomOffset={process.env.NEXT_PUBLIC_MAPBOX_TOKEN ? -1 : 0}
-      />
-      <MapFlyer target={flyTo} />
-      <ClusteredMarkers
-        mascots={mascots}
-        unknownStores={unknownStores}
-        onMascotClick={onMascotClick}
-        onStoreClick={onStoreClick}
-      />
-    </MapContainer>
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60_000 },
+    );
+  };
+
+  // Auto-dismiss the error toast after 5 seconds so it doesn't linger.
+  useEffect(() => {
+    if (!locError) return;
+    const t = setTimeout(() => setLocError(null), 5000);
+    return () => clearTimeout(t);
+  }, [locError]);
+
+  return (
+    <div className="relative h-full w-full">
+      <MapContainer
+        center={[39.5, -98.5]}
+        zoom={4}
+        className="h-full w-full bg-[var(--cream-dark)]"
+        preferCanvas
+        scrollWheelZoom
+      >
+        <TileLayer
+          attribution={
+            (process.env.NEXT_PUBLIC_MAPBOX_TOKEN
+              ? '© Mapbox © OpenStreetMap'
+              : '© OpenStreetMap contributors © CARTO') +
+            ' · <a href="/complaints">Complaints</a>'
+          }
+          url={mapTileUrl()}
+          subdomains={process.env.NEXT_PUBLIC_MAPBOX_TOKEN ? [] : ['a', 'b', 'c', 'd']}
+          maxZoom={19}
+          tileSize={process.env.NEXT_PUBLIC_MAPBOX_TOKEN ? 512 : 256}
+          zoomOffset={process.env.NEXT_PUBLIC_MAPBOX_TOKEN ? -1 : 0}
+        />
+        <MapFlyer target={flyTo} />
+        <ClusteredMarkers
+          mascots={mascots}
+          unknownStores={unknownStores}
+          onMascotClick={onMascotClick}
+          onStoreClick={onStoreClick}
+        />
+        <UserLocationLayer location={userLoc} />
+      </MapContainer>
+
+      {/* Find-me button.
+            Mobile: bottom-right, thumb reach. Compact label "Near me".
+            Desktop (sm+): top-center, larger and bolder so it's the first
+            thing you see on the map. z-[1000] sits above Leaflet's panes
+            without fighting popups (z 700). */}
+      <button
+        type="button"
+        onClick={handleLocate}
+        disabled={locating}
+        aria-label="Find mascots near me"
+        className="absolute bottom-5 right-3 z-[1000] flex items-center gap-2 rounded-full bg-[var(--tj-red)] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-black/20 ring-2 ring-white/70 transition hover:brightness-110 active:scale-95 disabled:opacity-70 sm:bottom-auto sm:right-auto sm:left-1/2 sm:top-5 sm:-translate-x-1/2 sm:gap-3 sm:px-7 sm:py-4 sm:text-base sm:font-bold sm:shadow-xl sm:ring-4"
+      >
+        {locating ? (
+          <>
+            <span
+              className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white sm:h-5 sm:w-5"
+              aria-hidden="true"
+            />
+            Finding you…
+          </>
+        ) : (
+          <>
+            <span aria-hidden="true" className="text-base sm:text-lg">📍</span>
+            <span className="hidden sm:inline">Find mascots near me</span>
+            <span className="sm:hidden">Near me</span>
+          </>
+        )}
+      </button>
+
+      {locError && (
+        <div
+          role="status"
+          className="absolute bottom-20 left-1/2 z-[1000] -translate-x-1/2 rounded-lg bg-black/85 px-4 py-2 text-center text-sm text-white shadow-lg sm:bottom-auto sm:top-24"
+        >
+          {locError}
+        </div>
+      )}
+    </div>
   );
 }
