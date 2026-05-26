@@ -2,6 +2,12 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'.",
   "events": [
     {
+      "date": "2026-05-26",
+      "kind": "site",
+      "summary": "Map: \"Find mascots near me\" button — taps the device's GPS to zoom you to your spot",
+      "reason": "Added a red 📍 button anchored to the bottom-right of the main map. Tapping it asks the browser for the user's location (one-time permission prompt), then flies the map to a neighborhood-level zoom (14) with a pulsing blue 'you are here' dot. Errors (permission denied, timeout, unavailable) surface as a 5-second toast above the button. Uses the standard Geolocation API — no extra dependencies, no backend, works the same on desktop Chrome/Safari and mobile. Mobile-first design: full label on tablet/desktop, shortened to 'Near me' on phones so it doesn't crowd the map."
+    },
+    {
       "date": "2026-05-22",
       "kind": "credit",
       "mascot_id": 470,
