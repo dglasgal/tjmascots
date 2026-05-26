@@ -327,7 +327,15 @@ export default function MapView({
           </>
         ) : (
           <>
-            <span aria-hidden="true" className="text-base sm:text-lg">📍</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-4 w-4 shrink-0 sm:h-5 sm:w-5"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" />
+            </svg>
             <span className="hidden sm:inline">Find mascots near me</span>
             <span className="sm:hidden">Near me</span>
           </>
