@@ -3,6 +3,14 @@
   "events": [
     {
       "date": "2026-05-26",
+      "kind": "added",
+      "mascot_id": 471,
+      "summary": "Georgie the baby giraffe joined #7 Los Angeles, CA",
+      "reason": "Community submission via the Submit form.",
+      "store_number": "7"
+    },
+    {
+      "date": "2026-05-26",
       "kind": "site",
       "summary": "Map: \"Find mascots near me\" button — taps the device's GPS to zoom you to your spot",
       "reason": "Added a red 📍 button anchored to the bottom-right of the main map. Tapping it asks the browser for the user's location (one-time permission prompt), then flies the map to a neighborhood-level zoom (14) with a pulsing blue 'you are here' dot. Errors (permission denied, timeout, unavailable) surface as a 5-second toast above the button. Uses the standard Geolocation API — no extra dependencies, no backend, works the same on desktop Chrome/Safari and mobile. Mobile-first design: full label on tablet/desktop, shortened to 'Near me' on phones so it doesn't crowd the map."
