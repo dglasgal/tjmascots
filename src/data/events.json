@@ -4,6 +4,14 @@
     {
       "date": "2026-05-29",
       "kind": "photo",
+      "mascot_id": 265,
+      "summary": "First photo for Kyle the coyote at #254 Calabasas, CA",
+      "reason": "Community submission via the Submit form. Store 254. Kyle the Coyote prowls the Calabasas Trader Joe's — spot him hiding somewhere in the aisles, tell a crew member, and you'll get a lollipop at checkout.",
+      "store_number": "254"
+    },
+    {
+      "date": "2026-05-29",
+      "kind": "photo",
       "mascot_id": 181,
       "summary": "First photo for Pickles the parrot at #253 Santa Monica, CA",
       "reason": "Community submission via the Submit form. He likes to perch high up in the store",
