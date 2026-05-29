@@ -30,9 +30,9 @@
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 import {
-  getRepoFile,
-  putRepoBinaryFile,
-  putRepoTextFile,
+  commitFilesAtomic,
+  existsOnMain,
+  readFileFromMain,
   REPO_PATHS,
 } from './github';
 import type { PendingSubmission } from './admin';
@@ -118,7 +118,35 @@ export async function publishApproval(args: {
 }): Promise<PublishResult> {
   const { pat, sb, submission, storeMatch } = args;
 
-  // ---------- 1. Pull photo bytes from Supabase (if any) ----------
+  // ---------- 0. Idempotency guard ----------------------------------
+  // If the submission was already approved (e.g. the previous click
+  // succeeded on GitHub but the page didn't refresh, OR the user
+  // double-clicked Approve), don't re-run the GitHub write — that's
+  // exactly how we end up with orphan files + 409/422 errors. Refetch
+  // the submission and short-circuit if it's no longer pending.
+  const { data: fresh, error: fetchErr } = await sb
+    .from('submissions')
+    .select('status, approved_mascot_id')
+    .eq('id', submission.id)
+    .single();
+  if (fetchErr) {
+    throw new Error(`failed to refetch submission: ${fetchErr.message}`);
+  }
+  if (fresh.status === 'approved' && fresh.approved_mascot_id) {
+    return {
+      // We don't know whether the original was a merge or a new entry
+      // from here. "merged" is the safer default for the banner copy —
+      // it just says "Published as mascot #N" without implying anything
+      // novel happened on this click.
+      mode: 'merged',
+      mascotId: fresh.approved_mascot_id as number,
+      photoFilename: null,
+      jsonCommitSha: '',
+      photoCommitSha: null,
+    };
+  }
+
+  // ---------- 1. Pull photo bytes from Supabase (if any) -----------
   let photoBytes: Uint8Array | null = null;
   let photoExt = 'jpg';
   if (submission.photo_path) {
@@ -130,14 +158,15 @@ export async function publishApproval(args: {
     photoExt = (submission.photo_path.split('.').pop() || 'jpg').toLowerCase();
   }
 
-  // ---------- 2. Read mascots.json from GitHub ----------
-  const { sha: jsonSha, content: jsonText } = await getRepoFile(
-    pat,
-    REPO_PATHS.mascotsJson,
-  );
+  // ---------- 2. Read mascots.json from GitHub (Git Data API) -------
+  // We use the Git Data API tree+blob endpoints instead of the Contents
+  // API because the Contents API's per-file cache served stale SHAs for
+  // 5–10 seconds after every commit, which produced the 409/422 failures
+  // we kept hitting in the old single-PUT-per-file flow.
+  const jsonText = await readFileFromMain(pat, REPO_PATHS.mascotsJson);
   const file = JSON.parse(jsonText) as MascotsFile;
 
-  // ---------- 3. Merge or append ----------
+  // ---------- 3. Merge or append ------------------------------------
   const merge = findMergeCandidate(file.mascots, submission);
   const submittedBy = submission.email ? deriveDisplayName(submission.email) : null;
   const today = new Date().toISOString().slice(0, 10);
@@ -147,9 +176,6 @@ export async function publishApproval(args: {
   if (merge) {
     mode = 'merged';
     mascotId = merge.id;
-    // Update only the fields that changed. Don't clobber the existing
-    // store/state/animal/name — those came from the canonical catalog
-    // and are usually better than free-text user input.
     merge.has_photo = Boolean(photoBytes);
     merge.photo = photoBytes ? `${mascotId}.${photoExt}` : (merge.photo ?? null);
     if (submittedBy && !merge.submitted_by) merge.submitted_by = submittedBy;
@@ -157,10 +183,6 @@ export async function publishApproval(args: {
       merge.source_url = `User-submitted (${formatTodayShort()})`;
     }
     if (submission.notes && !merge.notes) merge.notes = submission.notes;
-    // Bump created_at to today so the mascot surfaces on the /recent
-    // page. Without this, a placeholder created weeks ago that just got
-    // its first photo would be buried at position ~190 and nobody would
-    // see that it's new.
     if (photoBytes) merge.created_at = today;
   } else {
     mode = 'created';
@@ -184,79 +206,66 @@ export async function publishApproval(args: {
   }
 
   const photoFilename = photoBytes ? `${mascotId}.${photoExt}` : null;
+  const photoPath = photoFilename
+    ? `${REPO_PATHS.photosDir}/${photoFilename}`
+    : null;
 
-  // ---------- 4 + 5. Upload photo first, then JSON ----------
-  // Order matters: if JSON shipped first and the build started before the
-  // photo arrived, we'd serve a broken image for a few seconds.
-  let photoCommitSha: string | null = null;
-  if (photoBytes && photoFilename) {
-    const photoPath = `${REPO_PATHS.photosDir}/${photoFilename}`;
-    // Photo files at this path generally don't exist yet. If one does
-    // (very rare — id reused), pick up its sha so the PUT updates it.
-    let existingPhotoSha: string | undefined;
+  // ---------- 4. Build the events.json update (if file exists) -----
+  // Best-effort: if events.json doesn't exist yet (older repo states),
+  // we skip the events.json entry but still publish the rest.
+  let updatedEventsJson: string | null = null;
+  let eventsText: string | null = null;
+  try {
+    eventsText = await readFileFromMain(pat, REPO_PATHS.eventsJson);
+  } catch {
+    // events.json missing — skip the events entry, leave updatedEventsJson null
+  }
+  if (eventsText) {
     try {
-      const existing = await getRepoFile(pat, photoPath);
-      existingPhotoSha = existing.sha;
-    } catch {
-      // 404 — file doesn't exist yet, which is the expected case
+      updatedEventsJson = buildUpdatedEventsJson(eventsText, {
+        mode,
+        mascotId,
+        submission,
+        storeMatch: storeMatch ?? null,
+        photoAdded: Boolean(photoBytes),
+        today,
+        submittedBy,
+      });
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        '[auto-publish] events.json parse failed — skipping event entry:',
+        e instanceof Error ? e.message : String(e),
+      );
     }
-    photoCommitSha = await putRepoBinaryFile(
-      pat,
-      photoPath,
-      photoBytes,
-      `Add photo for mascot ${mascotId}${
-        submission.name ? ` (${submission.name})` : ''
-      }`,
-      existingPhotoSha,
-    );
   }
 
-  // ---------- 6. Push updated mascots.json ----------
+  // ---------- 5. ATOMIC: one commit, all three files ---------------
+  // This is the key reliability change. The photo, the mascots.json
+  // update, and the events.json update all go to GitHub in a SINGLE
+  // commit via the Git Data API. Either everything lands or nothing
+  // does — no more partial state.
   const updatedJson = JSON.stringify(file, null, 2) + '\n';
   const commitMessage =
     mode === 'merged'
       ? `Publish photo for ${displayLabel(submission, mascotId)} (merge)`
       : `Add ${displayLabel(submission, mascotId)} (new entry)`;
-  const jsonCommitSha = await putRepoTextFile(
-    pat,
-    REPO_PATHS.mascotsJson,
-    updatedJson,
-    commitMessage,
-    jsonSha,
-  );
 
-  // ---------- 6b. Append an entry to events.json --------------------
-  // The /recent page reads events.json for its "Latest updates" feed.
-  // Auto-publish should keep that feed honest by recording every
-  // community submission as a proper event with the submitter credited.
-  //
-  // This is best-effort: if events.json doesn't exist yet or the API
-  // call fails, we log and continue. The mascot itself is already live
-  // from step 6; the synthetic auto-derived fallback on /recent will
-  // still surface this mascot from its created_at timestamp.
-  try {
-    await appendEventForApproval({
-      pat,
-      mode,
-      mascotId,
-      submission,
-      storeMatch: storeMatch ?? null,
-      photoAdded: Boolean(photoBytes),
-      today,
-      submittedBy,
-    });
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      '[auto-publish] events.json append failed (non-fatal):',
-      e instanceof Error ? e.message : String(e),
-    );
+  const commitFiles: Array<{ path: string; content: Uint8Array | string }> = [
+    { path: REPO_PATHS.mascotsJson, content: updatedJson },
+  ];
+  if (photoBytes && photoPath) {
+    commitFiles.push({ path: photoPath, content: photoBytes });
+  }
+  if (updatedEventsJson) {
+    commitFiles.push({ path: REPO_PATHS.eventsJson, content: updatedEventsJson });
   }
 
-  // ---------- 7. Mirror photo into public Supabase bucket + mark approved ----------
-  // The public bucket copy keeps the submitter-thank-you email's "see
-  // your mascot live" deep-link working in the ~3 min before
-  // DigitalOcean finishes redeploying with the new image.
+  const jsonCommitSha = await commitFilesAtomic(pat, commitFiles, commitMessage);
+
+  // ---------- 6. Mirror photo into public Supabase bucket ----------
+  // Lets the submitter's thank-you email's deep-link work for the ~3
+  // minutes it takes DigitalOcean to rebuild with the new photo.
   if (photoBytes && photoFilename) {
     const blob = new Blob([photoBytes.slice().buffer as ArrayBuffer], {
       type: contentTypeFor(photoExt),
@@ -268,31 +277,52 @@ export async function publishApproval(args: {
         upsert: true,
       });
     if (upErr) {
-      // Non-fatal — the GitHub copy is already canonical. Log and continue.
       // eslint-disable-next-line no-console
       console.warn('[auto-publish] mascot-photos mirror failed:', upErr.message);
     }
-    // Best-effort: clear the private bucket copy.
     if (submission.photo_path) {
       await sb.storage.from('submissions').remove([submission.photo_path]);
     }
   }
 
-  const { error: updErr } = await sb
-    .from('submissions')
-    .update({
-      status: 'approved',
-      reviewed_at: new Date().toISOString(),
-      admin_notes: `Auto-published as mascot ${mascotId} (${mode}). Commit ${jsonCommitSha.slice(0, 7)}.`,
-      approved_mascot_id: mascotId,
-    })
-    .eq('id', submission.id);
+  // ---------- 7. Mark submission approved in Supabase --------------
+  // Retried up to 3 times. If this step fails the GitHub state is
+  // already correct, but the submission would re-appear on the next
+  // page refresh — which is the exact state that drove us into the
+  // orphan-file/409 cascade. The idempotency guard at step 0 will
+  // catch any retry click, but we still want to clear the row so the
+  // dashboard reflects reality.
+  let updErr: { message: string } | null = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const result = await sb
+      .from('submissions')
+      .update({
+        status: 'approved',
+        reviewed_at: new Date().toISOString(),
+        admin_notes: `Auto-published as mascot ${mascotId} (${mode}). Commit ${jsonCommitSha.slice(0, 7)}.`,
+        approved_mascot_id: mascotId,
+      })
+      .eq('id', submission.id);
+    if (!result.error) {
+      updErr = null;
+      break;
+    }
+    updErr = result.error;
+    await new Promise((r) => setTimeout(r, 300 + attempt * 500));
+  }
   if (updErr) {
-    // The mascot is already live in GitHub; the only failure here is the
-    // submitter won't get the celebration email. Surface but don't
-    // unwind the whole publish.
     // eslint-disable-next-line no-console
     console.warn('[auto-publish] submission status update failed:', updErr.message);
+  }
+
+  // Sanity check: confirm the photo actually landed on main. If for
+  // some reason it didn't, the warning gives us a clearer signal than
+  // the 409 cascade we used to surface.
+  if (photoPath && !(await existsOnMain(pat, photoPath))) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `[auto-publish] post-commit check: ${photoPath} not visible on main yet (cache lag — should appear shortly).`,
+    );
   }
 
   return {
@@ -300,7 +330,7 @@ export async function publishApproval(args: {
     mascotId,
     photoFilename,
     jsonCommitSha,
-    photoCommitSha,
+    photoCommitSha: jsonCommitSha, // single atomic commit covers both
   };
 }
 
@@ -349,40 +379,28 @@ interface EventsFile {
   events: FeedEvent[];
 }
 
-/** Prepend a new event entry into the repo's events.json. Reads the
- *  current file, mutates the events array in place, writes it back.
- *  Best-effort caller — see comment at call site. */
-async function appendEventForApproval(args: {
-  pat: string;
-  mode: 'merged' | 'created';
-  mascotId: number;
-  submission: PendingSubmission;
-  storeMatch: { city: string; state: string; store_number: string } | null;
-  photoAdded: boolean;
-  today: string;
-  submittedBy: string | null;
-}): Promise<void> {
-  const { pat, mode, mascotId, submission, storeMatch, photoAdded, today, submittedBy } = args;
-
-  // Read current events.json. If the file doesn't exist (404), just bail
-  // — the feature isn't deployed everywhere yet and we don't want to
-  // fail the publish.
-  let eventsSha: string;
-  let eventsText: string;
-  try {
-    const res = await getRepoFile(pat, REPO_PATHS.eventsJson);
-    eventsSha = res.sha;
-    eventsText = res.content;
-  } catch {
-    return; // file missing — silently skip
+/** Pure: parse events.json text, prepend an event for this approval,
+ *  and return the new JSON text. No GitHub I/O. Used by publishApproval
+ *  to bundle events.json into the atomic commit alongside the photo +
+ *  mascots.json update. Throws on parse errors. */
+function buildUpdatedEventsJson(
+  eventsText: string,
+  args: {
+    mode: 'merged' | 'created';
+    mascotId: number;
+    submission: PendingSubmission;
+    storeMatch: { city: string; state: string; store_number: string } | null;
+    photoAdded: boolean;
+    today: string;
+    submittedBy: string | null;
+  },
+): string {
+  const { mode, mascotId, submission, storeMatch, photoAdded, today, submittedBy } = args;
+  const file = JSON.parse(eventsText) as EventsFile;
+  if (!Array.isArray(file.events)) {
+    throw new Error('events.json: .events is not an array');
   }
 
-  const file = JSON.parse(eventsText) as EventsFile;
-  if (!Array.isArray(file.events)) return;
-
-  // Compose the event. Two cases:
-  //   • mode='created' — new mascot record. kind='added'.
-  //   • mode='merged'  — placeholder picked up a real photo. kind='photo'.
   const cityLabel = storeMatch ? `${storeMatch.city}, ${storeMatch.state}` : submission.store;
   const storeRef = submission.store_number
     ? `#${submission.store_number} ${cityLabel}`
@@ -404,8 +422,6 @@ async function appendEventForApproval(args: {
       : 'Community submission via the Submit form.',
   );
   if (submission.notes?.trim()) {
-    // Trim noisy whitespace + cap at ~240 chars so the feed row stays
-    // skimmable. Full notes are on the mascot detail page anyway.
     const trimmed = submission.notes.replace(/\s+/g, ' ').trim();
     reasonBits.push(
       trimmed.length > 240 ? `${trimmed.slice(0, 237)}…` : trimmed,
@@ -429,15 +445,7 @@ async function appendEventForApproval(args: {
   // Prepend so newest sits at the top of the array (matches the format
   // convention in the file's _doc string).
   file.events.unshift(event);
-  const updated = JSON.stringify(file, null, 2) + '\n';
-
-  await putRepoTextFile(
-    pat,
-    REPO_PATHS.eventsJson,
-    updated,
-    `events.json: log approval of mascot ${mascotId}`,
-    eventsSha,
-  );
+  return JSON.stringify(file, null, 2) + '\n';
 }
 
 function capitalize(s: string): string {

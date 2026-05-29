@@ -227,6 +227,232 @@ function encodeBase64(bytes: Uint8Array): string {
   return window.btoa(binary);
 }
 
+/* ============================================================
+ *  Atomic multi-file commits via Git Data API
+ * ============================================================
+ *
+ *  The Contents API (used above) writes one file per call. After the
+ *  BFG history rewrite we observed it returning stale/wrong SHAs from
+ *  edge caches for several seconds, which manifested as 409/422 errors
+ *  that left publishes in an inconsistent state (photo committed but
+ *  mascots.json not yet, etc).
+ *
+ *  The Git Data API operates one level lower: build blobs, build a
+ *  tree, build a commit, fast-forward the branch ref. Three benefits:
+ *    1. ALL the file changes for a publish go in ONE commit. No more
+ *       partial state.
+ *    2. We never look up file SHAs by path. The atomicity guarantee
+ *       comes from the ref-update step's optimistic concurrency check
+ *       against the parent commit SHA — no cache involved.
+ *    3. Re-running a publish that already landed is harmless: the
+ *       caller checks first ("is this submission already approved?")
+ *       and skips, instead of retrying the same writes and tripping
+ *       409s.
+ */
+
+interface CommitFile {
+  /** Path inside the repo, e.g. "public/photos/472.jpeg" */
+  path: string;
+  /** File content. Pass raw bytes for binary; a string for text. */
+  content: Uint8Array | string;
+}
+
+/** Build a single atomic commit that creates/updates the given files
+ *  on the default branch. Returns the new HEAD commit SHA. */
+export async function commitFilesAtomic(
+  pat: string,
+  files: CommitFile[],
+  message: string,
+): Promise<string> {
+  if (files.length === 0) throw new Error('commitFilesAtomic: no files');
+
+  // Up to 2 retries if the ref-update step loses a race with another
+  // pusher (very rare for this app, but cheap to handle).
+  let lastErr: unknown = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      return await commitFilesAtomicOnce(pat, files, message);
+    } catch (e) {
+      lastErr = e;
+      if (e instanceof Error && /ref update lost a race/.test(e.message)) {
+        // Brief pause, then retry from a fresh parent commit.
+        await new Promise((r) => setTimeout(r, 400 + attempt * 600));
+        continue;
+      }
+      throw e;
+    }
+  }
+  throw lastErr ?? new Error('commitFilesAtomic: exhausted retries');
+}
+
+async function commitFilesAtomicOnce(
+  pat: string,
+  files: CommitFile[],
+  message: string,
+): Promise<string> {
+  // 1. Read the current branch tip + its tree SHA. We need the tree
+  //    SHA as our `base_tree` so unchanged files persist.
+  const refRes = await fetch(
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/ref/heads/${REPO_BRANCH}?_cb=${Date.now()}`,
+    { headers: ghHeaders(pat) },
+  );
+  if (!refRes.ok) {
+    throw new Error(`git/ref failed: ${refRes.status} ${await refRes.text().catch(() => '')}`);
+  }
+  const refData = (await refRes.json()) as { object: { sha: string } };
+  const parentCommitSha = refData.object.sha;
+
+  const commitRes = await fetch(
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/commits/${parentCommitSha}`,
+    { headers: ghHeaders(pat) },
+  );
+  if (!commitRes.ok) {
+    throw new Error(`git/commits GET failed: ${commitRes.status}`);
+  }
+  const parentCommit = (await commitRes.json()) as { tree: { sha: string } };
+  const baseTreeSha = parentCommit.tree.sha;
+
+  // 2. Create a blob for each file.
+  const blobs = await Promise.all(
+    files.map(async (f) => {
+      const bytes =
+        typeof f.content === 'string'
+          ? new TextEncoder().encode(f.content)
+          : f.content;
+      const base64 = encodeBase64(bytes);
+      const r = await fetch(
+        `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/blobs`,
+        {
+          method: 'POST',
+          headers: { ...ghHeaders(pat), 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: base64, encoding: 'base64' }),
+        },
+      );
+      if (!r.ok) {
+        throw new Error(
+          `git/blobs POST for ${f.path} failed: ${r.status} ${await r.text().catch(() => '')}`,
+        );
+      }
+      const data = (await r.json()) as { sha: string };
+      return { path: f.path, sha: data.sha };
+    }),
+  );
+
+  // 3. Build a new tree that overlays our blobs on the base tree.
+  const treeRes = await fetch(
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/trees`,
+    {
+      method: 'POST',
+      headers: { ...ghHeaders(pat), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        base_tree: baseTreeSha,
+        tree: blobs.map((b) => ({
+          path: b.path,
+          mode: '100644',
+          type: 'blob',
+          sha: b.sha,
+        })),
+      }),
+    },
+  );
+  if (!treeRes.ok) {
+    throw new Error(`git/trees POST failed: ${treeRes.status} ${await treeRes.text().catch(() => '')}`);
+  }
+  const newTree = (await treeRes.json()) as { sha: string };
+
+  // 4. Create the commit object.
+  const newCommitRes = await fetch(
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/commits`,
+    {
+      method: 'POST',
+      headers: { ...ghHeaders(pat), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message,
+        tree: newTree.sha,
+        parents: [parentCommitSha],
+      }),
+    },
+  );
+  if (!newCommitRes.ok) {
+    throw new Error(`git/commits POST failed: ${newCommitRes.status} ${await newCommitRes.text().catch(() => '')}`);
+  }
+  const newCommit = (await newCommitRes.json()) as { sha: string };
+
+  // 5. Fast-forward the branch ref to our new commit. If someone else
+  //    pushed between step 1 and now, this returns 422 ("update is not
+  //    a fast forward") and we throw a recognizable error so the outer
+  //    retry can rebuild from a fresh parent.
+  const updateRes = await fetch(
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/refs/heads/${REPO_BRANCH}`,
+    {
+      method: 'PATCH',
+      headers: { ...ghHeaders(pat), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sha: newCommit.sha, force: false }),
+    },
+  );
+  if (updateRes.status === 422) {
+    throw new Error('ref update lost a race — will rebuild from fresh parent');
+  }
+  if (!updateRes.ok) {
+    throw new Error(`git/refs PATCH failed: ${updateRes.status} ${await updateRes.text().catch(() => '')}`);
+  }
+  return newCommit.sha;
+}
+
+/** Read a file's text content from the latest commit on main using the
+ *  Git Data API (which we've found more reliable than Contents API for
+ *  reads taken immediately after a write). Throws if the file doesn't
+ *  exist. */
+export async function readFileFromMain(
+  pat: string,
+  path: string,
+): Promise<string> {
+  const refRes = await fetch(
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/ref/heads/${REPO_BRANCH}?_cb=${Date.now()}`,
+    { headers: ghHeaders(pat) },
+  );
+  if (!refRes.ok) throw new Error(`git/ref failed: ${refRes.status}`);
+  const refData = (await refRes.json()) as { object: { sha: string } };
+
+  const treeRes = await fetch(
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/trees/${refData.object.sha}?recursive=1&_cb=${Date.now()}`,
+    { headers: ghHeaders(pat) },
+  );
+  if (!treeRes.ok) throw new Error(`git/trees recursive failed: ${treeRes.status}`);
+  const tree = (await treeRes.json()) as {
+    tree: Array<{ path: string; sha: string; type: string }>;
+    truncated?: boolean;
+  };
+  const entry = tree.tree.find((e) => e.path === path && e.type === 'blob');
+  if (!entry) throw new Error(`${path} not in tree`);
+
+  const blobRes = await fetch(
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/git/blobs/${entry.sha}`,
+    { headers: ghHeaders(pat) },
+  );
+  if (!blobRes.ok) throw new Error(`git/blobs GET failed: ${blobRes.status}`);
+  const blob = (await blobRes.json()) as { content: string; encoding: string };
+  if (blob.encoding !== 'base64') throw new Error(`unexpected blob encoding ${blob.encoding}`);
+  const decoded =
+    typeof window !== 'undefined'
+      ? window.atob(blob.content.replace(/\n/g, ''))
+      : Buffer.from(blob.content, 'base64').toString('binary');
+  const bytes = new Uint8Array(decoded.length);
+  for (let i = 0; i < decoded.length; i++) bytes[i] = decoded.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+/** Check whether a path exists in the latest tree on main. Used by
+ *  publishApproval as a sanity check during idempotent recovery. */
+export async function existsOnMain(pat: string, path: string): Promise<boolean> {
+  try {
+    await readFileFromMain(pat, path);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /* ------------------------- Convenience -------------------------- */
 
 // The `tjmascots` GitHub repo's working tree IS the site/ folder of our
