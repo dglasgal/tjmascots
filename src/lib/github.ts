@@ -182,19 +182,26 @@ async function putRepoBase64File(
   // stale data from edge caches immediately after a write. The two
   // failure modes we recover from here:
   //   • 422 "sha wasn't supplied" → file exists; our pre-PUT GET was a
-  //     cache-miss that returned 404. Fetch a fresh sha, retry once.
+  //     cache-miss that returned 404. Fetch a fresh sha, retry.
   //   • 409 sha mismatch → the file changed between our GET and PUT
-  //     (or the GET hit a stale cache). Refetch and retry once.
-  // We deliberately only retry ONCE — repeated conflicts after a fresh
-  // GET indicate a real concurrent writer, which should surface as an
-  // error, not loop.
+  //     (or the GET hit a stale cache). Refetch and retry.
+  //
+  // The edge cache can stay stale for several seconds after a write, so
+  // we poll the GET endpoint up to 5 times with growing backoff (0.5s,
+  // 1s, 1.5s, 2s, 2.5s — ~7.5 s total) before giving up.
   if (res.status === 422 || res.status === 409) {
-    try {
-      const fresh = await getRepoFile(pat, path);
+    let fresh: { sha: string; content: string } | null = null;
+    for (let attempt = 0; attempt < 5; attempt++) {
+      await new Promise((r) => setTimeout(r, 500 + attempt * 500));
+      try {
+        fresh = await getRepoFile(pat, path);
+        break;
+      } catch {
+        // 404 / transient — try again
+      }
+    }
+    if (fresh) {
       res = await tryPut(fresh.sha);
-    } catch {
-      // Fresh GET failed — fall through and surface the original PUT
-      // error rather than swallowing the underlying cause.
     }
   }
 
