@@ -82,17 +82,33 @@ function ghHeaders(pat: string): HeadersInit {
   };
 }
 
+/** Encode a repo path for the Contents API. `encodeURIComponent` would
+ *  turn `/` into `%2F`, which works most of the time but can confuse
+ *  GitHub's edge cache after a recent write (mysterious 404s on GET, 422
+ *  on PUT). Encoding each segment separately and rejoining with literal
+ *  slashes matches what GitHub's own examples use. */
+function encodeRepoPath(p: string): string {
+  return p.split('/').map(encodeURIComponent).join('/');
+}
+
 /** Read a file from the repo. Returns its current SHA (needed to update
  *  it without conflict) and decoded text content. Throws if missing. */
 export async function getRepoFile(
   pat: string,
   path: string,
 ): Promise<{ sha: string; content: string }> {
+  // Cache-bust query param so GitHub's edge cache can't hand us a stale
+  // SHA right after a recent write. Without this we've seen the "is at X
+  // but expected Y" 409 (stale) and "sha wasn't supplied" 422 (cache says
+  // file is missing when it actually exists) on consecutive Approve clicks.
   const res = await fetch(
-    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodeURIComponent(
-      path,
-    )}?ref=${REPO_BRANCH}`,
-    { headers: ghHeaders(pat) },
+    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodeRepoPath(path)}?ref=${REPO_BRANCH}&_cb=${Date.now()}`,
+    {
+      headers: {
+        ...ghHeaders(pat),
+        'Cache-Control': 'no-cache, no-store',
+      },
+    },
   );
   if (!res.ok) {
     const text = await res.text().catch(() => '');
@@ -146,20 +162,44 @@ async function putRepoBase64File(
   message: string,
   sha?: string,
 ): Promise<string> {
-  const body: Record<string, unknown> = {
-    message,
-    content: base64,
-    branch: REPO_BRANCH,
-  };
-  if (sha) body.sha = sha;
-  const res = await fetch(
-    `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodeURIComponent(path)}`,
-    {
+  const url = `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodeRepoPath(path)}`;
+
+  async function tryPut(currentSha?: string): Promise<Response> {
+    const body: Record<string, unknown> = {
+      message,
+      content: base64,
+      branch: REPO_BRANCH,
+    };
+    if (currentSha) body.sha = currentSha;
+    return fetch(url, {
       method: 'PUT',
       headers: { ...ghHeaders(pat), 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
-    },
-  );
+    });
+  }
+
+  let res = await tryPut(sha);
+
+  // Retry-on-conflict: GitHub's Contents API has been observed to serve
+  // stale data from edge caches immediately after a write. The two
+  // failure modes we recover from here:
+  //   • 422 "sha wasn't supplied" → file exists; our pre-PUT GET was a
+  //     cache-miss that returned 404. Fetch a fresh sha, retry once.
+  //   • 409 sha mismatch → the file changed between our GET and PUT
+  //     (or the GET hit a stale cache). Refetch and retry once.
+  // We deliberately only retry ONCE — repeated conflicts after a fresh
+  // GET indicate a real concurrent writer, which should surface as an
+  // error, not loop.
+  if (res.status === 422 || res.status === 409) {
+    try {
+      const fresh = await getRepoFile(pat, path);
+      res = await tryPut(fresh.sha);
+    } catch {
+      // Fresh GET failed — fall through and surface the original PUT
+      // error rather than swallowing the underlying cause.
+    }
+  }
+
   if (!res.ok) {
     const text = await res.text().catch(() => '');
     throw new Error(`GitHub PUT ${path} failed: ${res.status} ${text}`);
