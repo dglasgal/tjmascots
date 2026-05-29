@@ -3,6 +3,14 @@
   "events": [
     {
       "date": "2026-05-29",
+      "kind": "added",
+      "mascot_id": 472,
+      "summary": "Mojo the monkey joined #6 Santa Monica, CA",
+      "reason": "Community submission via the Submit form.",
+      "store_number": "6"
+    },
+    {
+      "date": "2026-05-29",
       "kind": "photo",
       "mascot_id": 265,
       "summary": "First photo for Kyle the coyote at #254 Calabasas, CA",
