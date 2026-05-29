@@ -5417,7 +5417,7 @@
     },
     {
       "id": 473,
-      "store": "Los Angeles",
+      "store": "Chatsworth",
       "state": "CA",
       "animal": "Monkey",
       "name": "Marty",
@@ -5426,7 +5426,7 @@
       "has_photo": true,
       "retired": false,
       "source_url": "User-submitted (05/29/2026)",
-      "store_number": "119",
+      "store_number": "184",
       "created_at": "2026-05-29",
       "submitted_by": null
     },
