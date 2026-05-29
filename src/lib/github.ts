@@ -101,14 +101,12 @@ export async function getRepoFile(
   // SHA right after a recent write. Without this we've seen the "is at X
   // but expected Y" 409 (stale) and "sha wasn't supplied" 422 (cache says
   // file is missing when it actually exists) on consecutive Approve clicks.
+  // (We intentionally do NOT send a Cache-Control header — that would
+  // trigger a CORS preflight to api.github.com that the API rejects,
+  // breaking the fetch entirely with "Failed to fetch".)
   const res = await fetch(
     `${API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodeRepoPath(path)}?ref=${REPO_BRANCH}&_cb=${Date.now()}`,
-    {
-      headers: {
-        ...ghHeaders(pat),
-        'Cache-Control': 'no-cache, no-store',
-      },
-    },
+    { headers: ghHeaders(pat) },
   );
   if (!res.ok) {
     const text = await res.text().catch(() => '');
