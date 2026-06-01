@@ -2,6 +2,14 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason?, hidden? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'. Set hidden:true on entries you want preserved in this file for audit purposes but suppressed from the public /recent feed (e.g. back-office credit corrections).",
   "events": [
     {
+      "date": "2026-06-01",
+      "kind": "photo",
+      "mascot_id": 55,
+      "summary": "First photo for Iggy the lion at #33 Westchester, CA",
+      "reason": "Community submission via the Submit form. LMU mascot is also a licensed pilot in this airport themed store.",
+      "store_number": "33"
+    },
+    {
       "date": "2026-05-31",
       "kind": "photo",
       "mascot_id": 48,
@@ -14,8 +22,8 @@
       "kind": "notes",
       "mascot_id": 473,
       "store_number": "184",
-      "summary": "Marty the monkey moved from #119 Los Angeles \u2192 #184 Chatsworth",
-      "reason": "Correcting the store assignment for Marty \u2014 the original submission landed under the wrong store number."
+      "summary": "Marty the monkey moved from #119 Los Angeles → #184 Chatsworth",
+      "reason": "Correcting the store assignment for Marty — the original submission landed under the wrong store number."
     },
     {
       "date": "2026-05-29",
@@ -46,7 +54,7 @@
       "kind": "photo",
       "mascot_id": 265,
       "summary": "First photo for Kyle the coyote at #254 Calabasas, CA",
-      "reason": "Community submission via the Submit form. Store 254. Kyle the Coyote prowls the Calabasas Trader Joe's \u2014 spot him hiding somewhere in the aisles, tell a crew member, and you'll get a lollipop at checkout.",
+      "reason": "Community submission via the Submit form. Store 254. Kyle the Coyote prowls the Calabasas Trader Joe's — spot him hiding somewhere in the aisles, tell a crew member, and you'll get a lollipop at checkout.",
       "store_number": "254"
     },
     {
@@ -68,8 +76,8 @@
     {
       "date": "2026-05-26",
       "kind": "site",
-      "summary": "Map: \"Find mascots near me\" button \u2014 taps the device's GPS to zoom you to your spot",
-      "reason": "Added a red \ud83d\udccd button anchored to the bottom-right of the main map. Tapping it asks the browser for the user's location (one-time permission prompt), then flies the map to a neighborhood-level zoom (14) with a pulsing blue 'you are here' dot. Errors (permission denied, timeout, unavailable) surface as a 5-second toast above the button. Uses the standard Geolocation API \u2014 no extra dependencies, no backend, works the same on desktop Chrome/Safari and mobile. Mobile-first design: full label on tablet/desktop, shortened to 'Near me' on phones so it doesn't crowd the map."
+      "summary": "Map: \"Find mascots near me\" button — taps the device's GPS to zoom you to your spot",
+      "reason": "Added a red 📍 button anchored to the bottom-right of the main map. Tapping it asks the browser for the user's location (one-time permission prompt), then flies the map to a neighborhood-level zoom (14) with a pulsing blue 'you are here' dot. Errors (permission denied, timeout, unavailable) surface as a 5-second toast above the button. Uses the standard Geolocation API — no extra dependencies, no backend, works the same on desktop Chrome/Safari and mobile. Mobile-first design: full label on tablet/desktop, shortened to 'Near me' on phones so it doesn't crowd the map."
     },
     {
       "date": "2026-05-22",
@@ -84,7 +92,7 @@
       "kind": "notes",
       "mascot_id": 470,
       "store_number": "114",
-      "summary": "Phil the Parrot was scared off \u2014 Larry the Lobster takes over Camarillo #114",
+      "summary": "Phil the Parrot was scared off — Larry the Lobster takes over Camarillo #114",
       "reason": "Phil (id 88) flew the coop and has been removed from the roster. The Camarillo store now belongs to Larry the Lobster, who's making himself comfortable on a fresh wooden mount."
     },
     {
@@ -101,7 +109,7 @@
       "mascot_id": 469,
       "store_number": "252",
       "summary": "Ocho the Octopus joined #252 North Hollywood, CA",
-      "reason": "An octopus in landlocked North Hollywood is itself a small surprise \u2014 but the name is a quiet nod to area history. In October 1887, J.B. Lankershim and eight other developers organized the Lankershim Ranch Land and Water Company, the syndicate whose 12,000-acre purchase became modern North Hollywood and the surrounding San Fernando Valley. Ocho (Spanish for 'eight') brings the same number of arms to the job. Photo submitted by David G."
+      "reason": "An octopus in landlocked North Hollywood is itself a small surprise — but the name is a quiet nod to area history. In October 1887, J.B. Lankershim and eight other developers organized the Lankershim Ranch Land and Water Company, the syndicate whose 12,000-acre purchase became modern North Hollywood and the surrounding San Fernando Valley. Ocho (Spanish for 'eight') brings the same number of arms to the job. Photo submitted by David G."
     },
     {
       "date": "2026-05-19",
@@ -117,7 +125,7 @@
       "mascot_id": 467,
       "store_number": "312",
       "summary": "A squirrel trio joined #312 Northridge, CA: Theodore, Shirley & Jiffy",
-      "reason": "A trio of gray squirrels at Trader Joe\u2019s Northridge, a nod to the famously bold squirrel population at neighboring CSUN. Photo submitted by David G."
+      "reason": "A trio of gray squirrels at Trader Joe’s Northridge, a nod to the famously bold squirrel population at neighboring CSUN. Photo submitted by David G."
     },
     {
       "date": "2026-05-17",
@@ -125,13 +133,13 @@
       "mascot_id": 466,
       "store_number": "264",
       "summary": "Leo the Lion joined #264 Tarzana, CA",
-      "reason": "Spotted at the Tarzana store in Safari Walk shopping center on Ventura Blvd. The lion choice is a nod to the town\u2019s namesake \u2014 Tarzana was named after Edgar Rice Burroughs\u2019 jungle-hero character Tarzan, whose stories are set in the African jungle. Photo submitted by David G."
+      "reason": "Spotted at the Tarzana store in Safari Walk shopping center on Ventura Blvd. The lion choice is a nod to the town’s namesake — Tarzana was named after Edgar Rice Burroughs’ jungle-hero character Tarzan, whose stories are set in the African jungle. Photo submitted by David G."
     },
     {
       "date": "2026-05-16",
       "kind": "site",
-      "summary": "Compressed 267 oversize photos (281 MB \u2192 82 MB)",
-      "reason": "DigitalOcean build timed out at the 1-hour wall trying to clone the repo from GitHub. The .git directory was 416 MB and public/photos was 465 MB \u2014 including a 13 MB 091.png and dozens of 2\u20134 MB jpegs that had been committed without compression. Resized everything wider than 1600px and re-encoded at JPEG quality 85; saved ~200 MB of working-tree size. Repo history is still heavy until a future BFG pass, but new clones will be much faster going forward."
+      "summary": "Compressed 267 oversize photos (281 MB → 82 MB)",
+      "reason": "DigitalOcean build timed out at the 1-hour wall trying to clone the repo from GitHub. The .git directory was 416 MB and public/photos was 465 MB — including a 13 MB 091.png and dozens of 2–4 MB jpegs that had been committed without compression. Resized everything wider than 1600px and re-encoded at JPEG quality 85; saved ~200 MB of working-tree size. Repo history is still heavy until a future BFG pass, but new clones will be much faster going forward."
     },
     {
       "date": "2026-05-16",
@@ -151,7 +159,7 @@
       "date": "2026-05-11",
       "kind": "site",
       "summary": "Easter egg launched: McQuackers' Quest at /terms",
-      "reason": "Tucked a hidden-object game behind the boring 'Terms and Conditions' footer link. Scroll past the first section and McQuackers crashes through the page \u2014 then you guide him through 5 real Trader Joe's stores (West Hollywood, Lake Grove, East Liberty Pittsburgh, Silverdale, Rochester) to find their actual cataloged mascots: Steven Sparkles, Schmooli, Tuskanini, Confetti Yeti, Susan Bee Anthony. All art hand-painted via Higgsfield AI in vintage Fearless Flyer style. Time-based scoring, optional hints, global leaderboard with 3-letter initials, brag-share URLs. Also reachable directly at /quack."
+      "reason": "Tucked a hidden-object game behind the boring 'Terms and Conditions' footer link. Scroll past the first section and McQuackers crashes through the page — then you guide him through 5 real Trader Joe's stores (West Hollywood, Lake Grove, East Liberty Pittsburgh, Silverdale, Rochester) to find their actual cataloged mascots: Steven Sparkles, Schmooli, Tuskanini, Confetti Yeti, Susan Bee Anthony. All art hand-painted via Higgsfield AI in vintage Fearless Flyer style. Time-based scoring, optional hints, global leaderboard with 3-letter initials, brag-share URLs. Also reachable directly at /quack."
     },
     {
       "date": "2026-05-11",
@@ -164,16 +172,16 @@
     {
       "date": "2026-05-06",
       "kind": "site",
-      "summary": "Database security hardened \u2014 RLS gap closed, all advisor warnings resolved",
-      "reason": "Supabase flagged that the submissions and corrections tables had policies but RLS itself was disabled, meaning the policies weren\u2019t being enforced and anyone with the public anon key could read or modify those tables. Enabled RLS on both, then went on to clear every other security advisory: REVOKE'd REST execute on the two trigger functions, pinned a search_path on touch_updated_at, dropped the broad listing policy on the mascot-photos bucket, and tightened the three public-facing INSERT policies with size caps and forced pending-status. Site is now clean on Supabase\u2019s security linter (zero findings)."
+      "summary": "Database security hardened — RLS gap closed, all advisor warnings resolved",
+      "reason": "Supabase flagged that the submissions and corrections tables had policies but RLS itself was disabled, meaning the policies weren’t being enforced and anyone with the public anon key could read or modify those tables. Enabled RLS on both, then went on to clear every other security advisory: REVOKE'd REST execute on the two trigger functions, pinned a search_path on touch_updated_at, dropped the broad listing policy on the mascot-photos bucket, and tightened the three public-facing INSERT policies with size caps and forced pending-status. Site is now clean on Supabase’s security linter (zero findings)."
     },
     {
       "date": "2026-05-01",
       "kind": "renamed",
       "store_number": "76",
       "mascot_id": 39,
-      "summary": "Stockton tiger renamed Jo-Jo \u2192 Joe-Joe",
-      "reason": "Crew badge in the new photo clearly reads \u2018JOE JOE \u2014 Crew Member.\u2019 The earlier \u2018Jo-Jo\u2019 spelling was a transcription error."
+      "summary": "Stockton tiger renamed Jo-Jo → Joe-Joe",
+      "reason": "Crew badge in the new photo clearly reads ‘JOE JOE — Crew Member.’ The earlier ‘Jo-Jo’ spelling was a transcription error."
     },
     {
       "date": "2026-05-01",
@@ -181,7 +189,7 @@
       "store_number": "76",
       "mascot_id": 39,
       "summary": "New photo for Joe-Joe at Stockton #76",
-      "reason": "Submitted by Historical_Truth_731 (Reddit). Striped tiger with a blue ribbon bow, posed in front of a wooden \u2018JOE\u2019 sign with raffia and palm fronds."
+      "reason": "Submitted by Historical_Truth_731 (Reddit). Striped tiger with a blue ribbon bow, posed in front of a wooden ‘JOE’ sign with raffia and palm fronds."
     },
     {
       "date": "2026-05-01",
@@ -189,7 +197,7 @@
       "store_number": "272",
       "mascot_id": 30,
       "summary": "Pepper #272 now pictured with her three puggles!",
-      "reason": "Pepper the Platypus had babies \u2014 and a \u2018puggle\u2019 is the proper term for a platypus pup. The new photo is a holiday family portrait with all three of them in matching knit sweaters."
+      "reason": "Pepper the Platypus had babies — and a ‘puggle’ is the proper term for a platypus pup. The new photo is a holiday family portrait with all three of them in matching knit sweaters."
     },
     {
       "date": "2026-05-01",
@@ -197,7 +205,7 @@
       "store_number": "653",
       "mascot_id": 33,
       "summary": "Fresh photo for Meatball at #653",
-      "reason": "New autumn-themed shot with a scarecrow and felt pumpkin. Also cleaned up the file extension from .png \u2192 .jpg."
+      "reason": "New autumn-themed shot with a scarecrow and felt pumpkin. Also cleaned up the file extension from .png → .jpg."
     },
     {
       "date": "2026-05-01",
@@ -205,7 +213,7 @@
       "store_number": "303",
       "mascot_id": 13,
       "summary": "Chewy #303 species identified: Sasquatch (Chewbacca homage)",
-      "reason": "Shaggy ape build + bandolier strap across the chest + the name \u2018Chewy\u2019 all point to Chewbacca the Wookiee. Listing the species as Sasquatch (real-world cousin) since Wookiee is a fictional Star Wars species."
+      "reason": "Shaggy ape build + bandolier strap across the chest + the name ‘Chewy’ all point to Chewbacca the Wookiee. Listing the species as Sasquatch (real-world cousin) since Wookiee is a fictional Star Wars species."
     },
     {
       "date": "2026-05-01",
@@ -221,7 +229,7 @@
       "store_number": "798",
       "mascot_id": 19,
       "summary": "Alphie sign added at Alpharetta #798",
-      "reason": "We don\u2019t have a photo of Alphie himself yet \u2014 instead we\u2019ve got the in-store chalkboard sign that explains the kids\u2019 scavenger hunt: find the frog, take him to a cashier, claim a prize. Submitted by Fancy-Asparagus9210 (Reddit)."
+      "reason": "We don’t have a photo of Alphie himself yet — instead we’ve got the in-store chalkboard sign that explains the kids’ scavenger hunt: find the frog, take him to a cashier, claim a prize. Submitted by Fancy-Asparagus9210 (Reddit)."
     },
     {
       "date": "2026-05-01",
@@ -248,20 +256,20 @@
       "date": "2026-05-01",
       "kind": "store_removed",
       "store_number": "310",
-      "summary": "Removed Denver Hilltop wine-shop sibling #310 \u2014 duplicate of grocery #300",
+      "summary": "Removed Denver Hilltop wine-shop sibling #310 — duplicate of grocery #300",
       "reason": "Pre-2019 Colorado law capped a grocery chain at one full-liquor-license store statewide, so TJ ran a co-located wine shop right next door (lat/lng within ~75 ft of the grocery). Removing #310 keeps the map honest. Same pattern as the three Kentucky wine shops we removed earlier."
     },
     {
       "date": "2026-05-01",
       "kind": "site",
       "summary": "Unified Store # display: red pill across all listings",
-      "reason": "Yorktown #567 \u2018no mascot yet\u2019 card was showing the store number in plain bold text while Elk Grove #190 (with mascot) showed it in a red pill. Now consistent across the popup card, /city, and /state pages."
+      "reason": "Yorktown #567 ‘no mascot yet’ card was showing the store number in plain bold text while Elk Grove #190 (with mascot) showed it in a red pill. Now consistent across the popup card, /city, and /state pages."
     },
     {
       "date": "2026-05-01",
       "kind": "site",
       "summary": "Header tightened on iPhone-13-class screens",
-      "reason": "Hamburger button was clipping off the right edge on 390-pixel-wide phones. Added a finer \u2264400px breakpoint that shrinks the duck logo, wordmark, search-bar minimum width, and hamburger size to give everything breathing room."
+      "reason": "Hamburger button was clipping off the right edge on 390-pixel-wide phones. Added a finer ≤400px breakpoint that shrinks the duck logo, wordmark, search-bar minimum width, and hamburger size to give everything breathing room."
     }
   ]
 }
