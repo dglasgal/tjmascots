@@ -35,7 +35,7 @@ import {
   readFileFromMain,
   REPO_PATHS,
 } from './github';
-import type { PendingSubmission } from './admin';
+import { resizeForPublish, type PendingSubmission } from './admin';
 
 /** Subset of mascot fields we care about for matching/merging. The on-disk
  *  shape has more, but we preserve unknown fields by spreading in place. */
@@ -147,6 +147,11 @@ export async function publishApproval(args: {
   }
 
   // ---------- 1. Pull photo bytes from Supabase (if any) -----------
+  // Phone photos are routinely 3-5 MB; we resize to max 1600px / JPEG
+  // quality 85 before they ever touch the repo. Same target the May 2026
+  // bulk-cleanup script used to recover ~200 MB after a DigitalOcean
+  // build timed out cloning the bloated repo. Falls back to the original
+  // bytes if the browser can't decode the image — never blocks publish.
   let photoBytes: Uint8Array | null = null;
   let photoExt = 'jpg';
   if (submission.photo_path) {
@@ -154,8 +159,11 @@ export async function publishApproval(args: {
       .from('submissions')
       .download(submission.photo_path);
     if (error) throw new Error(`download failed: ${error.message}`);
-    photoBytes = new Uint8Array(await blob.arrayBuffer());
-    photoExt = (submission.photo_path.split('.').pop() || 'jpg').toLowerCase();
+    const originalExt = (submission.photo_path.split('.').pop() || 'jpg').toLowerCase();
+    const resized = await resizeForPublish(blob);
+    const finalBlob = resized?.blob ?? blob;
+    photoExt = resized?.ext ?? originalExt;
+    photoBytes = new Uint8Array(await finalBlob.arrayBuffer());
   }
 
   // ---------- 2. Read mascots.json from GitHub (Git Data API) -------

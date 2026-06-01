@@ -128,9 +128,53 @@ export async function signedSubmissionUrl(
   return data.signedUrl;
 }
 
+/**
+ * Resize a photo blob for publishing — max 1600px on the long edge,
+ * re-encoded as JPEG quality 85. Same target as the May 2026 bulk-cleanup
+ * script that recovered ~200 MB after a DigitalOcean build timed out
+ * trying to clone the bloated repo.
+ *
+ * Returns null on any failure (codec unsupported, canvas blocked, etc.)
+ * so the caller can fall back to uploading the original bytes — an
+ * approval should never break because of a resize hiccup.
+ */
+export async function resizeForPublish(
+  blob: Blob,
+  maxEdge = 1600,
+  quality = 0.85,
+): Promise<{ blob: Blob; ext: 'jpg' } | null> {
+  try {
+    const bitmap = await createImageBitmap(blob);
+    // Don't upscale: if the photo is already smaller than maxEdge, leave it.
+    const scale = Math.min(1, maxEdge / Math.max(bitmap.width, bitmap.height));
+    const w = Math.round(bitmap.width * scale);
+    const h = Math.round(bitmap.height * scale);
+    const canvas = document.createElement('canvas');
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      bitmap.close();
+      return null;
+    }
+    ctx.drawImage(bitmap, 0, 0, w, h);
+    bitmap.close();
+    const out = await new Promise<Blob | null>((resolve) =>
+      canvas.toBlob(resolve, 'image/jpeg', quality),
+    );
+    if (!out) return null;
+    return { blob: out, ext: 'jpg' };
+  } catch (e) {
+    console.warn('[admin] resizeForPublish failed, will upload original:', e);
+    return null;
+  }
+}
+
 /** Approve a submission:
  *   1. Move the photo from the private `submissions` bucket to the public
- *      `mascot-photos` bucket, renaming to `{newId}.{ext}`.
+ *      `mascot-photos` bucket, renaming to `{newId}.{ext}` and resizing
+ *      to max 1600px / JPEG quality 85 so giant phone photos don't bloat
+ *      the repo (see resizeForPublish above).
  *   2. Mark the row approved and stash the new mascot id in admin_notes.
  *   3. Return a JSON snippet the admin can paste into mascots.json. */
 export async function approveSubmission(
@@ -142,19 +186,30 @@ export async function approveSubmission(
   let photoFilename: string | null = null;
 
   if (submission.photo_path) {
-    const ext = (submission.photo_path.split('.').pop() || 'jpg').toLowerCase();
-    photoFilename = `${newMascotId}.${ext}`;
+    const originalExt = (submission.photo_path.split('.').pop() || 'jpg').toLowerCase();
     // 1a. Download from private bucket
     const { data: blob, error: dlErr } = await sb.storage
       .from('submissions')
       .download(submission.photo_path);
     if (dlErr) throw new Error(`download failed: ${dlErr.message}`);
-    // 1b. Upload to public bucket under mascot id
+
+    // 1b. Resize/re-encode for the public bucket. Falls back to the
+    //     original bytes if the browser can't handle it — approval
+    //     should never break because of a resize hiccup.
+    const resized = await resizeForPublish(blob);
+    const toUpload: Blob = resized?.blob ?? blob;
+    const finalExt = resized?.ext ?? originalExt;
+    photoFilename = `${newMascotId}.${finalExt}`;
+
+    // 1c. Upload to public bucket under mascot id
     const { error: upErr } = await sb.storage
       .from('mascot-photos')
-      .upload(photoFilename, blob, { contentType: blob.type, upsert: true });
+      .upload(photoFilename, toUpload, {
+        contentType: toUpload.type || 'image/jpeg',
+        upsert: true,
+      });
     if (upErr) throw new Error(`upload failed: ${upErr.message}`);
-    // 1c. Delete from private bucket
+    // 1d. Delete from private bucket
     await sb.storage.from('submissions').remove([submission.photo_path]);
   }
 
