@@ -3,6 +3,14 @@
   "events": [
     {
       "date": "2026-06-01",
+      "kind": "added",
+      "mascot_id": 475,
+      "summary": "Clark the shark joined #45 Ventura, CA",
+      "reason": "Community submission from Skramtam.",
+      "store_number": "45"
+    },
+    {
+      "date": "2026-06-01",
       "kind": "photo",
       "mascot_id": 55,
       "summary": "First photo for Iggy the lion at #33 Westchester, CA",
