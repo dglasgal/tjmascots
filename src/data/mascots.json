@@ -5474,6 +5474,21 @@
       "store_number": "240",
       "created_at": "2026-06-02",
       "submitted_by": null
+    },
+    {
+      "id": 477,
+      "store": "Los Angeles",
+      "state": "CA",
+      "animal": "Avocado",
+      "name": "Avo",
+      "notes": null,
+      "photo": "477.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (06/02/2026)",
+      "store_number": "237",
+      "created_at": "2026-06-02",
+      "submitted_by": null
     }
   ]
 }
