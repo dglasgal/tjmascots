@@ -2,6 +2,14 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason?, hidden? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'. Set hidden:true on entries you want preserved in this file for audit purposes but suppressed from the public /recent feed (e.g. back-office credit corrections).",
   "events": [
     {
+      "date": "2026-06-02",
+      "kind": "added",
+      "mascot_id": 476,
+      "summary": "Willie the wooly mammoth joined #240 Los Angeles, CA",
+      "reason": "Community submission via the Submit form. Prevalent in the area.",
+      "store_number": "240"
+    },
+    {
       "date": "2026-06-01",
       "kind": "added",
       "mascot_id": 475,
