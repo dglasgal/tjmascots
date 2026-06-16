@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-16T03:10:47.836Z",
+  "generated_at": "2026-06-16T05:12:42.196Z",
   "license": "Open data — please attribute \"TJ Mascots fan project (tjmascots.com)\" if you publish derivative works.",
-  "record_count": 351,
+  "record_count": 350,
   "mascots": [
     {
       "id": 469,
@@ -993,8 +993,8 @@
     },
     {
       "id": 57,
-      "name": "Lucky",
-      "animal": "Chicken",
+      "name": "Lucky & Maple",
+      "animal": "Chickens",
       "store_number": "713",
       "store_label": "Maple Grove",
       "city": "Maple Grove",
@@ -1007,27 +1007,8 @@
       "photo_url": "/photos/MapleLucky_713.jpg",
       "submitted_by": "Brian A.",
       "created_at": "2026-04-24",
-      "notes": "Store 713. One of two chicken mascots at the Maple Grove store, paired with Maple.",
+      "notes": "Two hens hold court at the Maple Grove store: Maple and Lucky. Their names are a nod to the town's roots. Maple Grove was named for the dense stands of sugar maples its first residents prized — the Ojibwe and Dakota, and later the homesteaders, tapped those trees for syrup every spring, and one of the largest sugar maples in Hennepin County still stands watch in the old town cemetery. Maple carries that heritage in her name. Before the subdivisions arrived this was farm country, and no farmstead was complete without a flock — so Lucky struts in as the resident good-luck hen, a wink to the harvests that kept those first families going. Together they keep an eye on the spot where the maple groves and the farm fields once met.",
       "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/jvddrcx/"
-    },
-    {
-      "id": 58,
-      "name": "Maple",
-      "animal": "Chicken",
-      "store_number": "713",
-      "store_label": "Maple Grove",
-      "city": "Maple Grove",
-      "state": "MN",
-      "zip": "55369",
-      "street": "12105 Elm Creek Blvd N",
-      "lat": 45.09219,
-      "lng": -93.43409,
-      "has_photo": true,
-      "photo_url": "/photos/MapleLucky_713.jpg",
-      "submitted_by": "Brian A.",
-      "created_at": "2026-04-24",
-      "notes": "Store 713. One of two chicken mascots at the Maple Grove store, paired with Lucky.",
-      "source_url": "https://www.reddit.com/r/traderjoes/comments/z1ez6m/mascot_megathread_request_looking_for_information/"
     },
     {
       "id": 59,

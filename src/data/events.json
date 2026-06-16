@@ -3,6 +3,22 @@
   "events": [
     {
       "date": "2026-06-15",
+      "kind": "renamed",
+      "mascot_id": 57,
+      "store_number": "713",
+      "summary": "Combined #713 into one listing \u2014 \u201cLucky & Maple the Chickens\u201d",
+      "reason": "Store has two chicken mascots shown in one photo; merged the two separate cards into a single listing and retired the duplicate Maple record (id 58)."
+    },
+    {
+      "date": "2026-06-15",
+      "kind": "notes",
+      "mascot_id": 57,
+      "store_number": "713",
+      "summary": "Lucky & Maple #713 backstory added",
+      "reason": "Tied the chickens' names to Maple Grove history \u2014 the sugar-maple groves the town is named for, and its farming roots."
+    },
+    {
+      "date": "2026-06-15",
       "kind": "site",
       "mascot_id": 58,
       "store_number": "713",
