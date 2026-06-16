@@ -19,6 +19,7 @@
  */
 
 import type { Metadata } from 'next';
+import type { ReactElement } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import mascotsRaw from '@/data/mascots.json';
@@ -89,7 +90,7 @@ export async function generateMetadata({
 
   const title = `${displayName} the ${m.animal} — Trader Joe's ${storeLabel}${storeNum}`;
   const description = m.notes
-    ? truncate(m.notes, 200)
+    ? truncate(notesToPlain(m.notes), 200)
     : `${displayName} the ${m.animal}, the resident mascot at the Trader Joe's in ${storeLabel}. Discover every TJ's mascot at TJ Mascots.`;
 
   const url = `${SITE_URL}/mascot/${slug}`;
@@ -142,7 +143,7 @@ export default async function MascotPage({
     '@context': 'https://schema.org',
     '@type': 'Place',
     name: `Trader Joe's ${storeLabel}${m.store_number ? ` #${m.store_number}` : ''}`,
-    description: `Home of ${displayName} the ${m.animal}. ${m.notes || ''}`.trim(),
+    description: `Home of ${displayName} the ${m.animal}. ${m.notes ? notesToPlain(m.notes) : ''}`.trim(),
     ...(store && {
       address: {
         '@type': 'PostalAddress',
@@ -280,7 +281,7 @@ export default async function MascotPage({
           {/* Notes */}
           {m.notes && (
             <div className="mt-8 rounded-3xl bg-[var(--cream-dark)] px-6 py-6 text-center text-[17px] leading-relaxed text-[var(--ink)] sm:px-10">
-              {m.notes}
+              {renderNotes(m.notes)}
             </div>
           )}
 
@@ -371,6 +372,47 @@ export default async function MascotPage({
 function truncate(s: string, max: number): string {
   if (s.length <= max) return s;
   return s.slice(0, max - 1).replace(/\s+\S*$/, '') + '…';
+}
+
+/**
+ * Lightweight markdown-link support for the `notes` field.
+ * Authors can write `[label](https://example.com)` inside a mascot's notes
+ * and it renders as a clickable link on the page, while SEO surfaces
+ * (meta description + JSON-LD) get the plain-text label only.
+ *
+ * Only `[text](http(s)://url)` is supported — no other markdown.
+ */
+const NOTES_LINK = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+
+/** Strip markdown links down to their label text (for meta/JSON-LD). */
+function notesToPlain(s: string): string {
+  return s.replace(NOTES_LINK, '$1');
+}
+
+/** Render notes with `[label](url)` segments turned into anchors. */
+function renderNotes(s: string): Array<string | ReactElement> {
+  const out: Array<string | ReactElement> = [];
+  const re = new RegExp(NOTES_LINK.source, 'g');
+  let last = 0;
+  let key = 0;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(s)) !== null) {
+    if (match.index > last) out.push(s.slice(last, match.index));
+    out.push(
+      <a
+        key={key++}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-bold text-[var(--tj-red)] underline-offset-2 hover:underline"
+      >
+        {match[1]}
+      </a>,
+    );
+    last = match.index + match[0].length;
+  }
+  if (last < s.length) out.push(s.slice(last));
+  return out;
 }
 
 /** Renders a small grid of related mascots for SEO-juicy internal
