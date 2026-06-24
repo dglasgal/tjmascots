@@ -48,6 +48,9 @@ export interface PendingCorrection {
   status: 'pending' | 'resolved' | 'dismissed';
   admin_notes: string | null;
   created_at: string;
+  /** Path in the private `submissions` bucket to a reporter-supplied photo
+   *  (when they picked "I have a new/better photo"), or null. */
+  photo_path: string | null;
 }
 
 export interface PendingMessage {

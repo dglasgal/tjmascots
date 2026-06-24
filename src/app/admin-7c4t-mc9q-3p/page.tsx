@@ -649,9 +649,18 @@ function CorrectionCard({
 }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [photoUrl, setPhotoUrl] = useState<string | null>(null);
   const correctedStore = correction.corrected_store_number
     ? storesByNum.get(correction.corrected_store_number)
     : null;
+
+  // If the reporter attached a new photo, fetch a temporary signed URL to view it.
+  useEffect(() => {
+    if (!correction.photo_path) return;
+    const sb = getAdminClient();
+    if (!sb) return;
+    signedSubmissionUrl(sb, correction.photo_path).then(setPhotoUrl);
+  }, [correction.photo_path]);
 
   async function setStatus(status: 'resolved' | 'dismissed', notes?: string) {
     setBusy(true);
@@ -690,6 +699,27 @@ function CorrectionCard({
       {correction.details && (
         <div className="mt-3 rounded-lg bg-[var(--cream-dark)] px-3.5 py-2.5 text-sm">
           &ldquo;{correction.details}&rdquo;
+        </div>
+      )}
+      {correction.photo_path && (
+        <div className="mt-3">
+          <div className="mb-1 text-[11px] font-extrabold uppercase tracking-wider text-[var(--ink-soft)]">
+            Reporter&apos;s new photo
+          </div>
+          {photoUrl ? (
+            <a href={photoUrl} target="_blank" rel="noopener noreferrer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photoUrl}
+                alt="Reporter-submitted mascot photo"
+                className="h-44 w-full rounded-xl bg-[var(--cream-dark)] object-contain sm:w-44"
+              />
+            </a>
+          ) : (
+            <div className="flex h-44 w-full items-center justify-center rounded-xl bg-[var(--cream-dark)] text-xs font-semibold text-[var(--ink-soft)] sm:w-44">
+              Loading photo…
+            </div>
+          )}
         </div>
       )}
       {correctedStore && (

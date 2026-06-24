@@ -6,6 +6,8 @@ import { submitCorrection } from '@/lib/data';
 import type { Mascot, Store } from '@/lib/types';
 import StorePicker from './StorePicker';
 import { useAntiSpam } from '@/lib/anti-spam';
+import { useModalBodyFlag } from '@/lib/useModalBodyFlag';
+import { convertHeicToJpeg, isHeic } from '@/lib/heic';
 
 interface ReportModalProps {
   open: boolean;
@@ -20,6 +22,7 @@ const ISSUE_OPTIONS: { key: string; label: string }[] = [
   { key: 'animal', label: 'Animal type is wrong' },
   { key: 'store', label: 'Store / location is wrong' },
   { key: 'photo', label: 'Photo is wrong or bad quality' },
+  { key: 'new_photo', label: 'I have a new / better photo to upload' },
   { key: 'retired', label: 'This mascot has been retired' },
   { key: 'other', label: 'Something else' },
 ];
@@ -29,10 +32,15 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
   const [details, setDetails] = useState('');
   const [email, setEmail] = useState('');
   const [correctedStore, setCorrectedStore] = useState<Store | null>(null);
+  const [photoFile, setPhotoFile] = useState<File | undefined>(undefined);
+  const [converting, setConverting] = useState(false);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState('');
   const antiSpam = useAntiSpam();
+
+  // Hide the map's floating find-me button while this modal is open (see hook).
+  useModalBodyFlag(open && Boolean(mascot));
 
   useEffect(() => {
     if (open) {
@@ -40,6 +48,7 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
       setDetails('');
       setEmail('');
       setCorrectedStore(null);
+      setPhotoFile(undefined);
       setMessage(null);
     }
   }, [open]);
@@ -53,7 +62,29 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
   }, [open, onClose]);
 
   function toggleIssue(key: string) {
-    setIssues((prev) => (prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]));
+    setIssues((prev) => {
+      const next = prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key];
+      // If they un-check "I have a new photo", drop any file they'd attached.
+      if (key === 'new_photo' && !next.includes('new_photo')) setPhotoFile(undefined);
+      return next;
+    });
+  }
+
+  // iPhone HEIC photos get converted to JPEG up front so they preview and
+  // publish correctly (browsers can't render HEIC).
+  async function handleFileChange(file: File | undefined) {
+    if (!file) {
+      setPhotoFile(undefined);
+      return;
+    }
+    if (isHeic(file)) {
+      setConverting(true);
+      const jpeg = await convertHeicToJpeg(file);
+      setConverting(false);
+      setPhotoFile(jpeg);
+    } else {
+      setPhotoFile(file);
+    }
   }
 
   async function handleSubmit() {
@@ -75,6 +106,7 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
       details: details.trim(),
       reporter_email: email.trim(),
       corrected_store_number: correctedStore?.store_number,
+      photoFile: issues.includes('new_photo') ? photoFile : undefined,
     });
     setBusy(false);
     if (result.ok) {
@@ -167,6 +199,27 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
               </div>
             )}
 
+            {issues.includes('new_photo') && (
+              <div className="mb-3.5">
+                <span className="mb-1 block text-[13px] font-extrabold text-[var(--ink)]">
+                  Upload your photo
+                </span>
+                <input
+                  type="file"
+                  accept="image/*,.heic,.heif"
+                  onChange={(e) => handleFileChange(e.target.files?.[0])}
+                  className="w-full text-sm text-[var(--ink-soft)] file:mr-3 file:cursor-pointer file:rounded-full file:border-0 file:bg-[var(--tj-red)] file:px-3.5 file:py-2 file:text-xs file:font-extrabold file:uppercase file:tracking-wider file:text-[var(--cream)]"
+                />
+                <p className="mt-1.5 text-[11px] font-semibold text-[var(--ink-soft)]">
+                  {converting
+                    ? 'Converting iPhone photo… one moment'
+                    : photoFile
+                    ? `Ready to send: ${photoFile.name}`
+                    : "A clear photo of the actual mascot is best. We'll review it before it goes on the map."}
+                </p>
+              </div>
+            )}
+
             <label className="mb-3.5 block">
               <span className="mb-1 block text-[13px] font-extrabold text-[var(--ink)]">
                 Give us your updates or any other suggestions (optional)
@@ -216,10 +269,10 @@ export default function ReportModal({ open, mascot, stores, onClose }: ReportMod
               </button>
               <button
                 onClick={handleSubmit}
-                disabled={busy || !canSubmit}
+                disabled={busy || converting || !canSubmit}
                 className="rounded-full bg-[var(--tj-red)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--cream)] shadow-[0_2px_0_var(--tj-red-dark)] disabled:opacity-50"
               >
-                {busy ? 'Sending…' : 'Submit report'}
+                {busy ? 'Sending…' : converting ? 'Converting…' : 'Submit report'}
               </button>
             </div>
           </motion.div>

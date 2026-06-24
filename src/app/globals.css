@@ -17,6 +17,12 @@
 
 html, body { height: 100%; overflow: hidden; }
 
+/* When any full-screen modal is open (it sets data-modal-open on <body>),
+   hide the map's floating "Find mascots near me" button so it never
+   overlaps the modal. Works for the Report modal, Submit modal, and any
+   future modal that toggles this attribute — no prop-passing needed. */
+body[data-modal-open] .find-me-btn { display: none !important; }
+
 body {
   font-family: 'Nunito', system-ui, sans-serif;
   background: var(--cream);

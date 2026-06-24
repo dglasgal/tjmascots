@@ -2,6 +2,18 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason?, hidden? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'. Set hidden:true on entries you want preserved in this file for audit purposes but suppressed from the public /recent feed (e.g. back-office credit corrections).",
   "events": [
     {
+      "date": "2026-06-24",
+      "kind": "site",
+      "summary": "iPhone (HEIC) photo uploads now work — auto-converted to JPEG",
+      "reason": "Browsers can't display HEIC, so HEIC submissions previewed broken in the admin queue and published as unusable files. Uploaded HEICs are now converted to JPEG in the browser before upload (both the submit form and the correction-photo box). Also widened the storage upload policy so correction photos (corrections/ folder) are accepted."
+    },
+    {
+      "date": "2026-06-24",
+      "kind": "site",
+      "summary": "Report-a-correction box now lets you upload a new/better mascot photo",
+      "reason": "Added an \u201cI have a new / better photo\u201d option that reveals a file picker; the image uploads to the private submissions bucket and shows in the admin review queue. Also fixed the desktop overlap where the \u201cFind mascots near me\u201d button covered the open report window."
+    },
+    {
       "date": "2026-06-15",
       "kind": "renamed",
       "mascot_id": 57,

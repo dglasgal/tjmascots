@@ -315,7 +315,7 @@ export default function MapView({
         onClick={handleLocate}
         disabled={locating}
         aria-label="Find mascots near me"
-        className="absolute bottom-5 right-3 z-[1000] flex items-center gap-2 rounded-full bg-[var(--tj-red)] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-black/20 ring-2 ring-white/70 transition hover:brightness-110 active:scale-95 disabled:opacity-70 sm:bottom-auto sm:right-auto sm:left-1/2 sm:top-5 sm:-translate-x-1/2 sm:gap-3 sm:px-7 sm:py-4 sm:text-base sm:font-bold sm:shadow-xl sm:ring-4"
+        className="find-me-btn absolute bottom-5 right-3 z-[1000] flex items-center gap-2 rounded-full bg-[var(--tj-red)] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-black/20 ring-2 ring-white/70 transition hover:brightness-110 active:scale-95 disabled:opacity-70 sm:bottom-auto sm:right-auto sm:left-1/2 sm:top-5 sm:-translate-x-1/2 sm:gap-3 sm:px-7 sm:py-4 sm:text-base sm:font-bold sm:shadow-xl sm:ring-4"
       >
         {locating ? (
           <>

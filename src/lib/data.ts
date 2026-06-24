@@ -148,6 +148,11 @@ export interface CorrectionInput {
   /** When the user picks "store/location is wrong" they can use the picker to
    *  tell us the actual correct TJ store. */
   corrected_store_number?: string;
+  /** When the user picks "I have a new/better photo", the image they attached.
+   *  Uploaded to the private `submissions` storage bucket (same one the
+   *  new-mascot submit flow uses) and the path is stored on the correction row
+   *  so the admin queue can show it. */
+  photoFile?: File;
 }
 
 /** Submits a correction report for an existing mascot to the Supabase
@@ -168,6 +173,26 @@ export async function submitCorrection(
     return { ok: true };
   }
   try {
+    // 1. If the reporter attached a new photo, upload it to the private
+    //    `submissions` bucket first (same bucket the new-mascot flow uses).
+    //    The admin gets a temporary signed URL to view it in the review queue.
+    let photoPath: string | null = null;
+    if (input.photoFile) {
+      const ext = input.photoFile.name.split('.').pop() || 'jpg';
+      const safeExt = ext.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const filename = `corrections/${crypto.randomUUID()}.${safeExt}`;
+      const { error: uploadErr } = await sb.storage
+        .from('submissions')
+        .upload(filename, input.photoFile, {
+          cacheControl: '3600',
+          upsert: false,
+          contentType: input.photoFile.type || 'image/jpeg',
+        });
+      if (uploadErr) throw uploadErr;
+      photoPath = filename;
+    }
+
+    // 2. Insert the correction row (with the photo path, if any).
     await retryInsert(() =>
       sb.from('corrections').insert({
         mascot_id: input.mascot_id,
@@ -177,14 +202,20 @@ export async function submitCorrection(
         details: input.details || null,
         reporter_email: input.reporter_email || null,
         corrected_store_number: input.corrected_store_number || null,
+        photo_path: photoPath,
       }),
     );
     return { ok: true };
   } catch (e) {
     console.error('[data] submitCorrection failed after retries. Raw:', e);
     // Last-ditch: queue it in localStorage so nothing is lost.
-    const queued = queueCorrectionForLater(input);
-    if (queued) return { ok: true, queued: true };
+    // A File can't be serialized to localStorage, so we only queue photo-less
+    // corrections. If a photo was attached we surface the error instead, so the
+    // reporter can retry rather than have us silently drop their image.
+    if (!input.photoFile) {
+      const queued = queueCorrectionForLater(input);
+      if (queued) return { ok: true, queued: true };
+    }
     return { ok: false, error: extractErrorMessage(e) };
   }
 }

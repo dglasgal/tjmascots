@@ -7,6 +7,8 @@ import type { Store } from '@/lib/types';
 import StorePicker from './StorePicker';
 import { useAntiSpam } from '@/lib/anti-spam';
 import { extractPhotoLocation, type PhotoLocationResult } from '@/lib/exif';
+import { useModalBodyFlag } from '@/lib/useModalBodyFlag';
+import { convertHeicToJpeg, isHeic } from '@/lib/heic';
 
 export interface SubmitModalPreset {
   store?: string;
@@ -36,10 +38,14 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
   const [notes, setNotes] = useState('');
   const [photoFile, setPhotoFile] = useState<File | undefined>(undefined);
   const [photoLocation, setPhotoLocation] = useState<PhotoLocationResult | null>(null);
+  const [converting, setConverting] = useState(false);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState('');
   const antiSpam = useAntiSpam();
+
+  // Hide the map's floating find-me button while this modal is open (see hook).
+  useModalBodyFlag(open);
 
   // Re-run EXIF GPS extraction whenever either the photo OR the chosen
   // store changes — both are inputs to the match calculation.
@@ -90,6 +96,24 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
     if (open) document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [open, onClose]);
+
+  // Handle a chosen file: iPhone HEIC photos get converted to JPEG up front so
+  // they preview and publish correctly (browsers can't render HEIC). Shows a
+  // brief "Converting…" state for the (large) HEIC files while it works.
+  async function handleFileChange(file: File | undefined) {
+    if (!file) {
+      setPhotoFile(undefined);
+      return;
+    }
+    if (isHeic(file)) {
+      setConverting(true);
+      const jpeg = await convertHeicToJpeg(file);
+      setConverting(false);
+      setPhotoFile(jpeg);
+    } else {
+      setPhotoFile(file);
+    }
+  }
 
   async function handleSubmit() {
     if (!selectedStore) {
@@ -192,9 +216,14 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
             <Field label="Photo">
               <input
                 type="file"
-                accept="image/*"
-                onChange={(e) => setPhotoFile(e.target.files?.[0])}
+                accept="image/*,.heic,.heif"
+                onChange={(e) => handleFileChange(e.target.files?.[0])}
               />
+              {converting && (
+                <div className="mt-1.5 text-[11px] font-semibold text-[var(--ink-soft)]">
+                  Converting iPhone photo… one moment
+                </div>
+              )}
               {photoFile && photoLocation && (
                 <div className="mt-1.5 text-[11px] font-semibold">
                   {photoLocation.status === 'match' && (
@@ -262,10 +291,10 @@ export default function SubmitModal({ open, stores, preset, onClose }: SubmitMod
               </button>
               <button
                 onClick={handleSubmit}
-                disabled={busy || !selectedStore || !animal}
+                disabled={busy || converting || !selectedStore || !animal}
                 className="rounded-full bg-[var(--tj-red)] px-[18px] py-2.5 text-sm font-extrabold text-[var(--cream)] shadow-[0_2px_0_var(--tj-red-dark)] disabled:opacity-50"
               >
-                {busy ? 'Sending…' : 'Submit for review'}
+                {busy ? 'Sending…' : converting ? 'Converting…' : 'Submit for review'}
               </button>
             </div>
           </motion.div>
