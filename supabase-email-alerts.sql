@@ -42,10 +42,10 @@ declare
   -- !! REPLACE THE PLACEHOLDER BEFORE RUNNING !!
   resend_api_key text := 'REPLACE_ME_RESEND_API_KEY';
   admin_email     text := 'david@7ate9.com';
-  from_address    text := 'TJ Mascots <onboarding@resend.dev>';
+  from_address    text := 'TJ Mascots <mascots@tjmascots.com>';
   -- Single source of truth for the admin URL — change this one line
   -- when DNS is finally pointed at tjmascots.com.
-  admin_url       text := 'https://dolphin-app-aj5qf.ondigitalocean.app/admin-7c4t-mc9q-3p';
+  admin_url       text := 'https://tjmascots.com/admin-7c4t-mc9q-3p';
   subject         text;
   body_html       text;
   store_label     text;

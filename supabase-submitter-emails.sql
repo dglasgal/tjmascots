@@ -40,10 +40,10 @@ as $$
 declare
   -- !! REPLACE THE PLACEHOLDER BEFORE RUNNING !!
   resend_api_key text := 'REPLACE_ME_RESEND_API_KEY';
-  from_address   text := 'TJ Mascots <onboarding@resend.dev>';
+  from_address   text := 'TJ Mascots <mascots@tjmascots.com>';
   -- Single source of truth for the public site URL — change this one
   -- line when DNS finally points at tjmascots.com.
-  site_url       text := 'https://dolphin-app-aj5qf.ondigitalocean.app';
+  site_url       text := 'https://tjmascots.com';
   to_email       text;
   store_label    text;
   mascot_label   text;
