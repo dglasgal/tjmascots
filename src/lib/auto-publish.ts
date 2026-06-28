@@ -35,7 +35,7 @@ import {
   readFileFromMain,
   REPO_PATHS,
 } from './github';
-import { resizeForPublish, type PendingSubmission } from './admin';
+import { resizeForPublish, type PendingSubmission, type PendingCorrection } from './admin';
 
 /** Subset of mascot fields we care about for matching/merging. The on-disk
  *  shape has more, but we preserve unknown fields by spreading in place. */
@@ -340,6 +340,206 @@ export async function publishApproval(args: {
     jsonCommitSha,
     photoCommitSha: jsonCommitSha, // single atomic commit covers both
   };
+}
+
+/* ============================================================== */
+/*  Correction photo approval                                      */
+/* ============================================================== */
+
+export interface CorrectionPublishResult {
+  /** The mascot id whose photo was swapped. */
+  mascotId: number;
+  /** New photo filename inside public/photos/ (e.g. "1.jpg"). */
+  photoFilename: string;
+  /** GitHub commit SHA of the atomic commit. */
+  commitSha: string;
+  /** True if we also applied the reporter's suggested store. */
+  storeApplied: boolean;
+}
+
+/**
+ * Approve a correction that includes a NEW PHOTO and publish it live.
+ *
+ * Unlike publishApproval (which handles brand-new submissions and has to
+ * decide whether to merge or create), a correction always targets an
+ * EXISTING mascot — we know exactly which one from `correction.mascot_id`.
+ * So this is fundamentally a photo SWAP on that mascot:
+ *
+ *   1. (idempotency) Re-fetch the correction; bail if it's no longer pending.
+ *   2. Download the reporter's photo from the private `submissions` bucket
+ *      (resize to max 1600px / JPEG 85, same as submissions).
+ *   3. Read mascots.json from GitHub, find the row by id.
+ *   4. Point that row's `photo` at `{id}.{ext}` and set has_photo:true.
+ *      (Overwrites the existing photo file at the same id-based path.)
+ *   5. Optionally apply the reporter's corrected store — but ONLY if they
+ *      used the structured store-picker (corrected_store_number is a real
+ *      TJ store number we can trust). Free-text name/animal stay manual.
+ *   6. Prepend a `photo` event to events.json.
+ *   7. One atomic commit (photo + mascots.json + events.json).
+ *   8. Mirror the photo into the public `mascot-photos` bucket, delete the
+ *      private original, and mark the correction `resolved`.
+ *
+ * Throws on any hard failure so the admin UI can surface it; the
+ * idempotency guard means a retry click is safe.
+ */
+export async function publishCorrectionPhoto(args: {
+  pat: string;
+  sb: SupabaseClient;
+  correction: PendingCorrection;
+  /** Pass true to apply correction.corrected_store_number (structured pick). */
+  applySuggestedStore?: boolean;
+}): Promise<CorrectionPublishResult> {
+  const { pat, sb, correction, applySuggestedStore } = args;
+
+  if (!correction.photo_path) {
+    throw new Error('This correction has no photo to publish.');
+  }
+
+  // ---------- 1. Idempotency guard ----------------------------------
+  const { data: fresh, error: fetchErr } = await sb
+    .from('corrections')
+    .select('status')
+    .eq('id', correction.id)
+    .single();
+  if (fetchErr) throw new Error(`failed to refetch correction: ${fetchErr.message}`);
+  if (fresh.status !== 'pending') {
+    throw new Error('This correction was already handled (refresh the page).');
+  }
+
+  // ---------- 2. Download + resize the reporter's photo -------------
+  const { data: blob, error: dlErr } = await sb.storage
+    .from('submissions')
+    .download(correction.photo_path);
+  if (dlErr) throw new Error(`download failed: ${dlErr.message}`);
+  const originalExt = (correction.photo_path.split('.').pop() || 'jpg').toLowerCase();
+  const resized = await resizeForPublish(blob);
+  const finalBlob = resized?.blob ?? blob;
+  const photoExt = resized?.ext ?? originalExt;
+  const photoBytes = new Uint8Array(await finalBlob.arrayBuffer());
+
+  // ---------- 3. Read mascots.json + find the target row -----------
+  const jsonText = await readFileFromMain(pat, REPO_PATHS.mascotsJson);
+  const fileObj = JSON.parse(jsonText) as MascotsFile;
+  const mascot = fileObj.mascots.find((m) => m.id === correction.mascot_id);
+  if (!mascot) {
+    throw new Error(
+      `Mascot #${correction.mascot_id} not found in mascots.json — it may have been removed.`,
+    );
+  }
+
+  // ---------- 4. Swap the photo ------------------------------------
+  const photoFilename = `${mascot.id}.${photoExt}`;
+  mascot.photo = photoFilename;
+  mascot.has_photo = true;
+
+  // ---------- 5. Optionally apply the suggested store --------------
+  let storeApplied = false;
+  if (applySuggestedStore && correction.corrected_store_number) {
+    mascot.store_number = correction.corrected_store_number;
+    storeApplied = true;
+  }
+
+  // ---------- 6. Build events.json entry (best-effort) ------------
+  const today = new Date().toISOString().slice(0, 10);
+  let updatedEventsJson: string | null = null;
+  let eventsText: string | null = null;
+  try {
+    eventsText = await readFileFromMain(pat, REPO_PATHS.eventsJson);
+  } catch {
+    // events.json missing — skip
+  }
+  if (eventsText) {
+    try {
+      const ev = JSON.parse(eventsText) as EventsFile;
+      if (!Array.isArray(ev.events)) throw new Error('.events is not an array');
+      const label = mascot.name?.trim()
+        ? `${mascot.name.trim()} the ${(mascot.animal || 'mascot').toLowerCase()}`
+        : `the ${(mascot.animal || 'mascot').toLowerCase()}`;
+      const summaryBits = [`New photo for ${label}`];
+      if (storeApplied) summaryBits.push('(store corrected)');
+      const event: FeedEvent = {
+        date: today,
+        kind: 'photo',
+        mascot_id: mascot.id,
+        summary: summaryBits.join(' '),
+        reason: correction.details?.trim()
+          ? `Community correction: ${correction.details.replace(/\s+/g, ' ').trim().slice(0, 200)}`
+          : 'Community-submitted replacement photo, approved via admin.',
+      };
+      if (mascot.store_number) event.store_number = mascot.store_number;
+      ev.events.unshift(event);
+      updatedEventsJson = JSON.stringify(ev, null, 2) + '\n';
+    } catch (e) {
+      console.warn(
+        '[auto-publish] correction events.json parse failed — skipping entry:',
+        e instanceof Error ? e.message : String(e),
+      );
+    }
+  }
+
+  // ---------- 7. Atomic commit ------------------------------------
+  const updatedJson = JSON.stringify(fileObj, null, 2) + '\n';
+  const photoPath = `${REPO_PATHS.photosDir}/${photoFilename}`;
+  const commitFiles: Array<{ path: string; content: Uint8Array | string }> = [
+    { path: REPO_PATHS.mascotsJson, content: updatedJson },
+    { path: photoPath, content: photoBytes },
+  ];
+  if (updatedEventsJson) {
+    commitFiles.push({ path: REPO_PATHS.eventsJson, content: updatedEventsJson });
+  }
+  const commitSha = await commitFilesAtomic(
+    pat,
+    commitFiles,
+    `Update photo for mascot #${mascot.id} (community correction)`,
+  );
+
+  // ---------- 8. Mirror to public bucket, clean up, mark resolved --
+  const mirrorBlob = new Blob([photoBytes.slice().buffer as ArrayBuffer], {
+    type: contentTypeFor(photoExt),
+  });
+  const { error: upErr } = await sb.storage
+    .from('mascot-photos')
+    .upload(photoFilename, mirrorBlob, {
+      contentType: contentTypeFor(photoExt),
+      upsert: true,
+    });
+  if (upErr) {
+    console.warn('[auto-publish] correction mascot-photos mirror failed:', upErr.message);
+  }
+  // Remove the reporter's original from the private bucket.
+  await sb.storage.from('submissions').remove([correction.photo_path]);
+
+  // Mark the correction resolved (retry a few times).
+  let updErr: { message: string } | null = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const result = await sb
+      .from('corrections')
+      .update({
+        status: 'resolved',
+        reviewed_at: new Date().toISOString(),
+        admin_notes: `Photo published to mascot ${mascot.id}${
+          storeApplied ? ' (store corrected)' : ''
+        }. Commit ${commitSha.slice(0, 7)}.`,
+      })
+      .eq('id', correction.id);
+    if (!result.error) {
+      updErr = null;
+      break;
+    }
+    updErr = result.error;
+    await new Promise((r) => setTimeout(r, 300 + attempt * 500));
+  }
+  if (updErr) {
+    console.warn('[auto-publish] correction status update failed:', updErr.message);
+  }
+
+  if (!(await existsOnMain(pat, photoPath))) {
+    console.warn(
+      `[auto-publish] post-commit check: ${photoPath} not visible on main yet (cache lag).`,
+    );
+  }
+
+  return { mascotId: mascot.id, photoFilename, commitSha, storeApplied };
 }
 
 /* -------------------------- Small helpers ------------------------- */
