@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import MallardHead from '@/components/MallardHead';
+import { SITE_URL } from '@/lib/site-url';
 
 export const dynamic = 'force-static';
 
@@ -7,6 +8,7 @@ export const metadata = {
   title: "How to play — McQuackers' Quest",
   description:
     "How to play the McQuackers' Quest hidden-object game on TJ Mascots — controls, scoring, hints, leaderboard.",
+  alternates: { canonical: `${SITE_URL}/how-to-play` },
 };
 
 export default function HowToPlayPage() {

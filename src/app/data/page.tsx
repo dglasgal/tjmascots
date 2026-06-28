@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import mascotsRaw from '@/data/mascots.json';
 import MallardHead from '@/components/MallardHead';
+import { SITE_URL } from '@/lib/site-url';
 
 export const dynamic = 'force-static';
 
@@ -8,6 +9,7 @@ export const metadata = {
   title: 'Open data — TJ Mascots',
   description:
     "The full TJ Mascots dataset is free for anyone to download — JSON or CSV, every active mascot with store number, address, coordinates, and photo links. No API keys, no signup.",
+  alternates: { canonical: `${SITE_URL}/data` },
 };
 
 const totalMascots = (mascotsRaw as { mascots: { retired?: boolean }[] }).mascots.filter(

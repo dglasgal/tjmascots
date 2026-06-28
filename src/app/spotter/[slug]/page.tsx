@@ -5,6 +5,7 @@ import storesData from '@/data/tj-stores.json';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { slugForMascot, spotterSlugMap } from '@/lib/slug';
+import { SITE_URL } from '@/lib/site-url';
 import { formatStoreLocation } from '@/lib/store-label';
 import type { Store } from '@/lib/types';
 import MallardHead from '@/components/MallardHead';
@@ -59,6 +60,7 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${name} — TJ Mascots Hall of Fame`,
     description: `${name} has spotted ${count} Trader Joe's mascot${count === 1 ? '' : 's'} for the TJ Mascots fan map.`,
+    alternates: { canonical: `${SITE_URL}/spotter/${slug}` },
   };
 }
 

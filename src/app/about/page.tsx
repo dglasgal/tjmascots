@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import BrianIllustration from '@/components/BrianIllustration';
 import MallardHead from '@/components/MallardHead';
+import { SITE_URL } from '@/lib/site-url';
 
 export const dynamic = 'force-static';
 
@@ -8,6 +9,7 @@ export const metadata = {
   title: 'About — TJ Mascots',
   description:
     "The story behind TJ Mascots: a boy named Brian, a menagerie of Trader Joe's store mascots, and an invitation to help keep track of them all.",
+  alternates: { canonical: `${SITE_URL}/about` },
 };
 
 export default function AboutPage() {

@@ -4,6 +4,7 @@ import eventsRaw from '@/data/events.json';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { slugForMascot, slugForSpotter } from '@/lib/slug';
+import { SITE_URL } from '@/lib/site-url';
 import MallardHead from '@/components/MallardHead';
 
 export const dynamic = 'force-static';
@@ -12,6 +13,7 @@ export const metadata = {
   title: 'Recently spotted — TJ Mascots',
   description:
     "The newest Trader Joe's mascots added to the map, plus a leaderboard of the top spotters who keep this thing alive.",
+  alternates: { canonical: `${SITE_URL}/recent` },
 };
 
 interface RawMascot {

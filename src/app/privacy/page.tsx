@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 import MallardHead from '@/components/MallardHead';
+import { SITE_URL } from '@/lib/site-url';
 
 export const dynamic = 'force-static';
 
@@ -8,6 +9,7 @@ export const metadata = {
   title: 'Privacy — TJ Mascots',
   description:
     "Plain-language privacy policy: what we collect on TJ Mascots, what we do with it, and how to request removal.",
+  alternates: { canonical: `${SITE_URL}/privacy` },
 };
 
 export default function PrivacyPage() {
