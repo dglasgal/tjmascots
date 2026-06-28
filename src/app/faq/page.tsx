@@ -10,7 +10,7 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   title: "FAQ — TJ Mascots, the unofficial Trader Joe's mascot map",
   description:
-    "Frequently asked questions about Trader Joe's hidden store mascots — what they are, how to spot them, who runs this fan map, and how you can submit a photo.",
+    "Answers about Trader Joe's hidden store mascots — what the hidden stuffed animal really is, why stores hide it, what you get if you find it, how to spot the one at your store, and how to submit a photo.",
   alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
     title: 'TJ Mascots FAQ',
@@ -29,7 +29,19 @@ export const metadata: Metadata = {
 const FAQS: { q: string; a: string }[] = [
   {
     q: "What is a Trader Joe's mascot?",
-    a: "Most Trader Joe's stores hide a small stuffed-animal mascot somewhere on the sales floor — usually picked by the crew to fit their store's neighborhood, named, and given a Hawaiian shirt or a regional accent. Spotting them has become a low-key sport for shoppers. TJ Mascots is the unofficial fan map of every one we've found.",
+    a: "Most Trader Joe's stores have a hidden animal mascot tucked somewhere on the sales floor — picked by the crew to fit their neighborhood, given a name, and often a Hawaiian shirt or a regional accent. You might have heard them called the store's hidden stuffed animals, plushies, or toys; around here we know the truth — each one is a real character with a personality and a home store. Spotting them has become a low-key sport for shoppers, and TJ Mascots is the unofficial fan map of every mascot we've found.",
+  },
+  {
+    q: "Why does Trader Joe's hide a stuffed animal in the store?",
+    a: "It's a beloved hide-and-seek tradition: most Trader Joe's stores hide their mascot somewhere on the floor for shoppers (especially kids) to find. People often search for it as a \"hidden stuffed animal\" or \"hidden toy\" — but each store's mascot is really its own character, with a name and a backstory the crew gives it. Find the mascot, tell a crew member where it's hiding, and there's usually a small treat in it for you.",
+  },
+  {
+    q: "What do you get if you find the Trader Joe's mascot?",
+    a: "At most stores, if you spot the mascot and let a crew member know where it's hiding, you'll get a little reward — often a lollipop, a sticker, or a small treat. It varies store to store, and it's aimed at kids, though plenty of grown-up shoppers play along too. The mascot usually hides in a new spot each day, so it's a fresh hunt every visit.",
+  },
+  {
+    q: "What is the Trader Joe's lobster, and is it the official mascot?",
+    a: "Many Trader Joe's stores hide a small red lobster, and it's the closest thing to a chain-wide mascot — a nod to founder Joe Coulombe's nautical \"trader sailing the seas\" theme. But most stores also have their own local character chosen by the crew: a duck, a moose, a sea otter, a longhorn, and so on. Those store-specific mascots are what this map is all about — browse them on the map or by animal.",
   },
   {
     q: "Who runs TJ Mascots?",
