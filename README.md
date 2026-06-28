@@ -76,7 +76,11 @@ The migration is idempotent — safe to re-run after the seed data changes.
 
 ## Deploy
 
-Planned: DigitalOcean App Platform connected to GitHub. Env vars set in the App Platform dashboard. Custom domain `tjmascots.com` pointed via CNAME.
+**Live at https://tjmascots.com** (went public 2026-06-28).
+
+DigitalOcean App Platform (app `137694ec-77d5-4b76-8411-6efbfb0bc38a`, component `tjmascots`) builds and deploys on every push to GitHub `main`. Env vars (`NEXT_PUBLIC_*`) are set in the App Platform dashboard.
+
+DNS and edge are handled by **Cloudflare** (free plan): nameservers `rory.ns.cloudflare.com` / `zoe.ns.cloudflare.com`, apex `tjmascots.com` proxied via CNAME to the DigitalOcean app, `www` 301-redirects to the apex. Cloudflare also enforces SSL **Full (strict)**, Always Use HTTPS, HSTS, and a set of security response headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, and a CSP currently in report-only mode). Scans: SecurityHeaders.com **A**, SSL Labs **A+**.
 
 ## Fan project disclaimer
 
