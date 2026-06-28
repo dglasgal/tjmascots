@@ -30,6 +30,7 @@ import { stateName, stateSlug } from '@/lib/state';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { SITE_URL } from '@/lib/site-url';
+import { safeJsonLd } from '@/lib/jsonld';
 import { formatStoreLabel, formatStoreLocation, formatStreetAddress } from '@/lib/store-label';
 import MallardHead from '@/components/MallardHead';
 import Breadcrumbs, { type Crumb } from '@/components/Breadcrumbs';
@@ -361,7 +362,7 @@ export default async function MascotPage({
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
     </div>
   );

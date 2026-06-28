@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-url';
+import { safeJsonLd } from '@/lib/jsonld';
 import MallardHead from '@/components/MallardHead';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
@@ -201,7 +202,7 @@ export default function FaqPage() {
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
     </div>
   );

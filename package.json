@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/validate-mascot-stores.mjs && node scripts/generate-data-export.mjs",
+    "prebuild": "node scripts/validate-mascot-stores.mjs && node scripts/generate-data-export.mjs && node scripts/generate-llms.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

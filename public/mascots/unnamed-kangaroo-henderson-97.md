@@ -1,0 +1,21 @@
+# Unnamed Kangaroo
+
+A hidden animal "mascot" at the Trader Joe's in Henderson, NV.
+
+- **Name:** (unnamed)
+- **Animal:** Kangaroo
+- **Store:** Henderson (store #97)
+- **Location:** Henderson, NV
+- **Address:** 2716 N Green Valley Pkwy, Henderson, NV, 89014
+- **Has photo:** yes
+- **Photo:** https://tjmascots.com/photos/461.jpg
+- **Spotted by:** ImaginaryElephant476
+- **Page:** https://tjmascots.com/mascot/unnamed-kangaroo-henderson-97
+
+## About
+
+A kangaroo mascot has been reported at one of the two Trader Joe’s stores in Henderson, NV — but we don’t yet know whether it lives at this Green Valley location on N Green Valley Pkwy or at the Inspirada store on S Eastern Ave. We’ve listed the kangaroo at both stores until we can verify. Spotters: please grab a closer shot of the crew badge and let us know which store you saw them in!
+
+---
+
+_From TJ Mascots — the unofficial fan map of every Trader Joe's store mascot (tjmascots.com). These mascots are real in-store characters, not toys or plushes._

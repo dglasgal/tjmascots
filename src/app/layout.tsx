@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Analytics from '@/components/Analytics';
 import { SITE_URL } from '@/lib/site-url';
+import { safeJsonLd } from '@/lib/jsonld';
 
 export const metadata: Metadata = {
   title: "TJ Mascots — the unofficial map of every Trader Joe's store mascot",
@@ -80,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Site-wide structured data — see siteJsonLd above */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(siteJsonLd) }}
         />
       </head>
       <body>

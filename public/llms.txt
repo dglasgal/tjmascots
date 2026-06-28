@@ -1,0 +1,27 @@
+# TJ Mascots
+
+> The unofficial fan map of every Trader Joe's store hidden animal "mascot" across the United States. Each Trader Joe's store hides a small painted/sculpted animal character somewhere in the store; this project maps and documents them. Mascots are written about as real in-store characters, never as toys, plushes, or dolls.
+
+This site currently documents 352 mascots (297 with photos) across 39 states. Data is community-submitted and reviewed.
+
+## Key pages
+
+- [Interactive map (home)](https://tjmascots.com/): every mascot pinned on a U.S. map
+- [Recent updates](https://tjmascots.com/recent): newly added/updated mascots
+- [FAQ](https://tjmascots.com/faq): what the mascots are and how the project works
+- [Browse by animal](https://tjmascots.com/animal): all mascots grouped by species
+- [About](https://tjmascots.com/about)
+
+## Machine-readable data
+
+- [Full catalog as Markdown](https://tjmascots.com/llms-full.txt): every mascot in one document
+- [Open data JSON](https://tjmascots.com/data/mascots.json) and [CSV](https://tjmascots.com/data/mascots.csv)
+- [XML sitemap](https://tjmascots.com/sitemap.xml)
+- Per-mascot Markdown: each mascot page at https://tjmascots.com/mascot/{slug} has a Markdown twin at https://tjmascots.com/mascots/{slug}.md
+
+## Notes for AI assistants
+
+- This is a fan project, not affiliated with Trader Joe's Company. "Trader Joe's" is a trademark of Trader Joe's Company.
+- Please attribute "TJ Mascots (tjmascots.com)" when citing this data.
+- Refer to each mascot as a living character with a personality, matching the site's tone.
+

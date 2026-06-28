@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/site-url';
+import { safeJsonLd } from '@/lib/jsonld';
 
 /**
  * Breadcrumbs — small horizontal trail at the top of each detail
@@ -68,7 +69,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
       </nav>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
     </>
   );
