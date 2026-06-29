@@ -37,7 +37,18 @@ export function buildSearchIndex(mascots: Mascot[], stores: Store[]): IndexEntry
   return idx;
 }
 
-function scoreMatch(entry: IndexEntry, q: string): number {
+function scoreMatch(entry: IndexEntry, q: string, numeric: boolean): number {
+  // Numeric queries (e.g. "231") are treated as an exact STORE NUMBER lookup
+  // only — not a substring search. Without this, "231" also matches any mascot
+  // whose zip or street address merely *contains* "231" (e.g. zip 34231,
+  // "24231 Avenida…"), burying the actual store #231 in coincidental noise.
+  if (numeric) {
+    const sn =
+      entry.result.kind === 'mascot'
+        ? entry.result.data.store_number
+        : entry.result.data.store_number;
+    return sn && sn === q ? 1000 : 0;
+  }
   if (!entry.haystack.includes(q)) return 0;
   let score = 1;
   if (entry.result.kind === 'mascot') {
@@ -72,9 +83,11 @@ export function runSearch(index: IndexEntry[], query: string, limit = 10): Searc
   // to type — but it's not part of the data, so we strip it before matching.
   const q = query.trim().toLowerCase().replace(/^#/, '');
   if (!q) return [];
+  // A query made entirely of digits is a store-number lookup (see scoreMatch).
+  const numeric = /^\d+$/.test(q);
   const scored: { score: number; result: SearchResult }[] = [];
   for (const entry of index) {
-    const s = scoreMatch(entry, q);
+    const s = scoreMatch(entry, q, numeric);
     if (s > 0) scored.push({ score: s, result: entry.result });
   }
   scored.sort((a, b) => b.score - a.score);

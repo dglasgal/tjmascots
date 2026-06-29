@@ -77,6 +77,18 @@ export default function Header({
     setActive(-1);
   }, [query, index]);
 
+  // While the search results dropdown is open, hide the map's floating
+  // "Find mascots near me" button so it can't overlap the results. Reuses the
+  // existing `body[data-modal-open] .find-me-btn { display:none }` rule in
+  // globals.css — same mechanism the Report/Submit modals use, no new CSS.
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    if (open) {
+      document.body.setAttribute('data-modal-open', '');
+      return () => document.body.removeAttribute('data-modal-open');
+    }
+  }, [open]);
+
   useEffect(() => {
     function onDocClick(e: MouseEvent) {
       if (!wrapRef.current?.contains(e.target as Node)) setOpen(false);
