@@ -1,20 +1,25 @@
 <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- TJ-red circle background -->
+  <!-- TJ Mascots favicon — McQuackers the mallard on a Trader Joe's-style
+       red circle with a cream "store badge" ring. Redesigned 2026-06-28 to
+       read clearly even at 16x16 (browser tab / Google result favicon):
+       the mallard head is bigger and centered, eye + bill enlarged. -->
+  <!-- TJ-red circle -->
   <circle cx="32" cy="32" r="32" fill="#C8102E"/>
-  <!-- Inset cream ring to match the in-app store-icon style -->
-  <circle cx="32" cy="32" r="29" fill="#fdf6ec"/>
-  <!-- Mallard head (matches MallardHead.tsx) -->
-  <circle cx="26" cy="28" r="17" fill="#0f6e3d"/>
-  <ellipse cx="20" cy="22" rx="6" ry="3.5" fill="#1f8d52" opacity="0.7"/>
-  <!-- White collar ring -->
-  <ellipse cx="28" cy="45" rx="14" ry="3" fill="#fdf6ec"/>
-  <ellipse cx="28" cy="46.5" rx="13" ry="1.6" fill="#c9a36a" opacity="0.5"/>
-  <!-- Bill -->
-  <path d="M 38 26 Q 58 26 58 31 Q 58 38 40 36 Z" fill="#f4c430" stroke="#8a6a0a" stroke-width="0.6" stroke-linejoin="round"/>
-  <path d="M 40 33 Q 50 34 58 33 L 58 36 Q 48 37 40 36 Z" fill="#c89200" opacity="0.6"/>
-  <!-- Nostril -->
-  <circle cx="50" cy="30" r="0.9" fill="#5a4400"/>
-  <!-- Eye -->
-  <circle cx="33" cy="24" r="2.5" fill="#1a1a1a"/>
-  <circle cx="33.7" cy="23.3" r="0.8" fill="#fff"/>
+  <!-- Cream store-badge ring -->
+  <circle cx="32" cy="32" r="27" fill="#fdf6ec"/>
+  <!-- Mallard head (bold, centered) -->
+  <g transform="translate(33 35)">
+    <circle cx="0" cy="-2" r="17" fill="#0f6e3d"/>
+    <!-- subtle head-sheen highlight -->
+    <ellipse cx="-5" cy="-10" rx="6" ry="3.4" fill="#1f8d52" opacity="0.6"/>
+    <!-- red collar nod (sits on cream so it stays visible) -->
+    <ellipse cx="1" cy="14" rx="14.5" ry="3" fill="#C8102E" opacity="0.85"/>
+    <!-- bill -->
+    <path d="M 12.5 -4.5 Q 31.5 -4.5 31.5 0 Q 31.5 6 14.5 3.5 Z" fill="#f4c430" stroke="#8a6a0a" stroke-width="0.7" stroke-linejoin="round"/>
+    <!-- nostril -->
+    <circle cx="26" cy="-1.3" r="0.8" fill="#5a4400"/>
+    <!-- eye -->
+    <circle cx="5" cy="-5" r="2.7" fill="#1a1a1a"/>
+    <circle cx="5.9" cy="-6" r="0.95" fill="#fff"/>
+  </g>
 </svg>
