@@ -108,9 +108,40 @@ function normalizeAnimal(a: string | null | undefined): string {
   return (a ?? '').trim().toLowerCase().replace(/s$/, ''); // strip trivial plural
 }
 
+/* --------------------- Publish serialization ---------------------- */
+
+/** All publishes in this browser session run ONE AT A TIME through this
+ *  promise chain. Why: on 2026-08-02 two Approve clicks ~4s apart ran
+ *  concurrently — both read mascots.json before either committed, both
+ *  computed nextId 482, and the second commit's retry overwrote the
+ *  first (Norbert was silently erased; his submission still said
+ *  "approved"). Serializing here removes the same-session race
+ *  entirely; the `rebuild` callback passed to commitFilesAtomic guards
+ *  the (rarer) cross-session/cross-device race. */
+let publishChain: Promise<unknown> = Promise.resolve();
+
+function serialized<T>(fn: () => Promise<T>): Promise<T> {
+  const run = publishChain.then(fn, fn);
+  // Keep the chain alive whether this run succeeds or fails.
+  publishChain = run.then(
+    () => undefined,
+    () => undefined,
+  );
+  return run;
+}
+
 /* ------------------------- Public entry point -------------------- */
 
-export async function publishApproval(args: {
+export function publishApproval(args: {
+  pat: string;
+  sb: SupabaseClient;
+  submission: PendingSubmission;
+  storeMatch?: { city: string; state: string; store_number: string } | null;
+}): Promise<PublishResult> {
+  return serialized(() => publishApprovalInner(args));
+}
+
+async function publishApprovalInner(args: {
   pat: string;
   sb: SupabaseClient;
   submission: PendingSubmission;
@@ -166,110 +197,130 @@ export async function publishApproval(args: {
     photoBytes = new Uint8Array(await finalBlob.arrayBuffer());
   }
 
-  // ---------- 2. Read mascots.json from GitHub (Git Data API) -------
+  // ---------- 2–5. Read repo state, merge/append, commit (atomic) ---
+  // Everything that DEPENDS ON current repo state lives inside
+  // `buildCommit`, which is passed to commitFilesAtomic as its rebuild
+  // callback. If the commit loses a race with another writer, the
+  // callback runs again against the fresh branch tip — re-reading
+  // mascots.json, re-deriving the next id, and re-building events.json —
+  // so a retry can never overwrite someone else's just-landed publish
+  // (the 2026-08-02 Norbert/Ollie #482 bug).
+  //
   // We use the Git Data API tree+blob endpoints instead of the Contents
   // API because the Contents API's per-file cache served stale SHAs for
   // 5–10 seconds after every commit, which produced the 409/422 failures
   // we kept hitting in the old single-PUT-per-file flow.
-  const jsonText = await readFileFromMain(pat, REPO_PATHS.mascotsJson);
-  const file = JSON.parse(jsonText) as MascotsFile;
-
-  // ---------- 3. Merge or append ------------------------------------
-  const merge = findMergeCandidate(file.mascots, submission);
   const submittedBy = submission.email ? deriveDisplayName(submission.email) : null;
   const today = new Date().toISOString().slice(0, 10);
-  let mascotId: number;
-  let mode: 'merged' | 'created';
+  // Outputs of the last buildCommit run (re-assigned on every attempt,
+  // so after the commit lands they reflect what was actually committed).
+  let mascotId = 0;
+  let mode: 'merged' | 'created' = 'created';
+  let photoFilename: string | null = null;
+  let photoPath: string | null = null;
 
-  if (merge) {
-    mode = 'merged';
-    mascotId = merge.id;
-    merge.has_photo = Boolean(photoBytes);
-    merge.photo = photoBytes ? `${mascotId}.${photoExt}` : (merge.photo ?? null);
-    if (submittedBy && !merge.submitted_by) merge.submitted_by = submittedBy;
-    if (!merge.source_url || merge.source_url.startsWith('https://www.reddit.com')) {
-      merge.source_url = `User-submitted (${formatTodayShort()})`;
-    }
-    if (submission.notes && !merge.notes) merge.notes = submission.notes;
-    if (photoBytes) merge.created_at = today;
-  } else {
-    mode = 'created';
-    mascotId = nextId(file.mascots);
-    const cityLabel = storeMatch ? storeMatch.city : submission.store;
-    file.mascots.push({
-      id: mascotId,
-      store: cityLabel,
-      state: storeMatch?.state ?? '',
-      animal: submission.animal,
-      name: submission.name ?? null,
-      notes: submission.notes ?? null,
-      photo: photoBytes ? `${mascotId}.${photoExt}` : null,
-      has_photo: Boolean(photoBytes),
-      retired: false,
-      source_url: `User-submitted (${formatTodayShort()})`,
-      store_number: submission.store_number ?? storeMatch?.store_number ?? null,
-      created_at: today,
-      submitted_by: submittedBy,
-    });
-  }
+  const buildCommit = async (): Promise<{
+    files: Array<{ path: string; content: Uint8Array | string }>;
+    message: string;
+  }> => {
+    const jsonText = await readFileFromMain(pat, REPO_PATHS.mascotsJson);
+    const file = JSON.parse(jsonText) as MascotsFile;
 
-  const photoFilename = photoBytes ? `${mascotId}.${photoExt}` : null;
-  const photoPath = photoFilename
-    ? `${REPO_PATHS.photosDir}/${photoFilename}`
-    : null;
-
-  // ---------- 4. Build the events.json update (if file exists) -----
-  // Best-effort: if events.json doesn't exist yet (older repo states),
-  // we skip the events.json entry but still publish the rest.
-  let updatedEventsJson: string | null = null;
-  let eventsText: string | null = null;
-  try {
-    eventsText = await readFileFromMain(pat, REPO_PATHS.eventsJson);
-  } catch {
-    // events.json missing — skip the events entry, leave updatedEventsJson null
-  }
-  if (eventsText) {
-    try {
-      updatedEventsJson = buildUpdatedEventsJson(eventsText, {
-        mode,
-        mascotId,
-        submission,
-        storeMatch: storeMatch ?? null,
-        photoAdded: Boolean(photoBytes),
-        today,
-        submittedBy,
+    // ----- Merge or append -----
+    const merge = findMergeCandidate(file.mascots, submission);
+    if (merge) {
+      mode = 'merged';
+      mascotId = merge.id;
+      merge.has_photo = Boolean(photoBytes);
+      merge.photo = photoBytes ? `${mascotId}.${photoExt}` : (merge.photo ?? null);
+      if (submittedBy && !merge.submitted_by) merge.submitted_by = submittedBy;
+      if (!merge.source_url || merge.source_url.startsWith('https://www.reddit.com')) {
+        merge.source_url = `User-submitted (${formatTodayShort()})`;
+      }
+      if (submission.notes && !merge.notes) merge.notes = submission.notes;
+      if (photoBytes) merge.created_at = today;
+    } else {
+      mode = 'created';
+      mascotId = nextId(file.mascots);
+      const cityLabel = storeMatch ? storeMatch.city : submission.store;
+      file.mascots.push({
+        id: mascotId,
+        store: cityLabel,
+        state: storeMatch?.state ?? '',
+        animal: submission.animal,
+        name: submission.name ?? null,
+        notes: submission.notes ?? null,
+        photo: photoBytes ? `${mascotId}.${photoExt}` : null,
+        has_photo: Boolean(photoBytes),
+        retired: false,
+        source_url: `User-submitted (${formatTodayShort()})`,
+        store_number: submission.store_number ?? storeMatch?.store_number ?? null,
+        created_at: today,
+        submitted_by: submittedBy,
       });
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        '[auto-publish] events.json parse failed — skipping event entry:',
-        e instanceof Error ? e.message : String(e),
-      );
     }
-  }
 
-  // ---------- 5. ATOMIC: one commit, all three files ---------------
-  // This is the key reliability change. The photo, the mascots.json
-  // update, and the events.json update all go to GitHub in a SINGLE
-  // commit via the Git Data API. Either everything lands or nothing
-  // does — no more partial state.
-  const updatedJson = JSON.stringify(file, null, 2) + '\n';
-  const commitMessage =
-    mode === 'merged'
-      ? `Publish photo for ${displayLabel(submission, mascotId)} (merge)`
-      : `Add ${displayLabel(submission, mascotId)} (new entry)`;
+    photoFilename = photoBytes ? `${mascotId}.${photoExt}` : null;
+    photoPath = photoFilename
+      ? `${REPO_PATHS.photosDir}/${photoFilename}`
+      : null;
 
-  const commitFiles: Array<{ path: string; content: Uint8Array | string }> = [
-    { path: REPO_PATHS.mascotsJson, content: updatedJson },
-  ];
-  if (photoBytes && photoPath) {
-    commitFiles.push({ path: photoPath, content: photoBytes });
-  }
-  if (updatedEventsJson) {
-    commitFiles.push({ path: REPO_PATHS.eventsJson, content: updatedEventsJson });
-  }
+    // ----- events.json update (best-effort; re-read fresh too) -----
+    let updatedEventsJson: string | null = null;
+    let eventsText: string | null = null;
+    try {
+      eventsText = await readFileFromMain(pat, REPO_PATHS.eventsJson);
+    } catch {
+      // events.json missing — skip the events entry
+    }
+    if (eventsText) {
+      try {
+        updatedEventsJson = buildUpdatedEventsJson(eventsText, {
+          mode,
+          mascotId,
+          submission,
+          storeMatch: storeMatch ?? null,
+          photoAdded: Boolean(photoBytes),
+          today,
+          submittedBy,
+        });
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          '[auto-publish] events.json parse failed — skipping event entry:',
+          e instanceof Error ? e.message : String(e),
+        );
+      }
+    }
 
-  const jsonCommitSha = await commitFilesAtomic(pat, commitFiles, commitMessage);
+    // ----- Assemble the atomic commit payload -----
+    const updatedJson = JSON.stringify(file, null, 2) + '\n';
+    const message =
+      mode === 'merged'
+        ? `Publish photo for ${displayLabel(submission, mascotId)} (merge)`
+        : `Add ${displayLabel(submission, mascotId)} (new entry)`;
+    const files: Array<{ path: string; content: Uint8Array | string }> = [
+      { path: REPO_PATHS.mascotsJson, content: updatedJson },
+    ];
+    if (photoBytes && photoPath) {
+      files.push({ path: photoPath, content: photoBytes });
+    }
+    if (updatedEventsJson) {
+      files.push({ path: REPO_PATHS.eventsJson, content: updatedEventsJson });
+    }
+    return { files, message };
+  };
+
+  // One commit, all files. Either everything lands or nothing does —
+  // and on a ref race the buildCommit callback recomputes from fresh
+  // repo state before the retry.
+  const firstBuild = await buildCommit();
+  const jsonCommitSha = await commitFilesAtomic(
+    pat,
+    firstBuild.files,
+    firstBuild.message,
+    buildCommit,
+  );
 
   // ---------- 6. Mirror photo into public Supabase bucket ----------
   // Lets the submitter's thank-you email's deep-link work for the ~3
@@ -382,11 +433,21 @@ export interface CorrectionPublishResult {
  * Throws on any hard failure so the admin UI can surface it; the
  * idempotency guard means a retry click is safe.
  */
-export async function publishCorrectionPhoto(args: {
+export function publishCorrectionPhoto(args: {
   pat: string;
   sb: SupabaseClient;
   correction: PendingCorrection;
   /** Pass true to apply correction.corrected_store_number (structured pick). */
+  applySuggestedStore?: boolean;
+}): Promise<CorrectionPublishResult> {
+  // Serialized with all other publishes — see publishChain above.
+  return serialized(() => publishCorrectionPhotoInner(args));
+}
+
+async function publishCorrectionPhotoInner(args: {
+  pat: string;
+  sb: SupabaseClient;
+  correction: PendingCorrection;
   applySuggestedStore?: boolean;
 }): Promise<CorrectionPublishResult> {
   const { pat, sb, correction, applySuggestedStore } = args;
@@ -417,80 +478,97 @@ export async function publishCorrectionPhoto(args: {
   const photoExt = resized?.ext ?? originalExt;
   const photoBytes = new Uint8Array(await finalBlob.arrayBuffer());
 
-  // ---------- 3. Read mascots.json + find the target row -----------
-  const jsonText = await readFileFromMain(pat, REPO_PATHS.mascotsJson);
-  const fileObj = JSON.parse(jsonText) as MascotsFile;
-  const mascot = fileObj.mascots.find((m) => m.id === correction.mascot_id);
-  if (!mascot) {
-    throw new Error(
-      `Mascot #${correction.mascot_id} not found in mascots.json — it may have been removed.`,
-    );
-  }
-
-  // ---------- 4. Swap the photo ------------------------------------
-  const photoFilename = `${mascot.id}.${photoExt}`;
-  mascot.photo = photoFilename;
-  mascot.has_photo = true;
-
-  // ---------- 5. Optionally apply the suggested store --------------
-  let storeApplied = false;
-  if (applySuggestedStore && correction.corrected_store_number) {
-    mascot.store_number = correction.corrected_store_number;
-    storeApplied = true;
-  }
-
-  // ---------- 6. Build events.json entry (best-effort) ------------
+  // ---------- 3–7. Read repo state, swap photo, commit (atomic) -----
+  // Same rebuild-callback pattern as publishApproval: everything that
+  // depends on current repo state runs inside `buildCommit`, so a lost
+  // commit race re-reads fresh state instead of overwriting whatever
+  // landed in between.
   const today = new Date().toISOString().slice(0, 10);
-  let updatedEventsJson: string | null = null;
-  let eventsText: string | null = null;
-  try {
-    eventsText = await readFileFromMain(pat, REPO_PATHS.eventsJson);
-  } catch {
-    // events.json missing — skip
-  }
-  if (eventsText) {
-    try {
-      const ev = JSON.parse(eventsText) as EventsFile;
-      if (!Array.isArray(ev.events)) throw new Error('.events is not an array');
-      const label = mascot.name?.trim()
-        ? `${mascot.name.trim()} the ${(mascot.animal || 'mascot').toLowerCase()}`
-        : `the ${(mascot.animal || 'mascot').toLowerCase()}`;
-      const summaryBits = [`New photo for ${label}`];
-      if (storeApplied) summaryBits.push('(store corrected)');
-      const event: FeedEvent = {
-        date: today,
-        kind: 'photo',
-        mascot_id: mascot.id,
-        summary: summaryBits.join(' '),
-        reason: correction.details?.trim()
-          ? `Community correction: ${correction.details.replace(/\s+/g, ' ').trim().slice(0, 200)}`
-          : 'Community-submitted replacement photo, approved via admin.',
-      };
-      if (mascot.store_number) event.store_number = mascot.store_number;
-      ev.events.unshift(event);
-      updatedEventsJson = JSON.stringify(ev, null, 2) + '\n';
-    } catch (e) {
-      console.warn(
-        '[auto-publish] correction events.json parse failed — skipping entry:',
-        e instanceof Error ? e.message : String(e),
+  const photoFilename = `${correction.mascot_id}.${photoExt}`;
+  const photoPath = `${REPO_PATHS.photosDir}/${photoFilename}`;
+  let storeApplied = false;
+
+  const buildCommit = async (): Promise<{
+    files: Array<{ path: string; content: Uint8Array | string }>;
+    message: string;
+  }> => {
+    const jsonText = await readFileFromMain(pat, REPO_PATHS.mascotsJson);
+    const fileObj = JSON.parse(jsonText) as MascotsFile;
+    const mascot = fileObj.mascots.find((m) => m.id === correction.mascot_id);
+    if (!mascot) {
+      throw new Error(
+        `Mascot #${correction.mascot_id} not found in mascots.json — it may have been removed.`,
       );
     }
-  }
 
-  // ---------- 7. Atomic commit ------------------------------------
-  const updatedJson = JSON.stringify(fileObj, null, 2) + '\n';
-  const photoPath = `${REPO_PATHS.photosDir}/${photoFilename}`;
-  const commitFiles: Array<{ path: string; content: Uint8Array | string }> = [
-    { path: REPO_PATHS.mascotsJson, content: updatedJson },
-    { path: photoPath, content: photoBytes },
-  ];
-  if (updatedEventsJson) {
-    commitFiles.push({ path: REPO_PATHS.eventsJson, content: updatedEventsJson });
-  }
+    // ----- Swap the photo -----
+    mascot.photo = photoFilename;
+    mascot.has_photo = true;
+
+    // ----- Optionally apply the suggested store -----
+    storeApplied = false;
+    if (applySuggestedStore && correction.corrected_store_number) {
+      mascot.store_number = correction.corrected_store_number;
+      storeApplied = true;
+    }
+
+    // ----- events.json entry (best-effort) -----
+    let updatedEventsJson: string | null = null;
+    let eventsText: string | null = null;
+    try {
+      eventsText = await readFileFromMain(pat, REPO_PATHS.eventsJson);
+    } catch {
+      // events.json missing — skip
+    }
+    if (eventsText) {
+      try {
+        const ev = JSON.parse(eventsText) as EventsFile;
+        if (!Array.isArray(ev.events)) throw new Error('.events is not an array');
+        const label = mascot.name?.trim()
+          ? `${mascot.name.trim()} the ${(mascot.animal || 'mascot').toLowerCase()}`
+          : `the ${(mascot.animal || 'mascot').toLowerCase()}`;
+        const summaryBits = [`New photo for ${label}`];
+        if (storeApplied) summaryBits.push('(store corrected)');
+        const event: FeedEvent = {
+          date: today,
+          kind: 'photo',
+          mascot_id: mascot.id,
+          summary: summaryBits.join(' '),
+          reason: correction.details?.trim()
+            ? `Community correction: ${correction.details.replace(/\s+/g, ' ').trim().slice(0, 200)}`
+            : 'Community-submitted replacement photo, approved via admin.',
+        };
+        if (mascot.store_number) event.store_number = mascot.store_number;
+        ev.events.unshift(event);
+        updatedEventsJson = JSON.stringify(ev, null, 2) + '\n';
+      } catch (e) {
+        console.warn(
+          '[auto-publish] correction events.json parse failed — skipping entry:',
+          e instanceof Error ? e.message : String(e),
+        );
+      }
+    }
+
+    const updatedJson = JSON.stringify(fileObj, null, 2) + '\n';
+    const files: Array<{ path: string; content: Uint8Array | string }> = [
+      { path: REPO_PATHS.mascotsJson, content: updatedJson },
+      { path: photoPath, content: photoBytes },
+    ];
+    if (updatedEventsJson) {
+      files.push({ path: REPO_PATHS.eventsJson, content: updatedEventsJson });
+    }
+    return {
+      files,
+      message: `Update photo for mascot #${mascot.id} (community correction)`,
+    };
+  };
+
+  const firstBuild = await buildCommit();
   const commitSha = await commitFilesAtomic(
     pat,
-    commitFiles,
-    `Update photo for mascot #${mascot.id} (community correction)`,
+    firstBuild.files,
+    firstBuild.message,
+    buildCommit,
   );
 
   // ---------- 8. Mirror to public bucket, clean up, mark resolved --
@@ -517,7 +595,7 @@ export async function publishCorrectionPhoto(args: {
       .update({
         status: 'resolved',
         reviewed_at: new Date().toISOString(),
-        admin_notes: `Photo published to mascot ${mascot.id}${
+        admin_notes: `Photo published to mascot ${correction.mascot_id}${
           storeApplied ? ' (store corrected)' : ''
         }. Commit ${commitSha.slice(0, 7)}.`,
       })
@@ -539,7 +617,7 @@ export async function publishCorrectionPhoto(args: {
     );
   }
 
-  return { mascotId: mascot.id, photoFilename, commitSha, storeApplied };
+  return { mascotId: correction.mascot_id, photoFilename, commitSha, storeApplied };
 }
 
 /* -------------------------- Small helpers ------------------------- */

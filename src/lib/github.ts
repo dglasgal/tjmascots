@@ -258,25 +258,45 @@ interface CommitFile {
 }
 
 /** Build a single atomic commit that creates/updates the given files
- *  on the default branch. Returns the new HEAD commit SHA. */
+ *  on the default branch. Returns the new HEAD commit SHA.
+ *
+ *  `rebuild` (STRONGLY recommended for any read-modify-write caller):
+ *  called when the ref update loses a race with another commit. It must
+ *  RE-READ the repo state and return fresh files + message, which are
+ *  used for the retry. Without it, the retry re-pushes content computed
+ *  from a now-stale snapshot — which is exactly how the 2026-08-02
+ *  double-Approve erased a mascot: two publishes both read mascots.json
+ *  before either committed, both picked id 482, and the loser's blind
+ *  retry overwrote the winner's commit (Norbert vanished, Ollie kept). */
 export async function commitFilesAtomic(
   pat: string,
   files: CommitFile[],
   message: string,
+  rebuild?: () => Promise<{ files: CommitFile[]; message: string }>,
 ): Promise<string> {
   if (files.length === 0) throw new Error('commitFilesAtomic: no files');
 
   // Up to 2 retries if the ref-update step loses a race with another
-  // pusher (very rare for this app, but cheap to handle).
+  // pusher. When that happens, `rebuild` recomputes the payload against
+  // the fresh branch tip so we never clobber the other writer's change.
+  let curFiles = files;
+  let curMessage = message;
   let lastErr: unknown = null;
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      return await commitFilesAtomicOnce(pat, files, message);
+      return await commitFilesAtomicOnce(pat, curFiles, curMessage);
     } catch (e) {
       lastErr = e;
       if (e instanceof Error && /ref update lost a race/.test(e.message)) {
-        // Brief pause, then retry from a fresh parent commit.
+        // Brief pause, then retry from a fresh parent commit —
+        // recomputing the file contents too, if the caller gave us a
+        // rebuild callback.
         await new Promise((r) => setTimeout(r, 400 + attempt * 600));
+        if (rebuild) {
+          const fresh = await rebuild();
+          curFiles = fresh.files;
+          curMessage = fresh.message;
+        }
         continue;
       }
       throw e;
