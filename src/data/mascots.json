@@ -5564,6 +5564,21 @@
       "store_number": "682",
       "created_at": "2026-08-03",
       "submitted_by": "Skramtam"
+    },
+    {
+      "id": 483,
+      "store": "Glenview",
+      "state": "IL",
+      "animal": "Dragon ",
+      "name": "Norbert ",
+      "notes": null,
+      "photo": "483.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (08/02/2026)",
+      "store_number": "681",
+      "created_at": "2026-08-03",
+      "submitted_by": "Skramtam"
     }
   ]
 }
