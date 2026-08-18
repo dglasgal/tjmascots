@@ -5609,6 +5609,21 @@
       "store_number": "77",
       "created_at": "2026-08-18",
       "submitted_by": null
+    },
+    {
+      "id": 486,
+      "store": "Oakland",
+      "state": "CA",
+      "animal": "Peacock",
+      "name": "Pierre the Peacock",
+      "notes": "Photo needed — previous image was misattributed (audit April 2026).",
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted (08/17/2026)",
+      "store_number": "231",
+      "created_at": "2026-08-18",
+      "submitted_by": "Gwildgen"
     }
   ]
 }
