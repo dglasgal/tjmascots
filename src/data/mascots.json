@@ -5594,6 +5594,21 @@
       "store_number": "577",
       "created_at": "2026-08-13",
       "submitted_by": null
+    },
+    {
+      "id": 485,
+      "store": "Fremont",
+      "state": "CA",
+      "animal": "Lemur",
+      "name": "Leni",
+      "notes": "Fremont TJ's employee Sharon is the main Lemur Wrangler in the store, she also hand sews all of his funky outfits. ",
+      "photo": "485.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (08/17/2026)",
+      "store_number": "77",
+      "created_at": "2026-08-18",
+      "submitted_by": null
     }
   ]
 }
