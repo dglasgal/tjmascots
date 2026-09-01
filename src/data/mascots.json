@@ -5624,6 +5624,21 @@
       "store_number": "231",
       "created_at": "2026-08-18",
       "submitted_by": "Gwildgen"
+    },
+    {
+      "id": 487,
+      "store": "Williamsville",
+      "state": "NY",
+      "animal": "Caterpillar",
+      "name": "Clarence ",
+      "notes": "Clarence is named after the other town close to the location, and does such a good job at playing hide and seek. If he's found by keen eyes, you can report his hiding spot and be treated to a lollipop. ",
+      "photo": "487.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (08/31/2026)",
+      "store_number": "575",
+      "created_at": "2026-09-01",
+      "submitted_by": "Sparks7744"
     }
   ]
 }
