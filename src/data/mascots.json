@@ -5654,6 +5654,21 @@
       "store_number": "232",
       "created_at": "2026-09-10",
       "submitted_by": null
+    },
+    {
+      "id": 489,
+      "store": "Mt. Pleasant",
+      "state": "SC",
+      "animal": "Tyler",
+      "name": "Turtle",
+      "notes": "Tyler the Turtle is often seen eyeing the free samples and enjoys carrots",
+      "photo": "489.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (09/10/2026)",
+      "store_number": "752",
+      "created_at": "2026-09-10",
+      "submitted_by": null
     }
   ]
 }
