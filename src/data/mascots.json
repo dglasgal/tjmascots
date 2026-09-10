@@ -5639,6 +5639,21 @@
       "store_number": "575",
       "created_at": "2026-09-01",
       "submitted_by": "Sparks7744"
+    },
+    {
+      "id": 488,
+      "store": "San Jose",
+      "state": "CA",
+      "animal": "Dragon and Unicorn",
+      "name": null,
+      "notes": null,
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted (09/10/2026)",
+      "store_number": "232",
+      "created_at": "2026-09-10",
+      "submitted_by": null
     }
   ]
 }
