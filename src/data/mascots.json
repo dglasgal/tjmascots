@@ -5714,6 +5714,21 @@
       "store_number": "538",
       "created_at": "2026-09-24",
       "submitted_by": "Bree G."
+    },
+    {
+      "id": 493,
+      "store": "San Luis Obispo",
+      "state": "CA",
+      "animal": "Whale",
+      "name": "Whalen",
+      "notes": null,
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted (09/24/2026)",
+      "store_number": "41",
+      "created_at": "2026-09-24",
+      "submitted_by": null
     }
   ]
 }
