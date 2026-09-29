@@ -3,6 +3,14 @@
   "events": [
     {
       "date": "2026-09-29",
+      "kind": "photo",
+      "mascot_id": 216,
+      "summary": "New photo for Comose the llama",
+      "reason": "Community correction: Name is a play on the Spanish ¿Cómo se llama?",
+      "store_number": "60"
+    },
+    {
+      "date": "2026-09-29",
       "kind": "added",
       "mascot_id": 496,
       "summary": "Emery & Sealy the harbor seal joined #72 Emeryville, CA",
