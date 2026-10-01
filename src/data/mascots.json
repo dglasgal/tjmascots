@@ -5774,6 +5774,21 @@
       "store_number": "72",
       "created_at": "2026-09-29",
       "submitted_by": null
+    },
+    {
+      "id": 497,
+      "store": "Sunnyvale",
+      "state": "CA",
+      "animal": "Crow",
+      "name": "Murphy",
+      "notes": "Sunnyvale Trader Joe’s mascot, Murphy the Crow, appears to be a clever combination of two pieces of local history. “Murphy” likely refers to Martin Murphy Jr., one of Sunnyvale’s founding figures, whose land and railroad station helped form the nucleus of the city and whose name lives on in historic Murphy Avenue. The crow is equally fitting: Sunnyvale has a notable American crow population, with large numbers historically congregating and roosting around the downtown area—particularly Historic South Murphy Avenue. While Trader Joe’s does not appear to have publicly confirmed the mascot’s origin, the combination makes “Murphy the Crow” an especially appropriate Sunnyvale character.",
+      "photo": "497.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (09/30/2026)",
+      "store_number": "68",
+      "created_at": "2026-10-01",
+      "submitted_by": "Dt"
     }
   ]
 }
