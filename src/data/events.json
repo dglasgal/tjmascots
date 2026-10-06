@@ -3,10 +3,19 @@
   "events": [
     {
       "date": "2026-10-06",
+      "kind": "credit",
+      "mascot_id": 498,
+      "summary": "Photo credit for Chester the goose (#718 Rochester, MN) updated to Garrett B",
+      "reason": "Credit name corrected at site owner's request.",
+      "store_number": "718",
+      "hidden": true
+    },
+    {
+      "date": "2026-10-06",
       "kind": "added",
       "mascot_id": 498,
       "summary": "Chester the goose joined #718 Rochester, MN",
-      "reason": "Community submission from Garrettkberger. Chester and Nene both spotted today getting ready for fall. Spotted by EB",
+      "reason": "Community submission from Garrett B. Chester and Nene both spotted today getting ready for fall. Spotted by EB",
       "store_number": "718"
     },
     {
