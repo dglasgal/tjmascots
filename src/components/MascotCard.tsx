@@ -27,6 +27,12 @@ interface MascotCardProps {
   /** Retired/historical mascots, indexed by store_number, used to render the
    *  "Previous mascots" section at the bottom of each store or mascot card. */
   previousByStore?: Map<string, Mascot[]>;
+  /** Active mascots indexed by store_number. When a store has 2+ (e.g.
+   *  Chester and Nene at Rochester MN #718) the card shows a switcher so
+   *  every mascot is reachable from the store's single map pin. */
+  mascotsByStore?: Map<string, Mascot[]>;
+  /** Called when the user picks a different mascot in that switcher. */
+  onSelectMascot?: (m: Mascot) => void;
 }
 
 export default function MascotCard({
@@ -36,6 +42,8 @@ export default function MascotCard({
   onSubmitForMascot,
   stores,
   previousByStore,
+  mascotsByStore,
+  onSelectMascot,
 }: MascotCardProps) {
   const storeNumber =
     selection?.kind === 'mascot'
@@ -45,6 +53,8 @@ export default function MascotCard({
         : null;
   const previous =
     storeNumber && previousByStore ? previousByStore.get(storeNumber) ?? [] : [];
+  const storeMates =
+    storeNumber && mascotsByStore ? mascotsByStore.get(storeNumber) ?? [] : [];
 
   return (
     <AnimatePresence>
@@ -69,6 +79,8 @@ export default function MascotCard({
             <MascotBody
               m={selection.data}
               stores={stores}
+              storeMates={storeMates}
+              onSelectMascot={onSelectMascot}
               onSubmit={() => onSubmitForMascot(selection.data)}
             />
           ) : (
@@ -192,7 +204,82 @@ function PreviousMascots({ items }: { items: Mascot[] }) {
   );
 }
 
-function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSubmit: () => void }) {
+/** Switcher shown on a mascot card when its store has 2+ active mascots.
+ *  One map pin per store means this row is how you reach the others. */
+function StoreMates({
+  current,
+  mates,
+  onSelect,
+}: {
+  current: Mascot;
+  mates: Mascot[];
+  onSelect?: (m: Mascot) => void;
+}) {
+  if (mates.length < 2) return null;
+  return (
+    <div className="mb-4 rounded-2xl bg-[var(--cream-dark)]/60 p-3">
+      <div className="mb-2 text-[11px] font-extrabold uppercase tracking-[0.1em] text-[var(--ink-soft)]">
+        {mates.length} mascots at this store
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {mates.map((x) => {
+          const active = x.id === current.id;
+          const thumb = x.has_photo && x.photo ? photoUrl(x.photo) : null;
+          return (
+            <button
+              key={x.id}
+              type="button"
+              onClick={() => !active && onSelect?.(x)}
+              aria-pressed={active}
+              title={active ? 'Showing now' : `Show ${x.name || x.animal}`}
+              className={`flex items-center gap-2 rounded-full border-2 py-1 pl-1 pr-3.5 text-left text-[13px] font-extrabold transition ${
+                active
+                  ? 'cursor-default border-[var(--tj-red)] bg-[var(--cream)] text-[var(--tj-red)]'
+                  : 'border-transparent bg-[var(--cream)] text-[var(--ink)] hover:-translate-y-px hover:border-[var(--tj-red)] hover:shadow-card'
+              }`}
+            >
+              {thumb ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={thumb}
+                  alt=""
+                  loading="lazy"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 flex-shrink-0 rounded-full object-cover"
+                />
+              ) : (
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[var(--cream-dark)] text-lg">
+                  {x.emoji}
+                </span>
+              )}
+              <span className="leading-tight">
+                {x.name || 'Unnamed'}
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-[var(--ink-soft)]">
+                  {x.animal || 'mascot'}
+                </span>
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function MascotBody({
+  m,
+  stores,
+  storeMates,
+  onSelectMascot,
+  onSubmit,
+}: {
+  m: Mascot;
+  stores: Store[];
+  storeMates: Mascot[];
+  onSelectMascot?: (m: Mascot) => void;
+  onSubmit: () => void;
+}) {
   const photoSrc = m.has_photo && m.photo ? photoUrl(m.photo) : null;
   const [reportOpen, setReportOpen] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -262,6 +349,7 @@ function MascotBody({ m, stores, onSubmit }: { m: Mascot; stores: Store[]; onSub
             })}
           </div>
         )}
+        <StoreMates current={m} mates={storeMates} onSelect={onSelectMascot} />
         {m.submitted_by && (
           <div className="mb-4">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--cream-dark)] px-3 py-1 text-[12px] font-extrabold text-[var(--ink)]">

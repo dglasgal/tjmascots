@@ -42,6 +42,17 @@ body {
 }
 .mascot-pin:hover { transform: scale(1.2); z-index: 10; }
 .mascot-pin.no-photo { border-style: dashed; border-color: var(--accent); }
+/* Count badge for stores with 2+ active mascots (one pin per store). */
+.mascot-pin { position: relative; }
+.mascot-pin-count {
+  position: absolute; top: -8px; right: -8px;
+  min-width: 20px; height: 20px; padding: 0 5px;
+  border-radius: 999px;
+  background: var(--tj-red); color: var(--cream);
+  border: 2px solid var(--cream);
+  font-size: 11px; font-weight: 800; line-height: 16px; text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
 
 .unknown-pin {
   width: 14px; height: 14px; border-radius: 50%;

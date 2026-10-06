@@ -3,6 +3,12 @@
   "events": [
     {
       "date": "2026-10-06",
+      "kind": "site",
+      "summary": "Stores with more than one mascot now show them all",
+      "reason": "Some stores have two mascots on duty at once (like Chester and Nene, the geese of #718 Rochester, MN). Their map pin now carries a count badge, and the card lets you switch between every mascot at that store."
+    },
+    {
+      "date": "2026-10-06",
       "kind": "credit",
       "mascot_id": 498,
       "summary": "Photo credit for Chester the goose (#718 Rochester, MN) updated to Garrett B",

@@ -45,6 +45,23 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
     }
     return map;
   }, [previousMascots]);
+  // Index ACTIVE mascots by store_number. A few stores have 2+ at once
+  // (e.g. Chester and Nene at Rochester MN #718); the map draws one pin per
+  // store and the card uses this to list every mascot there. Same ordering
+  // as MapView's groupByStore: photo first, then lowest id.
+  const mascotsByStore = useMemo(() => {
+    const map = new Map<string, Mascot[]>();
+    for (const m of mascots) {
+      const key = m.store_number;
+      if (!key) continue;
+      if (!map.has(key)) map.set(key, []);
+      map.get(key)!.push(m);
+    }
+    for (const g of map.values()) {
+      g.sort((a, b) => Number(b.has_photo) - Number(a.has_photo) || a.id - b.id);
+    }
+    return map;
+  }, [mascots]);
   const [selection, setSelection] = useState<Selection>(null);
   const [flyTo, setFlyTo] = useState<{ lat: number; lng: number; zoom?: number } | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
@@ -242,6 +259,8 @@ export default function SiteShell({ mascots, stores, previousMascots = [] }: Sit
           onSubmitForMascot={handleSubmitForMascot}
           stores={stores}
           previousByStore={previousByStore}
+          mascotsByStore={mascotsByStore}
+          onSelectMascot={(m) => setSelection({ kind: 'mascot', data: m })}
         />
       </main>
 

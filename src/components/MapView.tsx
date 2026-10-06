@@ -22,11 +22,48 @@ function MapFlyer({ target }: { target: MapViewProps['flyTo'] }) {
   return null;
 }
 
-function mascotIcon(m: Mascot) {
+/**
+ * One pin per store. Some stores have 2+ active mascots (e.g. Chester and
+ * Nene, both geese at Rochester MN #718). They share the exact same
+ * coordinates, so separate pins would stack and only the top one would be
+ * clickable. Instead we draw a single pin with a count badge; the card
+ * then lists every mascot at the store (see StoreMates in MascotCard).
+ *
+ * Within a group the "lead" mascot (the one the pin opens first) is the
+ * one with a photo, then the lowest id. Keep this ordering in sync with
+ * SiteShell's mascotsByStore.
+ */
+function groupByStore(mascots: Mascot[]): Mascot[][] {
+  const byStore = new Map<string, Mascot[]>();
+  const groups: Mascot[][] = [];
+  for (const m of mascots) {
+    if (!m.store_number) {
+      groups.push([m]);
+      continue;
+    }
+    let g = byStore.get(m.store_number);
+    if (!g) {
+      g = [];
+      byStore.set(m.store_number, g);
+      groups.push(g);
+    }
+    g.push(m);
+  }
+  for (const g of groups) {
+    g.sort((a, b) => Number(b.has_photo) - Number(a.has_photo) || a.id - b.id);
+  }
+  return groups;
+}
+
+function mascotIcon(group: Mascot[]) {
+  const m = group[0];
   const cls = m.has_photo ? '' : 'no-photo';
+  const names = group.map((x) => x.name || x.animal).join(' & ');
+  const badge =
+    group.length > 1 ? `<span class="mascot-pin-count">${group.length}</span>` : '';
   return L.divIcon({
     className: '',
-    html: `<div class="mascot-pin ${cls}" title="${escapeAttr((m.name || m.animal) + ' — ' + m.store)}">${m.emoji}</div>`,
+    html: `<div class="mascot-pin ${cls}" title="${escapeAttr(names + ' — ' + m.store)}">${m.emoji}${badge}</div>`,
     iconSize: [40, 40],
     iconAnchor: [20, 20],
     popupAnchor: [0, -22],
@@ -132,9 +169,12 @@ function ClusteredMarkers({
     });
 
     // Mascot markers — louder pins, higher z-index.
-    for (const m of mascots) {
+    // One marker per store; a store with several mascots gets a count badge
+    // and opens its lead mascot's card (which lists the others).
+    for (const group of groupByStore(mascots)) {
+      const m = group[0];
       const marker = L.marker([m.lat, m.lng], {
-        icon: mascotIcon(m),
+        icon: mascotIcon(group),
         zIndexOffset: 500,
         // Stash the kind on the options so the cluster icon factory can
         // read it without a lookup back into our React arrays.

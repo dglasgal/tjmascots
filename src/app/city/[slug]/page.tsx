@@ -94,9 +94,11 @@ export async function generateMetadata({
   const cityMascots = activeMascots.filter(
     (m) => m.store_number && cityStores.some((s) => s.store_number === m.store_number),
   );
+  // Count STORES with a mascot (a store can have 2+ mascots).
+  const storesWithMascot = new Set(cityMascots.map((m) => m.store_number)).size;
   const stateLabel = stateName(city.state) || city.state;
   const title = `Trader Joe's mascots in ${city.city}, ${stateLabel} — TJ Mascots`;
-  const description = `${cityMascots.length} of ${cityStores.length} Trader Joe's stores in ${city.city}, ${stateLabel} have a known mascot. Browse every TJ mascot in ${city.city} on the TJ Mascots fan map.`;
+  const description = `${storesWithMascot} of ${cityStores.length} Trader Joe's stores in ${city.city}, ${stateLabel} have a known mascot. Browse every TJ mascot in ${city.city} on the TJ Mascots fan map.`;
   return {
     title,
     description,
@@ -126,12 +128,19 @@ export default async function CityPage({
     .sort((a, b) => (a.neighborhood || '').localeCompare(b.neighborhood || ''));
   const stateLabel = stateName(city.state) || city.state;
 
-  // Pair each store with its mascot (if any)
-  const pairs = cityStores.map((s) => ({
-    store: s,
-    mascot: activeMascots.find((m) => m.store_number === s.store_number) || null,
-  }));
-  const mappedCount = pairs.filter((p) => p.mascot && p.mascot.has_photo).length;
+  // Pair each store with its mascot(s). A store with 2+ active mascots
+  // (e.g. two geese sharing one store) gets one card per mascot; a store
+  // with none gets a single "Mascot unknown" card.
+  const pairs: { store: Store; mascot: RawMascot | null }[] = cityStores.flatMap((s) => {
+    const here = activeMascots.filter((m) => m.store_number === s.store_number);
+    return here.length
+      ? here.map((m) => ({ store: s, mascot: m as RawMascot | null }))
+      : [{ store: s, mascot: null }];
+  });
+  // Stores (not cards) with at least one mascot photo.
+  const mappedCount = cityStores.filter((s) =>
+    activeMascots.some((m) => m.store_number === s.store_number && m.has_photo),
+  ).length;
 
   return (
     <div className="flex h-full flex-col">
@@ -211,7 +220,7 @@ export default async function CityPage({
                 ? `/mascot/${slugForMascot(mascot)}`
                 : `/?store=${store.store_number}`;
               return (
-                <li key={store.store_number}>
+                <li key={`${store.store_number}-${mascot?.id ?? 'none'}`}>
                   <Link
                     href={target}
                     className="group flex items-stretch gap-4 rounded-2xl bg-[var(--cream-dark)] p-4 transition hover:-translate-y-px hover:bg-[var(--cream)] hover:shadow-card"
