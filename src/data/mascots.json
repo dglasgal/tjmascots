@@ -5789,6 +5789,21 @@
       "store_number": "68",
       "created_at": "2026-10-01",
       "submitted_by": "Dt"
+    },
+    {
+      "id": 498,
+      "store": "Rochester",
+      "state": "MN",
+      "animal": "Goose",
+      "name": "Chester",
+      "notes": "Chester and Nene both spotted today getting ready for fall. Spotted by EB",
+      "photo": "498.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (10/06/2026)",
+      "store_number": "718",
+      "created_at": "2026-10-06",
+      "submitted_by": "Garrettkberger"
     }
   ]
 }
