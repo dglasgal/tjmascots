@@ -267,6 +267,52 @@ function StoreMates({
   );
 }
 
+/** Overlay on the card photo when the store has 2+ active mascots: a
+ *  "1 of 2 mascots here" label plus ‹ › arrows that flip between them,
+ *  slideshow-style. It sits on the photo so it's the first thing you see;
+ *  the StoreMates thumbnail row further down stays as a second way in. */
+function PhotoPager({
+  current,
+  mates,
+  onSelect,
+}: {
+  current: Mascot;
+  mates: Mascot[];
+  onSelect?: (m: Mascot) => void;
+}) {
+  if (mates.length < 2) return null;
+  const i = Math.max(0, mates.findIndex((x) => x.id === current.id));
+  const prev = mates[(i - 1 + mates.length) % mates.length];
+  const next = mates[(i + 1) % mates.length];
+  const arrow =
+    'absolute top-1/2 z-[1] flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--tj-red)] pb-1 text-3xl font-black leading-none text-[var(--cream)] shadow-[0_2px_8px_rgba(0,0,0,0.35)] ring-2 ring-[var(--cream)] transition hover:scale-110 active:scale-95';
+  return (
+    <>
+      <span className="pointer-events-none absolute left-3 top-3 z-[1] rounded-full bg-[var(--tj-red)] px-3 py-1.5 text-[12px] font-extrabold uppercase tracking-wider text-[var(--cream)] shadow-[0_2px_8px_rgba(0,0,0,0.3)] ring-2 ring-[var(--cream)]">
+        {i + 1} of {mates.length} mascots here
+      </span>
+      <button
+        type="button"
+        onClick={() => onSelect?.(prev)}
+        aria-label={`Previous mascot at this store: ${prev.name || prev.animal}`}
+        title={`See ${prev.name || prev.animal}`}
+        className={`${arrow} left-2.5`}
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        onClick={() => onSelect?.(next)}
+        aria-label={`Next mascot at this store: ${next.name || next.animal}`}
+        title={`See ${next.name || next.animal}`}
+        className={`${arrow} right-2.5`}
+      >
+        ›
+      </button>
+    </>
+  );
+}
+
 function MascotBody({
   m,
   stores,
@@ -288,6 +334,7 @@ function MascotBody({
   }${m.store_number ? ' · Store #' + m.store_number : ''}`;
   return (
     <>
+      <div className="relative">
       {photoSrc ? (
         <button
           type="button"
@@ -313,6 +360,8 @@ function MascotBody({
           className="aspect-square w-full object-cover bg-gradient-to-br from-[var(--cream-dark)] to-[var(--accent)]"
         />
       )}
+        <PhotoPager current={m} mates={storeMates} onSelect={onSelectMascot} />
+      </div>
 
       <PhotoLightbox
         open={lightboxOpen}
