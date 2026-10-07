@@ -288,7 +288,9 @@ function PhotoPager({
     'absolute top-1/2 z-[1] flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--tj-red)] pb-1 text-3xl font-black leading-none text-[var(--cream)] shadow-[0_2px_8px_rgba(0,0,0,0.35)] ring-2 ring-[var(--cream)] transition hover:scale-110 active:scale-95';
   return (
     <>
-      <span className="pointer-events-none absolute left-3 top-3 z-[1] rounded-full bg-[var(--tj-red)] px-3 py-1.5 text-[12px] font-extrabold uppercase tracking-wider text-[var(--cream)] shadow-[0_2px_8px_rgba(0,0,0,0.3)] ring-2 ring-[var(--cream)]">
+      {/* Centered at the top: on phones the map's +/− zoom buttons overlap
+          the card's top-left corner and the close × sits top-right. */}
+      <span className="pointer-events-none absolute left-1/2 top-3 z-[1] -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--tj-red)] px-3 py-1.5 text-[12px] font-extrabold uppercase tracking-wider text-[var(--cream)] shadow-[0_2px_8px_rgba(0,0,0,0.3)] ring-2 ring-[var(--cream)]">
         {i + 1} of {mates.length} mascots here
       </span>
       <button
