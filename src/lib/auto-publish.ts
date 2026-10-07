@@ -83,7 +83,13 @@ export interface PublishResult {
  *
  *  We deliberately do NOT match on name, because submitters often type
  *  a slightly different spelling than what's in the catalog. If multiple
- *  candidates match, we prefer the one without a photo. */
+ *  candidates match, we prefer the one without a photo.
+ *
+ *  STANDARD (2026-10-06): a store may have several active mascots at
+ *  once. If the same-store mascot already has a photo we do NOT merge,
+ *  replace or retire it — the submission becomes its own new entry and
+ *  the site shows them all (one pin with a count badge + card switcher).
+ *  Don't widen this merge rule. */
 function findMergeCandidate(
   mascots: MascotRow[],
   submission: PendingSubmission,

@@ -60,6 +60,10 @@ const FAQS: { q: string; a: string }[] = [
     a: "Use the \"Report incorrect info\" link on any mascot card. We'll mark the old one as retired and add the new one — older mascots stay listed under \"Previous mascots\" so the store's history is preserved.",
   },
   {
+    q: "Can a Trader Joe's store have more than one mascot?",
+    a: "Yes. Some stores have two (or more) mascots on duty at the same time, like Chester and Nene, the two geese at the Rochester, Minnesota store. When that happens the store's map pin shows a small number, and its card says \"1 of 2 mascots here\" with arrows so you can meet each one. If you spot a second mascot at a store that already has one, submit it — we list them all, and we only move a mascot to \"Retired\" when we hear it has actually left.",
+  },
+  {
     q: "How accurate is the data?",
     a: "Each mascot is geocoded to its exact Trader Joe's store address, pulled from the official TJ store list. Every photo we publish was either submitted by a shopper who took it themselves or sourced from a public post (Reddit, Instagram) where the photographer is credited. If you spot a mistake, the report button on each card opens a private review queue.",
   },
