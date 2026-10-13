@@ -3,10 +3,18 @@
   "events": [
     {
       "date": "2026-10-13",
+      "kind": "notes",
+      "mascot_id": 470,
+      "store_number": "114",
+      "summary": "Phil the Parrot is back at Camarillo #114, sharing the store with Larry the Lobster",
+      "reason": "Larry's bio updated now that Phil has flown home; Phil's bio rewritten and his credit matched to skramtam."
+    },
+    {
+      "date": "2026-10-13",
       "kind": "added",
       "mascot_id": 499,
       "summary": "Phil the parrot joined #114 Camarillo, CA",
-      "reason": "Community submission from Skramtam. Phil has been documented at Camarillo since at least June 2023, so he has apparently been part of that store’s personality for several years. He’s specifically identified as Phil the Parrot, not just a generic parrot mascot.",
+      "reason": "Community submission from skramtam. Phil is back on duty, and now shares the store with Larry the Lobster.",
       "store_number": "114"
     },
     {

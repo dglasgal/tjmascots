@@ -5376,7 +5376,7 @@
       "state": "CA",
       "animal": "Lobster",
       "name": "Larry",
-      "notes": "Phil the Parrot was scared off and flew away. Larry the Lobster is now making himself comfortable at Trader Joe's Camarillo.",
+      "notes": "Larry the Lobster scuttled into Trader Joe's Camarillo in May 2026, while Phil the Parrot was off on one of his adventures. Phil has since flown home, and the two now share the store: Phil keeps watch from the top of the refrigerated case, and Larry has claimed the wooden trim above the signs. Spot them both!",
       "photo": "470.jpeg",
       "has_photo": true,
       "retired": false,
@@ -5810,15 +5810,15 @@
       "store": "Camarillo",
       "state": "CA",
       "animal": "Parrot",
-      "name": "Phil ",
-      "notes": "Phil has been documented at Camarillo since at least June 2023, so he has apparently been part of that store’s personality for several years. He’s specifically identified as Phil the Parrot, not just a generic parrot mascot.\n",
+      "name": "Phil",
+      "notes": "Phil the Parrot is Camarillo's longtime resident macaw. Spotters have seen him here since at least June 2023, always wearing his red Crew Member badge. He slipped away for a while in spring 2026, and Larry the Lobster moved in, but Phil is back on duty, perched high over the aisles. These days he and Larry share the store.",
       "photo": "499.jpg",
       "has_photo": true,
       "retired": false,
       "source_url": "User-submitted (10/13/2026)",
       "store_number": "114",
       "created_at": "2026-10-13",
-      "submitted_by": "Skramtam"
+      "submitted_by": "skramtam"
     }
   ]
 }
