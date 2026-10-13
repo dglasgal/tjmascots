@@ -5804,6 +5804,21 @@
       "store_number": "718",
       "created_at": "2026-10-06",
       "submitted_by": "Garrett B"
+    },
+    {
+      "id": 499,
+      "store": "Camarillo",
+      "state": "CA",
+      "animal": "Parrot",
+      "name": "Phil ",
+      "notes": "Phil has been documented at Camarillo since at least June 2023, so he has apparently been part of that store’s personality for several years. He’s specifically identified as Phil the Parrot, not just a generic parrot mascot.\n",
+      "photo": "499.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (10/13/2026)",
+      "store_number": "114",
+      "created_at": "2026-10-13",
+      "submitted_by": "Skramtam"
     }
   ]
 }
