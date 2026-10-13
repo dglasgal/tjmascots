@@ -3,6 +3,14 @@
   "events": [
     {
       "date": "2026-10-13",
+      "kind": "added",
+      "mascot_id": 500,
+      "summary": "Potato the gnome joined #559 Staten Island, NY",
+      "reason": "Community submission from Pchan1016.",
+      "store_number": "559"
+    },
+    {
+      "date": "2026-10-13",
       "kind": "notes",
       "mascot_id": 470,
       "store_number": "114",
