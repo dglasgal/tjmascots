@@ -5834,6 +5834,21 @@
       "store_number": "559",
       "created_at": "2026-10-13",
       "submitted_by": "Pchan1016"
+    },
+    {
+      "id": 501,
+      "store": "San Dimas",
+      "state": "CA",
+      "animal": "Skunk",
+      "name": "Sandy",
+      "notes": "She is named \"Sandy\" after the city \"San Dimas\" - my girls love looking for her!",
+      "photo": "501.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (10/14/2026)",
+      "store_number": "28",
+      "created_at": "2026-10-14",
+      "submitted_by": "Justinevhubbard"
     }
   ]
 }
