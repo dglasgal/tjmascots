@@ -5849,6 +5849,21 @@
       "store_number": "28",
       "created_at": "2026-10-14",
       "submitted_by": "Justinevhubbard"
+    },
+    {
+      "id": 502,
+      "store": "Staten Island",
+      "state": "NY",
+      "animal": "Turtle ",
+      "name": "Kiwi",
+      "notes": "This location has 3 mascots: Shelly, Kiwi, and Sunshine. They're all turtles.",
+      "photo": "502.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (10/14/2026)",
+      "store_number": "580",
+      "created_at": "2026-10-14",
+      "submitted_by": "Pchan1016"
     }
   ]
 }
