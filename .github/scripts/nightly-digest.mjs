@@ -155,7 +155,7 @@ const resendRes = await fetch('https://api.resend.com/emails', {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    from: 'TJ Mascots <onboarding@resend.dev>',
+    from: 'TJ Mascots <mascots@tjmascots.com>',
     to: [DIGEST_TO],
     subject,
     html,
