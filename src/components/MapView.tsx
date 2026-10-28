@@ -73,7 +73,9 @@ function mascotIcon(group: Mascot[]) {
 function unknownIcon(s: Store) {
   return L.divIcon({
     className: '',
-    html: `<div class="unknown-pin" title="TJ's ${escapeAttr(s.city)}, ${s.state}"></div>`,
+    html: s.opening_soon
+      ? `<div class="unknown-pin opening-soon" title="TJ's ${escapeAttr(s.city)}, ${s.state} (opening soon)"></div>`
+      : `<div class="unknown-pin" title="TJ's ${escapeAttr(s.city)}, ${s.state}"></div>`,
     iconSize: [14, 14],
     iconAnchor: [7, 7],
   });

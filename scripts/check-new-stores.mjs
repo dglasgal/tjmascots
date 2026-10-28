@@ -17,7 +17,12 @@
  *   • Diffs against the local tj-stores.json
  *   • For any NEW store_number on the live site: fetches the page and parses
  *     the JSON-LD GroceryStore block (street, city, state, zip, lat, lng, phone)
- *   • Adds them to tj-stores.json (sorted by store_number ascending)
+ *   • Reads the store page's "opening-comments" badge: "Coming Soon!" sets
+ *     `opening_soon: true` (the site shows an "Opening soon" tag)
+ *   • Re-checks every store already flagged `opening_soon`; when TJ's page
+ *     no longer says "Coming Soon!", removes the flag and fills in the phone
+ *   • Appends new stores to the END of tj-stores.json (existing order is
+ *     kept, so the diff shows only real changes)
  *   • Reports stores that were on our list but are no longer on the live site
  *     (likely closures or temporary takedowns) — does NOT auto-remove; needs
  *     human review.
@@ -81,7 +86,26 @@ async function main() {
   );
   const removedFromLive = local.filter((s) => !liveByNum.has(s.store_number));
 
-  if (newOnLive.length === 0 && removedFromLive.length === 0) {
+  // Re-check stores we flagged "opening soon" — clear the flag once open.
+  const nowOpen = [];
+  for (const s of local.filter((x) => x.opening_soon)) {
+    try {
+      const html = await fetchText(s.url);
+      if (isComingSoon(html)) continue;
+      delete s.opening_soon;
+      const tel = html.match(/"telephone"\s*:\s*"([^"]*)"/);
+      if (!s.phone && tel && tel[1]) s.phone = tel[1];
+      nowOpen.push(s);
+    } catch (e) {
+      console.warn(`   ⚠️ status re-check failed for #${s.store_number}: ${e.message}`);
+    }
+  }
+  if (nowOpen.length > 0) {
+    console.log(`🎉 ${nowOpen.length} store(s) now open (Opening-soon tag removed):`);
+    for (const s of nowOpen) console.log(`   #${s.store_number} ${s.city}, ${s.state}`);
+  }
+
+  if (newOnLive.length === 0 && removedFromLive.length === 0 && nowOpen.length === 0) {
     console.log('✓ No changes. Local store list matches live site exactly.');
     return { changed: false };
   }
@@ -115,6 +139,7 @@ async function main() {
         }
         const a = storeJson.address || {};
         const g = storeJson.geo || {};
+        const soon = isComingSoon(html);
         fetched.push({
           store_number: s.store_number,
           city: a.addressLocality || s.citySlug,
@@ -125,6 +150,7 @@ async function main() {
           lng: g.longitude ?? null,
           phone: storeJson.telephone || '',
           url: s.url,
+          ...(soon ? { opening_soon: true } : {}),
         });
       } catch (e) {
         console.warn(`   ⚠️ fetch failed for ${s.url}: ${e.message}`);
@@ -133,12 +159,13 @@ async function main() {
   }
   await Promise.all(Array.from({ length: CONCURRENCY }, () => worker()));
 
-  // Merge new stores into local list
-  const merged = [...local, ...fetched].sort((a, b) => parseInt(a.store_number, 10) - parseInt(b.store_number, 10));
+  // Merge: keep existing order, append new stores (by number) at the end.
+  fetched.sort((a, b) => parseInt(a.store_number, 10) - parseInt(b.store_number, 10));
+  const merged = [...local, ...fetched];
   await fs.writeFile(STORES_PATH, JSON.stringify(merged, null, 2) + '\n');
 
   console.log('');
-  console.log(`💾 Wrote ${merged.length} stores to tj-stores.json (added ${fetched.length} new)`);
+  console.log(`💾 Wrote ${merged.length} stores to tj-stores.json (added ${fetched.length} new, ${nowOpen.length} now open)`);
 
   // Emit a summary file the GitHub Action can post into the PR body.
   const summaryLines = [];
@@ -150,9 +177,19 @@ async function main() {
   summaryLines.push('');
   if (fetched.length > 0) {
     summaryLines.push(`### 🆕 New stores added (${fetched.length})`);
-    summaryLines.push('| # | City, State | Address |');
-    summaryLines.push('|---|---|---|');
-    for (const s of fetched) summaryLines.push(`| ${s.store_number} | ${s.city}, ${s.state} | ${s.street} ${s.zip} |`);
+    summaryLines.push('| # | City, State | Address | Status |');
+    summaryLines.push('|---|---|---|---|');
+    for (const s of fetched) summaryLines.push(`| ${s.store_number} | ${s.city}, ${s.state} | ${s.street} ${s.zip} | ${s.opening_soon ? 'Opening soon' : 'Open'} |`);
+    summaryLines.push('');
+    const multi = fetched.filter((s) => merged.filter((m) => m.city === s.city && m.state === s.state).length > 1);
+    if (multi.length > 0) {
+      summaryLines.push(`**Needs a neighborhood label** (city now has 2+ stores — add \`neighborhood\` to the new store and to any same-city store missing one): ${multi.map((s) => `#${s.store_number} ${s.city}`).join(', ')}`);
+      summaryLines.push('');
+    }
+  }
+  if (nowOpen.length > 0) {
+    summaryLines.push(`### 🎉 Now open (${nowOpen.length}) — "Opening soon" tag removed`);
+    for (const s of nowOpen) summaryLines.push(`- #${s.store_number} ${s.city}, ${s.state}`);
     summaryLines.push('');
   }
   if (removedFromLive.length > 0) {
@@ -168,7 +205,13 @@ async function main() {
   // Earlier this used '..', '..' which landed OUTSIDE the repo and broke the PR step.
   await fs.writeFile(path.resolve(__dirname, '..', 'STORE_UPDATE_SUMMARY.md'), summaryLines.join('\n'));
 
-  return { changed: fetched.length > 0, added: fetched.length, removed: removedFromLive.length };
+  return { changed: fetched.length > 0 || nowOpen.length > 0, added: fetched.length, removed: removedFromLive.length };
+}
+
+/** TJ store pages carry <p class="opening-comments">Coming Soon!</p> (or
+ *  "Now Open!") until a while after opening; established stores have none. */
+function isComingSoon(html) {
+  return /class="opening-comments"[^>]*>\s*Coming Soon/i.test(html);
 }
 
 async function fetchText(url) {

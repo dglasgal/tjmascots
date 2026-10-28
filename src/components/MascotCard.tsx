@@ -483,15 +483,20 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
       />
       <div className="px-6 pb-2 pt-5 max-sm:px-4">
         <div className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--ink-soft)]">
-          Mascot unknown
+          {s.opening_soon ? 'Opening soon' : 'Mascot unknown'}
         </div>
         <h2 className="my-1.5 font-display text-4xl font-extrabold leading-tight text-[var(--tj-red)] max-sm:text-3xl">
           {formatStoreLabel(s)}
         </h2>
-        <div className="mb-1 flex items-center">
+        <div className="mb-1 flex flex-wrap items-center gap-1.5">
           <span className="rounded-full bg-[var(--tj-red)] px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
             Store #{s.store_number}
           </span>
+          {s.opening_soon && (
+            <span className="rounded-full border-2 border-dashed border-[var(--tj-red)] px-2 py-px text-[11px] font-extrabold uppercase tracking-wider text-[var(--tj-red)]">
+              Opening soon
+            </span>
+          )}
         </div>
         <div className="mb-4 break-words text-[13px] text-[var(--ink-soft)]">
           {formatStreetAddress({
@@ -502,7 +507,9 @@ function StoreBody({ s, onSubmit }: { s: Store; onSubmit: () => void }) {
           })}
         </div>
         <div className="border-t-2 border-dashed border-[var(--cream-dark)] py-3.5 text-[15px] leading-[1.55] text-[var(--ink-soft)]">
-          No mascot on file for this store yet. If you&apos;ve spotted one, please share!
+          {s.opening_soon
+            ? <>This Trader Joe&apos;s hasn&apos;t opened its doors yet. Once it does, keep an eye out for whoever moves in as the store mascot, and tell us when you meet them!</>
+            : <>No mascot on file for this store yet. If you&apos;ve spotted one, please share!</>}
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <ShareButton

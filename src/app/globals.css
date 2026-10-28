@@ -61,6 +61,15 @@ body {
   cursor: pointer;
   transition: transform 0.15s;
 }
+/* Store announced but not open yet: small red DOTTED dot. Kept small
+   and dotted so it can't be confused with the big dashed-orange
+   "mascot known, no photo" pins. (A faded grey version vanished
+   against the grey map tiles.) Flag comes from tj-stores.json. */
+.unknown-pin.opening-soon {
+  border-style: dotted;
+  border-color: var(--tj-red);
+  background: var(--cream);
+}
 .unknown-pin:hover {
   transform: scale(1.8);
   z-index: 10;

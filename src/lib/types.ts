@@ -44,4 +44,9 @@ export interface Store {
    *  stores so the Lincoln-Park-vs-Hyde-Park-vs-River-North problem
    *  is unambiguous. Single-store cities have this undefined. */
   neighborhood?: string;
+  /** True while Trader Joe's own store page says "Coming Soon!" (store
+   *  announced, not open yet). The daily store watcher
+   *  (scripts/check-new-stores.mjs) removes it once the page flips to
+   *  "Now Open!". Shown as an "Opening soon" tag on the map and cards. */
+  opening_soon?: boolean;
 }

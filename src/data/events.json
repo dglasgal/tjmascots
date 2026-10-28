@@ -2,6 +2,20 @@
   "_doc": "Site change log. Append a new entry every time we touch a mascot record, swap a photo, change a credit, or add/remove a store. Powers the unified feed on /recent. Newest entries should be at the TOP of the array. Schema: { date (YYYY-MM-DD), kind, store_number?, mascot_id?, summary, reason?, hidden? }. Allowed kinds: 'added' | 'renamed' | 'photo' | 'credit' | 'notes' | 'store_added' | 'store_removed' | 'site'. Set hidden:true on entries you want preserved in this file for audit purposes but suppressed from the public /recent feed (e.g. back-office credit corrections).",
   "events": [
     {
+      "date": "2026-10-27",
+      "kind": "store_added",
+      "store_number": "359",
+      "summary": "24 new Trader Joe’s stores added to the map, including the just-opened West Jordan, UT #359",
+      "reason": "23 of them haven’t opened yet and are tagged “Opening soon”: Phoenix AZ (Arcadia, Desert Ridge), San Diego (Clairemont), Leucadia & Riverbank CA, Denver (Northfield), Boynton Beach & Sarasota FL, Chicago (North Park, Uptown) & Joliet IL, Baltimore, Quincy MA, Farmington Hills MI, Omaha, Jersey City, Syracuse (Fairmount) & Yonkers NY, University Heights OH, Bend OR, and Bellaire, Cedar Park & Mansfield TX. Meet a new mascot at one of them? Tell us!"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "site",
+      "summary": "“Opening soon” tag for announced-but-unopened stores",
+      "reason": "New opening_soon flag in tj-stores.json (28 stores), dashed map pin + tag on the store card and city pages. check-new-stores.mjs now reads TJ's Coming Soon/Now Open badge, clears the flag when a store opens, and appends instead of re-sorting. Also: neighborhood labels for 14 stores in cities that now have 2+ stores, and 13 missing phone numbers filled in from TJ's site.",
+      "hidden": true
+    },
+    {
       "date": "2026-10-14",
       "kind": "added",
       "mascot_id": 502,

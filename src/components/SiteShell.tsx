@@ -293,6 +293,9 @@ function Legend() {
       <LegendRow dotClass="!h-2.5 !w-2.5 border-2 border-[var(--accent)] bg-[var(--cream-dark)]">
         Store — mascot unknown
       </LegendRow>
+      <LegendRow dotClass="!h-2.5 !w-2.5 border-2 border-dotted border-[var(--tj-red)] bg-[var(--cream)]">
+        Store — opening soon
+      </LegendRow>
     </div>
   );
 }

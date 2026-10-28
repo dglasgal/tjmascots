@@ -254,7 +254,11 @@ export default async function CityPage({
                       </div>
                       <div className="font-display text-xl font-extrabold leading-tight text-[var(--tj-red)] group-hover:underline">
                         {mascot?.name ||
-                          (mascot ? `Unnamed ${mascot.animal}` : 'Mascot unknown')}
+                          (mascot
+                            ? `Unnamed ${mascot.animal}`
+                            : store.opening_soon
+                              ? 'Opening soon'
+                              : 'Mascot unknown')}
                       </div>
                       {mascot && (
                         <div className="text-[12px] font-bold text-[var(--ink-soft)]">
@@ -269,10 +273,15 @@ export default async function CityPage({
                           zip: store.zip,
                         })}
                       </div>
-                      <div className="mt-1.5 flex">
+                      <div className="mt-1.5 flex flex-wrap gap-1.5">
                         <span className="rounded-full bg-[var(--tj-red)] px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[var(--cream)]">
                           Store #{store.store_number}
                         </span>
+                        {!mascot && store.opening_soon && (
+                          <span className="rounded-full border-2 border-dashed border-[var(--tj-red)] px-2 py-px text-[10px] font-extrabold uppercase tracking-wider text-[var(--tj-red)]">
+                            Opening soon
+                          </span>
+                        )}
                       </div>
                     </div>
                   </Link>
