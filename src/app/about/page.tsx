@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import BrianIllustration from '@/components/BrianIllustration';
+import AboutStoryVideo from '@/components/AboutStoryVideo';
 import MallardHead from '@/components/MallardHead';
 import { SITE_URL } from '@/lib/site-url';
 
@@ -82,9 +82,9 @@ export default function AboutPage() {
           {/* Illustration + story side-by-side on larger screens */}
           <div className="grid gap-10 md:grid-cols-5">
             <div className="md:col-span-2">
-              <BrianIllustration />
+              <AboutStoryVideo />
               <p className="mt-3 text-center text-xs font-semibold italic text-[var(--ink-soft)]">
-                Brian, meeting McQuackers.
+                How it all started: Brian meets the menagerie.
               </p>
             </div>
 
@@ -111,9 +111,10 @@ export default function AboutPage() {
                 </p>
                 <p>
                   So here&apos;s the map. Every Trader Joe&apos;s in the U.S., every mascot we know
-                  about, every photo someone has shared. If your store&apos;s pin is a dotted
-                  outline, we don&apos;t have a photo yet. If it&apos;s a plain circle, we
-                  don&apos;t even know the mascot.
+                  about, every photo someone has shared. If your store&apos;s pin has a dashed
+                  outline, we know the mascot but don&apos;t have a photo yet. If it&apos;s a
+                  small plain dot, we don&apos;t even know who the mascot is. (A small red
+                  dotted dot means the store hasn&apos;t opened yet.)
                 </p>
                 <p>
                   <strong>Help us fill it in.</strong> Next time you&apos;re shopping, look up.

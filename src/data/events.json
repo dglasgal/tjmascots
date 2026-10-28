@@ -3,6 +3,13 @@
   "events": [
     {
       "date": "2026-10-27",
+      "kind": "site",
+      "summary": "About page: animated story video replaces the static Brian illustration",
+      "reason": "25-sec silent loop (Higgsfield Seedance 2.5, from 5 approved frames) in components/AboutStoryVideo.tsx; files public/videos/about-story.mp4 + poster. Pauses for reduced-motion visitors, has a pause/play button. Also corrected the About text's pin-style explanation (dashed = no photo, dotted = opening soon). Old components/BrianIllustration.tsx left in place, unused.",
+      "hidden": true
+    },
+    {
+      "date": "2026-10-27",
       "kind": "store_added",
       "store_number": "359",
       "summary": "24 new Trader Joe’s stores added to the map, including the just-opened West Jordan, UT #359",
