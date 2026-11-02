@@ -3,6 +3,14 @@
   "events": [
     {
       "date": "2026-11-02",
+      "kind": "photo",
+      "mascot_id": 412,
+      "summary": "New photo for Joey the turtle",
+      "reason": "Community correction: Chase the horse",
+      "store_number": "799"
+    },
+    {
+      "date": "2026-11-02",
       "kind": "added",
       "mascot_id": 503,
       "summary": "Cornelia the corn joined #718 Rochester, MN",
