@@ -9,3 +9,7 @@ build/
 .DS_Store
 .vscode/
 coverage/
+
+# Claude Code per-machine approvals ("don't ask again") can hold passwords - never upload
+.claude/settings.local.json
+.claude/*.local.json
