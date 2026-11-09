@@ -5894,6 +5894,21 @@
       "store_number": "621",
       "created_at": "2026-11-09",
       "submitted_by": "Pikeman345"
+    },
+    {
+      "id": 505,
+      "store": "Temecula",
+      "state": "CA",
+      "animal": "Lobster",
+      "name": "Tank",
+      "notes": null,
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted (11/09/2026)",
+      "store_number": "102",
+      "created_at": "2026-11-09",
+      "submitted_by": null
     }
   ]
 }
