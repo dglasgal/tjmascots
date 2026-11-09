@@ -4,6 +4,14 @@
     {
       "date": "2026-11-09",
       "kind": "added",
+      "mascot_id": 506,
+      "summary": "Limpy the turkey joined #873 Reading, MA",
+      "reason": "Community submission from Annarosebren. There was a famous local turkey with a limp in Reading called Limpy, so the mascot is in honor of him.",
+      "store_number": "873"
+    },
+    {
+      "date": "2026-11-09",
+      "kind": "added",
       "mascot_id": 505,
       "summary": "Tank the lobster joined #102 Temecula, CA",
       "reason": "Community submission via the Submit form. No photo yet — spotters welcome!",

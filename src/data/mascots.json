@@ -5909,6 +5909,21 @@
       "store_number": "102",
       "created_at": "2026-11-09",
       "submitted_by": null
+    },
+    {
+      "id": 506,
+      "store": "Reading",
+      "state": "MA",
+      "animal": "Turkey",
+      "name": "Limpy",
+      "notes": "There was a famous local turkey with a limp in Reading called Limpy, so the mascot is in honor of him.",
+      "photo": "506.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (11/09/2026)",
+      "store_number": "873",
+      "created_at": "2026-11-09",
+      "submitted_by": "Annarosebren"
     }
   ]
 }
