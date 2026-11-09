@@ -5879,6 +5879,21 @@
       "store_number": "718",
       "created_at": "2026-11-02",
       "submitted_by": "Garrettkberger"
+    },
+    {
+      "id": 504,
+      "store": "Washington",
+      "state": "DC",
+      "animal": "Bison",
+      "name": "Appa",
+      "notes": "Appa is a strong bison who guards the dairy section from his perch above the products. ",
+      "photo": "504.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (11/09/2026)",
+      "store_number": "621",
+      "created_at": "2026-11-09",
+      "submitted_by": "Pikeman345"
     }
   ]
 }
