@@ -5924,6 +5924,21 @@
       "store_number": "873",
       "created_at": "2026-11-09",
       "submitted_by": "Annarosebren"
+    },
+    {
+      "id": 507,
+      "store": "Santee",
+      "state": "CA",
+      "animal": "Sea bass",
+      "name": "Sebastian ",
+      "notes": null,
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted (11/10/2026)",
+      "store_number": "260",
+      "created_at": "2026-11-10",
+      "submitted_by": "Nicole L."
     }
   ]
 }
