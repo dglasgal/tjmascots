@@ -5932,12 +5932,12 @@
       "animal": "Sea bass",
       "name": "Sebastian ",
       "notes": null,
-      "photo": null,
-      "has_photo": false,
+      "photo": "507.jpg",
+      "has_photo": true,
       "retired": false,
       "source_url": "User-submitted (11/10/2026)",
       "store_number": "260",
-      "created_at": "2026-11-10",
+      "created_at": "2026-11-11",
       "submitted_by": "Nicole L."
     },
     {
