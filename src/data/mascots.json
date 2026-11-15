@@ -5984,6 +5984,21 @@
       "store_number": "59",
       "created_at": "2026-11-15",
       "submitted_by": null
+    },
+    {
+      "id": 511,
+      "store": "Murrieta",
+      "state": "CA",
+      "animal": "Turtle",
+      "name": "Tank",
+      "notes": null,
+      "photo": null,
+      "has_photo": false,
+      "retired": false,
+      "source_url": "User-submitted (11/15/2026)",
+      "store_number": "258",
+      "created_at": "2026-11-15",
+      "submitted_by": null
     }
   ]
 }
