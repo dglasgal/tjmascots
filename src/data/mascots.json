@@ -5969,6 +5969,21 @@
       "store_number": "726",
       "created_at": "2026-11-10",
       "submitted_by": "Rachel52780"
+    },
+    {
+      "id": 510,
+      "store": "Santa Barbara",
+      "state": "CA",
+      "animal": "Octopus",
+      "name": "Ollie & Ocho",
+      "notes": null,
+      "photo": "510.jpg",
+      "has_photo": true,
+      "retired": false,
+      "source_url": "User-submitted (11/15/2026)",
+      "store_number": "59",
+      "created_at": "2026-11-15",
+      "submitted_by": null
     }
   ]
 }
