@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import mascotsRaw from '@/data/mascots.json';
 import storesData from '@/data/tj-stores.json';
+import { slugForStore } from '@/lib/store-pages';
 import type { Store } from '@/lib/types';
 import { slugForCity, slugForMascot } from '@/lib/slug';
 import { stateName, stateSlug, stateCodeFromSlug, statesWithMascots } from '@/lib/state';
@@ -265,6 +266,42 @@ export default async function StatePage({
               );
             })}
           </div>
+
+          {/* Stores still waiting for a mascot — each links to its /store page */}
+          {(() => {
+            const withMascot = new Set(activeMascots.map((m) => m.store_number).filter(Boolean));
+            const waiting = stores
+              .filter((s) => s.state === code && !withMascot.has(s.store_number))
+              .sort((a, b) => a.city.localeCompare(b.city) || (a.neighborhood || '').localeCompare(b.neighborhood || ''));
+            if (waiting.length === 0) return null;
+            return (
+              <section className="mt-14">
+                <h3 className="mb-1 font-display text-2xl font-extrabold text-[var(--ink)]">
+                  Stores still waiting for a mascot sighting
+                </h3>
+                <p className="mb-4 text-sm font-semibold text-[var(--ink-soft)]">
+                  Nobody has spotted the mascot at these {name} stores yet.
+                </p>
+                <ul className="grid grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2 md:grid-cols-3">
+                  {waiting.map((s) => (
+                    <li key={s.store_number}>
+                      <Link
+                        href={`/store/${slugForStore(s)}`}
+                        className="text-sm font-bold text-[var(--ink)] underline-offset-2 hover:text-[var(--tj-red)] hover:underline"
+                      >
+                        {s.city}
+                        {s.neighborhood ? ` — ${s.neighborhood}` : ''}
+                      </Link>{' '}
+                      <span className="text-[11px] font-semibold text-[var(--ink-soft)]">
+                        #{s.store_number}
+                        {s.opening_soon ? ' · opening soon' : ''}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            );
+          })()}
 
           {/* CTA */}
           <div className="mt-14 rounded-3xl bg-[var(--cream-dark)] px-6 py-10 text-center sm:px-10">

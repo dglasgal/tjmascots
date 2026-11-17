@@ -6,6 +6,7 @@ import storesData from '@/data/tj-stores.json';
 import { emojiForAnimal } from '@/lib/emoji';
 import { photoUrl } from '@/lib/data';
 import { slugForMascot } from '@/lib/slug';
+import { slugForStore } from '@/lib/store-pages';
 import { stateName, stateSlug } from '@/lib/state';
 import { SITE_URL } from '@/lib/site-url';
 import { formatStreetAddress } from '@/lib/store-label';
@@ -218,7 +219,7 @@ export default async function CityPage({
               const photo = mascot?.has_photo && mascot.photo ? photoUrl(mascot.photo) : null;
               const target = mascot
                 ? `/mascot/${slugForMascot(mascot)}`
-                : `/?store=${store.store_number}`;
+                : `/store/${slugForStore(store)}`;
               return (
                 <li key={`${store.store_number}-${mascot?.id ?? 'none'}`}>
                   <Link

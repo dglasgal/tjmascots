@@ -1,0 +1,31 @@
+name: Ping search engines (IndexNow)
+
+# After each push to main, DigitalOcean rebuilds the site (~3 min). This
+# waits for the new version to be live, then tells Bing & co. which pages
+# changed. Free; no secrets needed. See .github/scripts/indexnow.mjs.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/photos/**'
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Submit EVERY page in the sitemap (not just recent changes)'
+        type: boolean
+        default: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Give DigitalOcean time to deploy
+        if: github.event_name == 'push'
+        run: sleep 240
+      - name: Submit to IndexNow
+        run: node .github/scripts/indexnow.mjs ${{ (github.event_name == 'workflow_dispatch' && inputs.all) && '--all' || '' }}
