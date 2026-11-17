@@ -49,57 +49,27 @@ interface ShareButtonProps {
   neighborhood?: string;
   /** Store number — e.g. "259". */
   storeNumber: string | null;
+  /** Absolute URL of the mascot's photo. When present, a Pinterest
+   *  channel is offered (Pinterest needs an image to pin). */
+  photoUrl?: string;
 }
 
-export default function ShareButton(props: ShareButtonProps) {
-  const [open, setOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
-  // Web Share API support is browser-dependent (mostly mobile); detect
-  // at mount so we can hide the native button on browsers that don't
-  // have it rather than render a button that does nothing.
-  const [hasNativeShare, setHasNativeShare] = useState(false);
+/** Same props — exported so the inline "Share your find" section on the
+ *  mascot page (ShareYourFind.tsx) builds identical links. */
+export type ShareProps = ShareButtonProps;
 
-  useEffect(() => {
-    setHasNativeShare(typeof navigator !== 'undefined' && typeof navigator.share === 'function');
-  }, []);
-
+/**
+ * Everything needed to share one mascot/store: the link, the message,
+ * and a channel-specific URL for each network. Shared by the map-card
+ * popover below and the inline section on the mascot page.
+ */
+export function buildShareTargets(props: ShareButtonProps) {
+  // Trailing slash = the page's canonical address (trailingSlash: true).
   const url = props.mascotSlug
-    ? `${SITE_URL}/mascot/${props.mascotSlug}`
+    ? `${SITE_URL}/mascot/${props.mascotSlug}/`
     : `${SITE_URL}/?store=${props.storeNumber ?? ''}`;
   const text = buildShareText(props);
   const subject = buildShareSubject(props);
-
-  async function handleNativeShare() {
-    try {
-      await navigator.share({ title: subject, text, url });
-      setOpen(false);
-    } catch {
-      // User canceled or share failed silently — leave the popover open
-      // so they can pick another channel.
-    }
-  }
-
-  async function handleCopy() {
-    try {
-      await navigator.clipboard.writeText(`${text} ${url}`);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // clipboard.writeText can fail in some browsers / iframes — fall
-      // back to a hidden textarea + execCommand so the copy still works.
-      const ta = document.createElement('textarea');
-      ta.value = `${text} ${url}`;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand('copy'); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { /* swallow */ }
-      document.body.removeChild(ta);
-    }
-  }
-
-  // External-channel URLs. Each channel has its own quirk for how text
-  // and URL get combined in the share intent.
   const enc = encodeURIComponent;
   const channels: { label: string; emoji: string; href: string }[] = [
     {
@@ -117,6 +87,15 @@ export default function ShareButton(props: ShareButtonProps) {
       emoji: '📘',
       href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}&quote=${enc(text)}`,
     },
+    ...(props.photoUrl
+      ? [
+          {
+            label: 'Pinterest',
+            emoji: '📌',
+            href: `https://www.pinterest.com/pin/create/button/?url=${enc(url)}&media=${enc(props.photoUrl)}&description=${enc(text)}`,
+          },
+        ]
+      : []),
     {
       label: 'Reddit',
       emoji: '💬',
@@ -128,6 +107,65 @@ export default function ShareButton(props: ShareButtonProps) {
       href: `https://www.threads.net/intent/post?text=${enc(`${text} ${url}`)}`,
     },
   ];
+  return { url, text, subject, channels };
+}
+
+/** Copy-to-clipboard + native share sheet, shared by both share UIs. */
+export function useShareActions(t: { url: string; text: string; subject: string }) {
+  const [copied, setCopied] = useState(false);
+  // Web Share API support is browser-dependent (mostly mobile); detect
+  // at mount so we can hide the native button on browsers that don't
+  // have it rather than render a button that does nothing.
+  const [hasNativeShare, setHasNativeShare] = useState(false);
+
+  useEffect(() => {
+    setHasNativeShare(typeof navigator !== 'undefined' && typeof navigator.share === 'function');
+  }, []);
+
+  /** Resolves true when the share sheet completed. */
+  async function nativeShare(): Promise<boolean> {
+    try {
+      await navigator.share({ title: t.subject, text: t.text, url: t.url });
+      return true;
+    } catch {
+      // User canceled or share failed silently.
+      return false;
+    }
+  }
+
+  async function copy() {
+    const value = `${t.text} ${t.url}`;
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard.writeText can fail in some browsers / iframes — fall
+      // back to a hidden textarea + execCommand so the copy still works.
+      const ta = document.createElement('textarea');
+      ta.value = value;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { /* swallow */ }
+      document.body.removeChild(ta);
+    }
+  }
+
+  return { copied, hasNativeShare, nativeShare, copy };
+}
+
+export default function ShareButton(props: ShareButtonProps) {
+  const [open, setOpen] = useState(false);
+  const targets = buildShareTargets(props);
+  const { url, text, channels } = targets;
+  const { copied, hasNativeShare, nativeShare, copy } = useShareActions(targets);
+
+  async function handleNativeShare() {
+    if (await nativeShare()) setOpen(false);
+    // Otherwise leave the popover open so they can pick another channel.
+  }
 
   return (
     <>
@@ -206,7 +244,7 @@ export default function ShareButton(props: ShareButtonProps) {
                 <ChannelTile
                   emoji={copied ? '✅' : '📋'}
                   label={copied ? 'Copied!' : 'Copy link'}
-                  onClick={handleCopy}
+                  onClick={copy}
                 />
                 {channels.map((c) => (
                   <ChannelTile
@@ -229,7 +267,7 @@ export default function ShareButton(props: ShareButtonProps) {
   );
 }
 
-function ChannelTile({
+export function ChannelTile({
   emoji,
   label,
   href,

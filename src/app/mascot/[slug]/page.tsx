@@ -34,6 +34,7 @@ import { safeJsonLd } from '@/lib/jsonld';
 import { formatStoreLabel, formatStoreLocation, formatStreetAddress } from '@/lib/store-label';
 import MallardHead from '@/components/MallardHead';
 import Breadcrumbs, { type Crumb } from '@/components/Breadcrumbs';
+import ShareYourFind from '@/components/ShareYourFind';
 
 interface RawMascot {
   id: number;
@@ -96,6 +97,14 @@ export async function generateMetadata({
 
   const url = `${SITE_URL}/mascot/${slug}`;
   const ogImage = m.has_photo && m.photo ? `${SITE_URL}${photoUrl(m.photo)}` : undefined;
+  // No photo yet: share previews still get a picture (the "missing
+  // mascot" illustration) instead of a bare text card.
+  const fallbackOg = {
+    url: `${SITE_URL}/images/missing-mascot.jpg`,
+    width: 731,
+    height: 800,
+    alt: `${displayName} the ${m.animal} hasn't been photographed yet`,
+  };
 
   return {
     title,
@@ -107,13 +116,13 @@ export async function generateMetadata({
       title,
       description,
       siteName: 'TJ Mascots',
-      images: ogImage ? [{ url: ogImage, alt: `${displayName} the ${m.animal}` }] : undefined,
+      images: ogImage ? [{ url: ogImage, alt: `${displayName} the ${m.animal}` }] : [fallbackOg],
     },
     twitter: {
       card: ogImage ? 'summary_large_image' : 'summary',
       title,
       description,
-      images: ogImage ? [ogImage] : undefined,
+      images: ogImage ? [ogImage] : [fallbackOg.url],
     },
   };
 }
@@ -304,6 +313,19 @@ export default async function MascotPage({
               )}
             </div>
           )}
+
+          {/* Share your find (added 2026-11-16) */}
+          <ShareYourFind
+            mascotSlug={slug}
+            hasPhoto={Boolean(photoSrc)}
+            displayName={displayName}
+            animal={m.animal || 'mascot'}
+            city={store?.city ?? m.store}
+            neighborhood={store?.neighborhood}
+            storeNumber={m.store_number ?? null}
+            photoUrl={photoSrc ? `${SITE_URL}${photoSrc}` : undefined}
+            spottedBy={m.submitted_by}
+          />
 
           {/* CTAs */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
