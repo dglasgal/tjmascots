@@ -23,7 +23,7 @@ export default function ShareYourFind({ spottedBy, ...props }: ShareYourFindProp
   const heading = !props.hasPhoto
     ? `Help ${name} get their close-up`
     : spottedBy
-      ? `📸 Spotted by ${spottedBy} · Share this find`
+      ? `Spotted by ${spottedBy} · Share this find`
       : `Share ${name} with the world`;
   const blurb = !props.hasPhoto
     ? `Nobody has snapped ${name} yet. Send this to a friend who shops at this store — maybe they'll be the one to find them.`
