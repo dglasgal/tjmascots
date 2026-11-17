@@ -1629,10 +1629,9 @@
     "street": "1444 North Alafaya Trail",
     "lat": 28.56443,
     "lng": -81.20987,
-    "phone": "",
+    "phone": "321-445-0119",
     "url": "https://locations.traderjoes.com/fl/orlando/876/",
-    "neighborhood": "Waterford Lakes",
-    "opening_soon": true
+    "neighborhood": "Waterford Lakes"
   },
   {
     "store_number": "291",
@@ -1711,9 +1710,8 @@
     "street": "13414 E Sprague Ave",
     "lat": 47.65687,
     "lng": -117.22383,
-    "phone": "",
-    "url": "https://locations.traderjoes.com/wa/spokane-valley/296/",
-    "opening_soon": true
+    "phone": "509-661-2014",
+    "url": "https://locations.traderjoes.com/wa/spokane-valley/296/"
   },
   {
     "store_number": "861",
@@ -1723,9 +1721,8 @@
     "street": "1930 US-34",
     "lat": 41.70879,
     "lng": -88.29804,
-    "phone": "",
-    "url": "https://locations.traderjoes.com/il/oswego/861/",
-    "opening_soon": true
+    "phone": "630-324-4002",
+    "url": "https://locations.traderjoes.com/il/oswego/861/"
   },
   {
     "store_number": "356",
@@ -7358,10 +7355,9 @@
     "street": "21001 North Tatum Blvd, Suite #1030",
     "lat": 33.67664,
     "lng": -111.97461,
-    "phone": "",
+    "phone": "480-999-3209",
     "url": "https://locations.traderjoes.com/az/phoenix/320/",
-    "neighborhood": "Desert Ridge",
-    "opening_soon": true
+    "neighborhood": "Desert Ridge"
   },
   {
     "store_number": "321",
@@ -7481,9 +7477,8 @@
     "street": "2643 Warrensville Center Rd",
     "lat": 41.48776,
     "lng": -81.53582,
-    "phone": "",
-    "url": "https://locations.traderjoes.com/oh/university-heights/599/",
-    "opening_soon": true
+    "phone": "216-616-9025",
+    "url": "https://locations.traderjoes.com/oh/university-heights/599/"
   },
   {
     "store_number": "846",
@@ -7493,10 +7488,9 @@
     "street": "8199 S Tamiami Trail, Unit #100",
     "lat": 27.23609,
     "lng": -82.49803,
-    "phone": "",
+    "phone": "941-491-6483",
     "url": "https://locations.traderjoes.com/fl/sarasota/846/",
-    "neighborhood": "Beneva",
-    "opening_soon": true
+    "neighborhood": "Beneva"
   },
   {
     "store_number": "860",
@@ -7592,9 +7586,8 @@
     "street": "804 West Montrose Ave",
     "lat": 41.96201,
     "lng": -87.65025,
-    "phone": "",
+    "phone": "773-200-2770",
     "url": "https://locations.traderjoes.com/il/chicago/884/",
-    "neighborhood": "Uptown",
-    "opening_soon": true
+    "neighborhood": "Uptown"
   }
 ]
